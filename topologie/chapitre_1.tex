@@ -205,14 +205,14 @@
 	\section{Quotient et séparabilité}
 	Dans toute cette section séparé et Hausdorff sont synonymes. En général le quotient d'un espace Hausdorff n'est pas nécessairement Hausdorff.
 	\begin{example}
-		L'exemple classique est la droite avec deux origines D obtenue comme quotient de $\mathbf{R}\times {0,1}$ par la relation
+		L'exemple classique est la droite avec deux origines D obtenue comme quotient de $\mathbf{R}\times \{0,1\}$ par la relation
 		 \begin{align*}
 			 (x,s) \sim (y,t) \iff \begin{cases}
 				 (x,s) = (y,t) \\
 				 x = y \neq 0
 			 \end{cases}
 		.\end{align*}
-		On ne peut pas séparer ces deux origines par des ouverts. Le graphe de cette relation $\Gamma \defeq \{(d,d') \in {(\mathbf{R}\times \{0,1\})}^2  \;|\; d\sim d'\}$ \footnote{Le 0 n'est pas inclut pour le graphe de la classe (0,1) et (1,0).} est 
+		On ne peut pas séparer ces deux origines par des ouverts. On peut s'intéresser au graphe de cette relation $$\Gamma \defeq \{(d,d') \in {(\mathbf{R}\times \{0,1\})}^2  \;|\; d\sim d'\}\footnote{Le 0 n'est pas inclut pour le graphe de la classe (0,1) et de la classe (1,0).}$$
 		\begin{figure}[ht]
 			\centering
 			\includegraphics[width=0.8\textwidth]{graph.eps}
@@ -223,30 +223,32 @@
 	\end{prop}
 	Pour arriver à ce résultat nous aurons besoin du Lemme suivant.
 	\begin{lemma}
-		Un espace est Hausdorff si et seulement si la diagonale $\Delta \defeq \{(x,x) \in X \times X\}$ est fermée.
+		Un espace est Hausdorff si et seulement si la diagonale $$\Delta \defeq \{(x,x) \in X \times X\}$$ est fermée.
 	\end{lemma}
 	\begin{proof}
 		Soient $x \neq y \in X$ et  $x \in U, y \in V$ des voisinages distincts. Alors  $U\times V$ est un voisinage ouvert de  $(x,y) \in X\times Y$ munit de la topologie produit. On observe que  $U\cap V \neq \varnothing \iff U\times V \cap \Delta = \varnothing$. On peut séparer x et y par des ouverts si et seulement si $\Delta^c$ est ouvert.
 	\end{proof}
-	\begin{proof}[de la proposition]
-		Si le quotient $\quot{X}{\sim}$est séparé, la diagonale $\Delta \subset (\quot{X}{\sim})^2$ est fermée par le Lemme précédent. On considère $q\times q : X \times X \longmapsto (\quot{X}{\sim}) \times (\quot{X}{\sim})$, continue et on identifie \[
-			q^{-1}(\Delta) = \{(x,y) \;|\; [x] = [y]\} = \Gamma 
+	\begin{proof}[Démonstration de la proposition]
+		Si le quotient $\quot{X}{\sim}$est séparé, la diagonale $\Delta \subset (\quot{X}{\sim})^2$ est fermée par le Lemme précédent. On considère $q\times q : X \times X \longmapsto (\quot{X}{\sim}) \times (\quot{X}{\sim})$ une application continue et on identifie \[
+		{(q \times q)}^{-1}(\Delta) = \{(x,y) \in X \times X \;|\; [x] = [y]\} = \Gamma 
 		\] qui est donc fermé.	
 	\end{proof}
-	Notons cependant que cette condition n'est pas suffisante. Le critère suivant donne une condition suffisante, bien que non nécessaire. On va utiliser $q^{-1}(q(A))$ pour  $A \subset X$ qu'on appelle des \emph{saturés} de A.
+	Notons cependant que cette condition n'est pas suffisante. Le critère suivant fournit quant à lui une condition suffisante, bien que non nécessaire. 
+	\begin{definition}[Saturé de A]
+		On appelle saturé de A l'ensemble $q^{-1}(q(A))$ pour  $A \subset X$.
+	\end{definition}
 
 	\begin{prop}
 		Si X est un espace séparé tel que $q^{-1}(q(x))$ est compact pour tout  $x\in X$ et $q^{-1}(q(F))$ est fermé dans X pour tout F fermé dans X, alors $\quot{X}{\sim} = q(X)$ est séparé
 	\end{prop}
 	\begin{proof}
-		Prenons deux classes disjointes du quotient $[x] \neq [y]$. Puisque X est séparé on peut trouver deux ouverts disjoints de X U et V avec $q^{-1}(x) \in U$ et  $q^{-1}(y) \in V$ puisque $q^{-1}([x])$ et  $q^{-1}([y])$ sont compacts. En regardant les complémentaires fermés on a que \[
+		Prenons deux classes disjointes du quotient $[x] \neq [y]$. Puisque X est séparé on peut trouver deux ouverts disjoints de X, U et V, avec $q^{-1}(x) \in U$ et  $q^{-1}(y) \in V$ puisque $q^{-1}([x])$ et  $q^{-1}([y])$ sont compacts. En regardant les complémentaires fermés on a que \[
 			U^c \subset q^{-1}(q(U^c)) \; \text{et} \; V^c \subset q^{-1}(q(V^c))
 		.\] Soient donc \[
 		U' \defeq X\setminus(q^{-1}(q(U^c))) \subset U \; \text{et} \; V' \defeq X\setminus(q^{-1}(q(V^c))) \subset V
 	.\]  On va prouver que $q(U')$ et  $q(V')$ sont des voisinages ouverts et disjoints de $[x]$ et $[y]$ respectivement. 
-	D'abord $[x] \in q(U')$ car  $x \neq q^{-1}(q(U^c))$ et de même  $[y] \in q(V')$. Pour montrer que $q(U')$ est ouvert, on montre que  $U' = q^{-1}(q(U'))$. La première inclusion est toujours vérifiée, montrons la seconde. Soit $u \in q^{-1}(q(U'))$, alors $q(u) \in q(U')$ et donc $q(u) \not\in q(U^c)$. Ainsi  $u \not\in q^{-1}(q(U^c))$, donc $u \in U'$ par construction de U', de même pour V'. \\
-	Pour terminer la preuve, montrons que $q(U')$ et  $q(V')$ sont disjoints. Supposons par l'absurde que ce ne soit pas le cas, soit donc $[z] \in q(U')\cap q(V')$ il existe  $u' \in U'$ tel que  $[z] = q(u') \in q(V')$. Donc $u' \in q^{-1}(q(V')) = V'$ mais  $U'$ et  $V'$ sont disjoints, contradiction.
-	Pour terminer la preuve notons 
+	D'abord $[x] \in q(U')$ car  $x \not\in q^{-1}(q(U^c))$ et de même  $[y] \in q(V')$. Pour montrer que $q(U')$ est ouvert, on montre que  $U' = q^{-1}(q(U'))$. La première inclusion est toujours vérifiée, montrons la seconde. Soit $u \in q^{-1}(q(U'))$, alors $q(u) \in q(U')$ et donc $q(u) \not\in q(U^c)$. Ainsi  $u \not\in q^{-1}(q(U^c))$, donc $u \in U'$ par construction de U', de même pour V'. \\
+	Pour terminer la preuve, montrons que $q(U')$ et  $q(V')$ sont disjoints. Supposons par l'absurde que ce ne soit pas le cas. Soit $[z] \in q(U')\cap q(V')$, il existe donc $u' \in U'$ tel que  $[z] = q(u') \in q(V')$. Ainsi $u' \in q^{-1}(q(V')) = V'$ mais  $U'$ et  $V'$ sont disjoints, contradiction.
 	\end{proof}
 	\begin{cor}
 		Si $A \subset X$ est un sous espace compact et X séparé, alors $\quot{X}{A}$ est séparé.
@@ -265,7 +267,7 @@
 				F \; \text{si} \; A\cap F = \varnothing \\
 				F \cup A \; \text{sinon}
 			\end{cases}
-		.\end{align*}
+		.\end{align*} Notons que $F$ est fermé puisque compact dans un espace séparé, ce qui implique que  $F \cup A$ l'est également.
 	\end{proof}
 	\begin{example} On montre à travers cet exemple que cette proposition n'est \emph{pas} nécessaire. On définit sur $\mathbf{R}^2$ la relation  \[
 		\overrightarrow{x} \sim \overrightarrow{y} \iff \exists \overrightarrow{a} \in \mathbf{Z}^2 \;|\; \overrightarrow{x} + \overrightarrow{a} = \overrightarrow{y}
@@ -273,10 +275,10 @@
 	\end{example}
 
 	\begin{definition}[Espace projectif réel]
-		Soit $S^n \subset \mathbf{R}^{n+1}$ la sphère unité et $\sim$ la relation définie par $x \sim y \iff x = \pm y$ pour $x,y \in S^n$.
+		Soit $S^n \subset \mathbf{R}^{n+1}$ la sphère unité et $\sim$ la relation définie par $x \sim y \iff x = \pm y$ pour $x,y \in S^n$. L'espace projectif réel $\mathbf{RP}^n$ est le quotient  $\quot{S^n}{\sim}$.
 	\end{definition}
 	\begin{prop}
-		$\mathbf{R}P^n$ est compact et séparé.
+		$\mathbf{RP}^n$ est compact et séparé.
 	\end{prop}
 	\begin{proof}
 		$S^n$ est compact le quotient l'est aussi. De plus $q^{-1}(q(x)) = \{\pm x\}$ est compact et $q^{-1}(q(F)) = F \cup -F$ est fermé comme union de deux fermés et donc par la proposition précédente le quotient est séparé.
@@ -284,7 +286,7 @@
 	On passe de $\mathbf{R}$ à  $\mathbf{C}$ et on remplace les nombre réels de valeur absolue 1 par  $S^1 \subset \mathbf{C}$ les nombres complexes de module 1.
 
 	\begin{definition}[Espace projectif complexe]
-		Soit $S^{2n+1} \subset \mathbf{C}^{n+1}$ la sphère unité et la relation $\sim$ définie par  $x \sim y  \iff x = a\cdot y$ pour un $a \in S^1$. Le quotient $\mathbf{C}P^n$ est l'espace projectif complexe de dimension  $n$.
+		Soit $S^{2n+1} \subset \mathbf{C}^{n+1}$ la sphère unité et la relation $\sim$ définie par  $x \sim y  \iff x = a\cdot y$ pour un $a \in S^1$. Le quotient $\mathbf{CP}^n$ est l'espace projectif complexe de dimension  $n$.
 	\end{definition}
 
 	\section{Quotient par des actions de groupe}
@@ -297,7 +299,7 @@
 		\begin{enumerate}
 			\item Tout groupe munit de la topologie discrète est un groupe topologique, il est parfois noté $G^{\delta}$.
 			\item $(\mathbf{R}^n,+)$ est un groupe topologique pour la topologie euclidienne.
-			\item $(GL_n(\mathbf{R}),\cdot)$ est un groupe topologique muni de la topologie de sous espace de $M_n(\mathbf{R}) \cong \mathbf{R}^{n^2}$. La multiplication et inversion de matrice sont des applications continues. 
+			\item $(GL_n(\mathbf{R}),\cdot)$ est un groupe topologique muni de la topologie de sous espace de $M_n(\mathbf{R}) \cong \mathbf{R}^{n^2}$. La multiplication et l'inversion de matrices sont des applications continues. 
 		\end{enumerate}	
 	\end{example}
 
@@ -312,12 +314,10 @@
 			(x,g) &\longmapsto x\cdot g
 		\end{align*} satisfaisant 
 
-		\begin{center}
-			\begin{enumerate}
-				\item $x \cdot 1_G = x$
-				\item $x \cdot (gh) = (xg)\cdot h$
-			\end{enumerate}
-		\end{center}
+		\begin{enumerate}
+			\item $x \cdot 1_G = x$
+			\item $x \cdot (gh) = (x \cdot g)\cdot h$
+		\end{enumerate}
 	\end{definition}
 
 	\begin{definition}[Espace des orbites]

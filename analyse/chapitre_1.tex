@@ -1,0 +1,58 @@
+\documentclass[12pt]{book}
+\usepackage[top=1in, bottom=1in, left=1in, right=1in]{geometry}
+\usepackage[onehalfspacing]{setspace}
+\usepackage[french]{babel}
+              
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{mathrsfs}
+\usepackage{amsfonts}
+\usepackage{mathtools}
+\usepackage{stmaryrd}
+
+\newcommand{\defeq}{\vcentcolon=}
+\newcommand{\eqdef}{=\vcentcolon}
+                   
+\usepackage{enumerate, enumitem}
+\usepackage{fancyhdr, graphicx, proof, comment, multicol}
+\usepackage[none]{hyphenat}
+\usepackage{dirtytalk}
+\usepackage{proof}
+           
+\usepackage{graphicx}
+\usepackage{tikz-cd}
+
+\usepackage{import}
+\usepackage{xifthen}
+\usepackage{pdfpages}
+\usepackage{transparent}
+\newcommand{\incfig}[1]{
+    \def\svgwidth{\columnwidth}
+    \import{./figures/}{#1.pdf_tex} 
+}
+            
+\newtheorem{lemma}{Lemme}[section]
+\newtheorem{theorem}[lemma]{Théorème}
+\newtheorem{cor}[lemma]{Corollaire}
+\newtheorem{prop}[lemma]{Proposition}
+                    
+\theoremstyle{definition}
+\newtheorem{definition}[lemma]{Définition}
+\newtheorem{example}[lemma]{Exemple}
+\newenvironment{comments}{}{}
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remarque}
+
+\begin{document}
+\begin{theorem}[$\sigma$ sous additivité]
+	Soit $(E_n)_{n\in \mathbf{N}}$ des ensembles, alors  \[
+		mes(\cup_{n=1}^{\infty}E_n) \le \sum_{n=1}^{\infty}mes(E_n)
+	.\] 	
+	\end{theorem}	
+	\begin{proof}
+		Soit $\epsilon >0, n \in \mathbf{N}_{\ge 1}$, alors $\exists (I_{n,m}^{\epsilon})_{m=1}^{\infty}$ des intervalles ouverts tels que $E_n \subset \cup_{m=1}^{\infty}I_{n,m}^{\epsilon}$ et $\sum_{m=1}^{\infty}long(I_{n,m}^{\epsilon}) - \frac{\epsilon}{2} \le mes(E_n)$\\
+		Alors $\cup_{n=1}^{\infty} E_n \subset \cup_{n=1}^{\infty}\cup_{m=1}^{\infty}I_{n,m}^{\epsilon}$ on a donc $mes(\cup_{n=1}^{\infty}E_n) \le \sum_{n=1}^{\infty} long(I_{n,m}^{\epsilon})$ car $(I_{n,m}^{\epsilon})_{n,m=1}^{\infty}$ reste une famille dénombrable d'intervalles. Alors \[
+			mes(\cup_{n=1}^{\infty}E_n) \le \sum_{n=1}^{\infty} \sum_{m=1}^{\infty} long(I_{n,m}^{\epsilon}) 
+		.\] 
+	\end{proof}
+\end{document}
