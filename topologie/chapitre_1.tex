@@ -270,8 +270,8 @@
 		.\end{align*} Notons que $F$ est fermé puisque compact dans un espace séparé, ce qui implique que  $F \cup A$ l'est également.
 	\end{proof}
 	\begin{example} On montre à travers cet exemple que cette proposition n'est \emph{pas} nécessaire. On définit sur $\mathbf{R}^2$ la relation  \[
-		\overrightarrow{x} \sim \overrightarrow{y} \iff \exists \overrightarrow{a} \in \mathbf{Z}^2 \;|\; \overrightarrow{x} + \overrightarrow{a} = \overrightarrow{y}
-	.\] Alors $\quot{\mathbf{R}^2}{\sim}$ est compact et séparé mais $q^{-1}(q(\overrightarrow{0})) = \mathbf{Z}^2$ n'est pas compact.
+		\textbf{x} \sim \textbf{y} \iff \exists \textbf{a} \in \mathbf{Z}^2 \;|\; \textbf{x} + \textbf{a} = \textbf{y}
+	.\] Alors $\quot{\mathbf{R}^2}{\sim}$ est compact et séparé mais $q^{-1}(q(\textbf{0})) = \mathbf{Z}^2$ n'est pas compact.
 	\end{example}
 
 	\begin{definition}[Espace projectif réel]
@@ -323,4 +323,106 @@
 	\begin{definition}[Espace des orbites]
 		Soit X un espace sur lequel G agit. L'espace des orbites $\quot{X}{G}$ est le quotient de X par la relation $x \sim y \iff \exists g \in G \;|\; x = y \cdot g$.
 	\end{definition}
+	\begin{example}
+		\begin{enumerate}
+			\item Le groupe $C_2$ agit  sur  $S^n \subset \mathbf{R}^{n+1}$ par l'action antipodale, le générateur $g\in C_2$ agit par $x\cdot g = -x$. Alors $\quot{S^n}{C_2} \cong \mathbf{RP}^n$. 
+			\item Le groupe $S^1 \defeq \{z\in \mathbf{C} \;|\; |z| = 1\}$ agit par multiplication  à droite sur les coordonnées de $S^{2n+1} \subset \mathbf{C}^{n+1}$. Pour $z\in S^1$ et $a=(a_0,\ldots,a_n) \in S^{2n+1}$, $a\cdot z = (a_0z,\ldots,a_nz)$. Le quotient $\quot{S^{2n+1}}{S^1} \cong \mathbf{CP}^n$. 
+			\item Le groupe (discret) $(\mathbf{Z}^2,+)$ agit par translation sur le plan $\mathbf{R}^2$, le quotient $\quot{\mathbf{R}^2}{\mathbf{Z}^2}$ est un tore.
+			\item Le groupe $S^1$ agit par rotations d'axe vertical sur $S^2$, les orbites sont les parallèles et les pôles. Le quotient $\quot{S^2}{S^1} \cong I$, les classes des pôles sont les extrémités de l'intervalle.
+		\end{enumerate}	
+	\end{example}
+	\begin{remark}
+		Étant donne un groupe G et un sous groupe H de G, H agit sur G par multiplication
+		\begin{align*}
+			G\times H &\longmapsto G\\
+			(g,h) &\longmapsto gh
+		.\end{align*}
+		L'espace quotient $\quot{G}{H}$ est l'espace des orbites $gH$. En particulier ces dernières ont toutes le même cardinal. Lorsque $H \triangleleft G$, l'espace quotient $\quot{G}{H}$ hérite d'une structure de groupe.
+	\end{remark}
+
+	\begin{prop}
+		Soit G un groupe topologique agissant sur un espace X, alors
+		\begin{enumerate}
+			\item Le quotient $q : X \longmapsto \quot{X}{G}$ est une application ouverte.
+			\item Si X est compact alors le quotient l'est aussi.
+			\item Si X et G sont compact et séparés alors le quotient l'est aussi.
+		\end{enumerate}
+		\begin{proof}
+			\begin{enumerate}
+				\item Puisque la multiplication par $g$ est un homéomorphisme 
+					 \begin{align*}
+						 X &\longmapsto X \\
+						 x &\longmapsto x\cdot g
+					\end{align*}
+					si $U \subset X$ est ouvert alors $U \cdot g$ l'est aussi. Pour montrer que $q(U)$ est ouvert dans le quotient on doit montrer par définition de la topologie quotient que la primage est ouverte dans X. Or  $q^{-1}(q(U)) = \cup_{g\in G}U\cdot g$, est ouvert comme union d'ouverts.
+				\item L'image d'un compact par une fonction continue est compact.
+				\item Comme X est séparé, la diagonale $\Delta$ est fermée dans $X \times X$par le \textbf{Lemme 1.3.3} donc compacte. On pose
+					\begin{align*}
+						X \times X \times G &\longmapsto X \times X \\
+						(x,y,g) &\longmapsto (x,yg)
+					.\end{align*}
+					L'image de $\Delta \times G$, compact, est le graphe $\Gamma$ de la relation, qui est compact. X étant séparé $\Gamma$ est fermé. Soient  $x,y \in X$ avec $xG \neq yG$. Comme  $(x,y) \not\in \Gamma$, il existe un voisinage dans $X\times X$ de $(x,y)$ disjoint de  $\Gamma$. On peut choisir ce dernier par définition de la topologie produit comme $U\times V$ avec $U,V \subset X$ des ouverts.  \\
+					On affirme que les ouverts $q(U)$ et  $q(V)$ (ouverts par le premier point de la proposition) séparent les orbites  $xG$ et $yG$. Si  $zG \in q(U)\cap q(V)$ alors $z = ug_1 = vg_2$ avec $u\in U,v \in V, g_1,g_2\in G$. Mais alors $(u,v) = (u,ug_1g^{-1}_2) \in U\times V \cap \Gamma$, contradiction.
+			\end{enumerate}
+		\end{proof}
+	\end{prop}
+	\begin{example}
+		$\mathbf{RP}^n$ et $\mathbf{CP}^n$ sont compacts et séparés.
+	\end{example}
+
+	\section{Les espaces projectifs}
+
+	\begin{definition}[Stabilisateur]
+		Le stabilisateur de $x\in X$ est l'ensemble \[
+			G_x \defeq \{g\in G \;|\; g\cdot x = x\} 
+		.\] 	
+	\end{definition}
+	\begin{prop}
+		Soit G un groupe topologique compact qui agit à gauche transitivement sur un espace X séparé, alors pour tout point $x\in X$ on a un homéomorphisme  \[
+			\quot{G}{G_x} \cong X
+		.\] 
+	\end{prop}
+	\begin{proof}
+		On pose l'application 
+		\begin{align*}
+			\varphi_x : G&\longmapsto X \\
+			g &\longmapsto g\cdot x
+		.\end{align*}
+		Puisque l'action est transitive on obtient que $\varphi_x$ est surjective. De plus $$\varphi_x(g) = \varphi_x(g') \iff g\cdot x = g'\cdot x \iff g^{-1}g' \in G_x$$. Ainsi $\varphi_x$ passe au quotient  $\overline{\varphi_x} : \quot{G}{G_x} \longmapsto X$ et on a vu que cette application est surjective et injective. Puisque $\quot{G}{G_x}$ est compact et X est séparé c'est un homéomorphisme.
+	\end{proof}
+
+	\begin{example}
+		Pour $ n\ge 2$, le groupe $\mathcal{SO}(n)$ agit transitivement sur $S^{n-1} \subset \mathbf{R}^{n}$ par multiplication matricielle à gauche sur les vecteurs colonnes de norme 1.
+		Le stabilisateur de $e_n$ est isomorphe à $\mathcal{SO}(n-1)$. Par abus de notation on considère $\mathcal{SO}(n-1)$ comme un sous groupe de $\mathcal{SO}(n)$. On a $\quot{\mathcal{SO}(n)}{\mathcal{SO}(n-1)} \cong S^{n-1}$.\\
+		En petites dimensions on a $\mathcal{SO}(1) = \{(1)\}$. Puis $\mathcal{SO}(2) \cong S^1$, enfin $\quot{\mathcal{SO}(3)}{\mathcal{SO}(2)} \cong S^2$.
+	\end{example}
+	\begin{remark}
+$\mathbf{RP}^0 \cong \quot{\{\pm 1\}}{-1 \sim 1}$, $\mathbf{RP}^1 \cong S^1$, $\mathbf{RP}^2 \cong \quot{D^2}{\sim}$
+	\end{remark}
+	\begin{prop}
+		On a un homéomorphisme $\mathcal{RP}^3 \cong \mathcal{SO}(3)$.
+	\end{prop}
+
+	\section{Recoller des espaces}
+	Soient $f : A \longmapsto X$ et $g : A \longmapsto Y$ deux applications continues. On aimerait construire un nouvel espace à partir de $X$ et $Y$ en identifiant leur `partie commune' $A$.
+
+	\begin{definition}[Recollement]
+		Le recollement $X \cup_A Y$ est l'espace quotient $\quot{X \sqcup Y}{\sim}$ où $\sim$ est la relation d'équivalence engendrée par  $f(a) \sim g(a) \; \forall a \in A$.	
+	\end{definition}
+	\begin{remark}
+		Voir Ph
+	\end{remark}
+	\begin{prop}[Propriété universelle]
+		Pour toutes applications $\alpha : X \longmapsto Z$ et\\
+		$\beta : Y \longmapsto Z$ telles que $\alpha \circ f = \beta \circ g$ il existe une \emph{unique} application  $\gamma : X \cup_A Y \longmapsto Z$ telle que $\gamma \circ i = \alpha$ et  $\gamma \circ j = \beta$.
+	\end{prop}
+	\begin{proof}
+		Pour définir $\gamma$ on pose  
+		\begin{align*}
+			H : X \sqcup Y &\longmapsto Z \\
+			x &\longmapsto \alpha(x) \\
+			y &\longmapsto \beta(x)
+		.\end{align*}
+		Ce choix passe au quotient car $H(f(a)) = \alpha(f(a)) = \beta(g(a)) = H(g(a))$. On pose  $\gamma \defeq \overline{H}$ l'unicité est quant à elle claire.
+	\end{proof}
 \end{document}
