@@ -1,0 +1,43 @@
+\documentclass[12pt]{book}
+\usepackage[top=1in, bottom=1in, left=1in, right=1in]{geometry}
+\usepackage[onehalfspacing]{setspace}
+\usepackage[french]{babel}
+              
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{mathrsfs}
+\usepackage{amsfonts}
+\usepackage{mathtools}
+\usepackage{stmaryrd}
+
+\newcommand{\defeq}{\vcentcolon=}
+\newcommand{\eqdef}{=\vcentcolon}
+                   
+\usepackage{enumerate, enumitem}
+\usepackage{fancyhdr, graphicx, proof, comment, multicol}
+\usepackage[none]{hyphenat}
+\usepackage{dirtytalk}
+\usepackage{proof}
+           
+\usepackage{graphicx}
+\usepackage{tikz-cd}
+            
+\newtheorem{lemma}{Lemme}[section]
+\newtheorem{theorem}[lemma]{Théorème}
+\newtheorem{cor}[lemma]{Corollaire}
+\newtheorem{prop}[lemma]{Proposition}
+                    
+\theoremstyle{definition}
+\newtheorem{definition}[lemma]{Définition}
+\newtheorem{example}[lemma]{Exemple}
+\newenvironment{comments}{}{}
+\newtheorem{notation}{Notation}
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remarque}
+
+\begin{document}
+	\chapter{Integration numérique}
+	Étant donné une fonction $f : I \longmapsto \mathbf{R}$ on cherche à construire un algorithme pour calculer $\int_I{f(x)dx}$ de manière approchée.
+	\section{Formules de quadrature de Newton-Cotes}
+	$\int_a^b{f(x)dx} = \sum_{i=0}^{n-1}\int_{x_i}^{x_{i+1}}{f(x)dx}$.
+\end{document}

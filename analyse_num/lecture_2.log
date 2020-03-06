@@ -1,11 +1,11 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2019.4.15)  5 MAR 2020 14:28
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2019.4.15)  5 MAR 2020 13:26
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**/Users/lomanvezin/Documents/GitHub/course-notes/topologie/chapitre_1 -output-
-directory /Users/lomanvezin/Documents/GitHub/course-notes/topologie/chapitre_1.
-tex
-(/Users/lomanvezin/Documents/GitHub/course-notes/topologie/chapitre_1.tex
+**/Users/lomanvezin/Documents/GitHub/course-notes/analyse_num/lecture_2 -output
+-directory /Users/lomanvezin/Documents/GitHub/course-notes/analyse_num/lecture_
+2.tex
+(/Users/lomanvezin/Documents/GitHub/course-notes/analyse_num/lecture_2.tex
 LaTeX2e <2018-04-01> patch level 2
 Babel <3.18> and hyphenation patterns for 84 language(s) loaded.
 (/usr/local/texlive/2018/texmf-dist/tex/latex/base/book.cls
@@ -689,225 +689,24 @@ File: pgflibraryarrows.meta.code.tex 2015/05/13 v3.0.1a (rcs-revision 1.13)
 \pgfarrowlength=\dimen266
 \pgfarrowwidth=\dimen267
 \pgfarrowlinewidth=\dimen268
-))) (/usr/local/texlive/2018/texmf-dist/tex/generic/xypic/xy.sty
-(/usr/local/texlive/2018/texmf-dist/tex/generic/xypic/xy.tex Bootstrap'ing:
-catcodes, docmode,
-(/usr/local/texlive/2018/texmf-dist/tex/generic/xypic/xyrecat.tex)
-(/usr/local/texlive/2018/texmf-dist/tex/generic/xypic/xyidioms.tex)
+)))
+\c@lemma=\count148
+\c@notation=\count149
+ (./lecture_2.aux)
+\openout1 = `lecture_2.aux'.
 
- Xy-pic version 3.8.9 <2013/10/06>
- Copyright (c) 1991-2013 by Kristoffer H. Rose <krisrose@tug.org> and others
- Xy-pic is free software: see the User's Guide for details.
-
-Loading kernel: messages; fonts; allocations: state,
-\X@c=\dimen269
-\Y@c=\dimen270
-\U@c=\dimen271
-\D@c=\dimen272
-\L@c=\dimen273
-\R@c=\dimen274
-\Edge@c=\toks42
-\X@p=\dimen275
-\Y@p=\dimen276
-\U@p=\dimen277
-\D@p=\dimen278
-\L@p=\dimen279
-\R@p=\dimen280
-\Edge@p=\toks43
-\X@origin=\dimen281
-\Y@origin=\dimen282
-\X@xbase=\dimen283
-\Y@xbase=\dimen284
-\X@ybase=\dimen285
-\Y@ybase=\dimen286
-\X@min=\dimen287
-\Y@min=\dimen288
-\X@max=\dimen289
-\Y@max=\dimen290
-\lastobjectbox@=\box70
-\zerodotbox@=\box71
-\almostz@=\dimen291
- direction,
-\d@X=\dimen292
-\d@Y=\dimen293
-\K@=\count148
-\KK@=\count149
-\Direction=\count150
-\K@dXdY=\dimen294
-\K@dYdX=\dimen295
-\xyread@=\read2
-\xywrite@=\write5
-\csp@=\count151
-\quotPTK@=\dimen296
-
-utility macros; pictures: \xy, positions,
-\swaptoks@@=\toks44
-\connectobjectbox@@=\box72
- objects,
-\styletoks@=\toks45
- decorations;
-kernel objects: directionals, circles, text; options; algorithms: directions,
-edges, connections;  Xy-pic loaded)
-Package: xy 2013/10/06 Xy-pic version 3.8.9
-
-(/usr/local/texlive/2018/texmf-dist/tex/generic/xypic/xyall.tex
- Xy-pic option: All features v.3.8
-(/usr/local/texlive/2018/texmf-dist/tex/generic/xypic/xycurve.tex
- Xy-pic option: Curve and Spline extension v.3.12 curve,
-\crv@cnt@=\count152
-\crvpts@=\toks46
-\splinebox@=\box73
-\splineval@=\dimen297
-\splinedepth@=\dimen298
-\splinetol@=\dimen299
-\splinelength@=\dimen300
- circles,
-\L@=\dimen301
- loaded)
-(/usr/local/texlive/2018/texmf-dist/tex/generic/xypic/xyframe.tex
- Xy-pic option: Frame and Bracket extension v.3.14 loaded)
-(/usr/local/texlive/2018/texmf-dist/tex/generic/xypic/xycmtip.tex
- Xy-pic option: Computer Modern tip extension v.3.7
-(/usr/local/texlive/2018/texmf-dist/tex/generic/xypic/xytips.tex
- Xy-pic option: More Tips extension v.3.11 loaded) loaded)
-(/usr/local/texlive/2018/texmf-dist/tex/generic/xypic/xyline.tex
- Xy-pic option: Line styles extension v.3.10
-\xylinethick@=\dimen302
- loaded)
-(/usr/local/texlive/2018/texmf-dist/tex/generic/xypic/xyrotate.tex
- Xy-pic option: Rotate and Scale extension v.3.8 loaded)
-(/usr/local/texlive/2018/texmf-dist/tex/generic/xypic/xycolor.tex
- Xy-pic option: Colour extension v.3.11 loaded)
-(/usr/local/texlive/2018/texmf-dist/tex/generic/xypic/xymatrix.tex
- Xy-pic option: Matrix feature v.3.14
-\Row=\count153
-\Col=\count154
-\queue@=\toks47
-\queue@@=\toks48
-\qcount@=\count155
-\qcount@@=\count156
-\matrixsize@=\count157
- loaded)
-(/usr/local/texlive/2018/texmf-dist/tex/generic/xypic/xyarrow.tex
- Xy-pic option: Arrow and Path feature v.3.9 path, \ar, loaded)
-(/usr/local/texlive/2018/texmf-dist/tex/generic/xypic/xygraph.tex
- Xy-pic option: Graph feature v.3.11 loaded) loaded)
-(/usr/local/texlive/2018/texmf-dist/tex/generic/xypic/xypdf.tex
- Xy-pic option: PDF driver v.1.7 Xy-pic pdf driver: `color' extension support
-(/usr/local/texlive/2018/texmf-dist/tex/generic/xypic/xypdf-co.tex loaded)
-Xy-pic pdf driver: `curve' extension support
-(/usr/local/texlive/2018/texmf-dist/tex/generic/xypic/xypdf-cu.tex loaded)
-Xy-pic pdf driver: `frame' extension support
-(/usr/local/texlive/2018/texmf-dist/tex/generic/xypic/xypdf-fr.tex loaded)
-Xy-pic pdf driver: `line' extension support
-(/usr/local/texlive/2018/texmf-dist/tex/generic/xypic/xypdf-li.tex loaded)
-Xy-pic pdf driver: `rotate' extension support
-(/usr/local/texlive/2018/texmf-dist/tex/generic/xypic/xypdf-ro.tex loaded)
-loaded)) (/usr/local/texlive/2018/texmf-dist/tex/latex/oberdiek/centernot.sty
-Package: centernot 2016/05/16 v1.4 Centers the not symbol horizontally (HO)
-)
-(/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
-s/tikzlibrarydecorations.pathmorphing.code.tex
-(/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
-s/tikzlibrarydecorations.code.tex
-(/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/modules/pgfmoduledecoration
-s.code.tex
-\pgfdecoratedcompleteddistance=\dimen303
-\pgfdecoratedremainingdistance=\dimen304
-\pgfdecoratedinputsegmentcompleteddistance=\dimen305
-\pgfdecoratedinputsegmentremainingdistance=\dimen306
-\pgf@decorate@distancetomove=\dimen307
-\pgf@decorate@repeatstate=\count158
-\pgfdecorationsegmentamplitude=\dimen308
-\pgfdecorationsegmentlength=\dimen309
-)
-\tikz@lib@dec@box=\box74
-)
-(/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/libraries/decorations/pgfli
-brarydecorations.pathmorphing.code.tex))
-(/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
-s/tikzlibrarydecorations.markings.code.tex
-(/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/libraries/decorations/pgfli
-brarydecorations.markings.code.tex))
-(/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
-s/tikzlibrarybending.code.tex
-File: tikzlibrarybending.code.tex 2013/09/17 v3.0.1a (rcs-revision 1.2)
-
-(/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/modules/pgfmodulebending.co
-de.tex
-File: pgfmodulebending.code.tex 2013/09/30 v3.0.1a (rcs-revision 1.18)
-
-(/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/modules/pgfmodulenonlineart
-ransformations.code.tex
-File: pgfmodulenonlineartransformations.code.tex 2013/10/09 v3.0.1a (rcs-revisi
-on 1.4)
-\pgftransformnonlinearflatness=\dimen310
-)
-(/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/libraries/pgflibrarycurvili
-near.code.tex
-File: pgflibrarycurvilinear.code.tex 2015/05/14 v3.0.1a (rcs-revision 1.4)
-\pgf@curvilinear@time@a=\dimen311
-\pgf@curvilinear@length@a=\dimen312
-\pgf@curvilinear@length@b=\dimen313
-\pgf@curvilinear@length@c=\dimen314
-\pgf@curvilinear@length@d=\dimen315
-)
-\pgf@arrows@the@rigidity=\dimen316
-))
-(/usr/local/texlive/2018/texmf-dist/tex/latex/import/import.sty
-Package: import 2009/03/23  v 5.1
-)
-(/usr/local/texlive/2018/texmf-dist/tex/latex/xifthen/xifthen.sty
-Package: xifthen 2015/11/05 v1.4.0 Extended ifthen features
-
-(/usr/local/texlive/2018/texmf-dist/tex/latex/ifmtarg/ifmtarg.sty
-Package: ifmtarg 2009/09/02 v1.2a check for an empty argument
-))
-(/usr/local/texlive/2018/texmf-dist/tex/latex/pdfpages/pdfpages.sty
-Package: pdfpages 2017/10/31 v0.5l Insert pages of external PDF documents (AM)
-
-(/usr/local/texlive/2018/texmf-dist/tex/latex/eso-pic/eso-pic.sty
-Package: eso-pic 2015/07/21 v2.0g eso-pic (RN)
-
-(/usr/local/texlive/2018/texmf-dist/tex/generic/oberdiek/atbegshi.sty
-Package: atbegshi 2016/06/09 v1.18 At begin shipout hook (HO)
-))
-\AM@pagewidth=\dimen317
-\AM@pageheight=\dimen318
-
-(/usr/local/texlive/2018/texmf-dist/tex/latex/pdfpages/pppdftex.def
-File: pppdftex.def 2017/10/31 v0.5l Pdfpages driver for pdfTeX (AM)
-)
-\AM@pagebox=\box75
-\AM@global@opts=\toks49
-\AM@toc@title=\toks50
-\c@AM@survey=\count159
-\AM@templatesizebox=\box76
-)
-(/usr/local/texlive/2018/texmf-dist/tex/latex/oberdiek/transparent.sty
-Package: transparent 2016/05/16 v1.1 Transparency via pdfTeX's color stack (HO)
-
-
-(/usr/local/texlive/2018/texmf-dist/tex/latex/oberdiek/auxhook.sty
-Package: auxhook 2016/05/16 v1.4 Hooks for auxiliary files (HO)
-))
-\c@lemma=\count160
-
-(./chapitre_1.aux)
-\openout1 = `chapitre_1.aux'.
-
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 57.
-LaTeX Font Info:    ... okay on input line 57.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 57.
-LaTeX Font Info:    ... okay on input line 57.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 57.
-LaTeX Font Info:    ... okay on input line 57.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 57.
-LaTeX Font Info:    ... okay on input line 57.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 57.
-LaTeX Font Info:    ... okay on input line 57.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 57.
-LaTeX Font Info:    ... okay on input line 57.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -943,33 +742,33 @@ LaTeX Font Info:    ... okay on input line 57.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Info: Redefining \degres on input line 57.
-LaTeX Info: Redefining \dots on input line 57.
+LaTeX Info: Redefining \degres on input line 38.
+LaTeX Info: Redefining \dots on input line 38.
 Package french.ldf Info: Setting StandardItemizeEnv=true for
 (french.ldf)             compatibility with enumitem package,
-(french.ldf)             reported on input line 57.
+(french.ldf)             reported on input line 38.
 Package french.ldf Info: Setting StandardEnumerateEnv=true for
 (french.ldf)             compatibility with enumitem package,
-(french.ldf)             reported on input line 57.
-LaTeX Info: Redefining \up on input line 57.
+(french.ldf)             reported on input line 38.
+LaTeX Info: Redefining \up on input line 38.
 
 Package french.ldf Warning: OT1 encoding should not be used for French.
 (french.ldf)                Add \usepackage[T1]{fontenc} to the preamble
-(french.ldf)                of your document; reported on input line 57.
+(french.ldf)                of your document; reported on input line 38.
 
 (/usr/local/texlive/2018/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count161
-\scratchdimen=\dimen319
-\scratchbox=\box77
-\nofMPsegments=\count162
-\nofMParguments=\count163
-\everyMPshowfont=\toks51
-\MPscratchCnt=\count164
-\MPscratchDim=\dimen320
-\MPnumerator=\count165
-\makeMPintoPDFobject=\count166
-\everyMPtoPDFconversion=\toks52
+\scratchcounter=\count150
+\scratchdimen=\dimen269
+\scratchbox=\box70
+\nofMPsegments=\count151
+\nofMParguments=\count152
+\everyMPshowfont=\toks42
+\MPscratchCnt=\count153
+\MPscratchDim=\dimen270
+\MPnumerator=\count154
+\makeMPintoPDFobject=\count155
+\everyMPtoPDFconversion=\toks43
 ) (/usr/local/texlive/2018/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
 
@@ -999,173 +798,50 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 ABD: EveryShipout initializing macros
-LaTeX Font Info:    Try loading font information for U+msa on input line 57.
-
+Chapitre 1.
+LaTeX Font Info:    Try loading font information for U+msa on input line 40.
 (/usr/local/texlive/2018/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 57.
+LaTeX Font Info:    Try loading font information for U+msb on input line 40.
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for U+rsfs on input line 57.
+LaTeX Font Info:    Try loading font information for U+rsfs on input line 40.
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
-LaTeX Font Info:    Try loading font information for U+stmry on input line 57.
+LaTeX Font Info:    Try loading font information for U+stmry on input line 40.
 
-(/usr/local/texlive/2018/texmf-dist/tex/latex/stmaryrd/Ustmry.fd)
-Package xypdf Info: Line width: 0.47998pt on input line 57.
-\AtBeginShipoutBox=\box78
-
-(/usr/local/texlive/2018/texmf-dist/tex/latex/oberdiek/pdflscape.sty
-Package: pdflscape 2016/05/14 v0.11 Display of landscape pages in PDF (HO)
-
-(/usr/local/texlive/2018/texmf-dist/tex/latex/graphics/lscape.sty
-Package: lscape 2000/10/22 v3.01 Landscape Pages (DPC)
-)
-Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
-)
-Chapitre 1.
-
-Underfull \hbox (badness 10000) in paragraph at lines 83--84
-
- []
-
-[1
+(/usr/local/texlive/2018/texmf-dist/tex/latex/stmaryrd/Ustmry.fd) [1
 
 
-{/usr/local/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-Package epstopdf Info: Source file: <example_1.eps>
-(epstopdf)                    date: 2020-02-22 17:27:10
-(epstopdf)                    size: 34030 bytes
-(epstopdf)             Output file: <example_1-eps-converted-to.pdf>
-(epstopdf)                    date: 2020-02-22 17:27:21
-(epstopdf)                    size: 5201 bytes
-(epstopdf)             Command: <repstopdf --outfile=example_1-eps-converted-to
-.pdf example_1.eps>
-(epstopdf)             \includegraphics on input line 97.
-Package epstopdf Info: Output file is already uptodate.
-<example_1-eps-converted-to.pdf, id=16, 245.91875pt x 104.39pt>
-File: example_1-eps-converted-to.pdf Graphic file (type pdf)
-<use example_1-eps-converted-to.pdf>
-Package pdftex.def Info: example_1-eps-converted-to.pdf  used on input line 97.
-
-(pdftex.def)             Requested size: 234.8775pt x 99.70671pt.
-
-Overfull \hbox (2.61107pt too wide) in paragraph at lines 85--99
-$[]$  $[]$ 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 85--99
-
- []
-
-
-Overfull \hbox (6.20244pt too wide) in paragraph at lines 100--101
-[]$\OML/cmm/m/it/12 q$ \OT1/cmr/m/n/12 est une ap-pli-ca-tion conti-nue, c'est 
-un quo-tient pour la to-po-lo-gie eu-cli-dienne sur $[0\OML/cmm/m/it/12 ; \OT1/
-cmr/m/n/12 3]\OML/cmm/m/it/12 ; \OT1/cmr/m/n/12 [0\OML/cmm/m/it/12 ; \OT1/cmr/m
-/n/12 2]$
- []
-
-
-Overfull \hbox (34.28098pt too wide) in paragraph at lines 110--111
-\OT1/cmr/m/n/12 Si $\OML/cmm/m/it/12 g$ \OT1/cmr/m/n/12 est conti-nue $\OML/cmm
-/m/it/12 g \OMS/cmsy/m/n/12 ^^N \OML/cmm/m/it/12 q$ \OT1/cmr/m/n/12 est conti-n
-ue en tant que com-po-si-tion d'ap-pli-ca-tions conti-nues. R^^Seciproquement,
- []
-
-
-Overfull \hbox (2.61107pt too wide) in paragraph at lines 118--140
-[]$  $[]$
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [2 <./example_1-eps-converted-to.pdf>]
-Overfull \hbox (3.0pt too wide) in paragraph at lines 176--189
-[]$  $[]$ 
- []
-
-[3]
-Overfull \hbox (21.01904pt too wide) in paragraph at lines 206--207
-[]\OT1/cmr/bx/n/12 Exemple 1.2.5. []\OT1/cmr/m/n/12 Le cercle unit^^Se d^^Sefin
-it pr^^Sec^^Sedemment s'^^Secrit comme le col-lapse $\OML/cmm/m/it/12 C \OT1/cm
-r/m/n/12 = []$. 
- []
-
-[4]
-Package epstopdf Info: Source file: <graph.eps>
-(epstopdf)                    date: 2020-02-24 16:03:16
-(epstopdf)                    size: 18747 bytes
-(epstopdf)             Output file: <graph-eps-converted-to.pdf>
-(epstopdf)                    date: 2020-02-24 16:03:29
-(epstopdf)                    size: 3998 bytes
-(epstopdf)             Command: <repstopdf --outfile=graph-eps-converted-to.pdf
- graph.eps>
-(epstopdf)             \includegraphics on input line 258.
-Package epstopdf Info: Output file is already uptodate.
-<graph-eps-converted-to.pdf, id=37, 389.455pt x 324.21124pt>
-File: graph-eps-converted-to.pdf Graphic file (type pdf)
-<use graph-eps-converted-to.pdf>
-Package pdftex.def Info: graph-eps-converted-to.pdf  used on input line 258.
-(pdftex.def)             Requested size: 375.80544pt x 312.85695pt.
- [5] [6 <./graph-eps-converted-to.pdf>] [7]
-Underfull \hbox (badness 10000) in paragraph at lines 338--340
-
- []
-
-[8]
-Overfull \hbox (4.28256pt too wide) in paragraph at lines 368--369
-[]\OT1/cmr/m/n/12 Le groupe $\OML/cmm/m/it/12 C[]$ \OT1/cmr/m/n/12 agit sur $\O
-ML/cmm/m/it/12 S[] \OMS/cmsy/m/n/12 ^^Z \OT1/cmr/bx/n/12 R[]$ \OT1/cmr/m/n/12 p
-ar l'ac-tion an-ti-po-dale, le g^^Sen^^Serateur
- []
-
-[9] [10]
-Overfull \hbox (2.61107pt too wide) in paragraph at lines 453--474
-[]$  $[]$ 
- []
-
-<xymatrix 3x3 331>
-Overfull \hbox (20.62482pt too wide) in paragraph at lines 479--492
-[]$[]$  $[]$ 
- []
-
-[11] [12] (./chapitre_1.aux) ) 
+{/usr/local/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (./lect
+ure_2.aux) ) 
 Here is how much of TeX's memory you used:
- 20696 strings out of 492649
- 394461 string characters out of 6129622
- 500551 words of memory out of 5000000
- 24076 multiletter control sequences out of 15000+600000
- 13679 words of font info for 56 fonts, out of 8000000 for 9000
+ 16369 strings out of 492649
+ 321071 string characters out of 6129622
+ 377691 words of memory out of 5000000
+ 19897 multiletter control sequences out of 15000+600000
+ 11531 words of font info for 45 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 61i,20n,82p,3366b,1041s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2018/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/pu
-blic/amsfonts/cm/cmex10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/pub
-lic/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/publ
-ic/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public
-/amsfonts/cm/cmr10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/a
-msfonts/cm/cmr12.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/ams
-fonts/cm/cmr6.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfon
-ts/cm/cmr8.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmsl12.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/c
-m/cmsy10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm
-/cmsy8.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/c
-mti12.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/symbo
-ls/msbm10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/xypic/xyat
-ip10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/xypic/xybtip10.
-pfb>
-Output written on chapitre_1.pdf (12 pages, 193677 bytes).
+ 61i,6n,82p,601b,423s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmbx12.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mex10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+mi12.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmm
+i6.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8
+.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.p
+fb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb>
+</usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></u
+sr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></us
+r/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
+Output written on lecture_2.pdf (1 page, 86127 bytes).
 PDF statistics:
- 121 PDF objects out of 1000 (max. 8388607)
- 86 compressed objects within 1 object stream
+ 51 PDF objects out of 1000 (max. 8388607)
+ 37 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 23 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

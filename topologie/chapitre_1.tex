@@ -20,6 +20,15 @@
            
 \usepackage{graphicx}
 \usepackage{tikz-cd}
+\usepackage[all]{xy}
+
+\usepackage{centernot}
+\usepackage{mathtools}
+\usepackage{ stmaryrd }
+
+\usetikzlibrary{decorations.pathmorphing}
+\usetikzlibrary{decorations.markings}
+\usetikzlibrary{arrows.meta,bending}
 
 \usepackage{import}
 \usepackage{xifthen}
@@ -47,28 +56,28 @@
 
 \begin{document}
 	\chapter{La topologie quotient}
-	Dans tout ce chapitre X dénote un espace \emph{topologique}, q une surjection. Sauf mention du contraire lorsqu'il est question d'espaces topologiques une application est considérée continue.
+	Dans tout ce chapitre $X$ dénote un espace \emph{topologique}, $q$ une surjection. Sauf mention du contraire lorsqu'il est question d'espaces topologiques une application est considérée continue.
 
 	\section{Théorie générale}
 	\begin{definition}[Topologie quotient]
-		La topologie quotient sur Y a pour ouverts les sous ensembles $U \subset Y$ tels que $q^{-1}(U)$ est ouvert dans X.
+		Étant donné une application $q$, la topologie quotient sur Y relativement à $q$ a pour ouverts les sous ensembles $U \subset Y$ tels que $q^{-1}(U)$ est ouvert dans X.
 	\end{definition}
 	\begin{remark}
 		Une caractérisation équivalente de cette topologie peut se faire en définissant les fermés de Y par les fermés de X.
 	\end{remark}
 	\begin{definition}[Quotient]
-		On dit que $q : X \longmapsto Y$ est un quotient si elle est surjective continue et que la topologie quotient induite par q coïncide avec la topologie de Y.	
+		On dit que $q : X \longmapsto Y$ est un quotient si elle est surjective continue et que la topologie quotient induite par $q$ coïncide avec la topologie de Y.	
 	\end{definition}
 	\begin{prop}
-		Si $q : X \longmapsto Y$ est une application surjective continue et ouverte alors q est un quotient et Y est muni de la topologie quotient définie par q.
+		Si $q : X \longmapsto Y$ est une application surjective continue et ouverte alors $q$ est un quotient et $Y$ est muni de la topologie quotient définie par $q$.
 	\end{prop}
 	\begin{proof}
-		Si U est ouvert dans Y alors $q^{-1}(U)$ est ouvert dans X par continuité de q. Réciproquement si  $ U \subset Y$ et $q^{-1}(U)$ est ouvert dans X alors par surjectivité de q  \[
+		Si $U$ est ouvert dans $Y$ alors $q^{-1}(U)$ est ouvert dans $X$ par continuité de $q$. Réciproquement si  $ U \subset Y$ et $q^{-1}(U)$ est ouvert dans $X$ alors par surjectivité de $q$  \[
 			q(q^{-1}(U)) = U
-		\] et on en conclut que U est ouvert dans X puisque q est ouverte. 
+		\] et on en conclut que $U$ est ouvert dans $Y$ puisque $q$ est ouverte. 
 	\end{proof}
 	\begin{remark}
-		Ce critère reste valable si q est une application fermée, la preuve est identique en remplaçant les ouverts par des fermés.
+		Ce critère reste valable si $q$ est une application fermée, la preuve est identique en remplaçant les ouverts par des fermés.
 	\end{remark}
 	\begin{example}
 		Il est cependant important de noter que ce critère bien que suffisant n'est \emph{pas} nécessaire. Définissons l'application\\
@@ -88,36 +97,52 @@
 			\includegraphics[width=\linewidth]{example_1.eps}
 		\end{minipage}\\
 
-		q est une application continue, c'est un quotient pour la topologie euclidienne sur $[0,3], [0,2]$ mais elle n'est pas ouverte,  $(1,2)$ est envoyé sur ${1}$.
+		$q$ est une application continue, c'est un quotient pour la topologie euclidienne sur $[0,3], [0,2]$ mais elle n'est pas ouverte,  $(1,2)$ est envoyé sur $\{1\}$.
 	\end{example}
 
 	\begin{prop}
 		La composition de deux quotients est également un quotient.
 	\end{prop}
 	\begin{prop}[Propriété universelle]
-		La topologie quotient est la plus fine telle que l'application q soit continue. De plus, $g : Y \longmapsto Z$ est un e application continue si et seulement si	$g \circ q : X \longmapsto Z$ est continue.
+		La topologie quotient est la plus fine telle que l'application $q$ soit continue. De plus, $g : Y \longmapsto Z$ est une application continue si et seulement si $g \circ q : X \longmapsto Z$ est continue.
 	\end{prop}
 	\begin{proof}
-		Soit U un ouvert d'une topologie sur Y telle que q soit continue. Par continuité de q $q^{-1}(U)$ est ouvert dans X et donc U est ouvert dans Y pour la topologie quotient. 
-		Si g est continue $g \circ q$ est continue en tant que composition d'applications continues. Réciproquement, si  $g \circ q$ est continue prenons $V \subset Z$ un ouvert, $(g\circ q)^{-1}(Z)$ est ouvert dans X par continuité de la composée et de plus \[
+		Soit $U$ un ouvert d'une topologie sur $Y$ telle que $q$ soit continue. Par continuité $q^{-1}(U)$ est ouvert dans $X$ et donc $U$ est ouvert dans $Y$ pour la topologie quotient. 
+	Si $g$ est continue $g \circ q$ est continue en tant que composition d'applications continues. Réciproquement, si  $g \circ q$ est continue prenons $V \subset Z$ un ouvert, ${(g\circ q)}^{-1}(Z)$ est ouvert dans $X$ par continuité de la composée et de plus \[
 			q^{-1}(g^{-1}(Z)) = (g \circ q)^{-1}(Z)
-		\] est ouvert. Ainsi par définition de la topologie quotient $g^{-1}(Z)$ est ouvert dans Y ce qui conclut quant à la continuité de g. 
+		\] est ouvert. Ainsi par définition de la topologie quotient $g^{-1}(Z)$ est ouvert dans $Y$ ce qui conclut quant à la continuité de $g$. 
 	\end{proof}
 	\begin{example}
 		Considérons le cercle unité \[
 			C \defeq \{(x,y) \in \mathbf{R}^2 \;|\; x^2 + y^2 = 1\} 
 		.\] 
-		On définit q une application surjective comme suit \\ 
+		On définit $q$ une application surjective comme suit \\ 
+		\begin{minipage}{0.5\textwidth}
 			\begin{align*}
 				q : \mathbf{R} &\longmapsto \mathbf{C}\\
 				t&\longmapsto e^{2\pi it}
 			.\end{align*}	
+		\end{minipage}
+		\hfill
+		\begin{minipage}{0.5\textwidth}
+			\centering
+			\begin{tikzpicture}
+				\draw[thick] (0,0) ellipse (2cm and 0.5cm);
+				\draw[thick,decoration={aspect=0.31, segment length=7mm,
+				amplitude=2cm,coil},decorate,arrows = {<[bend]-}] (0,1) --(0,4);
+				\draw[->,thick] (3,3) -- (3,1);
+				\node at (3.5,2) {$q$};
+				\node at (2.5,4) {$\mathbf{R}$};
+				\node at (2.5,0) {$\mathbf{C}$};
+			\end{tikzpicture}
+		\end{minipage}
+		\bigskip
 
 		Il s'agit d'une application continue surjective et ouverte pour la topologie euclidienne, c'est donc un quotient.
 	\end{example}
 	
 	\begin{prop}
-		Si q est un quotient $X \longmapsto Y$ et que X est compact alors Y est aussi compact.
+		Si $q$ est un quotient $X \longmapsto Y$ et que $X$ est compact alors $Y$ est aussi compact.
 	\end{prop}
 	\begin{proof}
 		L'image d'un compact par une fonction continue est compacte.
@@ -131,10 +156,15 @@
 			q : X &\longmapsto \quot{X}{\sim} \\
 			x &\longmapsto [x]
 		\end{align*}
-		alors l'espace quotient de X par $\sim$ est l'ensemble $\quot{X}{\sim}$ munit de la topologie quotient induite par q.
+		alors l'espace quotient de $X$ par $\sim$ est l'ensemble $\quot{X}{\sim}$ munit de la topologie quotient induite par $q$.
 	\end{definition}
+	\begin{remark}
+		On peut munir une partition $X^*$ de $X$ de la topologie quotient en définissant une relation d'équivalence $\sim$ sur  $X^*$ comme suit \[
+			x \sim y \iff \exists A \in X^* \; \text{tel que} \; x,y \in A
+		.\] 
+	\end{remark}
 	\begin{example}
-		Le cercle C définit précédemment peut être vu comme espace quotient de $[0,1]$ par la relation 
+		Le cercle $C$ définit précédemment peut être vu comme espace quotient de $[0,1]$ par la relation 
 		 \begin{align*}
 			x \sim y \iff \begin{cases}
 				x = y \\
@@ -143,17 +173,27 @@
 		.\end{align*}
 	\end{example}
 	\begin{prop}[Propriété universelle]
-		Soit $\sim$ une relation d'équivalence sur un espace X, pour toute application $f : X \longmapsto Y$ vérifiant $x \sim x' \implies f(x) = f(x')$ il existe une unique application $\hat{f} : \quot{X}{\sim} \longmapsto Y$ telle que $\hat{f} \circ q = f$.
-		Le diagramme suivant résume cette propriété, $\hat{f}$ est l'unique fonction le faisant commuter 
-
+		Soit $\sim$ une relation d'équivalence sur un espace $X$, pour toute application $f : X \longmapsto Y$ vérifiant $x \sim x' \implies f(x) = f(x')$ il existe une unique application $\hat{f} : \quot{X}{\sim} \longmapsto Y$ telle que $\hat{f} \circ q = f$.\\
+		\begin{minipage}{0.5\textwidth}
+			Le diagramme suivant résume cette propriété, $\hat{f}$ est l'unique fonction le faisant commuter.
+		\end{minipage}
+		\hfill
+		\begin{minipage}{0.5\textwidth}
+			\centering
+			\begin{tikzcd}[row sep=large]
+				X \arrow[r, "q"] \arrow[dr, "f"]
+		    & \quot{X}{\sim} \arrow[d, dashed, "\exists! \; \hat{f}"]\\
+		&D
+			\end{tikzcd}
+		\end{minipage}
 	\end{prop}
 	\begin{proof}
-			Comme on veut $\hat{f}\circ q = f$ on doit avoir $f([x]) = \hat{f}(q(x)) = f(x)$ et l'unicité est garantie. Cette application est bien définie puisqu'on a imposé que f soit compatible avec $\sim$. Pour vérifier la continuité de $\hat{f}$ il suffit de réaliser que la composition $\hat{f} \circ q$ est continue puisqu'il s'agit de f et d'appliquer le Lemme précédent. 
+		Comme on veut $\hat{f}\circ q = f$ on doit avoir $f([x]) = \hat{f}(q(x)) = f(x)$ et l'unicité est garantie. Cette application est bien définie puisqu'on a imposé que $f$ soit compatible avec $\sim$. Pour vérifier la continuité de $\hat{f}$ il suffit de réaliser que la composition $\hat{f} \circ q$ est continue puisqu'il s'agit de $f$ et d'appliquer la \textbf{Proposition 1.1.6}. 
 
 	\end{proof}
 	Soit $A\subset X$ un sous espace.
-	\begin{definition}[Collapse de X par A]
-		Le collapse de X par A est le quotient $\quot{X}{\sim}$ où
+	\begin{definition}[Collapse]
+		Le collapse de $X$ par $A$ est le quotient $\quot{X}{\sim}$ où
 		 \begin{align*}
 			x \sim x' \iff \begin{cases}
 				x=x' \\
@@ -180,8 +220,8 @@
 	\end{example}
 
 	\begin{definition}[Cylindre et cône de base X]
-		Pour un espace X, le cylindre de base X est $X \times I$ avec le plus souvent $I = [0,1]$.
-		Le cône de base X est le quotient $\quot{X\times I}{X \times 0}$, on le note CX.
+		Pour un espace $X$, le cylindre de base $X$ est $X \times I$ avec le plus souvent $I = [0,1]$.
+		Le cône de base $X$ est le quotient $\quot{X\times I}{X \times 0}$, on le note CX.
 	\end{definition}
 	\begin{prop}
 		Le cône CX est toujours contractile.	
@@ -212,7 +252,7 @@
 				 x = y \neq 0
 			 \end{cases}
 		.\end{align*}
-		On ne peut pas séparer ces deux origines par des ouverts. On peut s'intéresser au graphe de cette relation $$\Gamma \defeq \{(d,d') \in {(\mathbf{R}\times \{0,1\})}^2  \;|\; d\sim d'\}\footnote{Le 0 n'est pas inclut pour le graphe de la classe (0,1) et de la classe (1,0).}$$
+		On ne peut pas séparer ces deux origines par des ouverts. On peut s'intéresser au graphe de cette relation $$\Gamma \defeq \{(d,d') \in {(\mathbf{R}\times \{0,1\})}^2  \;|\; d\sim d'\}\footnote{L'origine n'est pas inclue pour le graphe de la classe (0,1) et de la classe (1,0).}$$
 		\begin{figure}[ht]
 			\centering
 			\includegraphics[width=0.8\textwidth]{graph.eps}
@@ -234,15 +274,15 @@
 		\] qui est donc fermé.	
 	\end{proof}
 	Notons cependant que cette condition n'est pas suffisante. Le critère suivant fournit quant à lui une condition suffisante, bien que non nécessaire. 
-	\begin{definition}[Saturé de A]
-		On appelle saturé de A l'ensemble $q^{-1}(q(A))$ pour  $A \subset X$.
+	\begin{definition}[Saturé]
+		On appelle saturé de $A$ l'ensemble $q^{-1}(q(A))$ pour  $A \subset X$.
 	\end{definition}
 
 	\begin{prop}
-		Si X est un espace séparé tel que $q^{-1}(q(x))$ est compact pour tout  $x\in X$ et $q^{-1}(q(F))$ est fermé dans X pour tout F fermé dans X, alors $\quot{X}{\sim} = q(X)$ est séparé
+		Si $X$ est un espace séparé tel que $q^{-1}(q(x))$ est compact pour tout  $x\in X$ et $q^{-1}(q(F))$ est fermé dans $X$ pour tout F fermé dans $X$, alors $\quot{X}{\sim} = q(X)$ est séparé
 	\end{prop}
 	\begin{proof}
-		Prenons deux classes disjointes du quotient $[x] \neq [y]$. Puisque X est séparé on peut trouver deux ouverts disjoints de X, U et V, avec $q^{-1}(x) \in U$ et  $q^{-1}(y) \in V$ puisque $q^{-1}([x])$ et  $q^{-1}([y])$ sont compacts. En regardant les complémentaires fermés on a que \[
+		Prenons deux classes disjointes du quotient $[x] \neq [y]$. Puisque X est séparé on peut trouver deux ouverts disjoints de $X$, $U$ et $V$, avec $q^{-1}(x) \in U$ et  $q^{-1}(y) \in V$ puisque $q^{-1}([x])$ et  $q^{-1}([y])$ sont compacts. En regardant les complémentaires fermés on a que \[
 			U^c \subset q^{-1}(q(U^c)) \; \text{et} \; V^c \subset q^{-1}(q(V^c))
 		.\] Soient donc \[
 		U' \defeq X\setminus(q^{-1}(q(U^c))) \subset U \; \text{et} \; V' \defeq X\setminus(q^{-1}(q(V^c))) \subset V
@@ -251,7 +291,7 @@
 	Pour terminer la preuve, montrons que $q(U')$ et  $q(V')$ sont disjoints. Supposons par l'absurde que ce ne soit pas le cas. Soit $[z] \in q(U')\cap q(V')$, il existe donc $u' \in U'$ tel que  $[z] = q(u') \in q(V')$. Ainsi $u' \in q^{-1}(q(V')) = V'$ mais  $U'$ et  $V'$ sont disjoints, contradiction.
 	\end{proof}
 	\begin{cor}
-		Si $A \subset X$ est un sous espace compact et X séparé, alors $\quot{X}{A}$ est séparé.
+		Si $A \subset X$ est un sous espace compact et $X$ séparé, alors $\quot{X}{A}$ est séparé.
 	\end{cor}
 	\begin{proof}
 		Le critère précédent est vérifié puisque la saturation d'un point
@@ -292,7 +332,7 @@
 	\section{Quotient par des actions de groupe}
 
 	\begin{definition}[Groupe topologique]
-		Un groupe topologique G est un ensemble m'unit d'une loi de groupe $\cdot$ ainsi que d'une topologie telle que la multiplication et l'inversion soient des applications continues. 
+		Un groupe topologique $G$ est un ensemble m'unit d'une loi de groupe $\cdot$ ainsi que d'une topologie telle que la multiplication et l'inversion soient des applications continues. 
 	\end{definition}
 
 	\begin{example} On donne quelques exemples de base de groupes topologiques \\
@@ -308,7 +348,7 @@
 	\end{lemma}
 
 	\begin{definition}
-		Une action d'un groupe topologique G à droite sur un espace X est donnée par une application continue
+		Une action d'un groupe topologique $G$ à droite sur un espace $X$ est donnée par une application continue
 		\begin{align*}
 			X \times G &\longmapsto X \\
 			(x,g) &\longmapsto x\cdot g
@@ -321,7 +361,7 @@
 	\end{definition}
 
 	\begin{definition}[Espace des orbites]
-		Soit X un espace sur lequel G agit. L'espace des orbites $\quot{X}{G}$ est le quotient de X par la relation $x \sim y \iff \exists g \in G \;|\; x = y \cdot g$.
+		Soit $X$ un espace sur lequel $G$ agit. L'espace des orbites $\quot{X}{G}$ est le quotient de $X$ par la relation $x \sim y \iff \exists g \in G \;|\; x = y \cdot g$.
 	\end{definition}
 	\begin{example}
 		\begin{enumerate}
@@ -332,7 +372,7 @@
 		\end{enumerate}	
 	\end{example}
 	\begin{remark}
-		Étant donne un groupe G et un sous groupe H de G, H agit sur G par multiplication
+		Étant donne un groupe $G$ et un sous groupe $H < G$, $H$ agit naturellement sur $G$ par multiplication
 		\begin{align*}
 			G\times H &\longmapsto G\\
 			(g,h) &\longmapsto gh
@@ -341,11 +381,11 @@
 	\end{remark}
 
 	\begin{prop}
-		Soit G un groupe topologique agissant sur un espace X, alors
+		Soit $G$ un groupe topologique agissant sur un espace $X$, alors
 		\begin{enumerate}
 			\item Le quotient $q : X \longmapsto \quot{X}{G}$ est une application ouverte.
-			\item Si X est compact alors le quotient l'est aussi.
-			\item Si X et G sont compact et séparés alors le quotient l'est aussi.
+			\item Si $X$ est compact alors le quotient l'est aussi.
+			\item Si $X$ et $G$ sont compact et séparés alors le quotient l'est aussi.
 		\end{enumerate}
 		\begin{proof}
 			\begin{enumerate}
@@ -356,7 +396,7 @@
 					\end{align*}
 					si $U \subset X$ est ouvert alors $U \cdot g$ l'est aussi. Pour montrer que $q(U)$ est ouvert dans le quotient on doit montrer par définition de la topologie quotient que la primage est ouverte dans X. Or  $q^{-1}(q(U)) = \cup_{g\in G}U\cdot g$, est ouvert comme union d'ouverts.
 				\item L'image d'un compact par une fonction continue est compact.
-				\item Comme X est séparé, la diagonale $\Delta$ est fermée dans $X \times X$par le \textbf{Lemme 1.3.3} donc compacte. On pose
+				\item Comme $X$ est séparé, la diagonale $\Delta$ est fermée dans $X \times X$par le \textbf{Lemme 1.3.3} donc compacte. On pose
 					\begin{align*}
 						X \times X \times G &\longmapsto X \times X \\
 						(x,y,g) &\longmapsto (x,yg)
@@ -378,7 +418,7 @@
 		.\] 	
 	\end{definition}
 	\begin{prop}
-		Soit G un groupe topologique compact qui agit à gauche transitivement sur un espace X séparé, alors pour tout point $x\in X$ on a un homéomorphisme  \[
+		Soit $G$ un groupe topologique compact qui agit à gauche transitivement sur un espace $X$ séparé, alors pour tout point $x\in X$ on a un homéomorphisme  \[
 			\quot{G}{G_x} \cong X
 		.\] 
 	\end{prop}
@@ -410,11 +450,45 @@ $\mathbf{RP}^0 \cong \quot{\{\pm 1\}}{-1 \sim 1}$, $\mathbf{RP}^1 \cong S^1$, $\
 		Le recollement $X \cup_A Y$ est l'espace quotient $\quot{X \sqcup Y}{\sim}$ où $\sim$ est la relation d'équivalence engendrée par  $f(a) \sim g(a) \; \forall a \in A$.	
 	\end{definition}
 	\begin{remark}
-		Voir Ph
+		Pour les applications suivantes le diagramme de droite commute. \\
+		\begin{minipage}{0.5\textwidth}
+			\begin{align*}
+				&i : X \xmapsto{i_1} X \sqcup Y \xmapsto{q} X \cup_A Y \\
+				& j : Y \xmapsto{i_2} X \sqcup Y \xmapsto{q} X \cup_A Y			
+			\end{align*}
+		\end{minipage}
+		\hfill
+		\begin{minipage}{0.5\textwidth}
+			\centering
+			\begin{tikzpicture}[every node/.style={midway}]
+				  \matrix[column sep={4em,between origins}, row sep={2em}] at (0,0) {
+				    \node(A) {$A$}  ; & \node(Y) {$Y$}; \\
+				    \node(X) {$X$}; & \node (U) {$X\cup_A Y$};\\
+				  };
+				  \draw[<-] (X) -- (A) node[anchor=east]  {$f$};
+				  \draw[->] (A) -- (Y) node[anchor=south] {$g$};
+				  \draw[->] (Y) -- (U) node[anchor=west] {$j$};
+				  \draw[->] (X) --(U) node[anchor=north] {$i$};
+			\end{tikzpicture}
+		\end{minipage}
 	\end{remark}
 	\begin{prop}[Propriété universelle]
 		Pour toutes applications $\alpha : X \longmapsto Z$ et\\
 		$\beta : Y \longmapsto Z$ telles que $\alpha \circ f = \beta \circ g$ il existe une \emph{unique} application  $\gamma : X \cup_A Y \longmapsto Z$ telle que $\gamma \circ i = \alpha$ et  $\gamma \circ j = \beta$.
+
+		\begin{minipage}{0.5\textwidth}
+			Le diagramme suivant résume cette propriété, $\gamma$ est l'unique application le faisant commuter.
+		\end{minipage}
+		\hfill
+		\begin{minipage}{0.5\textwidth}
+			\[
+			\xymatrix@R=1.2cm@C=1.2cm{
+			 A \ar[r]^{g}      \ar[d]_{f}         & Y \ar[d]_{j} \ar@/^1pc/[rdd]^{\beta}   \\
+			 X \ar[r]^{i} \ar@/_1pc/[rrd]_{\alpha} & X\cup_A Y \ar@{-->}[rd]|{\exists! \; \gamma}             \\
+							      &                                   & Z 
+			}
+	\]	
+		\end{minipage}
 	\end{prop}
 	\begin{proof}
 		Pour définir $\gamma$ on pose  
