@@ -119,7 +119,7 @@
 		On définit $q$ une application surjective comme suit \\ 
 		\begin{minipage}{0.5\textwidth}
 			\begin{align*}
-				q : \mathbf{R} &\longmapsto \mathbf{C}\\
+				q : \mathbf{R} &\longmapsto C\\
 				t&\longmapsto e^{2\pi it}
 			.\end{align*}	
 		\end{minipage}
@@ -133,7 +133,7 @@
 				\draw[->,thick] (3,3) -- (3,1);
 				\node at (3.5,2) {$q$};
 				\node at (2.5,4) {$\mathbf{R}$};
-				\node at (2.5,0) {$\mathbf{C}$};
+				\node at (2.5,0) {$C$};
 			\end{tikzpicture}
 		\end{minipage}
 		\bigskip
@@ -145,7 +145,7 @@
 		Si $q$ est un quotient $X \longmapsto Y$ et que $X$ est compact alors $Y$ est aussi compact.
 	\end{prop}
 	\begin{proof}
-		L'image d'un compact par une fonction continue est compacte.
+		L'image d'un compact par une fonction continue est un compact.
 	\end{proof}
 
 	\section{Quotient par une relation}
@@ -188,7 +188,7 @@
 		\end{minipage}
 	\end{prop}
 	\begin{proof}
-		Comme on veut $\hat{f}\circ q = f$ on doit avoir $f([x]) = \hat{f}(q(x)) = f(x)$ et l'unicité est garantie. Cette application est bien définie puisqu'on a imposé que $f$ soit compatible avec $\sim$. Pour vérifier la continuité de $\hat{f}$ il suffit de réaliser que la composition $\hat{f} \circ q$ est continue puisqu'il s'agit de $f$ et d'appliquer la \textbf{Proposition 1.1.6}. 
+		Comme on veut $\hat{f}\circ q = f$ on doit avoir $\hat{f}([x]) = \hat{f}(q(x)) = f(x)$ et l'unicité est garantie. Cette application est bien définie puisqu'on a imposé que $f$ soit compatible avec $\sim$. Pour vérifier la continuité de $\hat{f}$ il suffit de réaliser que la composition $\hat{f} \circ q$ est continue puisqu'il s'agit de $f$ et d'appliquer la \textbf{Proposition 1.1.6}. 
 
 	\end{proof}
 	Soit $A\subset X$ un sous espace.
@@ -206,8 +206,38 @@
 		Le cercle unité définit précédemment s'écrit comme le collapse $C = \quot{[0,1]}{\{0,1\}}$.
 	\end{example}
 
+	\begin{definition}[Union disjointe]
+		Étant donné une famille d'ensembles $\{X_i \;|\; i \in I\}$ indexés par un ensemble d'indices $I$, l'union disjointe est l'ensemble \[
+			\coprod_{i \in I}X_i \defeq \bigcup_{i\in I}\{(x,i) \;|\; x\in X_i\} 
+		.\]
+		On définit une topologie sur cet ensemble telle que les inclusions canoniques 
+		\begin{align*}
+			\varphi_i : X_i &\longmapsto \coprod X_i \\
+			x&\longmapsto(x,i)
+		\end{align*} soient continues. De façon explicite un sous ensemble $U \subset \coprod X_i$ est ouvert si et seulement si sa préimage $\varphi^{-1}(U) \subset X_i$ est ouverte pour tout $i\in I$. Cette topologie est appelée topologie coproduit.
+	\end{definition}
+	\begin{prop}[Propriété universelle]
+		L'union disjointe d'une famille d'ensemble munie des injections canoniques est caractérisée par la propriété universelle suivante. \\
+
+		\begin{minipage}{0.5\textwidth}
+			Pour tout espace $Y$ et toute application continue $f_i : X_i \longmapsto Y$ pour $i \in I$ il existe une unique application continue $f : \coprod X_i \longmapsto Y$ telle que $f \circ \varphi_i = f_i$. Cette propriété est résumée par le diagramme suivant.	
+		\end{minipage}
+		\hfill
+		\begin{minipage}{0.5\textwidth}
+			\centering
+			\begin{tikzcd}[row sep=large]
+				X_i \arrow[r, "\varphi_i"] \arrow[dr, "f_i"]
+		    & \coprod X_i \arrow[d, dashed, "\exists! \; f"]\\
+		&Y
+			\end{tikzcd}
+		\end{minipage}
+	\end{prop}
+	\begin{prop}
+		La topologie coproduit est la moins fine telle que les projections canoniques soient continues.
+	\end{prop}
+
 	\begin{definition}[Wedge]
-		Si $(X_i,x_i)$ est un espace épointé pour $i\in I$ un ensemble d'indices non vide, alors le wedge ou \emph{bouquet} en français, est le quotient de la réunion disjointe des $X_i$ par la relation
+		Si $(X_i,x_i)$ est un espace épointé pour $i\in I$ un ensemble d'indices non vide, alors le wedge ou \emph{bouquet} en français, est le quotient de l'union disjointe des $X_i$ par la relation
 		 \begin{align*}
 			x\sim x' \iff \begin{cases}
 				x=x' \\
@@ -243,37 +273,44 @@
 	\end{proof}
 
 	\section{Quotient et séparabilité}
-	Dans toute cette section séparé et Hausdorff sont synonymes. En général le quotient d'un espace Hausdorff n'est pas nécessairement Hausdorff.
+	Dans toute cette section séparé et Hausdorff sont synonymes. En général le quotient d'un espace Hausdorff n'est pas nécessairement Hausdorff. On se demande sous quelle condition sur $X$ le quotient $\quot{X}{\sim}$ est séparé.
 	\begin{example}
-		L'exemple classique est la droite avec deux origines D obtenue comme quotient de $\mathbf{R}\times \{0,1\}$ par la relation
-		 \begin{align*}
-			 (x,s) \sim (y,t) \iff \begin{cases}
-				 (x,s) = (y,t) \\
-				 x = y \neq 0
-			 \end{cases}
-		.\end{align*}
-		On ne peut pas séparer ces deux origines par des ouverts. On peut s'intéresser au graphe de cette relation $$\Gamma \defeq \{(d,d') \in {(\mathbf{R}\times \{0,1\})}^2  \;|\; d\sim d'\}\footnote{L'origine n'est pas inclue pour le graphe de la classe (0,1) et de la classe (1,0).}$$
-		\begin{figure}[ht]
+		L'exemple classique est la droite avec deux origines D obtenue comme quotient de $\mathbf{R}\times \{0,1\}$ par la relation \\
+		\begin{minipage}{0.5\textwidth}
+			\begin{align*}
+				(x,s) \sim (y,t) \iff \begin{cases}
+					(x,s) = (y,t) \\
+					x = y \neq 0
+				\end{cases}
+			.\end{align*}
+			On ne peut pas séparer ces deux origines par des ouverts. On peut s'intéresser au graphe de cette relation défini comme \[\Gamma \defeq \{(d,d') \in {(\mathbf{R}\times \{0,1\})}^2  \;|\; d\sim d'\}.\] L'origine n'est pas inclue pour le graphe de la classe $(0,1)$ et celui de la classe $(1,0)$.
+		\end{minipage}
+		\hfill
+		\begin{minipage}{0.5\textwidth}
 			\centering
-			\includegraphics[width=0.8\textwidth]{graph.eps}
-		\end{figure}
+			\includegraphics[scale=0.5]{graph.eps}
+		\end{minipage}
 	\end{example}
 	\begin{prop}
 		Si $\quot{X}{\sim}$ est séparé, alors le graphe de la relation  $\sim$ est fermé.
 	\end{prop}
 	Pour arriver à ce résultat nous aurons besoin du Lemme suivant.
+	\begin{definition}[Diagonale]
+		La diagonale d'un espace X est définie comme le sous ensemble du produit cartésien
+	\[\Delta \defeq \{(x,x) \in X \times X\}\]
+	\end{definition}
 	\begin{lemma}
-		Un espace est Hausdorff si et seulement si la diagonale $$\Delta \defeq \{(x,x) \in X \times X\}$$ est fermée.
+		Un espace est Hausdorff si et seulement si sa diagonale est fermée.
 	\end{lemma}
 	\begin{proof}
-		Soient $x \neq y \in X$ et  $x \in U, y \in V$ des voisinages distincts. Alors  $U\times V$ est un voisinage ouvert de  $(x,y) \in X\times Y$ munit de la topologie produit. On observe que  $U\cap V \neq \varnothing \iff U\times V \cap \Delta = \varnothing$. On peut séparer x et y par des ouverts si et seulement si $\Delta^c$ est ouvert.
+		Soient $x \neq y \in X$ et  $x \in U, y \in V$ des voisinages distincts. Alors  $U\times V$ est un voisinage ouvert de  $(x,y) \in X\times Y$ munit de la topologie produit. On observe que  $U\cap V \neq \varnothing \iff (U\times V) \cap \Delta = \varnothing$. On peut séparer x et y par des ouverts si et seulement si $\Delta^c$ est ouvert.
 	\end{proof}
 	\begin{proof}[Démonstration de la proposition]
-		Si le quotient $\quot{X}{\sim}$est séparé, la diagonale $\Delta \subset (\quot{X}{\sim})^2$ est fermée par le Lemme précédent. On considère $q\times q : X \times X \longmapsto (\quot{X}{\sim}) \times (\quot{X}{\sim})$ une application continue et on identifie \[
+		Si le quotient $\quot{X}{\sim}$est séparé, la diagonale $\Delta \subset (\quot{X}{\sim})^2$ est fermée par le Lemme précédent. On considère $q\times q : X \times X \longmapsto (\quot{X}{\sim}) \times (\quot{X}{\sim})$ le quotient et on identifie \[
 		{(q \times q)}^{-1}(\Delta) = \{(x,y) \in X \times X \;|\; [x] = [y]\} = \Gamma 
 		\] qui est donc fermé.	
 	\end{proof}
-	Notons cependant que cette condition n'est pas suffisante. Le critère suivant fournit quant à lui une condition suffisante, bien que non nécessaire. 
+	Bien que nécessaire, notons que cette condition n'est pas suffisante. Le critère suivant fournit quant à lui une condition suffisante, bien que non nécessaire. 
 	\begin{definition}[Saturé]
 		On appelle saturé de $A$ l'ensemble $q^{-1}(q(A))$ pour  $A \subset X$.
 	\end{definition}
@@ -305,14 +342,23 @@
 		\begin{align*}
 			q^{-1}(q(F)) = \begin{cases}
 				F \; \text{si} \; A\cap F = \varnothing \\
-				F \cup A \; \text{sinon}
+				F \bigcup A \; \text{sinon}
 			\end{cases}
-		.\end{align*} Notons que $F$ est fermé puisque compact dans un espace séparé, ce qui implique que  $F \cup A$ l'est également.
+		.\end{align*} Notons que $F$ est fermé puisque compact dans un espace séparé, ce qui implique que  $F \bigcup A$ l'est également.
 	\end{proof}
 	\begin{example} On montre à travers cet exemple que cette proposition n'est \emph{pas} nécessaire. On définit sur $\mathbf{R}^2$ la relation  \[
 		\textbf{x} \sim \textbf{y} \iff \exists \textbf{a} \in \mathbf{Z}^2 \;|\; \textbf{x} + \textbf{a} = \textbf{y}
 	.\] Alors $\quot{\mathbf{R}^2}{\sim}$ est compact et séparé mais $q^{-1}(q(\textbf{0})) = \mathbf{Z}^2$ n'est pas compact.
 	\end{example}
+
+	\begin{prop}
+		L'espace $\quot{X}{\sim}$ est T1, ou de Fréchet, si et seulement si chaque classe d'équivalence de $\sim$ est fermée dans $X$.
+	\end{prop}
+	
+	Dans le cas où $X$ est un espace compact on a des équivalences plus satisfaisantes.
+	 \begin{prop}
+		Soit $X$ un espace compact, alors $\quot{X}{\sim}$ est séparé si et seulement si le graphe de la relation $\sim$ est fermé.
+	\end{prop}
 
 	\begin{definition}[Espace projectif réel]
 		Soit $S^n \subset \mathbf{R}^{n+1}$ la sphère unité et $\sim$ la relation définie par $x \sim y \iff x = \pm y$ pour $x,y \in S^n$. L'espace projectif réel $\mathbf{RP}^n$ est le quotient  $\quot{S^n}{\sim}$.
@@ -321,7 +367,7 @@
 		$\mathbf{RP}^n$ est compact et séparé.
 	\end{prop}
 	\begin{proof}
-		$S^n$ est compact le quotient l'est aussi. De plus $q^{-1}(q(x)) = \{\pm x\}$ est compact et $q^{-1}(q(F)) = F \cup -F$ est fermé comme union de deux fermés et donc par la proposition précédente le quotient est séparé.
+		$S^n$ est compact le quotient l'est aussi. De plus $q^{-1}(q(x)) = \{\pm x\}$ est compact et $q^{-1}(q(F)) = F \bigcup -F$ est fermé comme union de deux fermés et donc par la proposition précédente le quotient est séparé.
 	\end{proof}
 	On passe de $\mathbf{R}$ à  $\mathbf{C}$ et on remplace les nombre réels de valeur absolue 1 par  $S^1 \subset \mathbf{C}$ les nombres complexes de module 1.
 
@@ -394,7 +440,7 @@
 						 X &\longmapsto X \\
 						 x &\longmapsto x\cdot g
 					\end{align*}
-					si $U \subset X$ est ouvert alors $U \cdot g$ l'est aussi. Pour montrer que $q(U)$ est ouvert dans le quotient on doit montrer par définition de la topologie quotient que la primage est ouverte dans X. Or  $q^{-1}(q(U)) = \cup_{g\in G}U\cdot g$, est ouvert comme union d'ouverts.
+					si $U \subset X$ est ouvert alors $U \cdot g$ l'est aussi. Pour montrer que $q(U)$ est ouvert dans le quotient on doit montrer par définition de la topologie quotient que la primage est ouverte dans X. Or  $q^{-1}(q(U)) = \bigcup_{g\in G}U\cdot g$, est ouvert comme union d'ouverts.
 				\item L'image d'un compact par une fonction continue est compact.
 				\item Comme $X$ est séparé, la diagonale $\Delta$ est fermée dans $X \times X$par le \textbf{Lemme 1.3.3} donc compacte. On pose
 					\begin{align*}
@@ -447,14 +493,14 @@ $\mathbf{RP}^0 \cong \quot{\{\pm 1\}}{-1 \sim 1}$, $\mathbf{RP}^1 \cong S^1$, $\
 	Soient $f : A \longmapsto X$ et $g : A \longmapsto Y$ deux applications continues. On aimerait construire un nouvel espace à partir de $X$ et $Y$ en identifiant leur `partie commune' $A$.
 
 	\begin{definition}[Recollement]
-		Le recollement $X \cup_A Y$ est l'espace quotient $\quot{X \sqcup Y}{\sim}$ où $\sim$ est la relation d'équivalence engendrée par  $f(a) \sim g(a) \; \forall a \in A$.	
+		Le recollement $X \bigcup_A Y$ est l'espace quotient $\quot{X \coprod Y}{\sim}$ où $\sim$ est la relation d'équivalence engendrée par  $f(a) \sim g(a) \; \forall a \in A$.	
 	\end{definition}
 	\begin{remark}
 		Pour les applications suivantes le diagramme de droite commute. \\
 		\begin{minipage}{0.5\textwidth}
 			\begin{align*}
-				&i : X \xmapsto{i_1} X \sqcup Y \xmapsto{q} X \cup_A Y \\
-				& j : Y \xmapsto{i_2} X \sqcup Y \xmapsto{q} X \cup_A Y			
+				&i : X \xmapsto{i_1} X \coprod Y \xmapsto{q} X \bigcup_A Y \\
+				& j : Y \xmapsto{i_2} X \coprod Y \xmapsto{q} X \bigcup_A Y			
 			\end{align*}
 		\end{minipage}
 		\hfill
@@ -463,7 +509,7 @@ $\mathbf{RP}^0 \cong \quot{\{\pm 1\}}{-1 \sim 1}$, $\mathbf{RP}^1 \cong S^1$, $\
 			\begin{tikzpicture}[every node/.style={midway}]
 				  \matrix[column sep={4em,between origins}, row sep={2em}] at (0,0) {
 				    \node(A) {$A$}  ; & \node(Y) {$Y$}; \\
-				    \node(X) {$X$}; & \node (U) {$X\cup_A Y$};\\
+				    \node(X) {$X$}; & \node (U) {$X\bigcup_A Y$};\\
 				  };
 				  \draw[<-] (X) -- (A) node[anchor=east]  {$f$};
 				  \draw[->] (A) -- (Y) node[anchor=south] {$g$};
@@ -474,7 +520,7 @@ $\mathbf{RP}^0 \cong \quot{\{\pm 1\}}{-1 \sim 1}$, $\mathbf{RP}^1 \cong S^1$, $\
 	\end{remark}
 	\begin{prop}[Propriété universelle]
 		Pour toutes applications $\alpha : X \longmapsto Z$ et\\
-		$\beta : Y \longmapsto Z$ telles que $\alpha \circ f = \beta \circ g$ il existe une \emph{unique} application  $\gamma : X \cup_A Y \longmapsto Z$ telle que $\gamma \circ i = \alpha$ et  $\gamma \circ j = \beta$.
+		$\beta : Y \longmapsto Z$ telles que $\alpha \circ f = \beta \circ g$ il existe une \emph{unique} application  $\gamma : X \bigcup_A Y \longmapsto Z$ telle que $\gamma \circ i = \alpha$ et  $\gamma \circ j = \beta$.
 
 		\begin{minipage}{0.5\textwidth}
 			Le diagramme suivant résume cette propriété, $\gamma$ est l'unique application le faisant commuter.
@@ -484,7 +530,7 @@ $\mathbf{RP}^0 \cong \quot{\{\pm 1\}}{-1 \sim 1}$, $\mathbf{RP}^1 \cong S^1$, $\
 			\[
 			\xymatrix@R=1.2cm@C=1.2cm{
 			 A \ar[r]^{g}      \ar[d]_{f}         & Y \ar[d]_{j} \ar@/^1pc/[rdd]^{\beta}   \\
-			 X \ar[r]^{i} \ar@/_1pc/[rrd]_{\alpha} & X\cup_A Y \ar@{-->}[rd]|{\exists! \; \gamma}             \\
+			 X \ar[r]^{i} \ar@/_1pc/[rrd]_{\alpha} & X\bigcup_A Y \ar@{-->}[rd]|{\exists! \; \gamma}             \\
 							      &                                   & Z 
 			}
 	\]	
@@ -493,7 +539,7 @@ $\mathbf{RP}^0 \cong \quot{\{\pm 1\}}{-1 \sim 1}$, $\mathbf{RP}^1 \cong S^1$, $\
 	\begin{proof}
 		Pour définir $\gamma$ on pose  
 		\begin{align*}
-			H : X \sqcup Y &\longmapsto Z \\
+			H : X \coprod Y &\longmapsto Z \\
 			x &\longmapsto \alpha(x) \\
 			y &\longmapsto \beta(x)
 		.\end{align*}

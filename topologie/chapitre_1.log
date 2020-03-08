@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2019.4.15)  5 MAR 2020 14:28
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2019.4.15)  6 MAR 2020 18:00
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1099,7 +1099,43 @@ it pr^^Sec^^Sedemment s'^^Secrit comme le col-lapse $\OML/cmm/m/it/12 C \OT1/cm
 r/m/n/12 = []$. 
  []
 
+
+Overfull \hbox (1.30034pt too wide) in paragraph at lines 220--221
+[]\OT1/cmr/bx/n/12 Proposition 1.2.7 \OT1/cmr/m/n/12 (Pro-pri^^Set^^Se uni-ver-
+selle)\OT1/cmr/bx/n/12 . []\OT1/cmr/m/it/12 L'union dis-jointe d'une fa-mille d
+'en-semble mu-nie
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 220--221
+
+ []
+
 [4]
+Underfull \hbox (badness 2799) in paragraph at lines 223--224
+[]\OT1/cmr/m/it/12 Pour tout es-pace $\OML/cmm/m/it/12 Y$ \OT1/cmr/m/it/12 et t
+oute ap-pli-ca-tion
+ []
+
+
+Overfull \hbox (20.62482pt too wide) in paragraph at lines 222--234
+[]$[]$  $[]$ 
+ []
+
+
+Overfull \hbox (7.84567pt too wide) in paragraph at lines 236--237
+[]\OT1/cmr/bx/n/12 Proposition 1.2.8. []\OT1/cmr/m/it/12 La to-po-lo-gie co-pro
+-duit est la moins fine telle que les pro-jec-tions ca-no-niques
+ []
+
+
+Overfull \hbox (3.75244pt too wide) in paragraph at lines 249--250
+[]\OT1/cmr/bx/n/12 Exemple 1.2.10. []\OT1/cmr/m/n/12 Le wedge $\OML/cmm/m/it/12
+ S[] [] S[]$ \OT1/cmr/m/n/12 est un huit, par abus de no-ta-tion on ad-met de m
+en-tion-ner
+ []
+
+[5]
 Package epstopdf Info: Source file: <graph.eps>
 (epstopdf)                    date: 2020-02-24 16:03:16
 (epstopdf)                    size: 18747 bytes
@@ -1108,61 +1144,72 @@ Package epstopdf Info: Source file: <graph.eps>
 (epstopdf)                    size: 3998 bytes
 (epstopdf)             Command: <repstopdf --outfile=graph-eps-converted-to.pdf
  graph.eps>
-(epstopdf)             \includegraphics on input line 258.
+(epstopdf)             \includegraphics on input line 291.
 Package epstopdf Info: Output file is already uptodate.
-<graph-eps-converted-to.pdf, id=37, 389.455pt x 324.21124pt>
+<graph-eps-converted-to.pdf, id=41, 389.455pt x 324.21124pt>
 File: graph-eps-converted-to.pdf Graphic file (type pdf)
 <use graph-eps-converted-to.pdf>
-Package pdftex.def Info: graph-eps-converted-to.pdf  used on input line 258.
-(pdftex.def)             Requested size: 375.80544pt x 312.85695pt.
- [5] [6 <./graph-eps-converted-to.pdf>] [7]
-Underfull \hbox (badness 10000) in paragraph at lines 338--340
+Package pdftex.def Info: graph-eps-converted-to.pdf  used on input line 291.
+(pdftex.def)             Requested size: 194.72702pt x 162.10522pt.
+
+Overfull \hbox (2.61107pt too wide) in paragraph at lines 278--293
+[]$  $[]$ 
+ []
+
+
+Overfull \hbox (1.99539pt too wide) in paragraph at lines 299--300
+[]\OT1/cmr/bx/n/12 D^^Sefinition 1.3.3 \OT1/cmr/m/n/12 (Dia-go-nale)\OT1/cmr/bx
+/n/12 . []\OT1/cmr/m/n/12 La dia-go-nale d'un es-pace X est d^^Sefinie comme le
+ sous en-semble
+ []
+
+[6 <./graph-eps-converted-to.pdf>] [7] [8]
+Underfull \hbox (badness 10000) in paragraph at lines 384--386
 
  []
 
-[8]
-Overfull \hbox (4.28256pt too wide) in paragraph at lines 368--369
+
+Overfull \hbox (4.28256pt too wide) in paragraph at lines 414--415
 []\OT1/cmr/m/n/12 Le groupe $\OML/cmm/m/it/12 C[]$ \OT1/cmr/m/n/12 agit sur $\O
 ML/cmm/m/it/12 S[] \OMS/cmsy/m/n/12 ^^Z \OT1/cmr/bx/n/12 R[]$ \OT1/cmr/m/n/12 p
 ar l'ac-tion an-ti-po-dale, le g^^Sen^^Serateur
  []
 
-[9] [10]
-Overfull \hbox (2.61107pt too wide) in paragraph at lines 453--474
+[9] [10] [11]
+Overfull \hbox (2.61107pt too wide) in paragraph at lines 499--520
 []$  $[]$ 
  []
 
 <xymatrix 3x3 331>
-Overfull \hbox (20.62482pt too wide) in paragraph at lines 479--492
+Overfull \hbox (20.62482pt too wide) in paragraph at lines 525--538
 []$[]$  $[]$ 
  []
 
-[11] [12] (./chapitre_1.aux) ) 
+[12] (./chapitre_1.aux) ) 
 Here is how much of TeX's memory you used:
- 20696 strings out of 492649
- 394461 string characters out of 6129622
- 500551 words of memory out of 5000000
- 24076 multiletter control sequences out of 15000+600000
+ 20729 strings out of 492649
+ 395247 string characters out of 6129622
+ 496551 words of memory out of 5000000
+ 24109 multiletter control sequences out of 15000+600000
  13679 words of font info for 56 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  61i,20n,82p,3366b,1041s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2018/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/pu
-blic/amsfonts/cm/cmex10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/pub
-lic/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/publ
-ic/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public
-/amsfonts/cm/cmr10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/a
-msfonts/cm/cmr12.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/ams
-fonts/cm/cmr6.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfon
-ts/cm/cmr8.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmsl12.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/c
-m/cmsy10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm
-/cmsy8.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/c
-mti12.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/symbo
-ls/msbm10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/xypic/xyat
-ip10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/xypic/xybtip10.
-pfb>
-Output written on chapitre_1.pdf (12 pages, 193677 bytes).
+</usr/local/texlive/2018/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmex10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmmi12.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmmi6.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsf
+onts/cm/cmmi8.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmr12.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmr6.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmr8.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+sl12.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cms
+y10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy
+8.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12
+.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/symbols/ms
+bm10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/xypic/xyatip10.
+pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/xypic/xybtip10.pfb>
+Output written on chapitre_1.pdf (12 pages, 191931 bytes).
 PDF statistics:
  121 PDF objects out of 1000 (max. 8388607)
  86 compressed objects within 1 object stream
