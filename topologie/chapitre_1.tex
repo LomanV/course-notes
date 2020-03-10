@@ -48,9 +48,11 @@
 \newtheorem{definition}[lemma]{Définition}
 \newtheorem{example}[lemma]{Exemple}
 \newenvironment{comments}{}{}
+\newtheorem*{notation}{Notation}
 
 \theoremstyle{remark}
 \newtheorem*{remark}{Remarque}
+
 
 \newcommand*\quot[2]{{^{\textstyle #1}\big/_{\textstyle #2}}}
 
@@ -58,12 +60,23 @@
 	\chapter{La topologie quotient}
 	Dans tout ce chapitre $X$ dénote un espace \emph{topologique}, $q$ une surjection. Sauf mention du contraire lorsqu'il est question d'espaces topologiques une application est considérée continue.
 
+	\begin{notation}
+		Nous introduisons les notations élémentaires qui suivront dans tout le chapitre.
+		\begin{list}{$\circ$}{}
+			\item Le singleton est l'espace $\star$ il s'agit de l'ensemble à un seul point munit de la topologie discrète. 
+			\item L'espace $D^n$ est la boule unité fermée (disque) dans Rn pour la métrique euclidienne usuelle. On notera parfois en pour ce même espace. L'intérieur $\mathring{D}^n$ ou $\mathring{e}^n$ est donc la boule ouverte. 
+			\item Le bord $\partial D^n$ de $D^n$ est la sphère unité $S^{n-1}$. 
+			\item On utilise le symbole $\cong$ pour les isomorphismes et les homéomorphismes sans plus de précision tant que le contexte est clair et $\simeq$ pour les homotopies.
+			\item Les vecteurs sont notés en gras.
+		\end{list}
+	\end{notation}
+
 	\section{Théorie générale}
 	\begin{definition}[Topologie quotient]
 		Étant donné une application $q$, la topologie quotient sur Y relativement à $q$ a pour ouverts les sous ensembles $U \subset Y$ tels que $q^{-1}(U)$ est ouvert dans X.
 	\end{definition}
 	\begin{remark}
-		Une caractérisation équivalente de cette topologie peut se faire en définissant les fermés de Y par les fermés de X.
+		Une caractérisation équivalente de cette topologie peut se faire en définissant les fermés de $Y$ par les fermés de $X$.
 	\end{remark}
 	\begin{definition}[Quotient]
 		On dit que $q : X \longmapsto Y$ est un quotient si elle est surjective continue et que la topologie quotient induite par $q$ coïncide avec la topologie de Y.	
@@ -172,8 +185,9 @@
 			\end{cases}
 		.\end{align*}
 	\end{example}
+
 	\begin{prop}[Propriété universelle]
-		Soit $\sim$ une relation d'équivalence sur un espace $X$, pour toute application $f : X \longmapsto Y$ vérifiant $x \sim x' \implies f(x) = f(x')$ il existe une unique application $\hat{f} : \quot{X}{\sim} \longmapsto Y$ telle que $\hat{f} \circ q = f$.\\
+		Soit $\sim$ une relation d'équivalence sur un espace $X$, pour toute application $f : X \longmapsto Y$ vérifiant $x \sim x' \implies f(x) = f(x')$ il existe une unique application $\hat{f} : \quot{X}{\sim} \longmapsto Y$ telle que $\hat{f} \circ q = f$. On dit que $f$ \textbf{passe au quotient} et induit une application $\hat{f}$. \\
 		\begin{minipage}{0.5\textwidth}
 			Le diagramme suivant résume cette propriété, $\hat{f}$ est l'unique fonction le faisant commuter.
 		\end{minipage}
@@ -204,6 +218,24 @@
 	\end{definition}
 	\begin{example}
 		Le cercle unité définit précédemment s'écrit comme le collapse $C = \quot{[0,1]}{\{0,1\}}$.
+	\end{example}
+
+	\begin{example}
+		On cherche à montrer ici que le collapse $\quot{D^n}{S^{n-1}}$ est homéomorphe à la sphère unité $S^n$.
+		\begin{figure}[ht!]
+			\centering
+			\incfig{dessin}
+			\caption{Illustration de ce quotient dans le cas $n=2$.}
+		\end{figure}
+		On exhibe à présent l'homéomorphisme dans le cas général
+		\begin{align*}
+			f : D^n &\longmapsto S^n \\
+			\textbf{x} &\longmapsto \begin{cases}
+				(2\textbf{x},\sqrt{1-\|\textbf{2x}^2\|}) \; &\text{si} \; \|\textbf{x}\| \le \frac{1}{2} \\
+				([4-4\|\textbf{x}\|]\textbf{x},-\sqrt{1-{[4-4\|\textbf{x}\|]}^2{\|\textbf{x}\|}^2}) \; &\text{si} \; \frac{1}{2} \le \|\textbf{x}\| \le 1
+			\end{cases}
+		.\end{align*}
+		Tout point du bord de $D^n$, donc de norme 1, est envoyé sur  $(\textbf{0},-1)$, cette application passe donc au quotient et induit une application $\hat{f} : \quot{D^n}{S^{n-1}} \longmapsto S^n$. Puisque c'est une bijection continue d'un espace compact vers un espace séparé il s'agit d'un homéomorphisme.
 	\end{example}
 
 	\begin{definition}[Union disjointe]
@@ -253,6 +285,13 @@
 		Pour un espace $X$, le cylindre de base $X$ est $X \times I$ avec le plus souvent $I = [0,1]$.
 		Le cône de base $X$ est le quotient $\quot{X\times I}{X \times 0}$, on le note CX.
 	\end{definition}
+
+	\begin{figure}[ht]
+	    \centering
+	    \incfig{dessin2}
+	    \caption{Illustration du cylindre et du cône de base $X$.}
+	\end{figure}
+
 	\begin{prop}
 		Le cône CX est toujours contractile.	
 	\end{prop}
@@ -545,4 +584,115 @@ $\mathbf{RP}^0 \cong \quot{\{\pm 1\}}{-1 \sim 1}$, $\mathbf{RP}^1 \cong S^1$, $\
 		.\end{align*}
 		Ce choix passe au quotient car $H(f(a)) = \alpha(f(a)) = \beta(g(a)) = H(g(a))$. On pose  $\gamma \defeq \overline{H}$ l'unicité est quant à elle claire.
 	\end{proof}
+	
+	\begin{lemma}
+		Soient $X,Y$ des espaces séparés, $A\subset Y$ fermé, $f : A \longmapsto X$ continue. Si $C \subset X$, alors $q^{-1}(q(C)) = C \amalg f^{-1}(C)$. 
+	\end{lemma}
+	\begin{lemma}
+		Soient $X,Y$ des espaces séparés,  $A\subset Y$ fermé. Si $C \subset Y$, alors \[q^{-1}(q(C)) = f(A\cap C) \amalg (C \cup f^{-1}(f(A\cap C))).\]
+	\end{lemma}
+	\begin{proof}
+		Soit $y \in C$. Si $y\in C \setminus A, \; [y] = \{y\}$. Sinon $[y] = f(y) \amalg f^{-1}(f(y))$. Donc $q^{-1}(q(C)) = (C\setminus A) \cup (C \cap A) \cup f(C\cap A) \cup f^{-1}(f(C\cap A))$ 	
+	\end{proof}
+	\begin{prop}
+		Soient $X,Y$ des espaces séparés,  $A\subset Y$ compact, alors $X \cup_A Y$ est séparé.
+	\end{prop}
+	\begin{proof}
+		On vérifie le critère de séparation. Les deux lemmes nous permettent de décrire la saturation d'un fermé arbitraire de $X \coprod Y$. Un fermé de  $X \coprod Y$ est une réunion disjointe de fermés, il suffit donc de vérifier ce qui se passe pour $C \subset X$ fermé et pour $C$ fermé de  $Y$.\\ 
+		Dans le premier cas, le \textbf{Lemme 1.6.3} montre que $q^{-1}(q(C)) = C \amalg f^{-1}(C)$ est fermé. \\
+		Dans le second le \textbf{Lemme 1.6.4} montre que $q^{-1}(q(C)) =f(C\cap A) \amalg f^{-1}(f(A\cap C))$. Ici $C\cap A$ est fermé dans $A$, donc compact. L'image par $f$ est donc un compact dans $X$ qui est séparé, elle est donc fermée. On conclut ensuite que $f^{-1}(f(A\cap C))$ est fermé aussi. \\ 
+	On vérifie finalement que la saturation d'un point est compacte, par exemple si \[y \in A, \; q^{-1}(q(y)) = f(y) \amalg f^{-1}(f(y))\] qui est une union disjointe de compacts donc un compact.
+	\end{proof}
+	
+	\begin{cor}
+		Soit $X$ un espace séparé, $A$ compact et séparé, $f : A\longmapsto X$. Alors $X \cup_f CA$\footnote{$CA$ dénote le cône de base  $A$} est séparé et compact si $X$ est compact.
+	\end{cor}
+	\begin{proof}
+		Comme $A$ est séparé, $CA$ est séparé, on applique la \textbf{Proposition 1.6.5}.
+	\end{proof}
+	\begin{prop}
+		Soient $f,f' : A \longmapsto X$ homotopes. Alors \[
+			X \cup_f CA \cong X \cup_{f'} CA
+		.\] 
+	\end{prop}
+	\begin{proof}
+		On doit trouver deux applications
+		\begin{align*}
+			&h : Y \longmapsto Y' \\
+			&h' : Y' \longmapsto Y
+		\end{align*}
+		telles que $h\circ h' \cong Id_Y$ et $h'\circ h \cong Id_{Y'}$. 
+		On construit $h$ par passage au quotient d'une application 
+		 \begin{align*}
+			 X \amalg CA &\longmapsto Y' \\
+				 x&\longmapsto x \\
+				 [a,t]& \longmapsto \begin{cases}
+					 [a,2(t-\frac{1}{2})] \; &\text{si} \; \frac{1}{2} \le t \le 1 \\
+					 H(a,2t) \; &\text{si} \; 0 \le t \le \frac{1}{2}
+			 \end{cases}
+		\end{align*}
+		où $H : A \times I \longmapsto X$ est une homotopie de $f \longmapsto f'$.
+		La moitié supérieure du cône $CA$ dans $Y$ est envoyée sur \emph{tout} le cône de $Y$. On vérifie que pour $t=\frac{1}{2}$, \[[a,2(t-\frac{1}{2})] = [a,0] = [f'(a)] = [H(a,1)] = [H(a,2\cdot \frac{1}{2})].\]
+		Pour $t=0$, $H(a,0) = f(a)$ si bien qu'elle passe au quotient. On procède de même pour $h'$ avec $H(\cdot , 1-t)$, homotopie de  $f' \longmapsto f$. \\
+		Calculons $h' \circ h$. On observe que $(h'\circ h)|_X$ est l'identité, puis que sur $CA$ on a \[
+			(h'\circ h)[a,t] = \begin{cases}
+				[a,2t-1] \xmapsto{h'} [a,4t-3] \; &\text{si} \; \frac{3}{4} \le t \le 1 \\
+				[a,2t-1] \xmapsto{h'} H(a,3-4t) \; &\text{si} \; \frac{1}{2} \le t \le \frac{3}{4} \\
+				H(a,2t) \xmapsto{h'} H(a,2t) \; &\text{si} \; 0 \le t \le \frac{1}{2}
+			\end{cases}
+		.\] 
+		On parcourt le cône $CA$ de $Y$ quatre fois plus rapidement sur le quart supérieur, ensuite on utilise $H$ pour faire le lien entre $f$ et $f'$, puis on revient en arrière avec l'homotopie inverse. \\
+		On doit enfin construire une homotopie \[
+			h'\circ h \times I \longmapsto Id_{Y}
+		.\] 
+		L'idée est de définir $K : Y \times I \longmapsto Y$ de sorte qu'au temps $s$ on commence par l'homotopie $H$ mais seulement jusqu'au temps $t=s$, puis on revient en arrière et on termine avec l'identité.
+		On pose $K|_{X\times I}$ comme étant la projection sur $X$ puis on pose  \[
+			K([a,t],s) = \begin{cases}
+				[a, \frac{4}{4-3s}t-\frac{3s}{4-3s}] \; &\text{si} \; \frac{3}{4}s \le t \le 1 \\
+				H(a,3s-4t) \; &\text{si} \; \frac{s}{2} \le t \le \frac{3}{4}s \\
+				H(a,2t) \; &\text{si} \; 0 \le t \le \frac{s}{2}
+			\end{cases}
+		.\] 
+		On vérifie que 
+		\begin{align*}
+			K([a,t],0) = [a,t] = Id_{CA}[a,t] \\
+			K([a,t],1) = (h'\circ h)([a,t])
+		.\end{align*}
+		De même on défini $K'$ une homotopie de  $Id_{Y'} \longmapsto h \circ h'$.
+	\end{proof}
+	\begin{cor}
+		Si $f \cong f' : S^{n-1} \longmapsto X$, alors $X \cup_f e^n \cong X \cup_{f'}e^n$. En particulier si $f$ est homotope à une fonction constante, alors $X \cup_f e^n \cong X \bigvee S^n$.
+	\end{cor}
+	\begin{prop}
+		$D^n \cong CS^{n-1}$.
+	\end{prop}
+	\begin{example}
+		Le même espace topologique peut admettre des descriptions distinctes comme recollement de cellules. Par exemple $S^1 \cong \star \cup e^1$ où  $f : S^0 \longmapsto \star$ est constante, mais on a aussi $S^1 \cong S^0 \cup_f e^1 \cup_g e'^1$. La deuxième description est compatible avec l'action antipodale de $C_2$ tandis que la première ne l'est pas, au sens que si $g$ engendre  $C_2$,  $g \cdot g$ transforme une cellule en cellule, si bien que $\mathbf{RP}^1 \cong \star \cup e^1 \cong S^1$.
+	\end{example}
+
+	\section{Quelques surfaces}
+	\begin{definition}[Surface]
+		Une surface est un espace séparé où tout point admet un voisinage ouvert homéomorphe à un disque ouvert.	
+	\end{definition}
+	\begin{example}
+		$S^2, T^2, \mathbf{RP}^2, K$ sont des surfaces. 
+	\end{example}
+	\begin{definition}[Somme connexe]
+		La somme connexe $S\#T$ de deux surfaces $S$ et $T$ est obtenue en choisissant deux points $s \in S, t \in T$ puis deux ouverts contenant chacun un de ces points $U, V \cong D^2, \; s \in U, t \in V$ et en construisant le quotient \[
+			\quot{(S\setminus U)\coprod (T \setminus V)}{x\sim f(x)}
+		\] 
+			où $f : \partial U \xmapsto{\cong} S^1 \xmapsto{\cong} \partial V$.
+	\end{definition}
+	On peut construire de nouvelles surfaces à l'aide de vielles surfaces grâce à l'opération de somme connexe.
+	\begin{example}
+		$S\#S^2 \cong S$ par le théorème de Palais (1960), cette construction est bien définie à homéomorphisme près.
+	\end{example}
+	\begin{example}
+		$T^2\#T^2$ est homéomorphe à un tore à deux trous.
+	\end{example}
+	\begin{figure}
+			\centering
+			\includegraphics{connectedsum.pdf}
+			\caption{Illustration de la somme connexe de deux 2-Tores.}
+		\end{figure}
 \end{document}
