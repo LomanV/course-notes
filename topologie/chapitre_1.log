@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2019.4.15)  11 MAR 2020 13:15
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2019.4.15)  11 MAR 2020 18:29
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1204,7 +1204,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 <connectedsum.pdf, id=139, 195.29863pt x 173.1298pt>
 File: connectedsum.pdf Graphic file (type pdf)
 <use connectedsum.pdf>
-Package pdftex.def Info: connectedsum.pdf  used on input line 723.
+Package pdftex.def Info: connectedsum.pdf  used on input line 722.
 (pdftex.def)             Requested size: 195.29814pt x 173.12938pt.
 
 [17] [18 <./connectedsum.pdf>] (./chapitre_1.aux) ) 
