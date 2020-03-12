@@ -2,6 +2,7 @@
 \usepackage[top=1in, bottom=1in, left=1in, right=1in]{geometry}
 \usepackage[onehalfspacing]{setspace}
 \usepackage[french]{babel}
+\usepackage[T1]{fontenc}
               
 \usepackage{amsmath, amssymb, amsthm}
 \usepackage{mathrsfs}
@@ -437,10 +438,19 @@
 	\section{Quotient par des actions de groupe}
 
 	\begin{definition}[Groupe topologique]
-		Un groupe topologique $G$ est un ensemble munit d'une loi de groupe $\cdot$ ainsi que d'une topologie telle que la multiplication et l'inversion soient des applications continues. 
+		Un groupe topologique $(G,\star)$ est un groupe munit d'une topologie pour laquelle les applications de multiplication et d'inversion \[
+			G^2 \longmapsto G : (x,y) \longmapsto x \star y \qquad \text{et} \qquad G \longmapsto G : x \longmapsto x^{-1}
+		\] soient continues. Il est bon de noter qu'ici $G^2$ est munit de ma topologie produit. 
 	\end{definition}
 
-	\begin{example} On donne quelques exemples de base de groupes topologiques \\
+	\begin{prop}
+		Un groupe $(G,\star)$ munit d'une topologie est un groupe topologique si et seulement si l'application  \[
+			G^2 \longmapsto G : (x,y) \longmapsto x \star y^{-1}
+		\] est continue. 
+	\end{prop}
+	Afin d'alléger les notations, dans la suite de cette section lorsque cela ne prête pas à confusion on omettra de noter explicitement la loi de $G$. 
+
+	\begin{example} On donne quelques exemples de base de groupes topologiques
 		\begin{enumerate}
 			\item Tout groupe munit de la topologie discrète est un groupe topologique, il est parfois noté $G^{\delta}$.
 			\item $(\mathbf{R}^n,+)$ est un groupe topologique pour la topologie euclidienne.
@@ -632,7 +642,7 @@ $\mathbf{RP}^0 \cong \quot{\{\pm 1\}}{-1 \sim 1}$, $\mathbf{RP}^1 \cong S^1$, $\
 	\end{proof}
 	
 	\begin{cor}
-		Soit $X$ un espace séparé, $A$ compact et séparé, $f : A\longmapsto X$. Alors $X \cup_f CA$\footnote{$CA$ dénote le cône de base  $A$} est séparé et compact si $X$ est compact.
+		Soit $X$ un espace séparé, $A$ compact et séparé, $f : A\longmapsto X$. Alors $X \cup_f CA$ est séparé et compact si $X$ est compact.
 	\end{cor}
 	\begin{proof}
 		Comme $A$ est séparé, $CA$ est séparé, on applique la \textbf{Proposition 1.6.5}.
