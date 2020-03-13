@@ -2,22 +2,12 @@ This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**/Users/lomanvezin/Documents/GitHub/course-notes/topologie/chapitre_1 -output-
-directory /Users/lomanvezin/Documents/GitHub/course-notes/topologie/chapitre_1.
-tex
-(/Users/lomanvezin/Documents/GitHub/course-notes/topologie/chapitre_1.tex
+**/Users/lomanvezin/Documents/GitHub/course-notes/topologie/main -output-direct
+ory /Users/lomanvezin/Documents/GitHub/course-notes/topologie/main.tex
+(/Users/lomanvezin/Documents/GitHub/course-notes/topologie/main.tex
 LaTeX2e <2018-04-01> patch level 2
 Babel <3.18> and hyphenation patterns for 84 language(s) loaded.
-(/usr/local/texlive/2018/texmf-dist/tex/latex/subfiles/subfiles.cls
-Document Class: subfiles 2012/05/23 Federico Garcia
-(/usr/local/texlive/2018/texmf-dist/tex/latex/tools/verbatim.sty
-Package: verbatim 2014/10/28 v1.5q LaTeX2e package for verbatim enhancements
-\every@verbatim=\toks14
-\verbatim@line=\toks15
-\verbatim@in@stream=\read1
-)
-Preamble taken from file `main.tex'
-(./main.tex (/usr/local/texlive/2018/texmf-dist/tex/latex/base/book.cls
+(/usr/local/texlive/2018/texmf-dist/tex/latex/base/book.cls
 Document Class: book 2014/09/29 v1.4h Standard LaTeX document class
 (/usr/local/texlive/2018/texmf-dist/tex/latex/base/bk12.clo
 File: bk12.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
@@ -40,7 +30,7 @@ Package: geometry 2018/03/24 v5.7 Page Geometry
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/graphics/keyval.sty
 Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
-\KV@toks@=\toks16
+\KV@toks@=\toks14
 )
 (/usr/local/texlive/2018/texmf-dist/tex/generic/oberdiek/ifpdf.sty
 Package: ifpdf 2017/03/15 v3.2 Provides the ifpdf switch
@@ -63,7 +53,7 @@ Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 \Gm@layoutheight=\dimen108
 \Gm@layouthoffset=\dimen109
 \Gm@layoutvoffset=\dimen110
-\Gm@dimlist=\toks17
+\Gm@dimlist=\toks15
 )
 (/usr/local/texlive/2018/texmf-dist/tex/latex/setspace/setspace.sty
 Package: setspace 2011/12/19 v6.7a set line spacing
@@ -92,7 +82,7 @@ Package babel Info: Making ; an active character on input line 416.
 Package babel Info: Making ! an active character on input line 417.
 Package babel Info: Making ? an active character on input line 418.
 \FBguill@level=\count95
-\FB@everypar=\toks18
+\FB@everypar=\toks16
 \FB@Mht=\dimen112
 \mc@charclass=\count96
 \mc@charfam=\count97
@@ -125,7 +115,7 @@ Package: amstext 2000/06/29 v2.01 AMS text
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
-\@emptytoks=\toks19
+\@emptytoks=\toks17
 \ex@=\dimen114
 ))
 (/usr/local/texlive/2018/texmf-dist/tex/latex/amsmath/amsbsy.sty
@@ -155,21 +145,21 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 713.
 \dotsspace@=\muskip10
 \c@parentequation=\count109
 \dspbrk@lvl=\count110
-\tag@help=\toks20
+\tag@help=\toks18
 \row@=\count111
 \column@=\count112
 \maxfields@=\count113
-\andhelp@=\toks21
+\andhelp@=\toks19
 \eqnshift@=\dimen117
 \alignsep@=\dimen118
 \tagshift@=\dimen119
 \tagwidth@=\dimen120
 \totwidth@=\dimen121
 \lineht@=\dimen122
-\@envbody=\toks22
+\@envbody=\toks20
 \multlinegap=\skip49
 \multlinetaggap=\skip50
-\mathdisplay@stack=\toks23
+\mathdisplay@stack=\toks21
 LaTeX Info: Redefining \[ on input line 2817.
 LaTeX Info: Redefining \] on input line 2818.
 )
@@ -185,15 +175,15 @@ LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 ))
 (/usr/local/texlive/2018/texmf-dist/tex/latex/amscls/amsthm.sty
 Package: amsthm 2017/10/31 v2.20.4
-\thm@style=\toks24
-\thm@bodyfont=\toks25
-\thm@headfont=\toks26
-\thm@notefont=\toks27
-\thm@headpunct=\toks28
+\thm@style=\toks22
+\thm@bodyfont=\toks23
+\thm@headfont=\toks24
+\thm@notefont=\toks25
+\thm@headpunct=\toks26
 \thm@preskip=\skip51
 \thm@postskip=\skip52
 \thm@headsep=\skip53
-\dth@everypar=\toks29
+\dth@everypar=\toks27
 )
 (/usr/local/texlive/2018/texmf-dist/tex/latex/jknapltx/mathrsfs.sty
 Package: mathrsfs 1996/01/01 Math RSFS package v1.0 (jk)
@@ -240,13 +230,13 @@ LaTeX Font Info:    Overwriting symbol font `stmry' in version `bold'
 )
 (/usr/local/texlive/2018/texmf-dist/tex/latex/tools/enumerate.sty
 Package: enumerate 2015/07/23 v3.00 enumerate extensions (DPC)
-\@enLab=\toks30
+\@enLab=\toks28
 )
 (/usr/local/texlive/2018/texmf-dist/tex/latex/enumitem/enumitem.sty
 Package: enumitem 2011/09/28 v3.5.2 Customized lists
 \labelindent=\skip58
 \enit@outerparindent=\dimen132
-\enit@toks=\toks31
+\enit@toks=\toks29
 \enit@inbox=\box28
 \enitdp@description=\count118
 )
@@ -406,7 +396,7 @@ Package: tikz-cd 2014/10/30 v0.9e Commutative diagrams with tikz
 (/usr/local/texlive/2018/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty
 (/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.te
 x
-\pgfutil@everybye=\toks32
+\pgfutil@everybye=\toks30
 \pgfutil@tempdima=\dimen163
 \pgfutil@tempdimb=\dimen164
 
@@ -426,12 +416,12 @@ Package: pgf 2015/08/07 v3.0.1a (rcs-revision 1.15)
 (/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex
 Package: pgfsys 2014/07/09 v3.0.1a (rcs-revision 1.48)
 (/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
-\pgfkeys@pathtoks=\toks33
-\pgfkeys@temptoks=\toks34
+\pgfkeys@pathtoks=\toks31
+\pgfkeys@temptoks=\toks32
 
 (/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/utilities/pgfkeysfiltered.c
 ode.tex
-\pgfkeys@tmptoks=\toks35
+\pgfkeys@tmptoks=\toks33
 ))
 \pgf@x=\dimen165
 \pgf@y=\dimen166
@@ -442,14 +432,14 @@ ode.tex
 \pgf@xc=\dimen171
 \pgf@yc=\dimen172
 \w@pgf@writea=\write4
-\r@pgf@reada=\read2
+\r@pgf@reada=\read1
 \c@pgf@counta=\count129
 \c@pgf@countb=\count130
 \c@pgf@countc=\count131
 \c@pgf@countd=\count132
-\t@pgf@toka=\toks36
-\t@pgf@tokb=\toks37
-\t@pgf@tokc=\toks38
+\t@pgf@toka=\toks34
+\t@pgf@tokb=\toks35
+\t@pgf@tokc=\toks36
 
 (/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
 File: pgf.cfg 2008/05/14  (rcs-revision 1.7)
@@ -499,9 +489,9 @@ Package: pgfcore 2010/04/11 v3.0.1a (rcs-revision 1.7)
 \pgfmath@dimen=\dimen173
 \pgfmath@count=\count135
 \pgfmath@box=\box60
-\pgfmath@toks=\toks39
-\pgfmath@stack@operand=\toks40
-\pgfmath@stack@operation=\toks41
+\pgfmath@toks=\toks37
+\pgfmath@stack@operand=\toks38
+\pgfmath@stack@operation=\toks39
 )
 (/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.
 tex
@@ -648,8 +638,8 @@ Package: pgffor 2013/12/13 v3.0.1a (rcs-revision 1.25)
 (/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex)
 \pgffor@iter=\dimen256
 \pgffor@skip=\dimen257
-\pgffor@stack=\toks42
-\pgffor@toks=\toks43
+\pgffor@stack=\toks40
+\pgffor@toks=\toks41
 ))
 (/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.cod
 e.tex
@@ -722,14 +712,14 @@ Loading kernel: messages; fonts; allocations: state,
 \D@c=\dimen272
 \L@c=\dimen273
 \R@c=\dimen274
-\Edge@c=\toks44
+\Edge@c=\toks42
 \X@p=\dimen275
 \Y@p=\dimen276
 \U@p=\dimen277
 \D@p=\dimen278
 \L@p=\dimen279
 \R@p=\dimen280
-\Edge@p=\toks45
+\Edge@p=\toks43
 \X@origin=\dimen281
 \Y@origin=\dimen282
 \X@xbase=\dimen283
@@ -751,16 +741,16 @@ Loading kernel: messages; fonts; allocations: state,
 \Direction=\count150
 \K@dXdY=\dimen294
 \K@dYdX=\dimen295
-\xyread@=\read3
+\xyread@=\read2
 \xywrite@=\write5
 \csp@=\count151
 \quotPTK@=\dimen296
 
 utility macros; pictures: \xy, positions,
-\swaptoks@@=\toks46
+\swaptoks@@=\toks44
 \connectobjectbox@@=\box72
  objects,
-\styletoks@=\toks47
+\styletoks@=\toks45
  decorations;
 kernel objects: directionals, circles, text; options; algorithms: directions,
 edges, connections;  Xy-pic loaded)
@@ -771,7 +761,7 @@ Package: xy 2013/10/06 Xy-pic version 3.8.9
 (/usr/local/texlive/2018/texmf-dist/tex/generic/xypic/xycurve.tex
  Xy-pic option: Curve and Spline extension v.3.12 curve,
 \crv@cnt@=\count152
-\crvpts@=\toks48
+\crvpts@=\toks46
 \splinebox@=\box73
 \splineval@=\dimen297
 \splinedepth@=\dimen298
@@ -798,8 +788,8 @@ Package: xy 2013/10/06 Xy-pic version 3.8.9
  Xy-pic option: Matrix feature v.3.14
 \Row=\count153
 \Col=\count154
-\queue@=\toks49
-\queue@@=\toks50
+\queue@=\toks47
+\queue@@=\toks48
 \qcount@=\count155
 \qcount@@=\count156
 \matrixsize@=\count157
@@ -895,8 +885,8 @@ Package: atbegshi 2016/06/09 v1.18 At begin shipout hook (HO)
 File: pppdftex.def 2017/10/31 v0.5l Pdfpages driver for pdfTeX (AM)
 )
 \AM@pagebox=\box75
-\AM@global@opts=\toks51
-\AM@toc@title=\toks52
+\AM@global@opts=\toks49
+\AM@toc@title=\toks50
 \c@AM@survey=\count159
 \AM@templatesizebox=\box76
 )
@@ -906,12 +896,8 @@ Package: transparent 2016/05/16 v1.1 Transparency via pdfTeX's color stack (HO)
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/oberdiek/auxhook.sty
 Package: auxhook 2016/05/16 v1.4 Hooks for auxiliary files (HO)
-
-
-Package auxhook Warning: Cannot patch \document,
-(auxhook)                using \AtBeginDocument instead.
-
-)) (/usr/local/texlive/2018/texmf-dist/tex/latex/hyperref/hyperref.sty
+))
+(/usr/local/texlive/2018/texmf-dist/tex/latex/hyperref/hyperref.sty
 Package: hyperref 2018/02/06 v6.86b Hypertext links for LaTeX
 
 (/usr/local/texlive/2018/texmf-dist/tex/generic/oberdiek/hobsub-hyperref.sty
@@ -947,6 +933,7 @@ Package: letltxmacro 2016/05/16 v1.5 Let assignment for LaTeX macros (HO)
 Package: hopatch 2016/05/16 v1.3 Wrapper for package hooks (HO)
 Package: xcolor-patch 2016/05/16 xcolor patch
 Package: atveryend 2016/05/16 v1.9 Hooks at the very end of document (HO)
+Package atveryend Info: \enddocument detected (standard20110627).
 Package hobsub Info: Skipping package `atbegshi' (already loaded).
 Package: refcount 2016/05/16 v3.5 Data extraction from label references (HO)
 Package: hycolor 2016/05/16 v1.8 Color options for hyperref/bookmark (HO)
@@ -1015,25 +1002,29 @@ Package hyperref Info: Option `colorlinks' set `true' on input line 47.
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/subfiles/subfiles.sty
 Package: subfiles 2012/05/23 Federico Garcia
-)))
-(./chapitre_1.aux)
-\openout1 = `chapitre_1.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 3.
-LaTeX Font Info:    ... okay on input line 3.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 3.
-LaTeX Font Info:    ... okay on input line 3.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 3.
-LaTeX Font Info:    ... okay on input line 3.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 3.
-LaTeX Font Info:    ... okay on input line 3.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 3.
-LaTeX Font Info:    ... okay on input line 3.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 3.
-LaTeX Font Info:    ... okay on input line 3.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 3.
-LaTeX Font Info:    ... okay on input line 3.
+(/usr/local/texlive/2018/texmf-dist/tex/latex/tools/verbatim.sty
+Package: verbatim 2014/10/28 v1.5q LaTeX2e package for verbatim enhancements
+\every@verbatim=\toks51
+\verbatim@line=\toks52
+\verbatim@in@stream=\read3
+)) (./main.aux)
+\openout1 = `main.aux'.
 
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 68.
+LaTeX Font Info:    ... okay on input line 68.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 68.
+LaTeX Font Info:    ... okay on input line 68.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 68.
+LaTeX Font Info:    ... okay on input line 68.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 68.
+LaTeX Font Info:    ... okay on input line 68.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 68.
+LaTeX Font Info:    ... okay on input line 68.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 68.
+LaTeX Font Info:    ... okay on input line 68.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 68.
+LaTeX Font Info:    ... okay on input line 68.
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -1068,15 +1059,15 @@ LaTeX Font Info:    ... okay on input line 3.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Info: Redefining \degres on input line 3.
-LaTeX Info: Redefining \dots on input line 3.
+LaTeX Info: Redefining \degres on input line 68.
+LaTeX Info: Redefining \dots on input line 68.
 Package french.ldf Info: Setting StandardItemizeEnv=true for
 (french.ldf)             compatibility with enumitem package,
-(french.ldf)             reported on input line 3.
+(french.ldf)             reported on input line 68.
 Package french.ldf Info: Setting StandardEnumerateEnv=true for
 (french.ldf)             compatibility with enumitem package,
-(french.ldf)             reported on input line 3.
-LaTeX Info: Redefining \up on input line 3.
+(french.ldf)             reported on input line 68.
+LaTeX Info: Redefining \up on input line 68.
 (/usr/local/texlive/2018/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count171
@@ -1108,25 +1099,25 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 ABD: EveryShipout initializing macros
-LaTeX Font Info:    Try loading font information for U+msa on input line 3.
+LaTeX Font Info:    Try loading font information for U+msa on input line 68.
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 3.
+LaTeX Font Info:    Try loading font information for U+msb on input line 68.
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for U+rsfs on input line 3.
+LaTeX Font Info:    Try loading font information for U+rsfs on input line 68.
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
-LaTeX Font Info:    Try loading font information for U+stmry on input line 3.
+LaTeX Font Info:    Try loading font information for U+stmry on input line 68.
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/stmaryrd/Ustmry.fd)
-Package xypdf Info: Line width: 0.47998pt on input line 3.
+Package xypdf Info: Line width: 0.47998pt on input line 68.
 \AtBeginShipoutBox=\box78
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/oberdiek/pdflscape.sty
@@ -1137,7 +1128,7 @@ Package: lscape 2000/10/22 v3.01 Landscape Pages (DPC)
 )
 Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
 )
-Package hyperref Info: Link coloring ON on input line 3.
+Package hyperref Info: Link coloring ON on input line 68.
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
@@ -1147,20 +1138,26 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count177
 )
-LaTeX Info: Redefining \ref on input line 3.
-LaTeX Info: Redefining \pageref on input line 3.
-LaTeX Info: Redefining \nameref on input line 3.
+LaTeX Info: Redefining \ref on input line 68.
+LaTeX Info: Redefining \pageref on input line 68.
+LaTeX Info: Redefining \nameref on input line 68.
 
-(./chapitre_1.out) (./chapitre_1.out)
+(./main.out) (./main.out)
 \@outlinefile=\write6
-\openout6 = `chapitre_1.out'.
+\openout6 = `main.out'.
+
+ (./main.toc)
+\tf@toc=\write7
+\openout7 = `main.toc'.
+
+ (./chapitre_1.tex [1
 
 
+{/usr/local/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2
+
+]
 Chapitre 1.
-[1
-
-
-{/usr/local/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+[3]
 Underfull \hbox (badness 10000) in paragraph at lines 40--41
 
  []
@@ -1175,7 +1172,7 @@ Package epstopdf Info: Source file: <example_1.eps>
 .pdf example_1.eps>
 (epstopdf)             \includegraphics on input line 54.
 Package epstopdf Info: Output file is already uptodate.
-<example_1-eps-converted-to.pdf, id=56, 245.91875pt x 104.39pt>
+<example_1-eps-converted-to.pdf, id=76, 245.91875pt x 104.39pt>
 File: example_1-eps-converted-to.pdf Graphic file (type pdf)
 <use example_1-eps-converted-to.pdf>
 Package pdftex.def Info: example_1-eps-converted-to.pdf  used on input line 54.
@@ -1199,12 +1196,12 @@ m/it/12 ; \OT1/cmr/m/n/12 3]\OML/cmm/m/it/12 ; \OT1/cmr/m/n/12 [0\OML/cmm/m/it/
 12 ; \OT1/cmr/m/n/12 2]$
  []
 
-[2 <./example_1-eps-converted-to.pdf>]
+[4 <./example_1-eps-converted-to.pdf>]
 Overfull \hbox (2.61047pt too wide) in paragraph at lines 77--99
 []$  $[]$
  []
 
-[3]
+[5]
 Overfull \hbox (2.99925pt too wide) in paragraph at lines 136--149
 []$  $[]$ 
  []
@@ -1217,17 +1214,17 @@ ré-cé-dem-ment s'écrit comme le col-lapse $\OML/cmm/m/it/12 C \OT1/cmr/m/n/12 =
  []
 
 (./dessin.pdf_tex
-<dessin.pdf, id=84, page=1, 521.93285pt x 191.66347pt>
+<dessin.pdf, id=102, page=1, 521.93285pt x 191.66347pt>
 File: dessin.pdf Graphic file (type pdf)
 <use dessin.pdf, page 1>
 Package pdftex.def Info: dessin.pdf , page1 used on input line 56.
 (pdftex.def)             Requested size: 469.75502pt x 172.51015pt.
-<dessin.pdf, id=85, page=2, 521.93285pt x 191.66347pt>
+<dessin.pdf, id=103, page=2, 521.93285pt x 191.66347pt>
 File: dessin.pdf Graphic file (type pdf)
 <use dessin.pdf, page 2>
 Package pdftex.def Info: dessin.pdf , page2 used on input line 60.
 (pdftex.def)             Requested size: 469.75502pt x 172.51015pt.
-) [4]
+) [6]
 Underfull \hbox (badness 10000) in paragraph at lines 198--199
 
  []
@@ -1246,7 +1243,7 @@ Overfull \hbox (20.62407pt too wide) in paragraph at lines 200--212
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [5 <./dessin.pdf> <./dessin.pdf
+ [7 <./dessin.pdf> <./dessin.pdf
 
 pdfTeX warning: pdflatex (file ./dessin.pdf): PDF inclusion: multiple pdfs with
  page group included in a single page
@@ -1264,12 +1261,12 @@ n-tion-ner
  []
 
 (./dessin2.pdf_tex
-<dessin2.pdf, id=121, page=1, 625.63411pt x 211.69635pt>
+<dessin2.pdf, id=139, page=1, 625.63411pt x 211.69635pt>
 File: dessin2.pdf Graphic file (type pdf)
 <use dessin2.pdf, page 1>
 Package pdftex.def Info: dessin2.pdf , page1 used on input line 56.
 (pdftex.def)             Requested size: 469.75502pt x 158.95274pt.
-) [6 <./dessin2.pdf>]
+) [8 <./dessin2.pdf>]
 Package epstopdf Info: Source file: <graph.eps>
 (epstopdf)                    date: 2020-02-24 16:03:16
 (epstopdf)                    size: 18747 bytes
@@ -1280,7 +1277,7 @@ Package epstopdf Info: Source file: <graph.eps>
  graph.eps>
 (epstopdf)             \includegraphics on input line 296.
 Package epstopdf Info: Output file is already uptodate.
-<graph-eps-converted-to.pdf, id=146, 389.455pt x 324.21124pt>
+<graph-eps-converted-to.pdf, id=165, 389.455pt x 324.21124pt>
 File: graph-eps-converted-to.pdf Graphic file (type pdf)
 <use graph-eps-converted-to.pdf>
 Package pdftex.def Info: graph-eps-converted-to.pdf  used on input line 296.
@@ -1290,21 +1287,21 @@ Overfull \hbox (2.61047pt too wide) in paragraph at lines 283--298
 []$  $[]$ 
  []
 
-[7]
+[9]
 Overfull \hbox (1.88512pt too wide) in paragraph at lines 304--305
 [][]\T1/cmr/bx/n/12 Définition 1.3.3 \T1/cmr/m/n/12 (Dia-go-nale)\T1/cmr/bx/n/1
 2 . []\T1/cmr/m/n/12 La dia-go-nale d'un es-pace X est dé-fi-nie comme le sous 
 en-semble
  []
 
-[8 <./graph-eps-converted-to.pdf>] [9] [10]
+[10 <./graph-eps-converted-to.pdf>] [11] [12]
 Overfull \hbox (4.19513pt too wide) in paragraph at lines 429--430
 []\T1/cmr/m/n/12 Le groupe $\OML/cmm/m/it/12 C[]$ \T1/cmr/m/n/12 agit sur $\OML
 /cmm/m/it/12 S[] \OMS/cmsy/m/n/12 ^^Z \OT1/cmr/bx/n/12 R[]$ \T1/cmr/m/n/12 par 
 l'ac-tion an-ti-po-dale, le gé-né-ra-teur
  []
 
-[11] [12] [13]
+[13] [14] [15]
 Overfull \hbox (2.61047pt too wide) in paragraph at lines 514--535
 []$  $[]$ 
  []
@@ -1315,108 +1312,62 @@ Overfull \hbox (20.62407pt too wide) in paragraph at lines 540--553
  []
 
 (./pushout.pdf_tex
-<pushout.pdf, id=236, page=1, 266.19847pt x 300.00629pt>
+<pushout.pdf, id=248, page=1, 266.19847pt x 300.00629pt>
 File: pushout.pdf Graphic file (type pdf)
 <use pushout.pdf, page 1>
 Package pdftex.def Info: pushout.pdf , page1 used on input line 56.
 (pdftex.def)             Requested size: 234.8775pt x 264.71588pt.
-) [14]
-
-LaTeX Warning: Reference `lma:2' on page 15 undefined on input line 587.
-
-
-LaTeX Warning: Reference `lma:3' on page 15 undefined on input line 588.
-
-[15 <./pushout.pdf>] [16] [17]
-<connectedsum.pdf, id=286, 195.29863pt x 173.1298pt>
+) [16] [17 <./pushout.pdf>] [18] [19]
+<connectedsum.pdf, id=300, 195.29863pt x 173.1298pt>
 File: connectedsum.pdf Graphic file (type pdf)
 <use connectedsum.pdf>
 Package pdftex.def Info: connectedsum.pdf  used on input line 688.
 (pdftex.def)             Requested size: 195.29814pt x 173.12938pt.
- [18 <./connectedsum.pdf>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 691.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 691.
- (./chapitre_1.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 691.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 691.
-
-
-Package rerunfilecheck Warning: File `chapitre_1.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `chapitre_1.out':
-(rerunfilecheck)             Before: 57445C54EB7FA278A9EEBCE67CF49962;432
-(rerunfilecheck)             After:  D19EE203417932D91B76A34A78F18E5B;551.
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
+) [20 <./connectedsum.pdf>]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 72.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 72.
+ (./main.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 72.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 72.
+Package rerunfilecheck Info: File `main.out' has not changed.
+(rerunfilecheck)             Checksum: D19EE203417932D91B76A34A78F18E5B;551.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 72.
  ) 
 Here is how much of TeX's memory you used:
- 24471 strings out of 492649
- 450874 string characters out of 6129622
- 578116 words of memory out of 5000000
- 27667 multiletter control sequences out of 15000+600000
+ 24464 strings out of 492649
+ 450550 string characters out of 6129622
+ 577873 words of memory out of 5000000
+ 27663 multiletter control sequences out of 15000+600000
  22365 words of font info for 64 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 70i,20n,84p,3390b,1067s stack positions out of 5000i,500n,10000p,200000b,80000s
-pdfTeX warning (dest): name{lemma.0.3.4} has been referenced but does not exi
-st, replaced by a fixed one
-
-pdfTeX warning (dest): name{lemma.0.1.6} has been referenced but does not exist
-, replaced by a fixed one
-
-pdfTeX warning (dest): name{section.0.7} has been referenced but does not exist
-, replaced by a fixed one
-
-pdfTeX warning (dest): name{section.0.6} has been referenced but does not exist
-, replaced by a fixed one
-
-pdfTeX warning (dest): name{section.0.5} has been referenced but does not exist
-, replaced by a fixed one
-
-pdfTeX warning (dest): name{section.0.4} has been referenced but does not exist
-, replaced by a fixed one
-
-pdfTeX warning (dest): name{section.0.3} has been referenced but does not exist
-, replaced by a fixed one
-
-pdfTeX warning (dest): name{section.0.2} has been referenced but does not exist
-, replaced by a fixed one
-
-pdfTeX warning (dest): name{section.0.1} has been referenced but does not exist
-, replaced by a fixed one
-
-{/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}</
-usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></u
-sr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></us
-r/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr
-/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/l
-ocal/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/loc
-al/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local
-/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/te
-xlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texli
-ve/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texliv
-e/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/
-2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/20
-18/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texliv
-e/2018/texmf-dist/fonts/type1/public/cm-super/sfbi1200.pfb></usr/local/texlive/
-2018/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/20
-18/texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb></usr/local/texlive/2018
-/texmf-dist/fonts/type1/public/cm-super/sfbx2488.pfb></usr/local/texlive/2018/t
-exmf-dist/fonts/type1/public/cm-super/sfcc1200.pfb></usr/local/texlive/2018/tex
-mf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2018/texmf
--dist/fonts/type1/public/cm-super/sfsl1200.pfb></usr/local/texlive/2018/texmf-d
-ist/fonts/type1/public/cm-super/sfti1200.pfb></usr/local/texlive/2018/texmf-dis
-t/fonts/type1/public/xypic/xyatip10.pfb></usr/local/texlive/2018/texmf-dist/fon
-ts/type1/public/xypic/xybtip10.pfb>
-Output written on chapitre_1.pdf (18 pages, 338315 bytes).
+ 61i,20n,82p,3354b,1148s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}
+</usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><
+/usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></
+usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></u
+sr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr
+/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/l
+ocal/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/loc
+al/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/
+texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/tex
+live/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texl
+ive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texliv
+e/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/
+2018/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texl
+ive/2018/texmf-dist/fonts/type1/public/cm-super/sfbi1200.pfb></usr/local/texliv
+e/2018/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/
+2018/texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb></usr/local/texlive/20
+18/texmf-dist/fonts/type1/public/cm-super/sfbx2488.pfb></usr/local/texlive/2018
+/texmf-dist/fonts/type1/public/cm-super/sfcc1200.pfb></usr/local/texlive/2018/t
+exmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2018/tex
+mf-dist/fonts/type1/public/cm-super/sfsl1200.pfb></usr/local/texlive/2018/texmf
+-dist/fonts/type1/public/cm-super/sfti1200.pfb></usr/local/texlive/2018/texmf-d
+ist/fonts/type1/public/xypic/xyatip10.pfb></usr/local/texlive/2018/texmf-dist/f
+onts/type1/public/xypic/xybtip10.pfb>
+Output written on main.pdf (20 pages, 341830 bytes).
 PDF statistics:
- 400 PDF objects out of 1000 (max. 8388607)
- 332 compressed objects within 4 object streams
- 120 named destinations out of 1000 (max. 500000)
- 104 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 413 PDF objects out of 1000 (max. 8388607)
+ 343 compressed objects within 4 object streams
+ 114 named destinations out of 1000 (max. 500000)
+ 112 words of extra memory for PDF output out of 10000 (max. 10000000)
 

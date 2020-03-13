@@ -1,0 +1,73 @@
+\documentclass[12pt]{book}
+\usepackage[top=1in, bottom=1in, left=1in, right=1in]{geometry}
+\usepackage[onehalfspacing]{setspace}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+              
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{mathrsfs}
+\usepackage{amsfonts}
+\usepackage{mathtools}
+\usepackage{stmaryrd}
+
+\newcommand{\defeq}{\vcentcolon=}
+\newcommand{\eqdef}{=\vcentcolon}
+                   
+\usepackage{enumerate, enumitem}
+\usepackage{fancyhdr, graphicx, proof, comment, multicol}
+\usepackage[none]{hyphenat}
+\usepackage{dirtytalk}
+\usepackage{proof}
+           
+\usepackage{graphicx}
+\usepackage{tikz-cd}
+\usepackage[all]{xy}
+
+\usepackage{centernot}
+\usepackage{mathtools}
+\usepackage{ stmaryrd }
+
+\usetikzlibrary{decorations.pathmorphing}
+\usetikzlibrary{decorations.markings}
+\usetikzlibrary{arrows.meta,bending}
+
+\usepackage{import}
+\usepackage{xifthen}
+\usepackage{pdfpages}
+\usepackage{transparent}
+\newcommand{\incfig}[1]{%
+    \def\svgwidth{\columnwidth}
+    \import{./figures/}{#1.pdf_tex} 
+}
+            
+\newtheorem{lemma}{Lemme}[section]
+\newtheorem{theorem}[lemma]{Théorème}
+\newtheorem{cor}[lemma]{Corollaire}
+\newtheorem{prop}[lemma]{Proposition}
+                    
+\theoremstyle{definition}
+\newtheorem{definition}[lemma]{Définition}
+\newtheorem{example}[lemma]{Exemple}
+\newenvironment{comments}{}{}
+\newtheorem*{notation}{Notation}
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remarque}
+
+
+\newcommand*\quot[2]{{^{\textstyle #1}\big/_{\textstyle #2}}}
+
+\begin{document}
+	\chapter{Interpolation de fonctions}
+	Étant donné une fonction $f \in \mathcal{C}^{0}([a,b])$, on cherche un polynôme $p_m$ de degré $m$ qui approche au mieux $f$.
+	\begin{theorem}[Théorème d'approximation de Weierstrass]
+		Pour toute fonction continue sur un segment $f$ et tout entier $n$ il existe un polynôme $p_{n}$ de degré inférieur ou égal à $n$ tel que  \[
+		\lim_{n \rightarrow +\infty} \|f-p_{n}\| = 0
+		.\] 
+	\end{theorem}
+	\begin{remark}
+		Pour toute fonction continue il existe une suite de polynôme qui converge uniformément vers cette fonction.
+	\end{remark}
+	\section{Polynôme de Lagrange}
+	Étant donné une fonction continue $f$ sur un segment $[a,b]$ et $n$ évaluations connues de $f$ $f(x_1),\ldots, f(x_n)$ on peut construire le polynôme $p_n$ de degré $n$ passant par ces $n$ évaluations.
+\end{document}

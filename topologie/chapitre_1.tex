@@ -1,61 +1,4 @@
-\documentclass[12pt]{book}
-\usepackage[top=1in, bottom=1in, left=1in, right=1in]{geometry}
-\usepackage[onehalfspacing]{setspace}
-\usepackage[french]{babel}
-\usepackage[T1]{fontenc}
-              
-\usepackage{amsmath, amssymb, amsthm}
-\usepackage{mathrsfs}
-\usepackage{amsfonts}
-\usepackage{mathtools}
-\usepackage{stmaryrd}
-
-\newcommand{\defeq}{\vcentcolon=}
-\newcommand{\eqdef}{=\vcentcolon}
-                   
-\usepackage{enumerate, enumitem}
-\usepackage{fancyhdr, graphicx, proof, comment, multicol}
-\usepackage[none]{hyphenat}
-\usepackage{dirtytalk}
-\usepackage{proof}
-           
-\usepackage{graphicx}
-\usepackage{tikz-cd}
-\usepackage[all]{xy}
-
-\usepackage{centernot}
-\usepackage{mathtools}
-\usepackage{ stmaryrd }
-
-\usetikzlibrary{decorations.pathmorphing}
-\usetikzlibrary{decorations.markings}
-\usetikzlibrary{arrows.meta,bending}
-
-\usepackage{import}
-\usepackage{xifthen}
-\usepackage{pdfpages}
-\usepackage{transparent}
-\newcommand{\incfig}[1]{%
-    \def\svgwidth{\columnwidth}
-    \import{./figures/}{#1.pdf_tex} 
-}
-            
-\newtheorem{lemma}{Lemme}[section]
-\newtheorem{theorem}[lemma]{Théorème}
-\newtheorem{cor}[lemma]{Corollaire}
-\newtheorem{prop}[lemma]{Proposition}
-                    
-\theoremstyle{definition}
-\newtheorem{definition}[lemma]{Définition}
-\newtheorem{example}[lemma]{Exemple}
-\newenvironment{comments}{}{}
-\newtheorem*{notation}{Notation}
-
-\theoremstyle{remark}
-\newtheorem*{remark}{Remarque}
-
-
-\newcommand*\quot[2]{{^{\textstyle #1}\big/_{\textstyle #2}}}
+\documentclass[main.tex]{subfiles}
 
 \begin{document}
 	\chapter{La topologie quotient}
@@ -118,14 +61,16 @@
 		La composition de deux quotients est également un quotient.
 	\end{prop}
 	\begin{prop}[Propriété universelle]
+		\label{prp:1}
 		La topologie quotient est la plus fine telle que l'application $q$ soit continue. De plus, $g : Y \longmapsto Z$ est une application continue si et seulement si $g \circ q : X \longmapsto Z$ est continue.
 	\end{prop}
 	\begin{proof}
 		Soit $U$ un ouvert d'une topologie sur $Y$ telle que $q$ soit continue. Par continuité $q^{-1}(U)$ est ouvert dans $X$ et donc $U$ est ouvert dans $Y$ pour la topologie quotient. 
 	Si $g$ est continue, $g\circ q$ est continue en tant que composition d'applications continues. Réciproquement, si  $g \circ q$ est continue prenons $V \subset Z$ un ouvert, ${(g\circ q)}^{-1}(V)$ est ouvert dans $X$ par continuité de la composée et de plus \[
-			q^{-1}(g^{-1}(V)) = (g\circ q)^{-1}(V)
+			q^{-1}(g^{-1}(V)) = {(g\circ q)}^{-1}(V)
 		\] est ouvert. Ainsi par définition de la topologie quotient $g^{-1}(V)$ est ouvert dans $Y$ ce qui conclut quant à la continuité de $g$. 
 	\end{proof}
+
 	\begin{example}
 		Considérons le cercle unité \[
 			C \defeq \{(x,y) \in \mathbf{R}^2 \;|\; x^2 + y^2 = 1\} 
@@ -203,7 +148,7 @@
 		\end{minipage}
 	\end{prop}
 	\begin{proof}
-		Comme on veut $\hat{f}\circ q = f$ on doit avoir $\hat{f}([x]) = \hat{f}(q(x)) = f(x)$ et l'unicité est garantie. Cette application est bien définie puisqu'on a imposé que $f$ soit compatible avec $\sim$. Pour vérifier la continuité de $\hat{f}$ il suffit de réaliser que la composition $\hat{f} \circ q$ est continue puisqu'il s'agit de $f$ et d'appliquer la \textbf{Proposition 1.1.6}. 
+		Comme on veut $\hat{f}\circ q = f$ on doit avoir $\hat{f}([x]) = \hat{f}(q(x)) = f(x)$ et l'unicité est garantie. Cette application est bien définie puisqu'on a imposé que $f$ soit compatible avec $\sim$. Pour vérifier la continuité de $\hat{f}$ il suffit de réaliser que la composition $\hat{f} \circ q$ est continue puisqu'il s'agit de $f$ et d'appliquer la \textbf{Proposition} \ref{prp:1}. 
 
 	\end{proof}
 	Soit $A\subset X$ un sous espace.
@@ -360,13 +305,14 @@
 	\[\Delta \defeq \{(x,x) \in X \times X\}\]
 	\end{definition}
 	\begin{lemma}
+		\label{lma:diag}
 		Un espace est Hausdorff si et seulement si sa diagonale est fermée.
 	\end{lemma}
 	\begin{proof}
 		Soient $x \neq y \in X$ et  $x \in U, y \in V$ des voisinages distincts. Alors  $U\times V$ est un voisinage ouvert de  $(x,y) \in X\times Y$ munit de la topologie produit. On observe que  $U\cap V \neq \varnothing \iff (U\times V) \cap \Delta = \varnothing$. On peut séparer x et y par des ouverts si et seulement si $\Delta^c$ est ouvert.
 	\end{proof}
 	\begin{proof}[Démonstration de la proposition]
-		Si le quotient $\quot{X}{\sim}$ est séparé, la diagonale $\Delta \subset (\quot{X}{\sim})^2$ est fermée par le \textbf{Lemme 1.3.4}. On considère $q\times q : X \times X \longmapsto (\quot{X}{\sim}) \times (\quot{X}{\sim})$ le quotient et on identifie \[
+		Si le quotient $\quot{X}{\sim}$ est séparé, la diagonale $\Delta \subset (\quot{X}{\sim})^2$ est fermée par le \textbf{Lemme} \ref{lma:diag}. On considère $q\times q : X \times X \longmapsto (\quot{X}{\sim}) \times (\quot{X}{\sim})$ le quotient et on identifie \[
 		{(q \times q)}^{-1}(\Delta) = \{(x,y) \in X \times X \;|\; [x] = [y]\} = \Gamma 
 		\] qui est donc fermé.	
 	\end{proof}
@@ -511,7 +457,7 @@
 					\end{align*}
 					si $U \subset X$ est ouvert alors $U \cdot g$ l'est aussi. Pour montrer que $q(U)$ est ouvert dans le quotient on doit montrer par définition de la topologie quotient que la primage est ouverte dans X. Or  $q^{-1}(q(U)) = \bigcup_{g\in G}U\cdot g$, est ouvert comme union d'ouverts.
 				\item L'image d'un compact par une fonction continue est compact.
-				\item Comme $X$ est séparé, la diagonale $\Delta$ est fermée dans $X \times X$par le \textbf{Lemme 1.3.3} donc compacte. On pose
+				\item Comme $X$ est séparé, la diagonale $\Delta$ est fermée dans $X \times X$par le \textbf{Lemme} \ref{lma:diag} donc compacte. On pose
 					\begin{align*}
 						X \times X \times G &\longmapsto X \times X \\
 						(x,y,g) &\longmapsto (x,yg)
@@ -623,9 +569,11 @@ $\mathbf{RP}^0 \cong \quot{\{\pm 1\}}{-1 \sim 1}$, $\mathbf{RP}^1 \cong S^1$, $\
 	\end{figure}
 
 	\begin{lemma}
+		\label{lma:2}
 		Soient $X,Y$ des espaces séparés, $A\subset Y$ fermé, $f : A \longmapsto X$ continue. Si $C \subset X$, alors $q^{-1}(q(C)) = C \amalg f^{-1}(C)$. 
 	\end{lemma}
 	\begin{lemma}
+		\label{lma:3}
 		Soient $X,Y$ des espaces séparés,  $A\subset Y$ fermé. Si $C \subset Y$, alors \[q^{-1}(q(C)) = f(A\cap C) \amalg (C \cup f^{-1}(f(A\cap C))).\]
 	\end{lemma}
 	\begin{proof}
@@ -636,8 +584,8 @@ $\mathbf{RP}^0 \cong \quot{\{\pm 1\}}{-1 \sim 1}$, $\mathbf{RP}^1 \cong S^1$, $\
 	\end{prop}
 	\begin{proof}
 		On vérifie le critère de séparation. Les deux lemmes nous permettent de décrire la saturation d'un fermé arbitraire de $X \coprod Y$. Un fermé de  $X \coprod Y$ est une réunion disjointe de fermés, il suffit donc de vérifier ce qui se passe pour $C \subset X$ fermé et pour $C$ fermé de  $Y$.\\ 
-		Dans le premier cas, le \textbf{Lemme 1.6.3} montre que $q^{-1}(q(C)) = C \amalg f^{-1}(C)$ est fermé. \\
-		Dans le second le \textbf{Lemme 1.6.4} montre que $q^{-1}(q(C)) =f(C\cap A) \amalg f^{-1}(f(A\cap C))$. Ici $C\cap A$ est fermé dans $A$, donc compact. L'image par $f$ est donc un compact dans $X$ qui est séparé, elle est donc fermée. On conclut ensuite que $f^{-1}(f(A\cap C))$ est fermé aussi. \\ 
+		Dans le premier cas, le \textbf{Lemme} \ref{lma:2} montre que $q^{-1}(q(C)) = C \amalg f^{-1}(C)$ est fermé. \\
+		Dans le second le \textbf{Lemme} \ref{lma:3} montre que $q^{-1}(q(C)) =f(C\cap A) \amalg f^{-1}(f(A\cap C))$. Ici $C\cap A$ est fermé dans $A$, donc compact. L'image par $f$ est donc un compact dans $X$ qui est séparé, elle est donc fermée. On conclut ensuite que $f^{-1}(f(A\cap C))$ est fermé aussi. \\ 
 	On vérifie finalement que la saturation d'un point est compacte, par exemple si \[y \in A, \; q^{-1}(q(y)) = f(y) \amalg f^{-1}(f(y))\] qui est une union disjointe de compacts donc un compact.
 	\end{proof}
 	
@@ -647,6 +595,14 @@ $\mathbf{RP}^0 \cong \quot{\{\pm 1\}}{-1 \sim 1}$, $\mathbf{RP}^1 \cong S^1$, $\
 	\begin{proof}
 		Comme $A$ est séparé, $CA$ est séparé, on applique la \textbf{Proposition 1.6.5}.
 	\end{proof}
+
+	Un cas particulier et important de la construction du pushout $X \cup_A Y$ est celui où $g : A \hookrightarrow CA$ est l'inclusion de la base du cône. 
+	\begin{definition}[Attachement de cellule]
+		Étant donné une application $f : A \longmapsto X$ on dit que le pushout $X \cup_A CA$ aussi noté $X \cup_f CA$ est obtenu de X en attachant une $A-$\textit{cellule} le long de $X$. \\
+		Lorsque $A = S^{n-1}$ on dit que $X \cup_f e^n$ est obtenu en attachant une $n-$\textit{cellule} le long de $f$. \\
+		L'application $f$ est appelée \textit{application d'attachement}.
+	\end{definition}
+
 	\begin{prop}
 		Soient $f,f' : A \longmapsto X$ homotopes. Alors \[
 			X \cup_f CA \simeq X \cup_{f'} CA

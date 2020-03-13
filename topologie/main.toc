@@ -1,0 +1,9 @@
+\babel@toc {french}{}
+\contentsline {chapter}{\numberline {1}La topologie quotient}{3}{chapter.1}
+\contentsline {section}{\numberline {1.1}Th\IeC {\'e}orie g\IeC {\'e}n\IeC {\'e}rale}{3}{section.1.1}
+\contentsline {section}{\numberline {1.2}Quotient par une relation}{5}{section.1.2}
+\contentsline {section}{\numberline {1.3}Quotient et s\IeC {\'e}parabilit\IeC {\'e}}{9}{section.1.3}
+\contentsline {section}{\numberline {1.4}Quotient par des actions de groupe}{12}{section.1.4}
+\contentsline {section}{\numberline {1.5}Les espaces projectifs}{15}{section.1.5}
+\contentsline {section}{\numberline {1.6}Recoller des espaces}{15}{section.1.6}
+\contentsline {section}{\numberline {1.7}Quelques surfaces}{19}{section.1.7}
