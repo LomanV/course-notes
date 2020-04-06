@@ -3,7 +3,7 @@
 \usepackage[onehalfspacing]{setspace}
 \usepackage[french]{babel}
 \usepackage[T1]{fontenc}
-              
+
 \usepackage{amsmath, amssymb, amsthm}
 \usepackage{mathrsfs}
 \usepackage{amsfonts}
@@ -12,16 +12,18 @@
 
 \newcommand{\defeq}{\vcentcolon=}
 \newcommand{\eqdef}{=\vcentcolon}
-                   
+
 \usepackage{enumerate, enumitem}
 \usepackage{fancyhdr, graphicx, proof, comment, multicol}
 \usepackage[none]{hyphenat}
 \usepackage{dirtytalk}
 \usepackage{proof}
-           
+
 \usepackage{graphicx}
 \usepackage{tikz-cd}
 \usepackage[all]{xy}
+\usepackage{caption}
+\usepackage{adjustbox}
 
 \usepackage{centernot}
 \usepackage{mathtools}
@@ -37,7 +39,7 @@
 \usepackage{transparent}
 \newcommand{\incfig}[1]{%
     \def\svgwidth{\columnwidth}
-    \import{./figures/}{#1.pdf_tex} 
+    \import{./figures/}{#1.pdf_tex}
 }
 
 \usepackage{hyperref}
@@ -45,12 +47,12 @@
     colorlinks=true,
     linkcolor=blue,
 }
-            
+
 \newtheorem{lemma}{Lemme}[section]
 \newtheorem{theorem}[lemma]{Théorème}
 \newtheorem{cor}[lemma]{Corollaire}
 \newtheorem{prop}[lemma]{Proposition}
-                    
+
 \theoremstyle{definition}
 \newtheorem{definition}[lemma]{Définition}
 \newtheorem{example}[lemma]{Exemple}
@@ -59,6 +61,7 @@
 
 \theoremstyle{remark}
 \newtheorem*{remark}{Remarque}
+\newtheorem*{rap}{Rappel}
 
 
 \newcommand*\quot[2]{{^{\textstyle #1}\big/_{\textstyle #2}}}
@@ -69,4 +72,6 @@
 
 	\tableofcontents
 	\subfile{chapitre_1.tex}
+	\subfile{chapitre_2.tex}
+	\subfile{chapitre_3.tex}
 \end{document}

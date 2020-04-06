@@ -7,3 +7,12 @@
 \contentsline {section}{\numberline {1.5}Les espaces projectifs}{15}{section.1.5}
 \contentsline {section}{\numberline {1.6}Recoller des espaces}{15}{section.1.6}
 \contentsline {section}{\numberline {1.7}Quelques surfaces}{19}{section.1.7}
+\contentsline {chapter}{\numberline {2}Compl\IeC {\'e}ments de th\IeC {\'e}orie des groupes}{21}{chapter.2}
+\contentsline {section}{\numberline {2.1}Rappel sur les groupes libres}{21}{section.2.1}
+\contentsline {section}{\numberline {2.2}Pr\IeC {\'e}sentation de groupes}{22}{section.2.2}
+\contentsline {section}{\numberline {2.3}Le graphe de Cayley}{23}{section.2.3}
+\contentsline {section}{\numberline {2.4}Produit libre}{24}{section.2.4}
+\contentsline {section}{\numberline {2.5}Amalgames (pushout de groupes)}{26}{section.2.5}
+\contentsline {subsection}{\numberline {2.5.1}L'unicit\IeC {\'e} de l'amalgame}{27}{subsection.2.5.1}
+\contentsline {chapter}{\numberline {3}Le th\IeC {\'e}or\IeC {\`e}me de Seifert Van Kampen}{29}{chapter.3}
+\contentsline {section}{\numberline {3.1}Classes d'homotopie et composantes connexes par arcs}{29}{section.3.1}

@@ -1,0 +1,82 @@
+\documentclass[12pt]{article}
+\usepackage[top=1in, bottom=1in, left=1in, right=1in]{geometry}
+
+\usepackage[onehalfspacing]{setspace}
+
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{enumerate, enumitem}
+\usepackage{fancyhdr, graphicx, proof, comment, multicol}
+\usepackage[none]{hyphenat}
+\usepackage{dirtytalk}
+\binoppenalty=\maxdimen
+\relpenalty=\maxdimen
+
+\usepackage{microtype}
+\usepackage{mathpazo}
+\usepackage{mdframed}
+\usepackage{parskip}
+\linespread{1.1}
+\usepackage{graphicx}
+\usepackage{subfig}
+
+\usepackage{mathrsfs}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\usepackage{mathtools}
+\newcommand{\defeq}{\vcentcolon=}
+\newcommand{\eqdef}{=\vcentcolon}
+
+\newenvironment{statement}[1]
+{\begin{mdframed}[linewidth=0.6pt]
+        \textsc{Statement #1:}
+
+}
+    {\end{mdframed}}
+
+\newcommand{\R}{\mathbf{R}}
+\newcommand{\C}{\mathbf{C}}
+\newcommand{\Z}{\mathbf{Z}}
+\newcommand{\N}{\mathbf{N}}
+\newcommand{\Q}{\mathbf{Q}}
+
+\begin{document}
+	\noindent
+\textbf{Analyse IV} \hfill \textbf{Vezin Lomàn}\\
+\normalsize Prof. D. Strut \hfill Due Date: 02/04/2020\\
+
+\begin{center}
+\textbf{Homework}
+\end{center}
+	\begin{statement}{1}
+		Soit $f \in L^p$ et $1 \le p < \infty$, alors \[
+			\lim_{\varepsilon \rightarrow 0} \int_{\mathbf{R}}|f(x+\varepsilon) - f(x)|^p dx = 0
+		.\] 	
+	\end{statement}
+	\begin{proof}
+		On commence par montrer le résultat pour une fonction $g \in \mathcal{C}_{0}^{\infty}(\mathbf{R})$. \\
+		Soit $\gamma > 0$ quelconque et soit $[a,b] \subset \mathbf{R}$ un intervalle contenant le support compact de $g$. Puisque $g$ est continue sur ce compact elle est en particulier uniformément continue et il existe $\delta > 0$ tel que pour $\varepsilon < \delta$ on a $|g(x+\varepsilon)-g(x)| \le {(\frac{\gamma}{3\cdot(b-a)})}^{\frac{1}{p}}$. Ainsi on obtient \[
+			\int_{\mathbf{R}}|g(x+\varepsilon)-g(x)|^pdx = \int_a^b|g(x+\varepsilon)-g(x)|^pdx \le \frac{\gamma}{3}
+		.\] 
+		Puisque $\gamma > 0$ est arbitraire on a \[
+			\lim_{\varepsilon \rightarrow 0} \int_{\mathbf{R}}|g(x+\varepsilon)-g(x)|dx = 0
+		.\] 
+		Soit maintenant $\gamma > 0$ quelconque et $f \in L^{p}$, alors par le théorème d'approximation par fonction lisses il existe $g \in \mathcal{C}_{0}^{\infty}(\mathbf{R})$ telle que $\|f-g\|_{L^{p}} \le \frac{\gamma}{3}$.
+		Si on pose les fonctions auxiliaires $\hat{f}(x) = f(x+\varepsilon)$ et $\hat{g}(x) = g(x+\varepsilon)$ pour tout $x \in \mathbf{R}$ on remarque par le point précédent que \[
+			\|\hat{f}- \hat{g}\|_{L^{p}} = \|f-g\|_{L^{p}} \le \frac{\gamma}{3} \quad \text{et} \quad \|\hat{g} - g\|_{L^{p}} \le \frac{\gamma}{3}
+		.\] 
+		Ainsi par la feinte du loup et par inégalité triangulaire on obtient 
+		\begin{align*}
+			\|\hat{f}-f\|_{L^{p}} &= \|\hat{f}-\hat{g}-f+g-g+\hat{g}\|_{L^{p}} \\
+					      &\le \|\hat{f}-\hat{g}\|_{L^{p}} + \|f-g\|_{L^{p}} + \|\hat{g}-g\|_{L^{p}} \\
+					      &\le \gamma
+		.\end{align*}
+		Ainsi lorsque $\varepsilon$ tend vers 0 on a bien $\|\hat{f}-f\|_{L^{p}} \longrightarrow 0$ puisque $\gamma$ est arbitraire. En d'autres termes  \[
+		\lim_{\varepsilon \rightarrow 0} (\int_{\mathbf{R}}{|f(x+\varepsilon)-f(x)|^pdx})^{\frac{1}{p}} = 0
+		.\] 
+		Soit donc le résultat voulu \[
+		\lim_{\varepsilon \rightarrow 0} \int_{\mathbf{R}}|f(x+\varepsilon)-f(x)|^pdx = 0
+		.\] 
+	\end{proof}
+\end{document}

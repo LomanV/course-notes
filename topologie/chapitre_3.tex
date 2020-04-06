@@ -1,0 +1,185 @@
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+	\chapter{Le théorème de Seifert Van Kampen}	
+	\section{Classes d'homotopie et composantes connexes par arcs}
+
+	\begin{rap}
+		On rappelle la notion d'homotopie \\
+
+		\begin{minipage}{0.5\textwidth}
+			$f,g : A \longmapsto X$ sont \emph{homotopes} s'il existe une homotopie $H : A \times I \longmapsto X$ avec $H(a,0) = f(a)$ et  $H(a,1) =g(a)$ pour tout $a \in A$.	
+		\end{minipage}
+		\hfill
+		\begin{minipage}{0.5\textwidth}
+			\centering
+			\def\svgwidth{0.7\textwidth}
+			\input{homotopie.pdf_tex}	
+		\end{minipage}
+	\end{rap}
+
+	Soient $a_{0} \in A$, $x_{0} \in X$ des points de base de ces espaces
+
+	\begin{definition}[Homotopie au sens pointé]
+		Deux applications pointées $(A,a_{0}) \mapsto (X,x_{0})$, qui envoient $a_{0}$ sur $x_{0}$, sont homotopes s'il existe une homotopie $H : A \times I \longmapsto X$ telle que $H(a_{0},t) = x_{0} \; \forall t \in I$. Une telle homotopie est dite \emph{pointée}, on note $f \simeq_{*} g$.\\
+		On note $[A,X]$ l'ensemble des classes d'homotopie d'applications  $A \longmapsto X$ et on note $[A,X]_{*}$ l'ensemble des classes d'homotopie pointée d'applications pointées.
+	\end{definition}
+		
+	\begin{definition}[Fonctorialité]
+		Soit $f : X \longmapsto Y$ et $A$ un espace. Alors $f$ induit 
+		 \begin{align*}
+			 f_{*} : [A,X] &\longmapsto [A,Y] \\
+			 [u] &\longmapsto [f\circ u]
+		.\end{align*}
+	\end{definition}
+	Cette application est bien définie. En effet si $u \simeq v$ alors nous avons $H : A \times I \longmapsto X$ qui induit $f\circ H : A \times I \longmapsto Y$ avec $(f\circ H)(a,0) = f(H(a,0)) = (f\circ u)(a)$ et $(f\circ H)(a,1) = f(H(a,1)) = (f\circ v)(a)$, une homotopie entre $f\circ u$ et $f\circ v$.
+
+	\begin{lemma}
+		Si $f \simeq g$, alors $f_{*} = g_{*}$.	
+	\end{lemma}
+	\begin{proof}
+		Soit $u : A \longmapsto X$, on doit montrer que $f\circ u \simeq g\circ u$.
+		Soit $F : X \times I \longmapsto Y$ une homotopie entre $f$ et $g$. On recompose cette application par $u \times Id : A \times I \longmapsto X \times I$ pour obtenir
+		\begin{alignat*}{3}
+			H : A \times I &\longmapsto X \times I &&\overset{F}{\longmapsto} Y \\
+			(a,t) &\longmapsto (u(a),t) &&\longmapsto F(u(a),t)
+		.\end{alignat*}
+		On obtient alors \[
+			H(a,0) = F(u(a),0) = (f\circ u)(a) \quad \text{et} \quad H(a,1) = F(u(a),1) = (g\circ u)(a)
+		.\] Donc $H$ est une homotopie entre $f\circ u$ et $g\circ u$ et ainsi
+		\[
+			f_{*}(u) = [f\circ u] = [g\circ u] = g_{*}(u)
+		.\] 
+	\end{proof}
+
+	\begin{prop}
+		Si $X \simeq Y$, alors $[A,X] \cong [A,Y]$ au sens de bijection d'ensembles.
+	\end{prop}
+
+	\begin{proof}
+		Comme $X \simeq Y$ il existe des applications $f : X \longmapsto Y$ et $g : Y \longmapsto X$ telles que $g\circ f \simeq Id_X$ et $f\circ g \simeq Id_Y$. \\
+		Considérons alors les compositions suivantes
+		\begin{alignat*}{3}
+			[A,X] &\overset{f_{*}}{\longmapsto} [A,Y] &&\overset{g_{*}}{\longmapsto} [A,X] \\
+			[u] &\longmapsto [f\circ u] &&\longmapsto [g\circ f\circ u] = [u]
+		.\end{alignat*}
+		Ainsi $f_{*}\circ g_{*} = Id_{[A,X]}$ et de même $g_{*}\circ f_{*} = Id_{[A,Y]}$ et donc $f_{*}$ et $g_{*}$ sont inverses l'une de l'autre.
+	\end{proof}
+	
+	On illustre ces notions d'homotopie avec les composantes connexes.
+	\begin{notation}
+		On adopte dans cette section les notations suivantes \\
+		\renewcommand\labelitemi{$\bullet$}
+		\begin{itemize}
+		\item Pour $x \in X$, on note $\overline{x}$ la classe de $x$ dans l'ensemble des composantes connexes de $X$.
+
+		\item $\pi_{0} X$ dénote l'ensemble des composantes connes de $X$.
+
+		\item $S^{0} \defeq \{\pm 1\} \subset \mathbf{R}$ est la sphère unité.
+		\end{itemize}
+	\end{notation}
+
+	\begin{prop}
+		Soit $(X,x_{0})$ un espace pointé, alors $\pi_{0} X \cong [S^{0},X]_{*}$ comme bijection d'ensembles.
+	\end{prop}
+	\begin{proof}
+		On veut montrer que l'application suivante passe au quotient sur les classes $[S^{0},X]$.
+		\begin{alignat*}{3}
+			\mathcal{C}((S^{0},1),(X, x_{0})) &\longmapsto \quad X &&\longmapsto \pi_{0} X \\
+			f &\longmapsto f(-1) &&\longmapsto \overline{f(-1)}
+		.\end{alignat*}
+		En effet, si $f\simeq_{*} g$, il existe $H : S^{0} \times I \longmapsto X$ une homotopie pointée telle que 
+			\begin{align*}
+				H(\pm 1,0) &= f(\pm 1) \\
+				H(\pm 1,1) &= g(\pm 1) \\
+				H(1,t) &= x_{0}
+			.\end{align*}
+			
+			Ainsi $H(-1,t)$ définit un chemin entre $H(-1,0)=f(-1)$ et $H(-1,1) = g(-1)$ et donc $\overline{f(-1)} = \overline{g(-1)}$. \\
+		On a obtenu une application bien définie $[S^{0},X]_{*} \longmapsto \pi_{0}X$, on montre dans un premier temps la surjectivité. Soit $x\in X$, on pose 
+		\begin{align*}
+			f_{x} : S^{0} &\longmapsto X \\
+			1 &\longmapsto x_{0} \\
+			-1 &\longmapsto x
+		.\end{align*}
+		Alors $[f_{x}] \longmapsto \overline{x}$. \\
+		Quant à l'injectivité, soient $f,g : S^{0} \longmapsto X$ pointées telles que $\overline{f(-1)} = \overline{g(-1)}$. Donc $f(-1)$ et $g(-1)$ sont deux points de $X$ dans la même composante connexe par arcs, il existe donc un chemin $\gamma : I \longmapsto X$ tel que $\gamma(0) = f(-1)$ et $\gamma(1) = g(-1)$. On définit alors une homotopie pointée entre $f$ et $g$.
+		 \begin{align*}
+			 H : S^{0} \times I &\longmapsto X \\
+			 (1,t) &\longmapsto x_{0} \\
+			 (-1,t) &\longmapsto \gamma(t)
+		 .\end{align*}
+		 Ainsi $[f] = [g]$ et l'injectivité est établie.
+	\end{proof}
+	\begin{remark}
+		On voit de cette façon l'ensemble des composantes connexes de $X$ comme un ensemble de classes d'homotopies de la 0-sphère $S^{0}$ dans $X$.
+	\end{remark}
+
+	\section{Le groupe fondamental}
+
+	\begin{definition}[Lacet]
+		Un lacet dans un espace $X$ est une application $\omega : I \longmapsto X$ avec la condition $\omega(0) = \omega(1)$. On peut ainsi voir un lacet comme une application $\gamma : S^{1} \longmapsto X$.	
+	\end{definition}
+
+	\begin{definition}[Le groupe fondamental]
+		On définit le groupe fondamental comme étant $\pi_{1} X \defeq [S^{1},X]_{*}$.
+	\end{definition}
+	Il s'agît comme son nom l'indique d'un \emph{groupe}, sa loi de composition est la \emph{concaténation de chemins}, définie pour $f,g : I \longmapsto X$ par
+	\[
+	f \star g = \begin{cases}
+		f(2t) \quad &0 \le t \le \frac{1}{2} \\
+		g(2t - 1) \quad &\frac{1}{2} \le t \le 1
+	\end{cases}
+	.\] 
+
+	\subsection{Pincer et plier}
+	\begin{remark}
+		On retrouve souvent la nomenclature `pinch and fold'.
+	\end{remark}
+
+		\begin{definition}[Pinch]
+			L'application \emph{pinch} de la suspension d'un espace $A$ est obtenue en collapsant la partie centrale $A\times \frac{1}{2}$ sur un point. Plus formellement elle est définie par l'application quotient $p : \Sigma A \longmapsto \quot{\Sigma A}{A \times \frac{1}{2}}$. Ce denier quotient peut être associé au \emph{wedge} $\Sigma A \bigvee \Sigma A$.
+		\end{definition}
+		\begin{figure}[ht]
+			\centering
+			\def\svgwidth{0.7\textwidth}
+			\input{pinch.pdf_tex}
+			\caption{Illustration du pinch de la suspension de $A$}
+		\end{figure}
+
+	\begin{example}
+		On illustre ici l'exemple du cercle unité $S^{1} \cong \Sigma S^{0}$.	
+		\begin{figure}[h]
+			\centering
+			\def\svgwidth{0.8\textwidth}
+			\input{pinch2.pdf_tex}
+			\caption{Illustration du pinch de $S^{1}$}
+		\end{figure}
+	\end{example}
+	On défini à présent l'application de pliage.
+	\begin{definition}[Fold]
+		L'application de pliage \emph{fold} est définie pour n'importe quel espace pointé $(X,x_{0})$ par \[
+			\nabla : X \bigvee X \longmapsto X \defeq (id_X,id_X)
+		.\]
+		\begin{minipage}{0.7\textwidth}
+			\xymatrix@R=2.2cm@C=2.2cm{
+				\star \ar[r]^{x_{0}}      \ar[d]_{x_{0}}         & X \ar[d] \ar@/^1pc/[rdd]^{id_X}   \\
+				X \ar[r] \ar@/_1pc/[rrd]_{id_X} & X \bigvee X \ar@{-->}[rd]_{\nabla = (id_X,id_X)}             \\
+								&                                   & X 
+							}
+		\end{minipage}
+		\hfill
+		\begin{minipage}{0.5\textwidth}
+			Cette construction s'appuie sur la propriété universelle du wedge, plus explicitement on a pour tout $x \in X$
+			\begin{align*}
+				\nabla : X \bigvee X &\longmapsto X \\
+				(x,1) &\longmapsto x \\
+				(x,2) &\longmapsto x
+			.\end{align*}
+		\end{minipage}
+		\[
+	\]
+	\end{definition}
+	\subsection{La structure de groupe de $\pi_{1} X$} 
+	On illustre dans un premier temps la composition de deux lacets dans $X$ vus comme des applications $S^{1} \longmapsto X$.
+\end{document}

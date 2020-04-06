@@ -1,0 +1,105 @@
+\documentclass[12pt]{article}
+\usepackage[top=1in, bottom=1in, left=1in, right=1in]{geometry}
+
+\usepackage[onehalfspacing]{setspace}
+
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{enumerate, enumitem}
+\usepackage{fancyhdr, graphicx, proof, comment, multicol}
+\usepackage[none]{hyphenat}
+\usepackage{dirtytalk}
+\binoppenalty=\maxdimen
+\relpenalty=\maxdimen
+
+\usepackage{microtype}
+\usepackage{mathpazo}
+\usepackage{mdframed}
+\usepackage{parskip}
+\linespread{1.1}
+\usepackage{graphicx}
+\usepackage{subfig}
+
+\usepackage{mathrsfs}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\usepackage{mathtools}
+\newcommand{\defeq}{\vcentcolon=}
+\newcommand{\eqdef}{=\vcentcolon}
+
+\newenvironment{statement}[1]
+{\begin{mdframed}[linewidth=0.6pt]
+        \textsc{Statement #1:}
+
+}
+    {\end{mdframed}}
+
+\newcommand{\R}{\mathbf{R}}
+\newcommand{\C}{\mathbf{C}}
+\newcommand{\Z}{\mathbf{Z}}
+\newcommand{\N}{\mathbf{N}}
+\newcommand{\Q}{\mathbf{Q}}
+
+\begin{document}
+\noindent \textbf{Vezin Lomàn} \hfill \textbf{Analyse IV}\\
+\normalsize Prof. D. Strütt  \hfill Due Date: 26/03/2020\
+
+\begin{center}
+\textbf{Homework 5}
+\end{center}
+
+\begin{statement}{1}
+	Soient $f,g \ge 0$ des fonctions mesurables, alors \[
+		\int (f+g) = \int f + \int g
+	.\] 
+\end{statement}
+\begin{proof}
+	On commence par montrer le résultat pour deux fonctions simples positives $\varphi, \psi$.
+	 \[
+	\varphi = \sum_{i=1}^{n} a_{i}\chi_{A_{i}} \qquad \psi = \sum_{j=1}^{m} b_j \chi_{B_{j}}
+.\] Ainsi comme les $A_{i}$ et les $B_{j}$ forment une partition de $\mathbf{R}$ on obtient que 
+\[
+	\varphi + \psi = \sum_{1\le i\le n \; , \; 1 \le j \le m} (a_{i} + b_{j})\chi_{A_{i} \cap B_{j}}
+.\] 
+Donc
+\begin{align*}
+	\int (\varphi + \psi) &= \sum_{1\le i\le n \; , \; 1 \le j \le m} (a_{i} + b_{j}) mes(A_i \cap B_j) \\
+			      &= \sum_{1\le i\le n \; , \; 1 \le j \le m} a_{i} mes(A_i \cap B_j) + \sum_{1\le i\le n \; , \; 1 \le j \le m} b_j mes(A_i \cap B_j) \\
+			      &= \sum_{i=1}^{n} a_i mes(A_i) + \sum_{j=1}^{m} b_j mes(B_j) \\
+			      &= \int \varphi + \int \psi
+\end{align*}
+puisque les $A_{i}, B_{j}$ forment une partition de $\mathbf{R}$ et on le résultat.
+Maintenant,
+\begin{align*}
+	\int f + \int g &= \sup \{\int \varphi \;|\; 0 \le \varphi \le f \} + \sup \{ \int \psi \;|\; 0 \le \psi \le g\} \\
+		&= \sup \{\int \varphi + \int \psi \;|\; 0 \le \varphi \le f \; 0 \le \psi \le g \} \\
+		&= \sup \{\int (\varphi + \psi) \;|\; 0 \le \varphi + \psi \le f + g\} \\
+		&= \int (f+g)
+.\end{align*}
+Ce qui conclut la preuve.
+\end{proof}
+
+\begin{statement}{2}
+	Pour $f_{n}\ge 0$ une suite de fonctions mesurables,
+	\[
+	\int \sum_{n=1}^{\infty} f_{n} = \sum_{n=1}^{\infty} \int f_n
+	.\] 	
+\end{statement}
+\begin{proof}
+	On montre dans un premier temps par récurrence sur $m > 0$ que \[
+	\int \sum_{n=1}^{m} f_n = \sum_{n=1}^{m} \int f_n
+	.\] 
+	Par le premier point nous savons déjà que le résultat est valide pour $m = 2$.
+	Supposons que le résultat soit vérifié pour $m \ge 2$, alors 
+	 \begin{align*}
+		 \sum_{n=1}^{m+1} \int f_{n} &= \sum_{n=1}^{m} \int f_{n} + \int f_{m+1} \\
+					     &= \int \sum_{n=1}^{m} f_{n} + \int f_{m+1} \quad \text{par hypothèse de récurrence} \\
+					     &= \int (\sum_{n=1}^{m} f_{n} + f_{m+1}) \quad \text{par l'additivité montrée au premier point} \\
+					     &= \int \sum_{n=1}^{m+1} f_{n} \quad \text{et le résultat est démontré.}
+	\end{align*} 
+	Remarquons à présent que la suite $(\sum_{n=1}^{m} f_n)_{m=1}^{\infty}$ est une suite croissante de fonctions mesurables puisque les $f_{n}$ sont des fonctions positives et mesurables. Ainsi par le théorème de la convergence monotone \[
+		\int \sum_{n=1}^{\infty} f_{n} = \int \lim_{m \rightarrow \infty} \sum_{n=1}^{m} f_{n} = \lim_{m \rightarrow \infty} \int \sum_{n=1}^{m} f_{n} = \lim_{n \rightarrow \infty} \sum_{n=1}^{m} \int f_{n} = \sum_{n=1}^{\infty} \int f_{n} 
+.\]  Ce qui conclut la preuve.
+\end{proof}
+\end{document}
