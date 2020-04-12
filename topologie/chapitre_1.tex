@@ -177,7 +177,7 @@
 		\begin{align*}
 			f : D^n &\longmapsto S^n \\
 			\textbf{x} &\longmapsto \begin{cases}
-				(2\textbf{x},\sqrt{1-\|\textbf{2x}^2\|}) \; &\text{si} \; \|\textbf{x}\| \le \frac{1}{2} \\
+				(2\textbf{x},\sqrt{1-\|\textbf{2x}\|^2}) \; &\text{si} \; \|\textbf{x}\| \le \frac{1}{2} \\
 				([4-4\|\textbf{x}\|]\textbf{x},-\sqrt{1-{[4-4\|\textbf{x}\|]}^2{\|\textbf{x}\|}^2}) \; &\text{si} \; \frac{1}{2} \le \|\textbf{x}\| \le 1
 			\end{cases}
 		.\end{align*}
@@ -192,7 +192,7 @@
 		\begin{align*}
 			\varphi_i : X_i &\longmapsto \coprod X_i \\
 			x&\longmapsto(x,i)
-		\end{align*} soient continues. De façon explicite un sous ensemble $U \subset \coprod X_i$ est ouvert si et seulement si sa préimage $\varphi^{-1}(U) \subset X_i$ est ouverte pour tout $i\in I$. Cette topologie est appelée topologie coproduit.
+		\end{align*} soient continues. De façon explicite un sous ensemble $U \subset \coprod X_i$ est ouvert si et seulement si sa préimage $\varphi_{i}^{-1}(U) \subset X_i$ est ouverte pour tout $i\in I$. Cette topologie est appelée topologie coproduit.
 	\end{definition}
 	\begin{prop}[Propriété universelle]
 		L'union disjointe d'une famille d'ensembles munie des injections canoniques est caractérisée par la propriété universelle suivante. \\
@@ -255,7 +255,7 @@
 	\end{definition}
 
 	\begin{definition}[Type d'homotopie]
-		On dit que deux espaces $X$ et $Y$ ont le même type d'homotopie s'il existe des applications $f : X \longmapsto Y$ et $g : Y \longmapsto X$ telles que $f \circ g \simeq Id_Y$ et $g \circ f \simeq Id_X$. On note alors $X \simeq Y$ et on appelle $f$ et $g$ des équivalences d'homotopie.	
+		On dit que deux espaces $X$ et $Y$ ont le même type d'homotopie s'il existe des applications $f : X \longmapsto Y$ et $g : Y \longmapsto X$ telles que $f \circ g \simeq id_Y$ et $g \circ f \simeq id_X$. On note alors $X \simeq Y$ et on appelle $f$ et $g$ des équivalences d'homotopie.	
 	\end{definition}
 
 	\begin{prop}
@@ -267,13 +267,13 @@
 			H : X \times I \times I &\longmapsto X \times I \\
 			(x,s,t) &\longmapsto (x,st)
 		.\end{align*}
-		Cette application est clairement continue, elle passe aux quotients et induit une application
+		Cette application est clairement continue, elle passe au quotient et induit une application
 		\begin{align*}
 			\overline{H} : CX \times I &\longmapsto CX \\
 			([x,s],t) &\longmapsto [x,st]
 		.\end{align*}
 		Cette dernière application est bien définie puisque $H(x,0,t) = (x,0)$. Cette application  $\overline{H}$ est une homotopie entre $\overline{H} \vert_{CX \times 0}$
-		qui est l'application constante sur $[x,0]$ et $\overline{H} \vert _{CX \times 1} = Id_{CX}$.
+		qui est l'application constante sur $[x,0]$ et $\overline{H} \vert _{CX \times 1} = id_{CX}$.
 		Ainsi $\overline{H}$ est une contraction du cône sur un point.
 	\end{proof}
 
@@ -350,7 +350,7 @@
 				F \; \text{si} \; A\cap F = \varnothing \\
 				F \bigcup A \; \text{sinon}
 			\end{cases}
-		.\end{align*} Notons que $F$ est fermé puisque compact dans un espace séparé, ce qui implique que  $F \bigcup A$ l'est également.
+		.\end{align*} Notons que $A$ est fermé puisque compact dans un espace séparé, ce qui implique que  $F \bigcup A$ l'est également.
 	\end{proof}
 	\begin{example} On montre à travers cet exemple que cette proposition n'est \emph{pas} nécessaire. On définit sur $\mathbf{R}^2$ la relation  \[
 		\textbf{x} \sim \textbf{y} \iff \exists \textbf{a} \in \mathbf{Z}^2 \;|\; \textbf{x} + \textbf{a} = \textbf{y}
@@ -614,7 +614,7 @@ $\mathbf{RP}^0 \cong \quot{\{\pm 1\}}{-1 \sim 1}$, $\mathbf{RP}^1 \cong S^1$, $\
 			&h : Y \longmapsto Y' \\
 			&h' : Y' \longmapsto Y
 		\end{align*}
-		telles que $h\circ h' \simeq Id_Y$ et $h'\circ h \simeq Id_{Y'}$. 
+		telles que $h\circ h' \simeq id_Y$ et $h'\circ h \simeq id_{Y'}$. 
 		On construit $h$ par passage au quotient d'une application 
 		 \begin{align*}
 			 X \amalg CA &\longmapsto Y' \\
@@ -636,7 +636,7 @@ $\mathbf{RP}^0 \cong \quot{\{\pm 1\}}{-1 \sim 1}$, $\mathbf{RP}^1 \cong S^1$, $\
 		.\] 
 		On parcourt le cône $CA$ de $Y$ quatre fois plus rapidement sur le quart supérieur, ensuite on utilise $H$ pour faire le lien entre $f$ et $f'$, puis on revient en arrière avec l'homotopie inverse. \\
 		On doit enfin construire une homotopie \[
-			h'\circ h \times I \longmapsto Id_{Y}
+			h'\circ h \times I \longmapsto id_{Y}
 		.\] 
 		L'idée est de définir $K : Y \times I \longmapsto Y$ de sorte qu'au temps $s$ on commence par l'homotopie $H$ mais seulement jusqu'au temps $t=s$, puis on revient en arrière et on termine avec l'identité.
 		On pose $K|_{X\times I}$ comme étant la projection sur $X$ puis on pose  \[
@@ -648,10 +648,10 @@ $\mathbf{RP}^0 \cong \quot{\{\pm 1\}}{-1 \sim 1}$, $\mathbf{RP}^1 \cong S^1$, $\
 		.\] 
 		On vérifie que 
 		\begin{align*}
-			K([a,t],0) = [a,t] = Id_{CA}[a,t] \\
+			K([a,t],0) = [a,t] = id_{CA}[a,t] \\
 			K([a,t],1) = (h'\circ h)([a,t])
 		.\end{align*}
-		De même on définit $K'$ une homotopie de  $Id_{Y'} \longmapsto h \circ h'$.
+		De même on définit $K'$ une homotopie de $id_{Y'} \longmapsto h \circ h'$.
 	\end{proof}
 	\begin{cor}
 		Si $f \simeq f' : S^{n-1} \longmapsto X$, alors $X \cup_f e^n \cong X \cup_{f'}e^n$. En particulier si $f$ est homotope à une fonction constante, alors $X \cup_f e^n \cong X \bigvee S^n$.
