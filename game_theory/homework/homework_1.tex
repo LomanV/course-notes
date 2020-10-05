@@ -1,0 +1,193 @@
+\documentclass[12pt]{article}\usepackage[top=1in, bottom=1in, left=1in, right=1in]{geometry}
+
+\usepackage[onehalfspacing]{setspace}
+
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{enumerate, enumitem}
+\usepackage{fancyhdr, graphicx, proof, comment, multicol}
+\usepackage[none]{hyphenat}
+\usepackage{dirtytalk}
+\binoppenalty=\maxdimen
+\relpenalty=\maxdimen
+
+\usepackage{tabu}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usepackage{zref-savepos}
+
+\newcounter{NoTableEntry}
+\renewcommand*{\theNoTableEntry}{NTE-\the\value{NoTableEntry}}
+
+\newcommand*{\strike}[2]{%
+  \multicolumn{1}{#1}{%
+    \stepcounter{NoTableEntry}%
+    \vadjust pre{\zsavepos{\theNoTableEntry t}}% top
+    \vadjust{\zsavepos{\theNoTableEntry b}}% bottom
+    \zsavepos{\theNoTableEntry l}% left
+    \hspace{0pt plus 1filll}%
+    #2% content
+    \hspace{0pt plus 1filll}%
+    \zsavepos{\theNoTableEntry r}% right
+    \tikz[overlay]{%
+      \draw
+        let
+          \n{llx}={\zposx{\theNoTableEntry l}sp-\zposx{\theNoTableEntry r}sp-\tabcolsep},
+          \n{urx}={\tabcolsep},
+          \n{lly}={\zposy{\theNoTableEntry b}sp-\zposy{\theNoTableEntry r}sp},
+          \n{ury}={\zposy{\theNoTableEntry t}sp-\zposy{\theNoTableEntry r}sp}
+        in
+        (\n{llx}, \n{lly}) -- (\n{urx}, \n{ury})
+      ;
+    }% 
+  }%
+}
+
+
+\usepackage{microtype}
+\usepackage{mathpazo}
+\usepackage{mdframed}
+\usepackage{parskip}
+\linespread{1.1}
+\usepackage{graphicx}
+\usepackage{subfig}
+
+\usepackage{mathrsfs}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\usepackage{mathtools}
+\newcommand{\defeq}{\vcentcolon=}
+\newcommand{\eqdef}{=\vcentcolon}
+
+\newenvironment{statement}[1]
+{\begin{mdframed}[linewidth=0.6pt]
+        \textsc{Statement #1:}
+
+}
+    {\end{mdframed}}
+
+\newcommand{\R}{\mathbf{R}}
+\newcommand{\C}{\mathbf{C}}
+\newcommand{\Z}{\mathbf{Z}}
+\newcommand{\N}{\mathbf{N}}
+\newcommand{\Q}{\mathbf{Q}}
+
+\begin{document}
+        \noindent
+\textbf{Théorie des jeux} \hfill \textbf{Vezin Lomàn}\\
+\normalsize ECO555 \hfill Date de rendu: 30/09/2020\\
+
+\begin{center}
+\textbf{Devoir à la maison 1}
+\end{center}
+
+\bigskip
+        
+\textbf{1.} On montre dans un premier temps que l'algorithme s'arrête nécessairement en au plus $n^{2}$ étapes. Pour cela on peut regarder les actions des hommes. \\
+
+A chaque tour un homme $h_{i}$ peut:
+\begin{itemize}
+        \item faire une proposition à la $k-$ème femme dans sa liste ordonnée $f_{i_{k}}$ pour $k \le n$.
+        \item attendre, si une des femmes a accepté sa proposition
+\end{itemize}
+Dès qu'une femme accepte la proposition d'un homme ce dernier peut attendre jusqu'à $n-1$ tours pendant lesquels les autres hommes peuvent successivement faire une proposition à sa partenaire. Ainsi $h_i$ peut passer au plus $n$ tours avec une femme donnée.
+
+A l'issue de son attente:
+\begin{itemize}
+        \item soit sa partenaire précédente $f_{i}$ a choisi un autre homme et $h_{i}$ doit demander à la femme suivante dans sa liste ordonnée $f_{i_{k+1}}$ 
+        \item soit il est `accepté' et on forme le couple $(h_{i}, f_{i_{k}})$.
+\end{itemize}  
+Ce processus peut être répété $n$ fois puisqu'il y a $n$ femmes, par multiplicativité on a donc au plus $n^{2}$ tours avant que $h_{i}$ n'ait plus d'action possible. Puisque chaque homme effectue une action à chaque tour et que le choix de $h_{i}$ était arbitraire on en conclut que l'algorithme termine en au plus $n^{2}$ étapes.
+
+\bigskip
+
+\begin{minipage}{0.5\textwidth}
+        \textbf{2.} On étudie l'exemple suivant. Tous les mariages pour lesquels les préférences de chaque paire $(x, y), \, x \in H, \: y \in F$ est de la forme $(1, 3)$ ou  $(3, 1)$ est forcément stable puisqu'au moins un partenaire de chaque couple atteint sa satisfaction maximale. \\
+        On peut vérifier à la main que les autres mariages le sont aussi à l'exception du mariage dont toutes les satisfactions sont de la forme $(2, 2)$.
+\end{minipage}
+\hfill
+\begin{minipage}{0.5\textwidth}
+        \center
+        \begin{tabu}{|c|c|c|c|}
+                \tabucline{-}
+                \strike{|c|}{} & A & B & C \\
+                \hline
+                a & (1,3) & (2,2) & (3,1) \\
+                \hline
+                b & (3,1) & (1,3) & (2,2) \\
+                \hline
+                c & (2,2) & (3,1) & (1,3) \\
+                \tabucline{-}
+        \end{tabu}
+\end{minipage}
+
+\bigskip
+
+\textbf{3.} On montre que le résultat de l'algorithme est toujours un mariage stable. \\
+Dès qu'un homme fait sa proposition à une femme celle-ci est certaine d'être en couple lorsque l'algorithme termine. Ainsi la seule possibilité pour qu'une femme ne soit pas en couple est qu'elle ne reçoive aucune demande, cela n'est pas possible puisqu'il y a autant d'hommes que de femmes et que par construction un homme ne peut être polygame. Ainsi l'algorithme retourne bien un mariage. \\ 
+
+Soit $(x_1, Y_1)$ un mariage donné par l'algorithme, on montre qu'il est stable. Soit $(x_2, Y_2)$ un couple alternatif également donné par l'algorithme,
+\begin{itemize}
+        \item si $x_1$ préfère $Y_2$ à sa partenaire $Y_1$ il lui aura fait sa proposition avant de la faire à $Y_1$. Par la construction de l'algorithme cela signifie que $x_1$ a été forcé de faire une proposition à sa partenaire suivante, c'est à dire que $Y_2$ préfère $x_2$ à $x_1$. 
+        \item si $Y_1$ préfère $x_2$ à $x_1$ mais que l'algorithme donne le couple $(x_1, Y_1)$ cela signifie que $x_2$ n'a pas fais sa demande à $Y_1$, c'est à dire que $x_2$ préfère $Y_2$.
+\end{itemize}
+Ainsi on ne peut pas avoir à la fois $x_1$ préfère $Y_2$ et $x_2$ préfère $Y_1$, comme le choix du couple alternatif $(x_2, Y_2)$ était arbitraire et que le choix du couple référence $(x_1, Y_1)$ l'était aussi on en déduit que le mariage donné par l'algorithme est stable.
+
+\bigskip
+
+\textbf{4.} On montre que dans certaines situations il est possible de ne pas trouver de mariage stable au sein d'une communauté. Considérons un ensemble de $2n$ étudiants $(i_{k})_{k \in \{1, \ldots 2n\} }$, $n \ge 2$ pour rendre l'exemple intéressant, ayant chacun des préférences concernant les $2n - 1$ autres étudiants et souhaitant cohabiter dans des chambres de 2. \\
+
+\begin{minipage}{0.5\textwidth}
+        Pour $2n = 4$ on a par exemple la répartition suivante, $x$ désigne un choix quelconque. Aucun des 3 mariages  \[
+                \{(a, c), (b, d)\} \{(a, b), (c, d)\}, \{(b, c), (a, d)\}   
+        \] 
+        n'est stable. Le contenu de la case $(a, b)$ signifie que l'étudiant $a$ classe l'étudiant $b$ en troisième position 
+\end{minipage}
+\hfill
+\begin{minipage}{0.5\textwidth}
+        \begin{center}
+                \renewcommand{\arraystretch}{2}
+                \begin{tabu}{|c|c|c|c|c|}
+                        \tabucline{-}
+                        \strike{|c|}{} & a & b & c & d \\
+                        \hline
+                        a & \strike{c|}{} & 3 & 1 & 2 \\
+                        \hline
+                        b & 2 & \strike{c|}{} & 1 & 3 \\
+                        \hline
+                        c & x & x & \strike{c|}{} & 1 \\
+                        \hline
+                        d & 3 & 2 & 1 & \strike{c|}{} \\
+                        \tabucline{-}
+                \end{tabu}
+        \end{center}
+\end{minipage}
+
+Pour des étudiants $(i_k)_{k \in \{1, \ldots 2n\} }, \: n \in \N$ quelconque l'idée est la même, un des étudiants est \emph{le colocataire idéal}, tout le monde le place en première position, puis on peut fixer pour chaque position suivante $p \in \{2, \ldots, 2n-1\} $ une permutation des étudiants restants $(i_{k_1}, \ldots i_{k_{2n-1}})_p$ où chaque étudiant $i_{k_{j}}$ associe la position $p$ à l'étudiant suivant $i_{k_{j+1}}$. Les choix du colocataire idéal n'importent pas. Ainsi si, sans perte de généralité, $i_{1}$ est le colocataire idéal et que son couple est $(i_{1}, i_{k})$ on est certain de trouver un couple $(i_{l}, i_{m})$ tel que $i_{l}$ préfère $i_{k}$ à $i_{m}$, et comme $i_1$ est le colocataire idéal $i_{m}$ préfèrera toujours $i_1$. Cela garantit que le mariage n'est pas stable.
+
+\bigskip
+
+\textbf{5.} On tente à présent de définir un mariage stable dans une société polygame. Si $E$ représente un ensemble d'écoles de cardinal $m$ avec chacune un quota d'élèves $b_i$ et $P$ un ensemble de polytechniciens de cardinal $n$ un mariage polygame serait une application
+\[
+        \mu : P \longmapsto E
+\] 
+satisfaisant \[
+        |\mu^{-1}\{x_{i}\}| \le b_{i}, \quad \forall x_{i} \in E
+.\] 
+
+Un mariage serait dit stable si il n'existe pas $x_1, x_2 \in E$ satisfaisant \[
+        x_1 \text{ préfère } \mu(x_2) \text{ et } \mu(x_1) \text{ préfère } x_2
+.\] 
+
+Une condition nécessaire à l'existence d'un tel mariage est que tous les élèves puissent être affectés à une école, c'est à dire \[
+\sum_{i=1}^{m} b_{i} \ge n
+.\] 
+
+Par un raisonnement similaire, l'algorithme donné dans l'énoncé légèrement modifié permet alors de trouver un mariage stable
+\begin{itemize}
+        \item le premier jour chaque élève fait sa demande à son école préférée, chaque école $e_{i}$ dit `peut être' à au plus $b_{i}$ élèves.
+        \item par induction, le $k$-ème jour les élèves qui ont été rejeté le $(k-1)$-ème jour font leur demande à l'école suivante dans leur liste. Chaque école est contrainte de respecter son quota.
+        \item l'algorithme termine lorsque chaque polytechnicien est associé à une école.
+\end{itemize}
+\end{document}

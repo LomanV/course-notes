@@ -1,0 +1,320 @@
+\documentclass[12pt]{article}
+\usepackage[french]{babel}
+\usepackage[top=1in, bottom=1in, left=1in, right=1in]{geometry}
+
+\usepackage[onehalfspacing]{setspace}
+
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{enumerate, enumitem}
+\usepackage{fancyhdr, graphicx, proof, comment, multicol}
+\usepackage[none]{hyphenat}
+\usepackage{dirtytalk}
+\binoppenalty=\maxdimen
+\relpenalty=\maxdimen
+
+\usepackage{microtype}
+\usepackage{mathpazo}
+\usepackage{mdframed}
+\usepackage{parskip}
+\linespread{1.1}
+\usepackage{graphicx}
+\usepackage{subfig}
+
+\usepackage{mathrsfs}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\usepackage{mathtools}
+\newcommand{\defeq}{\vcentcolon=}
+\newcommand{\eqdef}{=\vcentcolon}
+
+\newcommand{\subarrow}[2]{%
+  \mathord{% ensure math mode and grouping
+    \renewcommand{\arraystretch}{0}%
+    \begin{array}[t]{@{}c@{}l@{}}
+    #1\\
+    \scriptstyle\rightarrow&\scriptstyle#2
+    \end{array} 
+    \kern\scriptspace
+  }%
+}
+
+\newenvironment{statement}[1]
+{\begin{mdframed}[linewidth=0.6pt]
+        \textsc{Exercice #1:}
+
+}
+    {\end{mdframed}}
+
+\newcommand{\R}{\mathbf{R}}
+\newcommand{\C}{\mathbf{C}}
+\newcommand{\Z}{\mathbf{Z}}
+\newcommand{\N}{\mathbf{N}}
+\newcommand{\Q}{\mathbf{Q}}
+
+\newcommand{\de}{\mathrm{d}}
+
+\begin{document}
+        \noindent
+\textbf{Analyse complexe} \hfill \textbf{Vezin Lomàn}\\
+\normalsize MAT431 \hfill Date de rendu: 05/10/2020\\
+
+\begin{center}
+\textbf{Devoir maison 1}
+\end{center}
+
+\begin{statement}{1}
+        On étudie les fonctions holomorphes injectives $f$ satisfaisant $f(0) = 0, \; f'(0) = 1$. On nomme $\mathcal{S}$ l'ensemble de telles fonctions 
+\end{statement}
+
+\textbf{1.} Soit K un compact du plan dont le bord est un lacet simple $\gamma$ pouvant être vu comme fonction de $\R^{2} \longmapsto \R^{2}$ \[
+        \gamma(x, y) = (\gamma_1(x, y), \gamma_2(x, y))
+\] ou par identification comme une fonction de $\C \longmapsto \C$\[
+        \gamma(z) = \gamma_1(z) + i\gamma_2(z) 
+\] avec $\gamma_1, \gamma_2$ à valeurs réelles. 
+Posons les applications $\mathcal{C}^{1}(\R^{2})$ \[
+        P : (x, y) \longmapsto -\frac{y}{2} \qquad Q : (x, y) \longmapsto \frac{x}{2}
+\] de telle sorte que $\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y} = 1$ \\
+ 
+Ainsi d'une part:
+\begin{align*}
+        \text{Aire}(K) = \iint_{K}1\de x\de y &= \iint_{K}\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}\de x \de y \\
+                                              &= \int_{\gamma} P\de x + Q\de y \quad \text{par Green Riemann} \\
+                                              &= \frac{1}{2}\int_{0}^{1}-\gamma_2(t)\gamma_{1}'(t) + \gamma_{1}(t)\gamma_{2}'(t) \de t
+.\end{align*}
+
+D'autre part on a:
+\begin{align*}
+        \frac{1}{2i}\int_{\gamma}\overline{z}\de z &= \frac{1}{2i}\int_{0}^{1}\overline{\gamma_{1}(t) + i \gamma_{2}(t)}\cdot (\gamma_{1}'(t) + i\gamma_{2}'(t))\de t \\
+        &= \frac{1}{2i}\int_{0}^{1}\gamma_{1}(t)\gamma_{1}'(t) + \gamma_{2}(t)\gamma_{2}'(t) \de t + \frac{1}{2}\int_{0}^{1}-\gamma_2(t)\gamma_{1}'(t) + \gamma_{1}(t)\gamma_{2}'(t) \de t
+.\end{align*}
+
+On montre que la première intégrale est nulle pour pouvoir en déduire le résultat.
+
+\begin{align*}
+        \frac{1}{2i}\int_{0}^{1}\gamma_{1}(t)\gamma_{1}'(t) + \gamma_{2}(t)\gamma_{2}'(t) \de t &= \frac{1}{4i}\int_{0}^{1}(\gamma_{1}^2)'(t) + (\gamma_{2}^2)'(t) \de t \\
+                                                                                                &= \frac{1}{4i}(\gamma_1^2(1) + \gamma_2^2(1) - \gamma_1^2(0) - \gamma_2^2(0)) \\
+                                                                                                &= 0 \quad \text{comme } \gamma \text{ est un lacet}
+.\end{align*}
+
+\textbf{2.} Considérons $f \in S$. Puisque $f$ est injective son seul zéro est en $z^{*} = 0$ et comme $f'(0) \neq 0$ ce zéro est d'ordre 1.  
+Ainsi la fonction \[
+        \varphi : z \longmapsto \frac{z}{f(z)}
+\] est méromorphe sur le disque unité, prolongeable en une fonction holomorphe $\phi$ sur ce même disque. On peut en effet écrire \[
+f(z) = (z - z^{*})g(z) = zg(z), \quad g(z^{*}) \neq 0
+.\] La condition d'injectivité garantit quant à elle $g(z) \neq 0 \; \forall z \in \mathbf{D}$. \\
+De plus \[
+        \phi(0) = \lim_{z\to 0} \frac{z}{f(z)} = \lim_{z\to 0}\frac{1}{g(z)} = \frac{1}{f'(0)} = 1
+.\]  
+Par analycité des fonctions holomorphes ceci signifie qu'au voisinage de $z^{*} = 0$ il existe une suite $(\tilde{b}_{k})_{k\ge 0}$ avec $\tilde{b}_{0} = \phi(0)$ et telle que
+\begin{align*}
+        \phi(z) = \frac{z}{f(z)} &= \phi(0) + \sum_{k\ge1} \tilde{b}_{k}z^{k} \\
+                                 &= 1 + \sum_{k\ge1} \tilde{b}_{k}z^{k}
+.\end{align*}
+En divisant par $z$ et en posant la suite $(b_k)_k, \; b_k = \tilde{b}_{k+1}, \; \forall k$ on trouve alors le résultat désiré  \[
+        \frac{1}{f(z)} = \frac{1}{z} + \sum_{k\ge_0} b_{k}z^{k}
+.\] 
+
+Comme $\phi$ est holomorphe sur le disque unité la série entière $\sum_{k\ge 0}\tilde{b}_kz^k$ a un rayon de convergence supérieur ou égal à 1, c'est donc aussi le cas de la série entière $\sum_{k\ge 0}b_kz^k$ par définition de $(b_k)_k$.
+
+\bigskip
+
+\textbf{3.} On note $(a_{k})_{k}$ les coefficients dans le développement de $f$ en série entière au voisinage de 0. On a par le point précédent $b_{0} = \tilde{b}_{1} = \phi'(0)$. Aussi en écrivant $\phi(z) = \frac{1}{g(z)}$ on obtient \[
+        \phi'(z) = -\frac{g'(z)}{g^{2}(z)}
+.\] Aussi $g'(0) = \frac{f''(0)}{2}$ et $g(0) = f'(0) = 1$ donc $b_0 = -\frac{f''(0)}{2} = -a_{2}$.
+
+
+De même on a  $b_1 = \tilde{b}_2 = \frac{\phi''(0)}{2}$. On calcule donc \[
+        \phi''(z) = \frac{2g'(z)^{2}}{g^3(z)} - \frac{g''(z)}{g^{2}(z)}
+.\] et donc $\phi''(0) = 2g'(0)^{2} - g''(0)$, soit \[
+b_1 = a_{2}^{2} - a_{3}
+.\] 
+
+Ainsi si $f(z) = z + \sum_{k\ge_2}a_{k}z^{k}$ dans un voisinage de $0$, on obtient par le point précédent \[
+\frac{1}{f(z)} = \frac{1}{z} + \sum_{k\ge 0}b_{k}z^{k} = \frac{1}{z} - a_{2} + \sum_{k\ge 1} b_{k}z^{k}
+.\]  
+
+On en déduit que pour $|z| > 1$ on peut écrire \[
+        a_2 + \frac{1}{f(1/z)} = z + \sum_{k\ge 1} \frac{b_{k}}{z^{k}}
+\] qui est le résultat souhaité. 
+
+\bigskip
+
+\textbf{4.} Remarquons dans un premier temps que la définition de $g$ nous donne deux choses \[
+\lim_{|z| \to \infty}|g(z)| = \infty,
+\] et la continuité de $g$ sur le cercle de rayon $R$, $C_{R}$ pour $R > 1$. Le bord de l'ensemble $\{g(z), \; |z| > R\}$ est donc égal à $\{g(z), \; z \in C_{R}\}$. $C_{R}$ est compact donc son image par $g$ l'est aussi et ainsi le bord de l'ensemble $\{g(z), \; |z| > R\}$ est borné. Par la première observation, $K \defeq \C\setminus \{g(z), \; |z| > R\}$ est la partie bornée délimitée par $g(C_{R}) = \{g(z), \; z \in C_{R}\}$.
+
+On peut donc appliquer le premier point à $K$. 
+Soit $\gamma : [0, 1] \longmapsto C_{R}$ un lacet simple. $g$ étant injective la composition $g \circ \gamma$ l'est encore, il s'agit donc d'un lacet simple paramétrant $g(C_{R})$. 
+
+Ainsi on obtient 
+\begin{align*}
+        \int_{g(C_{R})} \overline{z}dz &= \int_{g\circ \gamma} \overline{z}\de z \\
+                                       &= \int_{0}^{1} \overline{g(\gamma(t))}\gamma'(t)g'(\gamma(t)) \de t \\
+                                       &= \int_{C_{R}} \overline{g(z)}g'(z)\de z
+.\end{align*}
+ Soit donc \[
+         \mathrm{Aire}(\C \setminus \{g(z), \; |z| > R\}) = \frac{1}{2i}\int_{C_{R}} \overline{g(z)}g'(z) \de z
+ .\] 
+
+Ensuite, en utilisant la paramétrisation classique de $C_{R}$ et le développement de $g$ en série entière on obtient 
+\begin{align*}
+        \int_{c_{R}} \overline{g(z)}g'(z) \de z &= \frac{1}{2}\int_{0}^{2\pi}\overline{g(Re^{it})}g'(Re^{it})Re^{it}\de t \\
+                                                &= \frac{1}{2}\int_{0}^{2\pi}(Re^{-it} + \sum_{n=0}^{\infty} \overline{b_{n}}R^{-n}e^{-int})(Re^{it} + \sum_{k = 1}^{\infty} kb_{k}R^{-k}e^{ikt}) \de t
+.\end{align*}
+
+On développe et on permute somme et intégrale, ce qui est licite par convergence absolue de la série des $(b_{k}/R^{-k})_{k}$. En se souvenant que \[
+        \frac{1}{2\pi}\int_{0}^{2\pi} e^{i(k-n)t}\de t = \begin{cases}
+                1 \text{ si } k = n \\
+                0 \text{ sinon }
+        \end{cases}
+,\] on obtient \[
+\frac{1}{2i}\int_{C_{R}} \overline{g(z)}g'(z)\de z = \pi R^{2} - \pi\sum_{k=1}^{\infty} R^{-2k}k|b_{k}|^{2}
+.\] 
+
+Comme le résultat est valable pour tout $R > 1$ on prend la limite  \[
+        \lim_{R\to 1} \pi[ R^{2} - \sum_{k=1}^{\infty} R^{-2k}k|b_{k}|^{2} ] = \pi[1 - \sum_{k=1}^{\infty}k|b_{k}|^{2}] 
+.\] 
+
+Une aire étant toujours positive on obtient $\sum_{k=1}^{\infty}k|b_{k}|^{2} \le 1$. Comme tous les termes de cette suite sont positifs on en déduit que \[
+        1\cdot |b_1| = |a_{2}^{2}-a_{3}| \le 1
+.\]  
+
+ \bigskip
+
+ \textbf{5.} Comme précédemment puisque $f(0) = 0$ on peut écrire \[
+         f(z^{2}) = z^{2}\tilde{f}(z), \; \tilde{f}(z) \neq 0 \; \forall z \in \mathbf{D}
+ .\] 
+ Comme $\tilde{f}$ ne s'annule pas sur $\mathbf{D}$ qui est un ouvert simplement connexe on peut définir le logarithme de $\tilde{f}$ sur $\mathbf{D}$, une fonction $L_{\tilde{f}}$ satisfaisant  \[
+         \exp(L_{\tilde{f}}) = \tilde{f}
+ .\]
+
+ On peut alors poser pour $z \in \mathbf{D}$ \[
+         g(z) = z\exp(\frac{1}{2}L_{\tilde{f}}(z))
+ .\] 
+
+ On vérifie à la main que $g(0) = 0$ et $g'(0) = f'(0) = 1$ et
+ \[
+ g^{2}(z) = z^{2}\exp(L_{\tilde{f}}(z)) = z^{2}\tilde{f}(z) = f(z^{2})
+ .\]
+Quant à l'injectivité si pour $z_1, z_2 \in \mathbf{D}$ on a $g(z_1) = g(z_2)$ alors \[
+         g^{2}(z_1) = g^{2}(z_2) \implies f(z_1^{2}) = f(z_2^{2})
+ .\] 
+
+ Puis par injectivité de $f$ on en déduit que $z_1 = \pm z_2$. Comme $g$ est impaire on a $z_1=z_2$ et $g$ est injective.
+ Par abus de notation on écrira $g(z) = \sqrt{f(z^{2})}$
+
+ \bigskip
+
+ \textbf{6.} En utilisant le point précédent on peut définir $g \in \mathcal{S}$ comme $g(z) = \sqrt{f(z^{2})}$. On peut alors définir $h$ sur  $\C \setminus \mathbf{D}$ injective comme $h(z) = \frac{1}{g(1/z)}$ par le point \textbf{3.} et le développement de $f$ nous permet d'obtenir celui de $h$. Si on dénote ses coefficients $(h_{k})_{k}$ alors en particulier $h_{1} = \frac{a_{2}}{2}$. Le résultat du point \textbf{4.} s'applique à $h$, c'est à dire  \[
+ \sum_{k=1}^{\infty} k|b_{k}|^{2} \le 1
+ .\]  
+ On en déduit que $|h_{1}|^{2} = \frac{|a_{2}|^{2}}{4} \le 1$ soit $|a_{2}| \le 2$.
+
+ \bigskip
+
+ \textbf{7.} On considère $z \not\in f(\mathbf{D})$ et $g$ la fonction définie sur $\mathbf{D}$ par \[
+g(\zeta) = \frac{zf(\zeta)}{z -f(\zeta)}
+.\] Cette fonction est clairement holomorphe sur $\mathbf{D}$, de plus comme $f$ est injective et que l'application $\zeta \longmapsto \frac{z\zeta}{z-\zeta}$ l'est aussi $g$ est injective comme composition d'applications injectives.
+ On vérifie une nouvelle fois à la main que $g(0) = 0$ et $g'(0) = 1$, cela découle des propriétés de $f$, ainsi $g \in \mathcal{S}$. \\
+
+ On calcule à la main les premiers coefficients $(c_{k})_{k}$ de $g$ dans son développement en série entière autour de 0. On trouve en particulier à partir du développement de $f$ les développements de \[
+         zf(\zeta) \quad \text{et} \quad \frac{1}{z-f(\zeta)}
+ \] et en particulier par multiplication des développement on trouve $c_{2} = a_{2} + \frac{1}{z}$. Ainsi par inégalité triangulaire et le point précédent \[
+ |\frac{1}{z}| \le |-a_{2} + a_{2} + \frac{1}{z}| \le |a_{2} + \frac{1}{z}| + |a_2| \le |c_2| + |a_2| \le 2 + 2 
+ .\] 
+ Ainsi donc $|z| \ge \frac{1}{4}$ et donc le disque $D(0,\frac{1}{4})$ est nécessairement inclus dans l'image de $f$. 
+
+ \bigskip
+
+ \textbf{8.} Soit $|\alpha \le 1|$. $\varphi_{\alpha}$ est méromorphe sur $\mathbf{D}$ comme quotient de fonctions holomorphes sur $\mathbf{D}$. Elle n'a de plus pas de pôles puisque ceux-ci correspondent aux zéros de $(1-\alpha z)^{2}$ et de tels zéros sont de module supérieur à 1 comme  $|\alpha|\le 1$. Ainsi $\varphi_{\alpha}$ est holomorphe sur $\mathbf{D}$. 
+
+ On vérifie à la main que $\varphi_{\alpha}(0) = 0$ et \[
+         \varphi_{\alpha}'(z) = \frac{(1-\alpha z)^{2}+2\alpha z(1-\alpha z)}{(1-\alpha z)^{4}} 
+ \] soit donc $\varphi_{\alpha}'(0) = 1$.   
+
+ On peut montrer que la droite $]-\infty, -\frac{1}{4}]$ n'appartient pas à l'image de $\varphi_{1}$. Soit $x \in \R\cap\mathrm{Im}(\varphi_{1})$, alors  \[
+         x = \frac{z}{(1-z)^{2}}, \quad \text{et donc} \quad x - (2x+1)z +xz^{2} = 0
+ .\] 
+
+ Le discriminant de ce polynôme est $\Delta = 4x +1$. Si $x<-\frac{1}{4}$ alors $\Delta < 0$ et les racines sont  \[
+         z_{1,2} = \frac{2x+1\pm i\sqrt{-1-4x}}{2x}
+\] de module au carré \[
+|z_{1,2}|^{2} = [\frac{2x+1}{2x}]^{2} + [\frac{\sqrt{-1-4x}}{2x}]^{2} = 1
+.\] Ainsi cette demie droite n'est pas dans l'image. Pour $x = -\frac{1}{4}$ on trouve pour seule solution $z = -1$ qui est aussi de module $1$. Par le point \textbf{7.} on sait que cette demie droite ne peut être prolongée d'avantage. Ce résultat est intéressant, il montre que la valeur $\frac{1}{4}$ trouvée au point précédent est optimale. 
+
+ \newpage
+
+\begin{statement}{2}
+       \begin{equation*}
+               \int_{-\infty}^{+\infty}\frac{\cos x}{1+x+x^{2}}\de x = \frac{2\pi\cos(1/2)e^{-\sqrt{3}/2}}{\sqrt{3}}
+       \end{equation*} 
+\end{statement}
+\begin{proof}
+        On considère le demi cercle supérieur de rayon $R$ paramétré par $\gamma_R$ et la fonction méromorphe 
+        \begin{align*}
+                f : z \longmapsto \frac{e^{iz}}{1+z+z^2}
+        \end{align*}
+        ses pôles sont les zéros du polynôme $1 + z + z^2$. Le seul pôle dans le demi disque de rayon $R$ supérieur est $z^{*} = \frac{-1+i\sqrt{3}}{2}$ de module égal à 1. On considère donc $R > 1$ dans la suite de l'exercice. \\
+
+        On factorise ce polynôme puis on calcule le résidu de $f$ dans le demi disque supérieur \[
+                \mathrm{res}(f, z^{*}) = \lim_{z \to z^{*}}\frac{e^{iz}}{z - \overline{z^{*}}} = \frac{2\pi e^{-\frac{\sqrt{3} +i}{2}}}{\sqrt{3}}
+        .\] 
+
+        Par la formule des résidus on obtient alors \[
+                \int_{\gamma_R}f(z)\de z = 2i\pi \cdot \mathrm{res}(f, z^{*})
+        .\] 
+
+        On utilise ensuite la paramétrisation suivante de $\gamma_{R} = \gamma_{1} \bigvee \gamma_{2}$ comme concaténation de
+
+        \begin{minipage}{0.5\textwidth}
+             \begin{align*}
+                     \gamma_1 : [0, 1] &\longmapsto [-R, R] \\
+                     t &\longmapsto -R + 2R\cdot t
+             .\end{align*}   
+        \end{minipage}
+        \hfill
+        \begin{minipage}{0.5\textwidth}
+                \begin{align*}
+                        \gamma_2 : [0, \pi] &\longmapsto C_{R} \\ 
+                        t &\longmapsto R\cdot e^{it} 
+                .\end{align*}
+        \end{minipage}
+
+        Ainsi
+        \[
+                \int_{\gamma_{R}}f(z) \de z = \int_{[-R, R]}f(z) \de z + \int_{C_{R}}f(z)\de z 
+        .\] 
+        
+        Regardons dans un premier temps la deuxième intégrale. On écrit $z \in C_{R}$ comme $z = a + ib, \; a, b \in \R, \; b \ge 0$. \[
+                |e^{iz}| = |e^{i(a+ib)}| = |e^{-b}|\cdot|e^{ia}| \le 1
+        .\]
+        Ainsi on obtient $\lim_{|z| \to \infty} |zf(z)| = 0$ et on en déduit que 
+        \begin{align*}
+                |\int_{C_{R}}f(z)\de z| = |\int_{C_{R}}zf(z) \frac{\de z}{z}| &\le \int_{0}^{\pi} \sup_{C_{R}}|zf(z)| \frac{R\de t}{R} \\
+                                                                              &\le \pi\sup_{C_{R}}|zf(z)| \to 0
+        .\end{align*}
+        
+        On écrit
+        \begin{equation}
+                \lim_{R \to \infty} \int_{C_{R}}f(z)\de z = 0.
+        \end{equation}
+
+        On regarde à présent la première intégrale
+        \begin{alignat*}{2}
+                \int_{[-R, R]}f(z)\de z &= \int_{0}^{1}f(2Rt-R)2R \de t, &&\text{en utilisant la paramétrisation } \gamma_1 \\
+                                        &= \int_{-R}^{R}f(u)\de u, &&\text{en posant } u = 2Rt - R \\
+                                        &= \int_{-R}^{R}\frac{e^{iu}}{1+u+u^{2}}\de u &&\\
+                                        &= \int_{-R}^{R}\frac{\cos u}{1+u+u^{2}} \de u + i\cdot\int_{-R}^{R}\frac{\sin u}{1+u+u^{2}} \de u &&
+        .\end{alignat*}
+
+        La première intégrale obtenue va tendre vers $I$ lorsque $R \to \infty$. Remarquons par (1) que \[
+                \int_{-R}^{R}\frac{\cos u}{1+u+u^{2}} \de u + i\cdot\int_{-R}^{R}\frac{\sin u}{1+u+u^{2}} \de u \to \int_{\gamma_{R}}f(z) \de z = \mathrm{res}(f, z^{*}) 
+        .\] 
+        Puisque nos deux intégrales sont réelles on en déduit par passage à la limite $R \to \infty$ que 
+        \[
+        I = \Re({res(f, z^{*})}) = \frac{2\pi\cos(1/2)e^{-\sqrt{3}/2}}{\sqrt{3}}
+       .\] 
+\end{proof}
+\end{document}

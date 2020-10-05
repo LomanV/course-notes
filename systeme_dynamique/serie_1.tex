@@ -1,0 +1,112 @@
+\documentclass[12pt]{article}
+\usepackage[top=1in, bottom=1in, left=1in, right=1in]{geometry}
+
+\usepackage[onehalfspacing]{setspace}
+
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{enumerate, enumitem}
+\usepackage{fancyhdr, graphicx, proof, comment, multicol}
+\usepackage[none]{hyphenat}
+\usepackage{dirtytalk}
+\binoppenalty=\maxdimen
+\relpenalty=\maxdimen
+
+\usepackage{microtype}
+\usepackage{mathpazo}
+\usepackage{mdframed}
+\usepackage{parskip}
+\linespread{1.1}
+\usepackage{graphicx}
+\usepackage{subfig}
+
+\usepackage{mathrsfs}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\usepackage{mathtools}
+\newcommand{\defeq}{\vcentcolon=}
+\newcommand{\eqdef}{=\vcentcolon}
+
+\newenvironment{statement}[1]
+{\begin{mdframed}[linewidth=0.6pt]
+        \textsc{Statement #1:}
+
+}
+    {\end{mdframed}}
+
+\newcommand{\R}{\mathbf{R}}
+\newcommand{\C}{\mathbf{C}}
+\newcommand{\Z}{\mathbf{Z}}
+\newcommand{\N}{\mathbf{N}}
+\newcommand{\Q}{\mathbf{Q}}
+\newcommand{\T}{\mathbf{T}}
+
+\newcommand{\de}{\mathrm{d}}
+
+\begin{document}
+        \noindent
+\textbf{Systèmes dynamiques} \hfill \textbf{Vezin Lomàn}\\
+\normalsize MAT551  \hfill Date de rendu: 29/09/2020\\
+
+\begin{center}
+\textbf{Exercice à rendre 1}
+\end{center}
+        
+Soit $\alpha \not\in \Q$ et $f$ la dynamique du tore $\T^{2}$ définie par \[
+        f(x, y) = f(x+\alpha, x + y)
+.\]  
+On vérifie dans un premier temps que la mesure de Lebesgue sur le tore est $f-$invariante. On commence par remarquer que $f$ est une bijection du tore dans lui même d'inverse  \[
+        f^{-1}(x, y) = (x - \alpha, y - x + \alpha)
+        .\] 
+        Aussi par la formule du changement de variable, en remarquant que $|\det d_{f}| = 1$ on obtient pour tout borélien $\mathcal{A}$ \[
+        \mu(f^{-1}(\mathcal{A})) = \int_{f^{-1}(\mathcal{A})}1 \de\mu = \int_{\mathcal{A}} |\det d_{f}|\de\mu = \int_{\mathcal{A}}1\de\mu = \mu(\mathcal{A}).\] Ce qui donne le résultat voulu.
+
+        \bigskip
+
+        On montre à présent que le système probabiliste $(\T^{2}, \mathcal{B}, f, \mu)$ est ergodique. \\
+        Pour cela on applique un corollaire du cours et on vérifie que l'espace propre de l'opérateur de Koopman associé à la valeur propre 1 est de dimension 1, c'est à dire que les seules fonctions $L^{2}(Leb)$ invariantes sont constantes. On considère pour cela la base hermitienne $(e_{k})_{k \in \Z^{2}}$ de $L^{2}$ définie par $e_{k}(x) \defeq e^{\langle k, x \rangle}$. \\
+
+        Soit donc $\phi \in L^{2}$ satisfaisant $\phi \circ f = \phi$ et soit $\sum_{k_1, k_2} a_{(k_1, k_2)}e_{(k_1, k_2)}$ sa série de Fourier. On regarde les coefficients de Fourier de $\phi \circ f$.
+        
+        \begin{align*}
+                a_{(k_1, k_2)}(\phi \circ f) &= \int_{\T^{2}}\phi(f(x_{1}, x_{2}))e^{-2i\pi \langle (k_1, k_2), (x_1, x_2) \rangle} \de Leb \\
+                \text{Par la formule de} & \text{ changement de variable et le fait que } |\det d_{f^{-1}}| = 1 \\
+                                         &= \int_{\T^{2}} \phi(x_1, x_2)e^{-2i\pi \langle(k_1, k_2), f^{-1}(x_1, x_2) \rangle} \de Leb \\
+                                         &= \int_{\T^{2}} \phi(x_1, x_2)e^{-2i\pi \langle(k_1, k_2), (x_1 - \alpha, x_2 - x_1 + \alpha) \rangle} \de Leb \\
+                                 &= e^{2i\pi\alpha(k_1-k_2)} \int_{\T^{2}} \phi(x_1, x_2)e^{-2i\pi \langle (k_1 - k_2, k_2), (x_1, x_2) \rangle} \de Leb \\
+                                 &= e^{2i\pi\alpha(k_1-k_2)} a_{(k_1-k_2, k_2)}(\phi) 
+        .\end{align*}
+
+        La relation $\phi = \phi \circ f$ garantit alors  
+        \begin{equation}
+                a_{(k_1, k_2)}(\phi) = e^{2i\pi\alpha(k_1-k_2)} a_{(k_1-k_2, k_2)}(\phi).
+        \end{equation}
+
+        Ce qui donne en passant au module au carré
+        \begin{equation}
+                |a_{k_1, k_2}|^2 = |a_{k_1 - nk_2, k_2}|^2 \qquad \forall n \in \Z^{*}.
+        \end{equation}
+        Puisque par hypothèse $\phi$ est $L^{2}$ la série des $|a_{(k_1, k_2)}|^{2}(\phi)$ converge, la relation (2) impose \[
+                a_{(k_1, k_2)}(\phi) = 0 \text{ si  }  k_2 \neq 0
+        \] puisque sinon la série comprendrait un nombre infini de termes égaux et strictement positifs, une contradiction. \\
+
+        Finalement comme $\alpha$ est irrationnel $e^{2ik_1\pi\alpha} \neq 1 \quad \forall k_1 \in \Z^{*}$, ce qui garantit par la relation (1) que \[
+        a_{(k_1, k_2)}(\phi) = 0 \text{ si  }  k_1 \neq 0
+        .\]  Puisque seul le coefficient $a_{0, 0}$ peut être non nul $\phi$ est une constante. 
+        \bigskip
+
+        On montre finalement que le système n'est pas mélangeant. Par le cours on sait que si le système est mélangeant alors 1 est l'unique valeur propre de l'opérateur de Koopman $U_{f}$. Il suffit alors de trouver une valeur propre différente de 1 pour notre opérateur. Définissons une application mesurable et $L^{2}$ sur le tore 
+        \begin{align*}
+                \phi : \T^{2} &\longmapsto \T^{2} \\
+                (x, y) &\longmapsto (\frac{x}{\alpha}, 0)
+        .\end{align*}
+
+        On remarque que le passage au quotient sur le tore nous permet d'écrire \[
+                \phi(x, y) = (\frac{x}{\alpha}, 0) = (\frac{x}{\alpha} + 1, 0) = \frac{1}{\alpha}(x + \alpha, 0) = \frac{1}{\alpha}(\phi \circ f)(x, y)
+        .\] 
+        Soit donc \[
+                U_{f}(\phi) = \alpha\phi
+        .\]
+        $\alpha$ est donc valeur propre de $U_{f}$ et comme $\alpha \not\in \Q, \alpha \neq 1$. Cela montre le résultat et conclut l'exercice. 
+\end{document}

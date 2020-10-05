@@ -1,0 +1,63 @@
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+        \chapter{Introduction}
+        \section{Definitions}
+        In this section we shall introduce the basics of \emph{linear programming} and develop them in the further chapters.
+
+        \begin{definition}[Linear program]
+
+                A linear program is an optimisation problème composed of a \emph{cost vector} $\mathbf{c} = (c_1, c_2, \ldots, c_n)$ and a \emph{cost function} over all $n-$dimensional vectors of the form \[
+                        \mathbf{c} \cdot \mathbf{x} = \sum_{i=1}^{n} c_{i}x_{i}
+                \] which we seek to minimise. 
+                This cost function is subject to a set of \emph{linear constraints} and \emph{linear equalities}. The problem is then of the form
+        \begin{alignat*}{3}
+                \text{minimise } \quad & \mathbf{c} \cdot \mathbf{x} \\
+                \text{subject to } \quad & \mathbf{a}_{i}' \cdot \mathbf{x} \ge b_{i} \qquad && i \in M_{1} \\
+                                  & \mathbf{a}_{i}' \cdot \mathbf{x} \le b_{i} \qquad && i \in M_{2} \\
+                                  & \mathbf{a}_{i}' \cdot \mathbf{x} = b_{i} \qquad && i \in M_{3} \\
+                                  & x_{j} \ge 0 && j \in N_{1} \\
+                                  & x_{j} \le 0 && j \in N_{2} \\
+        \end{alignat*}
+
+        The variables $x_1, \ldots x_{n}$ are called \emph{decision variables} and a vector satisfying all the constraints is called a \emph{feasible solution}, the set of such vectors is hence called \emph{feasible set} or \emph{feasible region}. A solution to the minimisation problem amongst the feasible solutions is called an \emph{optimal feasible solution}.
+        \end{definition}
+
+        \begin{remark}
+                We could have defined a linear program as a maximisation problem, this is equivalent as maximising the cost function $\mathbf{c}\cdot\mathbf{x}$ is equivalent to minimising $-\mathbf{c}\cdot\mathbf{x}$.
+        \end{remark}
+
+        \begin{remark}
+                Some constraints are furthermore equivalent. Indeed $\mathbf{a}_{i}'\cdot \mathbf{x} = b_{i}$ is equivalent to two constraints $\mathbf{a}_{i}' \cdot \mathbf{x} \le b_{i}$ and $\mathbf{a}_{i}' \cdot \mathbf{x} \ge b_{i}$, and the primer is equivalent to $-(\mathbf{a}_{i}')\cdot\mathbf{x} \ge -b_{i}$. Hence a linear problem can be written in a simpler form as
+                \begin{align}
+                        \text{minimise} \quad & \mathbf{c}\cdot \mathbf{x} \\
+                        \text{subject to } \quad & A\mathbf{x} \ge \mathbf{b}
+                \end{align} where $A$ is the $n \times m$ matrix with rows $\mathbf{a}_{i}'$ and $\mathbf{b} = (b_1, \ldots, b_{m})$.
+        \end{remark}
+
+        \begin{definition}[Equality Standard Form]
+                A linear program is in the \emph{equality standard form} if is it of the form
+                \begin{align*}
+                        \text{minimise} \quad & \mathbf{c}\cdot \mathbf{x} \\
+                        \text{subject to } \quad & A\mathbf{x} = \mathbf{b} \\
+                        & \mathbf{x} \ge 0
+                .\end{align*}
+                We shall work with programs of this form for the simplex method in further chapters.
+        \end{definition}
+
+        Given a linear program one can always rewrite it in equality standard by following a simple algorithm.
+
+        \begin{enumerate}
+                \item \emph{Elimination of free variables}: given an unrestricted variable $x_{j}$ in the general form one can rewrite $x_{j} \defeq x_{j}^{+} - x_{j}^{-}$ and impose the constraints $x_{j}^{+}, x_{j}^{-}\ge 0$.
+                \item \emph{Elimination of inequality constraints}: given an inequality constraint of the form \[\sum_{j=1}^{n} a_{ij}x_{j} \le b_{i}\] we introduce \emph{slack variables} $s_{i}$ and write the problem in equality standard form as 
+                        \begin{align*}
+                                \sum_{j=1}^{n} a_{ij}x_{j} + s_{i} &= b_{i} \\ 
+                                s_{i} &\ge 0
+                        \end{align*}
+               If instead we had the sum greater than or usual to $b_{i}$ we would swap the $+$ for a $-$ in the last sum.
+        \end{enumerate}
+
+        \section{Graphical Representation}
+        We shall consider a few simple examples to provide geometric insight on linear programs.
+        
+\end{document}
