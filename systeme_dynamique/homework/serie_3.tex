@@ -1,0 +1,219 @@
+\documentclass[12pt]{article}
+\usepackage[top=1in, bottom=1in, left=1in, right=1in]{geometry}
+\usepackage[french]{babel}
+
+\usepackage{comment}
+
+\usepackage[onehalfspacing]{setspace}
+
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{enumerate, enumitem}
+\usepackage{fancyhdr, graphicx, proof, comment, multicol}
+\usepackage[none]{hyphenat}
+\usepackage{dirtytalk}
+\binoppenalty=\maxdimen
+\relpenalty=\maxdimen
+
+\usepackage{microtype}
+\usepackage{mathpazo}
+\usepackage{mdframed}
+\usepackage{parskip}
+\linespread{1.1}
+\usepackage{graphicx}
+\usepackage{subfig}
+
+\usepackage{mathrsfs}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\usepackage{mathtools}
+\newcommand{\defeq}{\vcentcolon=}
+\newcommand{\eqdef}{=\vcentcolon}
+
+\newenvironment{statement}[1]
+{\begin{mdframed}[linewidth=0.6pt]
+        \textsc{Statement #1:}
+
+}
+
+\newenvironment{ex}[1]
+{\begin{mdframed}[linewidth=0.6pt]
+        \textsc{Exercice #1:}
+
+}
+    {\end{mdframed}}
+
+\newcommand{\R}{\mathbf{R}}
+\newcommand{\C}{\mathbf{C}}
+\newcommand{\Z}{\mathbf{Z}}
+\newcommand{\N}{\mathbf{N}}
+\newcommand{\Q}{\mathbf{Q}}
+
+\newcommand{\de}{\mathrm{d}}
+
+\begin{document}
+        \noindent
+\textbf{Systèmes dynamiques} \hfill \textbf{Vezin Lomàn}\\
+\normalsize MAT551 \hfill Date de rendu: 13/10/2020\\
+
+\begin{center}
+\textbf{Devoir maison 3}
+\end{center}
+        
+\begin{ex}{1}
+        Pour $\pi : (Y, S) \longmapsto (X,T)$ une semi conjugaison de systèmes topologiques, l'application induite \[
+                \pi_{*} : \mathcal{M}(Y, S) \longmapsto \mathcal{M}(X,T)
+        \] est surjective.
+\end{ex}
+
+\begin{proof}
+        L'application induite $\pi_{*}$ est donnée par
+        \begin{align*}
+                \pi_{*} : \mathcal{M}(Y,S) &\longmapsto \mathcal{M}(X,T) \\
+                \mu &\longmapsto \pi_{*}\mu 
+        ,\end{align*}
+        où $\pi_{*}\mu$ est définie par \[
+               \pi_{*}\mu(B) = \mu(\pi^{-1}(B)), \; \forall B \; \text{borélien de } X
+        .\] 
+        On peut aisément vérifier que $\pi_{*}$ est bien définie. Pour tout ouvert $U \subset Y$ on a par continuité de $\pi$ que $\pi^{-1}(U) \subset X$ est ouvert. De plus comme les propriétés suivantes sont vérifiées pour un ensemble d'indices $I$ dénombrable
+        \begin{align*}
+                \pi^{-1}(\cup_{i\in I}A_{i}) &= \cup_{i \in I}\pi^{-1}(A_{i}), \\
+                \pi^{-1}(\cap_{i\in I}A_{i}) &= \cap_{i\in I}\pi^{-1}(A_{i}), \\
+                \pi^{-1}(A_{i})^{c} &= \pi^{-1}(A_{i}^{c})
+        ,\end{align*}
+la préimage par $\pi$ d'un borélien de $X$ est un borélien de $Y$. Il reste à vérifier que $\pi_{*}\mu$ est bien $T-$invariante. Comme $\pi$ est un morphisme on a que \[
+T\circ\pi = \pi\circ S
+,\] on en déduit pour tout borélien $A \subset X$ que
+\begin{align*}
+        T_{*}\pi_{*}\mu(A) &= \mu([T\circ\pi]^{-1}(A)) \\
+                           &= \mu([\pi\circ S]^{-1}(A)) \\
+                           &= S_{*}\mu(\pi^{-1}(A)) \\
+                           &= \mu(\pi^{-1}(A)) \; \; \text{par } S \text{-invariance} \\
+                           &= \pi_{*}\mu(A)
+.\end{align*}
+
+\medskip
+
+On sait par le cours que $\mathcal{M}_{e}(X,T) = ex(\mathcal{M}(X,T))$, le théorème de Krein Milman nous donne donc \[
+        \mathcal{M}(X,T) = \overline{\Delta\mathcal{M}_{e}(X,T)}
+        ,\] où $\Delta(A)$ désigne l'enveloppe convexe de $A$. On montrera en dernier lieu l'inclusion 
+\begin{equation}
+        \mathcal{M}_{e}(X,T) \subset \pi_{*}(\mathcal{M}(Y,S)),
+\end{equation}
+        qui donne \[
+        \mathcal{M}(X,T) = \overline{\Delta\mathcal{M}_{e}(X,T)} \subset \overline{\Delta\pi_{*}(\mathcal{M}(Y,S))}
+.\] Cela nous motive à montrer $\overline{\Delta\pi_{*}(\mathcal{M}(Y,S))} = \pi_{*}(\mathcal{M}(Y,S))$.
+
+\medskip
+
+Il est clair que $\pi_{*}(\mathcal{M}(Y,S))$ est convexe par convexité de $\mathcal{M}(Y,S)$ et définition de $\pi_{*}$. Ainsi \[
+        \Delta\pi_{*}(\mathcal{M}(Y,S)) = \pi_{*}(\mathcal{M}(Y,S))
+.\] 
+On montre à présent que l'application induite $\pi_{*}$ est continue. Comme l'espace $\mathcal{M}(Y,S)$ est métrisable on utilise le critère séquentiel. Soit donc $\mu \in \mathcal{M}(Y,S)$ et $(\mu_{n})_{n}$ une suite de mesures $S-$invariantes qui convergent faiblement-* vers $\mu$, c'est à dire  \[
+        \forall \phi \in \mathcal{C}(Y), \; \int\phi\de\mu_{n} \to \int\phi\de\mu
+.\] 
+Soit maintenant $\varphi \in \mathcal{C}(X)$ quelconque, par continuité de $\pi$ la composition est continue, c'est à dire $\varphi \circ \pi \in \mathcal{C}(X)$. De plus, \[
+\int\varphi\de\pi_{*}\mu_{n} = \int\varphi\circ\pi\de\mu_{n} \to \int\varphi\pi\de\mu = \int\varphi\de\pi_{*}\mu
+.\] Par définition de la convergence faible-* on a $\pi_{*}(\mu_{n}) \rightharpoonup \pi_{*}(\mu)$, $\pi_{*}$ est continue en $\mu$ et donc sur  $\mathcal{M}(Y,S)$ comme le choix de cette dernière était arbitraire.
+
+L'image par une fonction continue d'un compact est un compact, un compact étant fermé dans un espace métrisable on a \[
+        \overline{\pi_{*}(\mathcal{M}(Y,S))} = \pi_{*}\mathcal{M}(Y,S)
+,\] et on a le résultat.
+
+\medskip
+
+Pour conclure la preuve on montre donc (1). Par surjectivité du morphisme $\pi$ les diracs $\delta_{x}, \; x \in X$ sont toutes dans l'image $\pi_{*}(\mathcal{M}(Y,S))$ comme image des diracs de $Y$. Comme $\pi_{*}(\mathcal{M}(Y,S))$ est convexe il contient toutes les combinaisons linéaires finies de ces diracs, en particulier l'ensemble \[
+        \{\frac{1}{n}\sum_{k=0}^{n-1} \delta_{T^{k}x}, \; n \in \N\} 
+,\] qui est par le cours dense dans $\mathcal{M}_{e}(X,T)$. Puisque $\pi_{*}(\mathcal{M}(Y,S))$ est compact il doit contenir en particulier l'adhérence \[
+\overline{\{\frac{1}{n}\sum_{k=0}^{n-1} \delta_{T^{k}x}, \; n \in \N\}} = \mathcal{M}_{e}(X,T)
+.\] Ceci conclut la preuve. 
+
+\newpage
+
+\end{proof}
+
+\begin{ex}{2}
+        Avec les notations du devoir de la semaine passée, pour $A \subset X$ un fermé, on a \[
+                \sup_{\mu \in \mathcal{M}(X,f)}\mu(A) = \sup_{\mu \in \mathcal{M}_{e}(X,f)}\mu(A) = \mathrm{ocap}(A)
+        .\] 
+\end{ex}
+\begin{proof}
+        Soit $A \subset X$ fermé, comme $X$ est compact $A$ l'est aussi. Dans un premier temps, on montre l'égalité \[
+        \sup_{\mu \in \mathcal{M}(X,f)}\mu(A) = \sup_{\mu \in \mathcal{M}_{e}(X,f)}\mu(A) 
+.\] Comme $\mathcal{M}_{e}(X,f) \subset \mathcal{M}(X,f)$ on a directement \[
+\sup_{\mu \in \mathcal{M}(X,f)}\mu(A) \ge \sup_{\mu \in \mathcal{M}_{e}(X,f)}\mu(A) 
+.\]  On montre la deuxième inégalité. Soit $d$ la métrique définie sur $X$, $\tilde{d}$ la distance induite entre un point $x$ et un sous ensemble $A$ de $X$ donnée par  \[
+\tilde{d}(x,A) \defeq \inf_{y \in A}d(x,y)
+.\] On se souvient que cette distance est continue et qu'elle est atteinte pour $A$ compact. Soient de plus $\varepsilon > 0$ et $\phi_{\varepsilon}$ définie par 
+\begin{align*}
+        \phi_{\varepsilon} : X &\longmapsto \R \\
+        x &\longmapsto \begin{cases}
+                1 \; \text{si} \; x \in A \\
+                1 - \frac{\tilde{d}(x, A)}{\varepsilon} \; \text{si} \; 0 < \tilde{d}(x, A) \le \varepsilon \\
+                0 \; \text{sinon}
+        \end{cases}
+.\end{align*}
+$\phi_{\varepsilon}$ est clairement continue. Posons $B_{\varepsilon} \defeq \{x \in X, \; 0 < \tilde{d}(x,A) \le \varepsilon\}$, par continuité à droite de la mesure, pour $\eta$ une mesure
+\begin{align*}
+        \int |\mathbf{1}_{A}-\phi_{\varepsilon}|\de \eta &\le \int_{B_{\varepsilon}} 1\de \eta \\
+                 &\le \eta(B_{\varepsilon}) \underset{\varepsilon \to 0}{\to} 0
+.\end{align*}
+
+Soit $\mu \in \mathcal{M}(X,f)$, par le théorème de Choquet il existe une unique décomposition ergodique $M_{\mu}$ telle que
+\begin{align*}
+        \int\phi_{\varepsilon}\de\mu &= \int(\int\phi_{\varepsilon}\de\nu)\de M_{\mu}(\nu) \\
+                                     &\le \sup_{\nu \in \mathcal{M}_{e}(X,f)}\int\phi_{\varepsilon}\de\nu 
+.\end{align*}
+On en déduit donc 
+\begin{align*}
+        \mu(A) &\le \int\phi_{\varepsilon}\de\mu + \mu(B_{\varepsilon}) \\
+               &\le \sup_{\nu \in \mathcal{M}_{e}(X,f)}\int\phi_{\varepsilon}\de\nu + \mu(B_{\varepsilon})\\
+               &\le \sup_{\nu \in \mathcal{M}_{e}(X,f)}\nu(A) + \sup_{\nu \in \mathcal{M}_{e}(X,f)}\int|\mathbf{1}_{A}-\phi_{\varepsilon}|\de\nu + \mu(B_{\varepsilon})\\
+               &\le \sup_{\nu \in \mathcal{M}_{e}(X,f)}\nu(A) + \nu(B_{\varepsilon}) + \mu(B_{\varepsilon})
+.\end{align*}
+On conclut par la remarque précédente que \[
+\sup_{\mu \in \mathcal{M}(X,f)}\mu(A) \le \sup_{\mu \in \mathcal{M}_{e}(X,f)}\mu(A) 
+,\] en laissant $\varepsilon \to 0$ puis par passage au supremum à gauche. 
+
+\medskip
+
+D'après l'exercice de la semaine précédente, pour toute mesure ergodique $\mu$ on a montré que \[
+        \mu(A) \le \mathrm{ocap}(A)
+,\] en passant au supremum on obtient une première inégalité \[
+\sup_{\mu \in \mathcal{M}_{e}(X,f)} \mu(A) \le \mathrm{ocap}(A)
+.\] On montre la seconde inégalité. \\
+
+Pour $N \in \N$ on pose \[
+\mathrm{ocap}(A)_{N} \defeq \frac{1}{N}\sup_{x\in X}\#\{0 \le k < N, \; f^{k}x \in A\} 
+.\] 
+On constate alors que la capacité orbitale est $f-$invariante. En effet 
+\begin{align*}
+        \mathrm{ocap}(f^{-1}(A))_{N} &= \frac{1}{N}\sup_{x\in X}\#\{0 \le k < N, \; f^{k+1}x \in A\} \\
+                                     &\le \frac{1}{N}\sup_{x\in X}\#\{0 \le k < N, \; f^{k}x \in A\} + \frac{2}{N} 
+,\end{align*} et de même \[
+        \mathrm{ocap}(f^{-1}(A))_{N} \ge \frac{1}{N}\sup_{x\in X}\#\{0 \le k < N, \; f^{k}x \in A\} - \frac{2}{N} \\
+.\] On conclut par encadrement et passage à la limite $N \to \infty$. \\
+
+Par définition la capacité orbitale satisfait $0 \le \mathrm{ocap}(A) \le 1$ et cette dernière est \emph{sous additive}. Ainsi en prenant le supremum sur $\mathcal{M}(X,f)$ on obtient 
+\[
+        \sup_{\mu \in \mathcal{M}_{e}(X,f)}\mu(A) = \sup_{\mu \in \mathcal{M}(X,f)}\mu(A) \ge \mathrm{ocap}(A)
+,\] ce qui conclut la preuve.
+\end{proof}
+
+\medskip
+
+        Dans le cas où $A$ n'est pas fermé on peut étudier la dynamique du cercle $\mathbf{T}^{1}$ donnée par
+        \begin{align*}
+                R_{\alpha} : \mathbf{T}^{1} &\longmapsto \mathbf{T}^{1} \\ 
+                        x &\longmapsto x + \alpha, \quad \alpha \in \R \setminus \Q
+        ,\end{align*}
+        que l'on sait uniquement ergodique pour la mesure de Lebesgue par le théorème d'équidistribution de Weyl.  
+
+        Prenons un ensemble $A \defeq \{k\alpha, \; k\in \N\}$ non fermé, d'adhérence $\mathbf{T}^{1}$. Cet ensemble est dénombrable donc de mesure de Lebesgue nulle. En revanche \[
+                \sup_{x\in \mathbf{T}^{1}}\#\{0\le k < n, \; T^{k}x \in A\} = n-1 
+        ,\] comme $T^{k}(0) = k\alpha \in A, \; \; \forall k \in \N$. 
+        Ainsi \[
+                \mathrm{ocap}(A) = \lim_{N\to \infty}\frac{N-1}{N} = 1
+        .\] On a trouvé un contre exemple dans le cas $A$ non fermé. 
+\end{document}

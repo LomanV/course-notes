@@ -10,8 +10,6 @@
 \usepackage{mathtools}
 \usepackage{stmaryrd}
 
-\usepackage{chronosys}
-
 \newcommand{\defeq}{\vcentcolon=}
 \newcommand{\eqdef}{=\vcentcolon}
 
@@ -41,7 +39,7 @@
 \usepackage{transparent}
 \newcommand{\incfig}[1]{%
     \def\svgwidth{\columnwidth}
-    \import{./figures/}{#1.pdf_tx}
+    \import{./figures/}{#1.pdf_tex}
 }
 
 \usepackage{hyperref}
@@ -68,16 +66,13 @@
 
 \newcommand*\quot[2]{{^{\textstyle #1}\big/_{\textstyle #2}}}
 
-\title{Introduction à la vie économique}
-\date{Automne 2020}
-
 \usepackage{subfiles}
 
 \begin{document}
-        \maketitle
-        \tableofcontents
-
-        \subfile{chap_2.tex}        
-        \subfile{chap_3.tex}
-        \subfile{chap_4.tex}
+\begin{figure}[ht]
+        \centering
+        \def\svgwidth{0.5\textwidth}
+        \input{ergo.pdf_tex}
+        \caption{Illustration d'un système ergodique $(X, \mathcal{B}, f, \mu)$}
+\end{figure}
 \end{document}

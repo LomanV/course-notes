@@ -1,0 +1,128 @@
+\documentclass[12pt]{article}
+\usepackage[top=1in, bottom=1in, left=1in, right=1in]{geometry}
+
+\usepackage[onehalfspacing]{setspace}
+
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{enumerate, enumitem}
+\usepackage{fancyhdr, graphicx, proof, comment, multicol}
+\usepackage[none]{hyphenat}
+\usepackage{dirtytalk}
+\binoppenalty=\maxdimen
+\relpenalty=\maxdimen
+
+\usepackage{microtype}
+\usepackage{mathpazo}
+\usepackage{mdframed}
+\usepackage{parskip}
+\linespread{1.1}
+\usepackage{graphicx}
+\usepackage{subfig}
+
+\usepackage{mathrsfs}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\usepackage{mathtools}
+\newcommand{\defeq}{\vcentcolon=}
+\newcommand{\eqdef}{=\vcentcolon}
+
+\newenvironment{statement}[1]
+{\begin{mdframed}[linewidth=0.6pt]
+        \textsc{Statement #1:}
+
+}
+    {\end{mdframed}}
+
+\newcommand{\R}{\mathbf{R}}
+\newcommand{\C}{\mathbf{C}}
+\newcommand{\Z}{\mathbf{Z}}
+\newcommand{\N}{\mathbf{N}}
+\newcommand{\Q}{\mathbf{Q}}
+
+\begin{document}
+        \noindent
+\textbf{Théorie des jeux} \hfill \textbf{Adrien Gourmellet, Lomàn Vezin, Arnaud Corone}\\
+\normalsize ECO555 \hfill Date de rendu: 07/10/2020\\
+
+\begin{center}
+\textbf{Devoir maison 2}
+\end{center}
+
+\textbf{1.} On montre dans un premier temps que $S(\tau) \subset S(\sigma)$. Une première justification est qu'il serait sous optimal pour le joueur 2 de jouer une stratégie que le joueur 1 ne joue pas puisque le premier obtient un gain non nul uniquement s'il joue la même stratégie que le second. Formellement soit $k \in \{1, \ldots, N\}$ tel que $\sigma(k) = 0$, on montre qu'alors $\tau(k) = 0$. La fonction de paiement du joueur 2 pour le jeu mixte est donnée par \[
+        g_{2}(\sigma, \tau) = \sum_{i=1}^{n} \sum_{j=1}^{n} \sigma(i)\tau(j)\delta_{i,j} = \sum_{i=1}^{n} \sigma(i)\tau(i)
+.\] 
+Supposons par l'absurde que $\tau(k) > 0$, soit $h \in \{1, \ldots, n\}$ tel que $\sigma(h) > 0$, on peut définir une nouvelle distribution de probabilité $\tilde{\tau}$ comme suit  \[
+        \tilde{\tau}(l) = \begin{cases}
+                \tau(l) \quad \text{si } l \not\in \{k, h\} \\
+                0 \quad \text{si } l = k \\
+                \tau(k) + \tau(j) \quad \text{si } l = j
+        \end{cases}
+.\] 
+On a bien $\sum_{j=1}^{n} \tilde{\tau}(j) = \sum_{j=1}^{n} \tau(j) = 1$ par definition de $\tilde{\tau}$. 
+Ainsi on obtient \[
+        g_{2}(\sigma, \tau) = \sum_{i=1 \; i \neq k}^{n} \sigma(i)\tau(i) < \sum_{i=1,\; i \neq j, k}^{n} \sigma(i)\tau(i) + \sigma(j)(\tau(j)+\tau(k)) = g_{2}(\sigma, \tilde{\tau})
+,\] 
+mais ceci contredit le fait que $(\sigma, \tau)$ soit un équilibre de Nash.    
+
+\medskip
+
+Avec les notations de l'énoncé on montre à présent l'inclusion $S(\sigma) \subset \{i \in I, \; x_{i} \text{ minimise } \|x_{i}-z\|^{2}\}$.
+
+D'une part on a 
+\begin{align*}
+        -\|x_{i}-z\|^{2} &= -\|x_{i}\|^{2} - \|\sum_{j}\tau(j)y_{j}\|^{2} + \langle x_{i}, \sum_{j}\tau(j)x_{j} \rangle \\        
+                         &= -\|x_{i}\|^{2} + 2\sum_{j}\langle x_{i}, y_{j} \rangle + \|\sum_{j}\tau(j)y_{j}\|^{2} 
+,\end{align*}
+et on remarque que le dernier terme ne dépend pas de $x_{i}$. On a d'autre part
+\begin{align*}
+        g_{1}(i, \tau) &= \sum_{j}\tau(j)(-\|x_{i}-y_{j}\|^{2}) \\
+                       &= \sum_{j}-\tau(j)(\|x_{i}\|^{2}+\|y_{j}\|^{2}-2\langle x_{i}, y_{y}\rangle) \\
+                       &= -\|x_{i}\|^{2} +  2\sum_{j}\tau(j)\langle x_{i}, y_{j} \rangle - \sum_{j}\tau(j)\|y_{j}\|^{2}
+,\end{align*}
+on remarque encore que le dernier terme est également indépendant de $x_{i}$. Ainsi on remarque que minimiser $\|x_{i}-z\|^{2}$ revient à maximiser $g_{1}(i, \tau)$ comme les parties dépendantes de $x_{i}$ sont égales au signe près.
+Comme $\sigma$ est un équilibre de Nash et que \[
+        g_{1}(\sigma, \tau) = \sum_{i \in I}\sigma(i)g_{1}(i, \tau)
+,\] on a $\sigma(i) > 0$ lorsque $x_{i}$ minimise $\|x_{i}-z\|^{2}$.
+
+\bigskip
+
+\textbf{2.} Dons un premier temps, on a par inégalité triangulaire on a \[
+\|x_{m} - x_{N+1}\| \le 2\varepsilon
+,\]  
+aussi d'après la question précédente on a \[
+        S(\sigma_{N}) \subset \{i \in I, \; x_{i} \text{ minimise } \|x_{i}-z\|^{2}\} 
+,\]
+avec $z = x_{N+1} = \sum_{j=1}^{N} \tau(j)y_{j}$.
+Ainsi on obtient que \[
+        \{ x_{i}, \; i \in S(\sigma_{N})\} \subset B(z, 2\varepsilon)
+,\] et donc comme $z = x_{N+1} \in B(x^{*}, \varepsilon)$ on a par encore inégalité triangulaire, \[
+\{x_{i}, \; i \in S(\sigma_{N})\} \subset B(x^{*}, 3\varepsilon) 
+.\] 
+
+
+Puis, on obtient par les deux résultats précédents, \[
+        \{x_{i}, \; i \in S(\tau{N})\} \subset \{x_{i}, \; i \in S(\sigma_{N})\} \subset B(x^{*}, 3\varepsilon)   
+.\] 
+
+
+Enfin \[
+        x_{N+1} = \sum_{i \in I}\tau_{N}(i)y_{i} = \sum_{i \in S(\tau_{N})}\tau_{N}(i)y_{i}
+        ,\]  et cette dernière somme est dans l'enveloppe convexe $Co(\{y_{i}, i \in S(\tau_{N})\})$. De plus \[
+        Co(\{y_{i}, i \in S(\sigma_{N})\}) \subset Co(\{\cup_{x_{i}}F(x_{i}), \; i \in S(\sigma_{N})\}) \subset Co(\{\cup_{z}F(z), z \in B(x^{*}, 3\varepsilon)\}) 
+,\]  ainsi \[
+x_{N+1} \in Co(\{\cup_{z}F(z), \; z \in B(x^{*}, 3\varepsilon)\} )
+.\]  
+
+\bigskip
+
+\textbf{3.}  On va prouver que $x^{*} \in F(x^{*})$. D'après la question précédente \[
+x_{N+1} \in Co(\{\cup_{z}F(z), \; z \in B(x^{*}, 3\varepsilon)\})
+.\] Comme $x^{*}$ est un point d'accumulation on extrait une sous suite $(x_{\beta(k)})_{k\in \N}$ qui converge vers $x^{*}$. On pose $\varepsilon_{k} \defeq \frac{1}{k}$, alors pour tout $k \in \N$ on a l'existence d'un $N > 0$ tel que pour tout $i \ge N$ on a \[
+        \|x_{\beta(i)}- x^{*}\| \le \varepsilon_{k}
+.\] 
+
+On a donc que $x_{\beta(i+1)}$ respecte les conditions de la question précédente avec $x_{N} = x_{\beta(i)}$. On a convergence vers $x^{*}$ des $x_{\beta(k)}$ et donc également de l'enveloppe convexe \\
+$Co(\{\cup_{z}F(z), z \in B(x^{*}, 3\varepsilon_{k})\})$ par convergence de la boule $B(x^{*}, 3\varepsilon_{k})$ vers le singleton $\{x^{*}\} $.
+\end{document}
