@@ -71,14 +71,36 @@
         \] est continue.
 \end{ex}
 \begin{proof}
-        On commence par montrer que l'application $\rho$ définie sur les relèvements est continue pour la norme $\mathcal{C}^{0}$.
-        Soit $F$ un relèvement et soit $\varepsilon > 0$. Soit $G$ un autre relèvement.
+        Soit $f$ un homéomorphisme du cercle et soit $F$ un relèvement. Soit $\varepsilon > 0$. Soit $g$ un autre homéomorphisme et $G$ un relèvement.
 
-        Alors, puisque  \[
-        \frac{F^{k}-Id}{k} \overset{cv.u.}{\longrightarrow} \rho(F)
-        ,\] et de même pour $G$, on trouve un rang $K > 0$ tel que pour tout $k \ge K$ on ait \[
-        |\frac{F^{k}(0)}{k} - \rho(F)| \le \frac{\varepsilon}{4}
-        ,\] et de même pour $G$.
+        Puisque $F, G$ sont des relèvements on a  \[
+        \pi\circ F = f \circ\pi, \quad \text{et} \quad \pi\circ G = g \circ\pi
+        .\] Ainsi en utilisant la surjectivité de la projection $\pi$,
+        \begin{align*}
+                D(f,g) &= \sup_{x\in\quot{\R}{\Z}}d(f(x), g(x)) \\
+                       &= \sup_{x \in \R}d(f\circ\pi(x), g\circ\pi(x)) \\
+                       &= \sup_{x\in \R}d(\pi\circ F(x),\pi\circ G(x)) \\
+                       &= \sup_{x \in \R}\min_{\substack{\pi(X) = \pi(F(x)) \\ \pi(Y) = \pi(G(x))}}|X-Y| \\
+                       &\ge \sup_{x \in [0,1]}\min_{\substack{\pi(X) = \pi(F(x)) \\ \pi(Y) = \pi(G(x))}}|X-Y| \\
+                       &\ge \sup_{x \in [0,1]}\min_{p, q \in \Z}|F(x)+p-G(x)-q|
+        .\end{align*}
+
+        D'autre part comme $\phi_{F} \defeq F-Id$ et $\phi_{G} \defeq G-Id$ sont continues 1-périodiques on obtient
+        \begin{align*}
+                \|F-G\|_{\infty} &= \sup_{x\in\R}|F(x)-G(x)| \\
+                                 &= \sup_{x\in\R}|F(x)-x-(G(x)-x)| \\
+                                 &= \sup_{x\in [0,1]}|F(x)-G(x)| 
+        .\end{align*}
+
+        Comme les relèvements ne sont définis qu'à une constante entière près on en déduit \[
+                D(f,g) \ge \|F-G\|_{\infty}
+        ,\] pour un bon choix de $G$.
+
+        On regarde à présent le nombre de rotation de $f$ et de $g$. Par convergence uniforme \[
+                \frac{F^{k}-Id}{k} \to \rho(F) \quad \text{et} \quad \frac{G^{k}-Id}{k} \to \rho(G) 
+        ,\] on a l'existence d'un rang $K > 0$ tel que pour tout $k \ge K$ \[
+        |\frac{F^{k}(0)}{k} - \rho(F)| \le \frac{\varepsilon}{4} \quad \text{et} \quad |\frac{G^{k}(0)}{k} - \rho(G)| \le \frac{\varepsilon}{4} 
+        .\] 
 
         En utilisant l'inégalité triangulaire on trouve
         \begin{align*}
@@ -95,16 +117,23 @@
         Ainsi en utilisant encore une fois l'inégalité triangulaire,
         \begin{align*}
                 \|F^{k}-G^{k}\|_{\infty} &\le \|F\circ F^{k-1} - F\circ G^{k-1}\|_{\infty} + \|F\circ G^{k-1} - G\circ G^{k-1}\| \\
-                                         &\le \|F\circ F^{k-1} - F\circ G^{k-1}\|_{\infty} + \delta 
+                                         &\le \|F\circ F^{k-1} - F\circ G^{k-1}\|_{\infty} + \|F-G\|_{\infty} 
         .\end{align*}
 
-        Puisque $F$ est uniformément continue $\|F^{k}-G^{k}\|_{\infty}$ est contrôlée par $\|F^{k-1}-G^{k-1}\|_{\infty}$, par itération directe on peut alors trouver un $\delta > 0$ tel que pour $G$ satisfaisant $\|F-G\|_{\infty} < \delta$ on ait \[
+        Puisque $F$ est uniformément continue $\|F^{k}-G^{k}\|_{\infty}$ est contrôlée par $\|F^{k-1}-G^{k-1}\|_{\infty}$, par itération directe $k$ fois, on peut alors trouver un $\delta > 0$ tel que pour $G$ satisfaisant $\|F-G\|_{\infty} < \delta$ on ait \[
                 \|F^{k}-G^{k}\|_{\infty} \le \frac{k\varepsilon}{2}
         .\] 
 
         Il en découle alors directement que \[
                 |\rho(F)-\rho(G)| \le \varepsilon
-        \] et nous avons montré la continuité désirée. 
+        .\]
+
+        Ainsi lorsque $D(f,g)$ est assez petite on peut trouver $F, G$ deux relèvements respectivement de  $f, g$ satisfaisants  \[
+                \|F-G\|_{\infty} \le D(f, g)
+        .\] En prenant $D(f,g) \le \delta$ on obtient $|\rho(F)-\rho(G)| \le \varepsilon$, puisque le nombre de rotation d'un homéomorphisme n'est pas dépendant du choix de relèvement on en déduit 
+        \[
+                \lim_{D(f,g)\to 0}|\rho(f)-\rho(g)| = 0
+        \]  ce qui garanti la continuité de $\rho$.
 \end{proof}
 
 \newpage
@@ -127,7 +156,7 @@
         \begin{figure}[htpb]
                 \centering
                 \includegraphics[width=0.4\textwidth]{homeo.pdf}
-                \caption{Illustration de $f_{\lambda_1, \lambda_2}$}
+                \caption{Illustration du graphe de $f_{\lambda_1, \lambda_2}$}
                 \label{fig:homeo-pdf}
         \end{figure}
 
@@ -146,7 +175,7 @@
         \begin{align*}
                 h^{-1}\circ f_{\lambda_1, \lambda_2} \circ h (x) &= h^{-1} \circ f_{\lambda_1, \lambda_2} (\frac{\exp(x\log\sigma)}{\sigma-1})\\ 
                                                                  &= h^{-1}(b+\frac{1-b}{a}(\frac{\exp(x\log\sigma)}{\sigma-1})) \\
-                                                                 &= \frac{1}{\log\sigma}\log[\frac{1}{a}(a+\sigma ab - ab + \sigma^{x} - 1-b\sigma^{x})]
+                                                                 &= \frac{1}{\log\sigma}\log[\frac{1}{a}(a+\sigma ab +b - ab + \sigma^{x} - 1-b\sigma^{x})]
         .\end{align*}
 
         Puis en se rappelant que \[
@@ -154,7 +183,7 @@
         ,\] on obtient
         \begin{align*}
                 h^{-1}\circ f_{\lambda_1, \lambda_2} \circ h (x) &= \frac{1}{\log\sigma}\log[\frac{1-b}{a}\sigma^{x}] \\
-                                                                 &= x + \frac{\log\frac{1-b}{a}}{\log\sigma} \\
+                                                                 &= x + \frac{\log\frac{1-b}{a}}{\log\sigma}
         .\end{align*}
         Un calcul identique sur la deuxième pente de $f_{\lambda_1, \lambda_2}$ donne le même résultat. Ainsi $f_{\lambda_1, \lambda_2}$ est conjugué à une rotation d'angle \[
         \frac{\log(\frac{1-b}{a})}{\log\sigma} = \frac{\log\lambda_1} {\log\lambda_1 -\log\lambda_2}
