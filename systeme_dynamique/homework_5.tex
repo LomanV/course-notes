@@ -1,0 +1,237 @@
+\documentclass[12pt]{article}
+\usepackage[top=1in, bottom=1in, left=1in, right=1in]{geometry}
+
+\usepackage[onehalfspacing]{setspace}
+
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{enumerate, enumitem}
+\usepackage{fancyhdr, graphicx, proof, comment, multicol}
+\usepackage[none]{hyphenat}
+\usepackage{dirtytalk}
+\binoppenalty=\maxdimen
+\relpenalty=\maxdimen
+
+\usepackage{microtype}
+\usepackage{mathpazo}
+\usepackage{mdframed}
+\usepackage{parskip}
+\linespread{1.1}
+\usepackage{graphicx}
+\usepackage{subfig}
+
+\usepackage{mathrsfs}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\usepackage{mathtools}
+\newcommand{\defeq}{\vcentcolon=}
+\newcommand{\eqdef}{=\vcentcolon}
+
+\newenvironment{ex}[1]
+{\begin{mdframed}[linewidth=0.6pt]
+        \textsc{Exercice #1:}
+
+}
+    {\end{mdframed}}
+
+\newcommand{\R}{\mathbf{R}}
+\newcommand{\C}{\mathbf{C}}
+\newcommand{\Z}{\mathbf{Z}}
+\newcommand{\N}{\mathbf{N}}
+\newcommand{\Q}{\mathbf{Q}}
+
+\newcommand{\de}{\mathrm{d}}
+
+\newcommand{\interior}[1]{%
+  {\kern0pt#1}^{\mathrm{o}}%
+}
+
+\begin{document}
+        \noindent
+\textbf{Systèmes dynamiques} \hfill \textbf{Vezin Lomàn}\\
+\normalsize MAT551  \hfill Date de rendu: 13/11/2020\\
+
+\begin{center}
+\textbf{Devoir maison}
+\end{center}
+
+\begin{ex}{1}
+        Cobords et mesures invariantes
+\end{ex}
+
+\textbf{1.} Remarquons dans un premier temps l'inclusion
+\[
+        \mathcal{C}_{b}(X,T) \subset \mathcal{C}_{m}(X,T)
+,\] en effet si l'on prend $\phi \in \mathcal{C}_{b}(X,T)$, alors pour toute mesure $\mu \in \mathcal{M}(X,T)$ 
+\begin{align*}
+        \int\phi\de\mu &= \int\psi\circ T - \psi\de\mu \\
+                       &= \int \psi \circ T \de \mu - \int\psi\de\mu \\
+                       &= \int\psi \de T_{\star}\mu - \int\psi\de\mu \\ 
+                       &= 0 \quad \text{par } T \; \text{invariance de } \mu
+.\end{align*}
+
+En montrant que l'ensemble $\mathcal{C}_{m}(X,T)$ est un fermé on obtiendra le résultat souhaité \[
+        \overline{\mathcal{C}_{b}(X,T)} \subset \overline{\mathcal{C}_{m}(X,T)} = \mathcal{C}_{m}(X,T)
+.\] 
+Comme $\mathcal{C}(X)$ est un espace métrique on peut utiliser un argument séquentiel. Soit $(\phi_{n})_{n\in\N}$ une suite de $\mathcal{C}_{m}(X,T)$ convergeant vers $\phi$. Alors pour $n \in \N$
+\begin{align*}
+        |\int\phi\de\mu| &= |\int\phi\de\mu - \int\phi_{n}\de\mu| \\
+                         &\le \int|\phi-\phi_{n}|\de\mu \\
+                         &\le\int\|\phi-\phi_{n}\|\de\mu \underset{n\to \infty}{\longrightarrow} 0
+.\end{align*}
+La limite appartient donc à $\mathcal{C}_{m}(X,T)$ qui est donc bien fermé.
+
+\textbf{2.} \textit{i.} On applique un corollaire du théorème de Hahn Banach dans sa formulation géométrique, étant donné un espace vectoriel $E$, un sous espace vectoriel $M \subset E$ non dense, il existe une forme linéaire continue $\Lambda$ non nulle qui s'annule sur $M$. Il est facile de vérifier que $\mathcal{C}_{b}(X,T)$ et $\mathcal{C}_{m}(X,T)$ sont des $\R$ espaces vectoriels, le premier sous espace du second. Ils contiennent la fonction nulle sont stables par somme et multiplication par un scalaire. 
+
+En supposant que l'inclusion $\overline{\mathcal{C}_{b}(X,T)} \subsetneq \mathcal{C}_{m}(X,T)$ soit stricte on obtient que $\mathcal{C}_{b}(X,T)$ n'est pas dense dans $\mathcal{C}_{m}(X,T)$. On conclut par le corollaire précédent l'existence de $\Lambda$ telle que  \[
+        \mathcal{C}_{b}(X,T) \subset \{\phi \in \mathcal{C}(X) \;|\; \Lambda(\phi) = 0\} \subsetneq \mathcal{C}_{m}(X,T) 
+.\] 
+On sait de plus que le noyau d'une forme linéaire continue est fermé, ainsi on obtient \[
+        \overline{\mathcal{C}_{b}(X,T)} \subset \{\phi \in \mathcal{C}(X) \;|\; \Lambda(\phi) = 0\} \subsetneq \mathcal{C}_{m}(X,T) 
+.\]  
+\textit{ii.} Puisque $\Lambda$ s'annule sur les cobords, pour toute fonction continue $\psi$ on a  \[
+\int\psi\circ T -\psi\de\mu = 0 = \int\psi\circ T\de\mu - \int\psi\de\mu
+.\] On en déduit que $\mu$ est $T-$invariante. Les mesures boréliennes positives $T_{\star}\mu_{+}, T_{\star}\mu_{-}$ satisfont donc
+\begin{align*}
+        \int\psi\de T_{\star}\mu_{+} - \int\psi\de T_{\star}\mu_{-} &= \int\psi \circ T\de\mu_{+} - \int\psi \circ T\de\mu_{-} \\ 
+                                                                    &= \int\psi\circ T\de\mu \\
+                                                                    &= \int\psi\de\mu \\
+                                                                    &= \int\psi\de\mu_{+} - \int\psi\de\mu_{-} 
+.\end{align*}
+De l'hypothèse d'unicité on en déduit que pour tout borélien $A$, \[
+        T_{\star}\mu_{+}(A) \ge \mu_{+}(A) \quad \text{et} \quad T_{\star}\mu_{-}(A) \ge \mu_{-}(A)
+.\] 
+
+Remarquons que $T_{\star}\mu_{+}, T_{\star}\mu_{-}$ sont mutuellement séparées. Si $\mu_{+}(E) = 1, \; \mu_{-}(E) = 0$,
+\[
+        T_{\star}\mu_{+}(E) \ge \mu_{+}(E) = 1 \quad \text{et}
+,\] 
+\begin{align*}
+        T_{\star}\mu_{-}(E) &= \int_{E}T\de\mu_{-} \\
+                            &\le \|T\|_{\infty}\mu_{-}(E) \\
+                            &= 0
+,\end{align*} puisque $T$ est continue sur $X$ compact donc bornée.
+
+En inversant les rôles de $\mu$ et $T_{\star}\mu$ qui sont égales, on obtient l'inégalité inverse et donc l'égalité. Par définition, nous venons de montrer que $\mu_{+}, \mu_{-}$ sont $T$-invariantes.
+
+\medskip
+
+\textit{iii.} Puisque $\mu_{+}, \mu_{-}$ sont $T-$invariantes et finies les mesures $\frac{1}{\mu_{+}(X)}\mu_{+}, \frac{1}{\mu_{-}(X)}\mu_{-} \in \mathcal{M}(X,T)$. Si $\phi \in \mathcal{C}_{m}(X,T)$ alors \[
+        \frac{1}{\mu_{+}(X)}\int\phi\de\mu_{+} = 0 = \frac{1}{\mu_{-}(X)}\int\phi\de\mu_{-}
+.\] Donc \[
+\int\phi\de\mu_{+} = 0 = \int\phi\de\mu_{-}
+,\] et il en découle que \[
+\Lambda(\phi) = \int\phi\de\mu_{+} - \int\phi\de\mu_{-} = 0
+.\]  
+Ainsi nous obtenons une contradiction \[
+        \mathcal{C}_{m}(X,T) \subset \{\phi \in \mathcal{C}(X) \;|\; \Lambda(\phi) = 0\} 
+.\] 
+
+\bigskip
+
+\textbf{3.} On raisonne par contraposée. Si pour toutes mesures ergodiques $\mu_1, \mu_2$ on a \[
+        \int\phi\de\mu_1 = \int\phi\de\mu_2 = c \in \R
+,\] $c < \infty$ comme $\phi$ est continue sur $X$ compact donc bornée. Alors si $\mu \in \mathcal{M}(X,T)$, comme les mesures ergodiques sont les points extrémaux des mesures  $T$-invariantes on obtient par le théorème de Choquet l'existence d'une distribution $M_{\mu}$ sur $\mathcal{M}(X,T)$ supportée par les mesures ergodiques telle que \[
+\int\phi\de\mu = \int(\int\phi\de\nu)\de M_{\mu}(\nu), \; \nu \; \text{ergodiques}
+.\]  
+Comme par hypothèse  \[
+        \int\phi\de\nu = c \quad \forall \nu \in \mathcal{M}_{e}(X,T)
+,\] on en déduit \[
+\int\phi\de\mu = c \quad \forall \mu \in \mathcal{M}(X,T)
+.\] 
+
+Ainsi pour $\mu \in \mathcal{M}(X,T)$ \[
+        \int(\phi - c)\de\mu = \int\phi\de\mu - c\mu(X) = c - c = 0
+.\] 
+
+Donc en posant $\psi = \phi - c$ on obtient $\phi = \psi + c, \; \psi \in \mathcal{C}_{m}(X,T)$. On a donc bien montré \[
+        \phi \in \mathcal{C}_{m}(X,T) + \R
+.\]  
+
+\bigskip
+
+\textbf{4.} Par le point précédent il existe deux mesures ergodiques $\mu_1, \mu_2$ satisfaisant \[
+\int\phi\de\mu_1 \neq \int\phi\de\mu_2
+.\] $\mathcal{M}(X,T)$ muni de la topologie faible-* est métrisable, comme les mesures périodiques sont denses dans les mesures ergodiques $\mu_1, \mu_2$ sont toutes deux limites de suites de mesures périodiques. Par définition de la topologie faible-* l'application \[
+\mu \longmapsto \int\phi\de\mu
+\] et continue, on peut donc trouver au moins deux mesures périodiques, une dans chaque suite, $\tilde{\mu_1}, \tilde{\mu_2}$ disons, satisfaisant \[
+\int\phi\de\tilde{\mu_1} \neq \int\phi\de\tilde{\mu_2}
+.\]  
+
+\begin{ex}{2}
+       Ensemble de divergence, quelques généralités 
+\end{ex}
+
+\textbf{6.} On montre que l'ensemble $\mathcal{B}(\phi)$ est $T$-invariant. Soit $x \in T^{-1}(\mathcal{B}(\phi))$, et soit $y \in \mathcal{B}(\phi)$ tel que $T(x) = y$. Alors pour $n \in \N$ fixé on a 
+\begin{align*}
+        \frac{1}{n}\sum_{k=0}^{n-1} \phi\circ T^{k}(x) &= \frac{\phi(x)}{n} + \frac{1}{n}\sum_{k=1}^{n-1} \phi\circ T^{k-1}(y) \\
+                                                       &=\frac{\phi(x)}{n} + \frac{1}{n}\sum_{k=0}^{n-1} \phi\circ T^{k}(y) - \frac{\phi(T^{n-1}(x))}{n}
+.\end{align*}
+
+Comme $\phi$ est bornée, en prenant la limite inférieure on remarque que \[
+        \liminf_{n\to \infty} \frac{1}{n}\sum_{k=0}^{n-1} \phi\circ T^{k}(x) = \liminf_{n\to \infty} \frac{1}{n}\sum_{k=0}^{n-1} \phi\circ T^{k}(y)
+,\] de même pour la limite supérieure. Ainsi $x \in \mathcal{B}(\phi)$ qui est donc bien $T-$invariant. 
+
+\medskip
+
+Par le théorème ergodique ponctuel, si $\mu \in \mathcal{M}(X,T)$, alors pour $\mu$ presque tout  $x \in X$ on a la convergence de la suite 
+
+\begin{equation}
+        (\frac{1}{n}\sum_{k=0}^{n-1} \phi\circ T^{k}(x))_{n\in\N}.
+\end{equation}
+L'ensemble de divergence des sommes de Birkhoff est donc de $\mu$ mesure nulle. 
+
+\medskip
+
+De plus, par le théorème 4.11 des notes de cours lorsque $\mu$ est uniquement ergodique la convergence de la suite (1) ci dessus est uniforme vers une constante, on a donc convergence pour tout  $x \in X$ et l'ensemble de divergence $\mathcal{B}(\phi)$ est vide.
+
+\bigskip
+
+\textbf{7.} Par la question \textbf{2.}, nous savons que $\mathcal{C}_{m}(X,T) = \overline{\mathcal{C}_{b}(X,T)}$. Prenons donc $\phi \in \mathcal{C}_{m}(X,T)$ et une suite de cobords $(\phi_{n})_{n\in\N}$ donc $\phi$ est la limite uniforme. Notons pour tout $n \in \N$ \[
+        \phi_{n} = \psi_{n}\circ T - \psi_{n}, \quad \psi_{n} \in \mathcal{C}(X)
+,\] nous obtenons alors pour $x \in X$ quelconque et $j\in\N$
+\begin{align*}
+        \frac{1}{n}\sum_{k=0}^{n-1} \phi_{j}\circ T^{k}(x) &= \frac{1}{n}\sum_{k=0}^{n-1} (\psi_{j}\circ T - \psi_{j})\circ T^{k}(x) \\
+                                                            &= \frac{1}{n}(\psi_{j}\circ T^{n}-\psi_{j})(x) \underset{n \to \infty}{\longrightarrow} 0
+\end{align*} puisque $\psi_{j}$ est continue sur $X$ qui est compact, et donc bornée.
+
+Par convergence uniforme, en prenant la limite $j \to \infty$ on obtient le résultat souhaité. Puisque le choix de $x \in X$ était arbitraire on a convergence partout et l'ensemble de divergence $\mathcal{B}(\phi)$ est vide.
+
+\bigskip
+
+\begin{ex}{3}
+        Ensemble de divergence pour des dynamiques minimales 
+\end{ex}
+
+\textbf{8.} $(X,T)$ est un espace métrique nous pouvons appliquer un argument séquentiel. Soient $n \ge N$ alors la somme \[
+\frac{1}{n}\sum_{k=0}^{n-1} \phi\circ T^{k}
+\] est une application continue comme somme de compositions d'applications continues. Si l'on considère une suite $(x_{j})_{j\in\N}$ de $W(N, \varepsilon)$ convergeant vers $x \in X$, alors nous obtenons par passage à la limite et continuité 
+\begin{alignat*}{3}
+        \lim_{j\to \infty}\frac{1}{n}\sum_{k=0}^{n-1} \phi\circ T^{k}(x_{j}) &\ge \int\phi\de\mu + \varepsilon \quad &&\text{d'une part,} \\
+                                                                             &= \frac{1}{n}\sum_{k=0}^{n-1} \phi\circ T^{k}(x) \quad &&\text{d'autre part}
+.\end{alignat*}
+Comme $n \ge N$ était arbitraire $x \in W(N,\varepsilon)$ qui est donc fermé.
+
+\bigskip
+
+\textbf{9.} Nous venons de montrer que pour tous $N >0, \varepsilon > 0$ l'ensemble $W(N,\varepsilon)$ est maigre. En effet comme il est fermé nous avons  \[
+        \overline{W(N,\varepsilon)} = W(N,\varepsilon) \quad \text{et donc} \quad \interior{(\overline{W(N,\varepsilon)})} = \interior{W(N,\varepsilon)} = \emptyset 
+.\] 
+
+Nous savons que le complémentaire d'un ensemble maigre contient un sous ensemble dense. Aussi
+\begin{align*}
+        W(N, \varepsilon) &= \{x\in X \;|\; \frac{1}{n}\sum_{k=0}^{n-1} \phi\circ T^{k}(x) \ge \int\phi\de\mu + \varepsilon, \; \forall n \ge N\} \\
+                          &= \{x \in X \;|\; \liminf_{n} \frac{1}{n}\sum_{k=0}^{n-1} \phi\circ T^{k}(x) \ge \int\phi\de\mu + \varepsilon\}
+.\end{align*}
+Comme le résultat est valable pour tout $\varepsilon > 0$, que $\mu$ est une mesure ergodique et en remarquant que  \[
+        \mathcal{B}(\phi)^{c} = \{x\in X \;|\; \liminf_{n}\frac{1}{n}\sum_{k=0}^{n-1} \phi\circ T^{k}(x) \ge \limsup_{n} \frac{1}{n}\sum_{k=0}^{n-1} \phi\circ T^{k}(x)\} 
+,\] on en conclut que $\mathcal{B}(\phi)$ contient un sous ensemble dense de $X$. 
+
+
+\bigskip
+
+\begin{ex}{4}
+       Ensemble de divergence pour le décalage sur $\{0,1\}^{\N}$ 
+\end{ex}
+\end{document}

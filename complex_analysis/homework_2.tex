@@ -1,0 +1,199 @@
+\documentclass[12pt]{article}
+\usepackage[top=1in, bottom=1in, left=1in, right=1in]{geometry}
+\usepackage[french]{babel}
+
+\usepackage[onehalfspacing]{setspace}
+
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{enumerate, enumitem}
+\usepackage{fancyhdr, graphicx, proof, comment, multicol}
+\usepackage[none]{hyphenat}
+\usepackage{dirtytalk}
+\binoppenalty=\maxdimen
+\relpenalty=\maxdimen
+
+\usepackage{microtype}
+\usepackage{mathpazo}
+\usepackage{mdframed}
+\usepackage{parskip}
+\linespread{1.1}
+\usepackage{graphicx}
+\usepackage{subfig}
+
+\usepackage{mathrsfs}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\usepackage{mathtools}
+\newcommand{\defeq}{\vcentcolon=}
+\newcommand{\eqdef}{=\vcentcolon}
+
+\newenvironment{statement}[1]
+{\begin{mdframed}[linewidth=0.6pt]
+        \textsc{Théorème #1:}
+
+}
+    {\end{mdframed}}
+
+\newcommand{\R}{\mathbf{R}}
+\newcommand{\C}{\mathbf{C}}
+\newcommand{\Z}{\mathbf{Z}}
+\newcommand{\N}{\mathbf{N}}
+\newcommand{\Q}{\mathbf{Q}}
+
+\newcommand{\de}{\mathrm{d}}
+
+\begin{document}
+        \noindent
+\textbf{Analyse Complexe} \hfill \textbf{Vezin Lomàn}\\
+\normalsize MAT431 \hfill Date de rendu: 13/11/2020\\
+
+\begin{center}
+\textbf{Devoir maison 2}
+\end{center}
+
+\begin{statement}{1}
+        Les conditions suivantes sont équivalentes pour une application $f \in \mathcal{C}^{2}(\R^{n}, \R^{n})$ 
+        \begin{align*}
+                \star \; & f \; \text{est propre et } df_{x} \; \text{est inversible pour tout } x \in \R^{n} \\
+                \star \star \; & f \; \text{est un difféomorphisme } \mathcal{C}^{2} \; \text{de } \R^{n} \; \text{dans lui même} 
+        .\end{align*}
+\end{statement}
+
+\begin{proof}
+        \textbf{1.} On montre que $\star\star$ implique $\star$. Comme $f$ est un $\mathcal{C}^{2}$ difféomorphisme $f^{-1}$ est en particulier continue, ainsi pour tout compact $K \subset \R^{n}$, $f^{-1}(K)$ est compact et donc $f$ est propre. Fixons $x \in \R^{n}$, comme \[
+                f^{-1}\circ f = Id
+        ,\] remarquons de plus que la formule de dérivation d'une fonction composée nous donne \[
+        d(f^{-1})(f(x)) df_{x} = I_{n}
+,\] et ainsi $df_{x}$ est inversible. 
+
+\medskip
+
+Supposons à présent et pour le reste de l'exercice $\star$. Montrons dans un premier temps que $f$ est surjective. Pour ce faire montrons que $f(\R^{n})$ est un ouvert fermé de $\R^{n}$, comme cet ensemble est non vide et que $\R^{n}$ est connexe on en déduira $f(\R^{n}) = \R^{n}$.
+
+Soit $y_0 \in f(\R^{n})$ et $x_0 \in \R^{n}$ satisfaisant $f(x_0) = y_0$. Par hypothèse nous savons que $df_{x_0}$ est inversible, par le théorème d'inversion locale il existe donc deux voisinages ouverts $U \subset \R^{n}$ et $V \subset f(\R^{n})$ contenant respectivement $x_0$ et $y_0$ tels que \[
+        f(U) = V \subset f(\R^{n})
+.\] Nous venons de montrer que $f(\R^{n})$ est ouvert. Montrons à présent qu'il est fermé.
+
+
+Soit $(y_{k})_{k\in\N}$ une suite dans $f(\R^{n})$, convergente avec pour limite $y$, et soit $(x_{k})_{k\in\N}$ une suite de $\R^{n}$ satisfaisant \[
+        f(x_{k}) = y_{k} \quad \forall k \in \N
+.\] 
+L'ensemble  \[
+K \defeq \{y_{k}, \; k\in \N\} \cup \{y\} \subset \R^{n}
+\] est compact puisque fermé et borné par convergence de $(y_{k})_{k}$ vers $y$. Comme nous avons supposé $f$ propre $f^{-1}(K)$  est aussi compact et contient chacun des $x_{k}$ pour $k \in \N$. Nous pouvons alors exhiber une sous suite convergente vers une limite que nous pouvons noter $x$  \[
+x_{k_{j}} \underset{j\to\infty}{\longrightarrow} x
+.\] 
+
+
+Par continuité de $f$ et comme la convergence de la suite $y_{k}$ entraine la convergence vers la même limite de la sous suite extraite $y_{k_{j}}$ on obtient
+\begin{align*}
+        y = \lim_{j\to \infty}y_{k_{j}} &= \lim_{j\to \infty}f(x_{k_{j}}) \\
+                                        &= f(\lim_{j\to \infty}x_{k_{j}}) \\
+                                        &= f(x)
+.\end{align*}
+
+Ainsi $y \in f(\R^{n})$ qui est donc fermé. Nous pouvons conclure.
+
+\bigskip
+
+\textbf{2.} Fixons $z \in \R^{n}$ et considérons l'ensemble
+\begin{align*}
+        S_{z} &\defeq \{x \in \R^{n} \;|\; f(x) = f(z)\} \\
+              & \; = \{x \in \R^{n} \;|\; g(x) = 0\} 
+,\end{align*} où $g$ est la fonction auxiliaire donnée par
+ \begin{align*}
+         g : \R^{n} &\longmapsto \R^{n} \\
+         x &\longmapsto f(x) - f(z)
+.\end{align*}
+
+Puisque $f$ est propre on en déduit directement que $g$ l'est aussi. Ainsi $S_{z}$ est compact comme préimage du singleton $\{0\}$ lui même compact.
+De plus on voit facilement que $f$ et $g$ ont la même différentielle. Si par l'absurde $S_{z}$ disposait d'un nombre infini de points il contiendrait un point d'accumulation, $a$ disons. Comme $dg_{a}$ est inversible nous pouvons appliquer à nouveau le théorème d'inversion locale pour trouver un voisinage ouvert $U$ de $a$ tel que \[
+        g : U \longmapsto g(U)
+\] soit une bijection. Soit $(x_{k})_{k\in \N}$ une suite de $S_{z}$ convergeant vers $a$, on peut trouver au moins un $x_{i}$ de cette suite dans $U$ mais alors  \[
+g(x_{i}) = 0 = g(a)
+\] comme $x_{i}, a \in S_{z}$, ce qui contredit l'injectivité de la restriction de $g$ à $U$. $S_{z}$ est donc nécessairement fini.
+
+\bigskip
+
+\textbf{3.} Posons \[
+        X(x) \defeq (dg_{x})^{-1}g(x)
+,\] et considérons l'équation différentielle donnée par \[
+\mathcal{E}_{z} : \quad \begin{cases}
+        x'(t) = -X(x(t)) \\
+        x(0) = x_0 \in \R^{n}
+\end{cases}
+.\] 
+
+\textit{a.} Comme $f$ est $\mathcal{C}^{2}$, $g$ l'est aussi et $X$ est $\mathcal{C}^{1}$. Par le cours $\mathcal{E}_{z}$ admet pour un $\alpha > 0$ une solution maximale $x$ sur $[0, \alpha[$. Montrons que $\alpha = +\infty$ en utilisant le lemme des bouts. Soit $t \in [0,\alpha[$, on a
+\begin{alignat*}{3}
+        \frac{\de}{\de t}(g(x(t))) &= dg_{x(t)}x'(t), && \text{par la formule de dérivation composée}\\
+                                   &= -dg_{x(t)}(dg_{x(t)})^{-1}g(x(t)), \quad && \text{comme } x \text{ est solution} \\
+                                   &= -g(x(t))
+.\end{alignat*}
+On en déduit que \[
+        g(x(t)) = e^{-t}g(x_0)
+,\] et donc comme $t > 0$ on obtient  \[
+\|g(x(t))\| \le \|g(x_0)\|
+.\] Comme $g$ est propre $g^{-1}(\overline{B(0, \|g(x_0)\|)})$ est compact et comme \[
+x(t) \in g^{-1}(\overline{B(0, \|g(x_0)\|)}), \quad \forall t \in [0,\alpha[
+,\] par le lemme des bouts $\alpha = +\infty$.
+
+\medskip
+
+\textit{b.} Notons $S_{z} = \{z_1, \ldots, z_{m}\}$. Remarquons dans un premier temps par définition de $S_{z}$ que \[
+        X(z_{i}) = (dg_{z_{i}})^{-1}g(z_{i}) = 0, \quad \text{comme } g(z_{i}) = 0
+.\] Par hypothèse $df_{z_{i}}$ est inversible et nous avons montré que $dg_{x} = df_{x} \; \forall x \in \R^{n}$. On en déduit par le théorème d'inversion locale l'existence d'un $\delta_{i} > 0$ et d'un voisinage $V$ de 0, tel que la restriction de $g$
+\begin{align*}
+        g : B(z_{i}, \delta_{i}) \longmapsto V
+\end{align*} soit un difféomorphisme.
+
+Soit $y \in V$ et $x_0 \defeq g^{-1}(y)$. Considérons l'application
+\begin{align*}
+        h : t \longmapsto g^{-1}(e^{-t}y)
+,\end{align*} montrons qu'il s'agit d'une solution, on pourra conclure par unicité.
+En effet $h(0) = g^{-1}(y) = x_0$ et
+\begin{align*}
+        h'(t) &= d(g^{-1})_{e^{-t}y}(-e^{-t}y) \\
+              &= -d(g^{^{-1}})_{g(h(t))}g(h(t)) \\
+              &= -(dg_{h(t)})^{-1}g(h(t)) \\
+              &= -X(h(t))
+.\end{align*}
+
+On obtient finalement par unicité de la solution que \[
+        \lim_{t\to \infty}x(t) = \lim_{t\to \infty}h(t) = \lim_{t\to \infty}g^{-1}(e^{-t}y) = g^{-1}(0) = z_{i}
+.\] Puisque le choix de $y \in V$ et donc de $x_0 \in B(z_{i}, \delta_{i})$ était arbitraire on a le résultat voulu. 
+
+\medskip
+
+\textit{c.} 
+\end{proof}
+
+\bigskip
+
+\textbf{4. Une application} \textit{a.} Soit $g : \R^{n} \longmapsto \R^{n}$ continue avec  
+\begin{equation}
+        \lim_{\|x\|\to \infty}\|g(x)\| = +\infty.
+\end{equation}
+Soit $K \subset \R^{n}$ un compact. Par Borel Lebesgue $K$ est fermé et borné. Par continuité de $g$, $g^{-1}(K)$ est fermé. Par un argument ensembliste on a de plus \[
+g(g^{-1}(K)) \subset K
+.\] En particulier comme $K$ est borné, par (1) $g^{-1}(K)$ doit aussi être borné. $g^{-1}(K)$ est donc fermé borné, par Borel Lebesgue c'est donc un compact et $g$ est propre. 
+
+\medskip
+
+\textit{b.} Par équivalence des normes sur $\R^{n}$ nous pouvons considérer la norme 2 afin de faciliter les calculs. L'application
+\begin{align*}
+        \|.\|^{2} : \R^{n} &\longmapsto \R^{n} \\
+        x &\longmapsto \langle x, x \rangle = \sum_{i=1}^{n}x_{i}^{2}
+\end{align*} est $\mathcal{C}^{\infty}$. L'application induite par $A \in GL_{n}(\R)$ est clairement $\mathcal{C}^{\infty}$ On en déduit que $f$ est $\mathcal{C}^{\infty}$ comme somme de compositions de fonctions $\mathcal{C}^{\infty}$.
+
+
+$f$ est en particulier continue, nous appliquons le critère précédent pour montrer qu'elle est propre. Dès que $\|x\| > \sqrt{2}$ on a \[
+        \varphi(\|x\|^{2}) = 0 \quad \text{donc,} \quad f(x) = x
+.\] Ainsi \[
+\lim_{\|x\|\to \infty}\|f(x)\| = +\infty
+,\] et $f$ est propre. 
+
+Soit $x \in \R^{n}$, on calcule à présent la différentielle $df_{x}$ de $f$ en $x$.
+\end{document}
