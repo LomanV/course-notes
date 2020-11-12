@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2019.4.15)  10 NOV 2020 12:30
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2019.4.15)  10 NOV 2020 16:07
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -932,29 +932,38 @@ e par uni-cit[]e. En ef-fet $\OML/zplm/m/it/12 h\OT1/zplm/m/n/12 (\OT1/ppl/m/n/
 /m/it/12 y\OT1/zplm/m/n/12 ) = \OML/zplm/m/it/12 x[]$
  []
 
-[4] [5] (./homework_2.aux) ) 
+
+Overfull \hbox (5.60751pt too wide) in paragraph at lines 177--177
+[]\OT1/ppl/m/n/12 (-20) Par conver-gence de la suite $\OT1/zplm/m/n/12 (\OML/zp
+lm/m/it/12 x\OT1/zplm/m/n/12 (\OML/zplm/m/it/12 t[]\OT1/zplm/m/n/12 ))[]$\OT1/p
+pl/m/n/12 (-20) , pour le $\OML/zplm/m/it/12 ^^N[]$ \OT1/ppl/m/n/12 (-20) du po
+int \OT1/ppl/m/it/12 (-20) b. \OT1/ppl/m/n/12 (-20) on peut trou-ver $\OML/zplm
+/m/it/12 J > \OT1/ppl/m/n/12 (-20) 0$ suf-fi-sam-ment
+ []
+
+[4] [5] [6] (./homework_2.aux) ) 
 Here is how much of TeX's memory you used:
- 17809 strings out of 492649
- 324081 string characters out of 6129622
+ 17845 strings out of 492649
+ 324410 string characters out of 6129622
  434599 words of memory out of 5000000
- 21390 multiletter control sequences out of 15000+600000
- 555126 words of font info for 123 fonts, out of 8000000 for 9000
+ 21392 multiletter control sequences out of 15000+600000
+ 557780 words of font info for 146 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  44i,12n,43p,10578b,423s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips
-/base/8r.enc}</usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm
-/cmex10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/
-cmmi10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/c
-mr10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cms
-y10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/mathpazo/fplmr.p
-fb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/mathpazo/fplmri.pfb><
-/usr/local/texlive/2018/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/lo
-cal/texlive/2018/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/tex
-live/2018/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on homework_2.pdf (5 pages, 101567 bytes).
+{/usr/local/texlive/2018/texmf-dist/fonts/enc/d
+vips/base/8r.enc}</usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmex10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmmi10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmr10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmsy10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/mathpazo/fpl
+mr.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/mathpazo/fplmri.p
+fb></usr/local/texlive/2018/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></us
+r/local/texlive/2018/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/local
+/texlive/2018/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
+Output written on homework_2.pdf (6 pages, 109193 bytes).
 PDF statistics:
- 57 PDF objects out of 1000 (max. 8388607)
- 40 compressed objects within 1 object stream
+ 60 PDF objects out of 1000 (max. 8388607)
+ 42 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 16897 words of extra memory for PDF output out of 17280 (max. 10000000)
+ 20993 words of extra memory for PDF output out of 24883 (max. 10000000)
 

@@ -64,8 +64,8 @@
 \begin{proof}
         \textbf{1.} On montre que $\star\star$ implique $\star$. Comme $f$ est un $\mathcal{C}^{2}$ difféomorphisme $f^{-1}$ est en particulier continue, ainsi pour tout compact $K \subset \R^{n}$, $f^{-1}(K)$ est compact et donc $f$ est propre. Fixons $x \in \R^{n}$, comme \[
                 f^{-1}\circ f = Id
-        ,\] remarquons de plus que la formule de dérivation d'une fonction composée nous donne \[
-        d(f^{-1})(f(x)) df_{x} = I_{n}
+        ,\] remarquons que la formule de dérivation d'une fonction composée nous donne \[
+        d(f^{-1})_{f(x)} df_{x} = I_{n}
 ,\] et ainsi $df_{x}$ est inversible. 
 
 \medskip
@@ -98,7 +98,7 @@ Ainsi $y \in f(\R^{n})$ qui est donc fermé. Nous pouvons conclure.
 
 \bigskip
 
-\textbf{2.} Fixons $z \in \R^{n}$ et considérons l'ensemble
+\textbf{2.} On étudie à présent l'injectivité de $f$. Fixons $z \in \R^{n}$ et considérons l'ensemble
 \begin{align*}
         S_{z} &\defeq \{x \in \R^{n} \;|\; f(x) = f(z)\} \\
               & \; = \{x \in \R^{n} \;|\; g(x) = 0\} 
@@ -126,7 +126,7 @@ g(x_{i}) = 0 = g(a)
 \end{cases}
 .\] 
 
-\textit{a.} Comme $f$ est $\mathcal{C}^{2}$, $g$ l'est aussi et $X$ est $\mathcal{C}^{1}$. Par le cours $\mathcal{E}_{z}$ admet pour un $\alpha > 0$ une solution maximale $x$ sur $[0, \alpha[$. Montrons que $\alpha = +\infty$ en utilisant le lemme des bouts. Soit $t \in [0,\alpha[$, on a
+\textit{a.} Comme $f$ est $\mathcal{C}^{2}$, $g$ l'est aussi et $X$ est $\mathcal{C}^{1}$. Par Cauchy $\mathcal{E}_{z}$ admet pour un $\alpha > 0$ une solution maximale $x$ sur $[0, \alpha[$. Montrons que $\alpha = +\infty$ en utilisant le lemme des bouts (Théorème VIII.3.9). Soit $t \in [0,\alpha[$, on a
 \begin{alignat*}{3}
         \frac{\de}{\de t}(g(x(t))) &= dg_{x(t)}x'(t), && \text{par la formule de dérivation composée}\\
                                    &= -dg_{x(t)}(dg_{x(t)})^{-1}g(x(t)), \quad && \text{comme } x \text{ est solution} \\
@@ -143,7 +143,7 @@ x(t) \in g^{-1}(\overline{B(0, \|g(x_0)\|)}), \quad \forall t \in [0,\alpha[
 \medskip
 
 \textit{b.} Notons $S_{z} = \{z_1, \ldots, z_{m}\}$. Remarquons dans un premier temps par définition de $S_{z}$ que \[
-        X(z_{i}) = (dg_{z_{i}})^{-1}g(z_{i}) = 0, \quad \text{comme } g(z_{i}) = 0
+        g(z_{i}) = 0, \quad \forall i \in \{1, \ldots, m\} 
 .\] Par hypothèse $df_{z_{i}}$ est inversible et nous avons montré que $dg_{x} = df_{x} \; \forall x \in \R^{n}$. On en déduit par le théorème d'inversion locale l'existence d'un $\delta_{i} > 0$ et d'un voisinage $V$ de 0, tel que la restriction de $g$
 \begin{align*}
         g : B(z_{i}, \delta_{i}) \longmapsto V
@@ -167,7 +167,46 @@ On obtient finalement par unicité de la solution que \[
 
 \medskip
 
-\textit{c.} 
+\textit{c.} Soit $x_0 \in \R^{n}$ et $x$ une solution de $\mathcal{E}_{z}$ satisfaisant $x(0) = x_0$. Par \textit{a.} $x$ reste dans un compact pour tout $t > 0$ donc l'image de $[0, +\infty[$ par $x$ doit avoir au moins un point d'accumulation, disons $l$. Soit donc $(t_{j})_{j\in\N}$ une suite strictement croissante, $t_{j} \to_{j} \infty$, telle que \[
+        x(t_{j}) \underset{j\to \infty}{\longrightarrow} l
+.\] 
+Par le point \textit{b.} $g(x(t)) = e^{-t}g(x_0)$, on en déduit donc par passage à la limite \[
+        g(l) = \lim_{j\to \infty}g(x(t_{j})) = \lim_{j\to \infty}e^{-t_{j}}g(x_0) = 0
+.\] Ainsi $l \in S_{z}$ et donc $l = z_{i}$ pour un $i \in \{0, \ldots, m\}$.
+
+Par convergence de la suite $(x(t_{j}))_{j}$, pour le $\delta_{i}$ du point \textit{b.} on peut trouver $J > 0$ suffisamment grand de sorte que \[
+x(t_{j}) \in B(z_{i}, \delta_{i}), \; \forall j \ge J
+.\]
+
+En particulier par le point \textit{b.} la solution $h$ satisfaisant  $h(0) = x(t_{J})$ converge vers $z_{i}$. Remarquons que la solution \[
+        \tilde{h}(t) = x(t + t_{J})
+,\] satisfait également $\tilde{h}(0) = x(t_{J})$ et donc par unicité globale on obtient \[
+x(t + t_{J}) = h(t) \quad \text{et} \quad \lim_{t\to \infty}x(t) = z_{i}
+.\]  
+
+\medskip
+
+\textit{d.} Chaque $A_{i}$ est bien défini par unicité globale des solutions, garantie par la proposition VIII.3.1 du cours\footnote{C'est de cette proposition dont on se sert tout du long pour l'unicité globale}, puisque $\mathcal{C}^{1}$ implique localement Lipschitz.
+
+Soit $i \in \{1, \ldots, m\}$ et soit $x_0 \in A_{i}$. Soit $x$ la solution de condition initiale  $x_0$. En reprenant le $\delta_{i}$ du point \textit{b.} par définition de $A_{i}$ il existe un $T > 0$ tel que pour tout $t \ge T$ \[
+        |x(t) - z_{i}| \le \frac{\delta_{i}}{2}
+.\] Comme les solutions sont continues par rapport au conditions initiales, il existe $\epsilon > 0$ tel que si $|x_0 - y_0| < \varepsilon$ et si $y$ est solution de condition initiale $y_0$ \[
+|x(t) - y(t)| \le \frac{\delta_{i}}{2} 
+.\]  
+On conclut par inégalité triangulaire \[
+        |y(t) - z_{i}| \le |y(t) - x(t)| + |x(t) - z_{i}| \le \delta_{i}
+.\]
+Par le point \textit{b.} il en découle que \[
+        \lim_{t\to \infty}y(t) = z_{i}
+.\] Ainsi $x \in A_{i}$. Comme le choix de $i$ et de $x_0$ étaient arbitraires, nous venons de montrer que $A_{i}$ est ouvert pour tout $i \in \{1, \ldots, m\}$ 
+
+\medskip
+
+\textit{e.} On a par le point \textit{c.} que \[
+\R^{n} = \bigcup_{i=1}^{m}A_{i}
+.\] Par le point \textit{d.} nous savons de plus que chaque $A_{i}$ est un ouvert non vide de $\R^{n}$. Il est clair par unicité des limites dans $\R^{n}$ que les $A_{i}$ sont deux à deux disjoints. Par connexité de $\R^{n}$ on doit donc nécessairement avoir $m = 1$. Ainsi $g$ ne s'annule qu'en un unique point, c'est à dire par définition de $g$ qu'il existe un unique $x \in \R^{n}$ tel que $f(x) = f(z)$. Puisque le choix de $z \in \R^{n}$ était arbitraire nous avons bien montré l'injectivité de $f$.
+
+Nous pouvons en conclure avec le point \textbf{1.} que $f$ est une bijection de $\R^{n}$ dans lui même et cela conclut la preuve.
 \end{proof}
 
 \bigskip

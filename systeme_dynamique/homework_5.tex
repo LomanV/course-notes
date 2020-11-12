@@ -63,11 +63,10 @@
 \textbf{1.} Remarquons dans un premier temps l'inclusion
 \[
         \mathcal{C}_{b}(X,T) \subset \mathcal{C}_{m}(X,T)
-,\] en effet si l'on prend $\phi \in \mathcal{C}_{b}(X,T)$, alors pour toute mesure $\mu \in \mathcal{M}(X,T)$ 
+,\] en effet si l'on prend $\phi \in \mathcal{C}_{b}(X,T)$ avec fonction de transfert $\psi \in \mathcal{C}(X)$, alors pour toute mesure $\mu \in \mathcal{M}(X,T)$ 
 \begin{align*}
         \int\phi\de\mu &= \int\psi\circ T - \psi\de\mu \\
                        &= \int \psi \circ T \de \mu - \int\psi\de\mu \\
-                       &= \int\psi \de T_{\star}\mu - \int\psi\de\mu \\ 
                        &= 0 \quad \text{par } T \; \text{invariance de } \mu
 .\end{align*}
 
@@ -82,7 +81,7 @@ Comme $\mathcal{C}(X)$ est un espace métrique on peut utiliser un argument séq
 .\end{align*}
 La limite appartient donc à $\mathcal{C}_{m}(X,T)$ qui est donc bien fermé.
 
-\textbf{2.} \textit{i.} On applique un corollaire du théorème de Hahn Banach dans sa formulation géométrique, étant donné un espace vectoriel $E$, un sous espace vectoriel $M \subset E$ non dense, il existe une forme linéaire continue $\Lambda$ non nulle qui s'annule sur $M$. Il est facile de vérifier que $\mathcal{C}_{b}(X,T)$ et $\mathcal{C}_{m}(X,T)$ sont des $\R$ espaces vectoriels, le premier sous espace du second. Ils contiennent la fonction nulle sont stables par somme et multiplication par un scalaire. 
+\textbf{2.} \textit{i.} On applique un corollaire du théorème de Hahn Banach dans sa formulation géométrique, étant donné un espace vectoriel $E$, un sous espace vectoriel $M \subset E$ non dense, il existe une forme linéaire continue $\Lambda$ non nulle qui s'annule sur $M$. Il est facile de vérifier que $\mathcal{C}_{b}(X,T)$ et $\mathcal{C}_{m}(X,T)$ sont des $\R$ espaces vectoriels, le premier sous espace du second. Ils contiennent la fonction nulle sont stables par somme et multiplication par un scalaire réel. 
 
 En supposant que l'inclusion $\overline{\mathcal{C}_{b}(X,T)} \subsetneq \mathcal{C}_{m}(X,T)$ soit stricte on obtient que $\mathcal{C}_{b}(X,T)$ n'est pas dense dans $\mathcal{C}_{m}(X,T)$. On conclut par le corollaire précédent l'existence de $\Lambda$ telle que  \[
         \mathcal{C}_{b}(X,T) \subset \{\phi \in \mathcal{C}(X) \;|\; \Lambda(\phi) = 0\} \subsetneq \mathcal{C}_{m}(X,T) 
@@ -103,7 +102,7 @@ De l'hypothèse d'unicité on en déduit que pour tout borélien $A$, \[
         T_{\star}\mu_{+}(A) \ge \mu_{+}(A) \quad \text{et} \quad T_{\star}\mu_{-}(A) \ge \mu_{-}(A)
 .\] 
 
-Remarquons que $T_{\star}\mu_{+}, T_{\star}\mu_{-}$ sont mutuellement séparées. Si $\mu_{+}(E) = 1, \; \mu_{-}(E) = 0$,
+Remarquons que $T_{\star}\mu_{+}, T_{\star}\mu_{-}$ sont aussi mutuellement séparées. Si $\mu_{+}(E) = 1, \; \mu_{-}(E) = 0$,
 \[
         T_{\star}\mu_{+}(E) \ge \mu_{+}(E) = 1 \quad \text{et}
 ,\] 
@@ -132,7 +131,7 @@ Ainsi nous obtenons une contradiction \[
 
 \textbf{3.} On raisonne par contraposée. Si pour toutes mesures ergodiques $\mu_1, \mu_2$ on a \[
         \int\phi\de\mu_1 = \int\phi\de\mu_2 = c \in \R
-,\] $c < \infty$ comme $\phi$ est continue sur $X$ compact donc bornée. Alors si $\mu \in \mathcal{M}(X,T)$, comme les mesures ergodiques sont les points extrémaux des mesures  $T$-invariantes on obtient par le théorème de Choquet l'existence d'une distribution $M_{\mu}$ sur $\mathcal{M}(X,T)$ supportée par les mesures ergodiques telle que \[
+,\] $c < \infty$ comme $\phi$ est continue sur $X$ compact donc bornée. Alors pour $\mu \in \mathcal{M}(X,T)$, comme les mesures ergodiques sont les points extrémaux des mesures  $T$-invariantes on obtient par le théorème de Choquet l'existence d'une distribution $M_{\mu}$ sur $\mathcal{M}(X,T)$ supportée par les mesures ergodiques telle que \[
 \int\phi\de\mu = \int(\int\phi\de\nu)\de M_{\mu}(\nu), \; \nu \; \text{ergodiques}
 .\]  
 Comme par hypothèse  \[
@@ -166,7 +165,7 @@ Donc en posant $\psi = \phi - c$ on obtient $\phi = \psi + c, \; \psi \in \mathc
 \textbf{6.} On montre que l'ensemble $\mathcal{B}(\phi)$ est $T$-invariant. Soit $x \in T^{-1}(\mathcal{B}(\phi))$, et soit $y \in \mathcal{B}(\phi)$ tel que $T(x) = y$. Alors pour $n \in \N$ fixé on a 
 \begin{align*}
         \frac{1}{n}\sum_{k=0}^{n-1} \phi\circ T^{k}(x) &= \frac{\phi(x)}{n} + \frac{1}{n}\sum_{k=1}^{n-1} \phi\circ T^{k-1}(y) \\
-                                                       &=\frac{\phi(x)}{n} + \frac{1}{n}\sum_{k=0}^{n-1} \phi\circ T^{k}(y) - \frac{\phi(T^{n-1}(x))}{n}
+                                                       &=\frac{\phi(x)}{n} + \frac{1}{n}\sum_{k=0}^{n-1} \phi\circ T^{k}(y) - \frac{\phi(T^{n}(x))}{n}
 .\end{align*}
 
 Comme $\phi$ est bornée, en prenant la limite inférieure on remarque que \[
@@ -188,12 +187,12 @@ De plus, par le théorème 4.11 des notes de cours lorsque $\mu$ est uniquement 
 
 \bigskip
 
-\textbf{7.} Par la question \textbf{2.}, nous savons que $\mathcal{C}_{m}(X,T) = \overline{\mathcal{C}_{b}(X,T)}$. Prenons donc $\phi \in \mathcal{C}_{m}(X,T)$ et une suite de cobords $(\phi_{n})_{n\in\N}$ donc $\phi$ est la limite uniforme. Notons pour tout $n \in \N$ \[
+\textbf{7.} Par la question \textbf{2.} nous savons que $\mathcal{C}_{m}(X,T) = \overline{\mathcal{C}_{b}(X,T)}$. Prenons donc $\phi \in \mathcal{C}_{m}(X,T)$ et une suite de cobords $(\phi_{n})_{n\in\N}$ donc $\phi$ est la limite uniforme. Notons pour tout $n \in \N$ \[
         \phi_{n} = \psi_{n}\circ T - \psi_{n}, \quad \psi_{n} \in \mathcal{C}(X)
 ,\] nous obtenons alors pour $x \in X$ quelconque et $j\in\N$
 \begin{align*}
         \frac{1}{n}\sum_{k=0}^{n-1} \phi_{j}\circ T^{k}(x) &= \frac{1}{n}\sum_{k=0}^{n-1} (\psi_{j}\circ T - \psi_{j})\circ T^{k}(x) \\
-                                                            &= \frac{1}{n}(\psi_{j}\circ T^{n}-\psi_{j})(x) \underset{n \to \infty}{\longrightarrow} 0
+                                                            &= \frac{1}{n}(\psi_{j}\circ T^{n}-\psi_{j})(x) \overset{CVU}{\longrightarrow}_{n} 0
 \end{align*} puisque $\psi_{j}$ est continue sur $X$ qui est compact, et donc bornée.
 
 Par convergence uniforme, en prenant la limite $j \to \infty$ on obtient le résultat souhaité. Puisque le choix de $x \in X$ était arbitraire on a convergence partout et l'ensemble de divergence $\mathcal{B}(\phi)$ est vide.
@@ -204,7 +203,7 @@ Par convergence uniforme, en prenant la limite $j \to \infty$ on obtient le rés
         Ensemble de divergence pour des dynamiques minimales 
 \end{ex}
 
-\textbf{8.} $(X,T)$ est un espace métrique nous pouvons appliquer un argument séquentiel. Soient $n \ge N$ alors la somme \[
+\textbf{8.} $(X,T)$ est un espace métrique nous pouvons appliquer un argument séquentiel. Soit $n \ge N$, la somme \[
 \frac{1}{n}\sum_{k=0}^{n-1} \phi\circ T^{k}
 \] est une application continue comme somme de compositions d'applications continues. Si l'on considère une suite $(x_{j})_{j\in\N}$ de $W(N, \varepsilon)$ convergeant vers $x \in X$, alors nous obtenons par passage à la limite et continuité 
 \begin{alignat*}{3}
@@ -212,6 +211,30 @@ Par convergence uniforme, en prenant la limite $j \to \infty$ on obtient le rés
                                                                              &= \frac{1}{n}\sum_{k=0}^{n-1} \phi\circ T^{k}(x) \quad &&\text{d'autre part}
 .\end{alignat*}
 Comme $n \ge N$ était arbitraire $x \in W(N,\varepsilon)$ qui est donc fermé.
+
+\medskip
+
+Si par l'absurde $W(N,\varepsilon)$ n'est pas d'intérieur vide il contient un ouvert non vide $U$. Comme $(X,T)$ est minimal il existe pour cet ouvert  $U$ un entier $J > 0$ tel que  \[
+X = \bigcup_{0\le j \le J}T^{-j}U
+.\] 
+
+Alors comme $U \subset W(N,\varepsilon)$, pour tout $x \in X$ il existe $j \in \{0, \ldots, J\}$ tel que \[
+        \frac{1}{n}\sum_{k=0}^{n-1} \phi\circ T^{k+j}(x) \ge \int\phi\de\mu + \varepsilon, \; \forall n \ge N
+.\] 
+
+De plus on a
+\begin{align*}
+        \frac{1}{n+j}\sum_{k=0}^{n+j-1} \phi\circ T^{k}(x) &= \frac{1}{n+j}\sum_{k=0}^{j-1} \phi\circ T^{k}(x) + \frac{n}{n+j}\frac{1}{n}\sum_{k=0}^{n-1} \phi\circ T^{k+j}(x) \\
+                                                           &\ge \frac{1}{n+j}\sum_{k=0}^{j-1} \phi\circ T^{k}(x) + \frac{n}{n+j}(\int\phi\de\mu + \varepsilon)
+.\end{align*}
+
+On en déduit comme $j$ est fixe que \[
+        \lim_{n}\frac{1}{n}\sum_{k=0}^{n-1} \phi\circ T^{k}(x) = \lim_{n}\frac{1}{n+j}\sum_{k=0}^{n+j-1} \phi\circ T^{k}(x) \ge \int\phi\de\mu + \varepsilon
+.\] 
+
+Mais alors \[
+\lim_{n}\frac{1}{n}\sum_{k=0}^{n-1} \phi\circ T^{k}(x) > \int\phi\de\mu 
+.\] $x \in X$ étant arbitraire et $\mu$ ergodique $X$ est donc de mesure nulle par le théorème de Birkhoff, ce qui est absurde. 
 
 \bigskip
 
@@ -228,10 +251,142 @@ Comme le résultat est valable pour tout $\varepsilon > 0$, que $\mu$ est une me
         \mathcal{B}(\phi)^{c} = \{x\in X \;|\; \liminf_{n}\frac{1}{n}\sum_{k=0}^{n-1} \phi\circ T^{k}(x) \ge \limsup_{n} \frac{1}{n}\sum_{k=0}^{n-1} \phi\circ T^{k}(x)\} 
 ,\] on en conclut que $\mathcal{B}(\phi)$ contient un sous ensemble dense de $X$. 
 
-
 \bigskip
 
 \begin{ex}{4}
        Ensemble de divergence pour le décalage sur $\{0,1\}^{\N}$ 
 \end{ex}
+
+\textbf{10.} Commençons par remarquer que \[
+        h_{top}(\{0,1\}^{\N}) = \limsup_{n}\frac{1}{n}\#C_{n} = \log(2)
+\] puisque $C_{n}$ est une partition de $\{0,1\}^{\N}$ de cardinal $2^{n}$. 
+
+Considérons $L \subset \{0,1\}^{\N}$ le sous ensemble des suites dont l'orbite est dense dans $\{0,1\}^{\N}$. Par définition de $L$ et comme les $n$-cylindres sont des ouverts de $\{0,1\}^{\N}$ on obtient directement \[
+        h_{top}(L) = \log(2)
+.\] 
+
+On montre que sur $L$ les sommes de Birkhoff convergent uniformément vers une constante. On en déduira le résultat puisque cela est équivalent à l'unique ergodicité du sous système $(L, \sigma)$.
+\medskip
+
+\textbf{11.} \textit{i.} Dans un premier temps remarquons que
+\begin{align*}
+        q_{2k+1}-q_{2k} &= |w_{1}|m_{k}+l_{2k} \\
+        q_{2k+2}-q_{2k+1} &= |w_{2}|n_{k}+l_{2k+1}
+.\end{align*}
+
+Ainsi l'hypothèse $\frac{q_{2k+1}}{q_{2k}} \to_{k} \infty$ implique asymptotiquement que
+\begin{align*}
+        q_{2k+1} &\sim |w_{1}|m_{k}+l_{2k} \\
+        q_{2k+2} &\sim |w_{2}|n_{k}+l_{2k+1}
+.\end{align*}
+
+Et donc
+\begin{align*}
+        \delta_{1} &= \lim_{k} \frac{l_{2k}}{q_{2k+1}} \\
+        \delta_{2} &= \lim_{k} \frac{l_{2k+1}}{q_{2k+2}}
+.\end{align*}
+
+Soit $C_{q_{j}}$ l'ensemble des $q_{j}$ cylindres. Pour chaque mot $u_{2k+1}$ on a au moins $2^{l_{2k}}$ choix possibles correspondant au choix de la troncature $w(l_{2k}), \; w \in L$. De même pour les mots $u_{2k+2}$ on a au moins $2^{l_{2k+1}}$ choix. Cela nous donne les deux inégalités ci dessous
+\begin{align*}
+        \#\{C \in C_{q_{2k+1}} \;|\; C \cap K \neq \emptyset\} &\ge 2^{l_{2k}} \\
+        \#\{C \in C_{q_{2k+2}} \;|\; C \cap K \neq \emptyset\} &\ge 2^{l_{2k+1}}
+.\end{align*}
+
+On en conclut en prenant le logarithme et par passage à la limite que \[
+        h_{top}(K) = \limsup_{n}\frac{1}{n}\#\{C\in C_{n} \;|\; C \cap K \neq \emptyset\} \ge \max_{i}\delta_{i}\log(2)
+.\] 
+
+\medskip
+
+\textit{ii.} Par le théorème de Tychonoff $\{0,1\}^{\N}$ est compact, $\phi$ continue sur $\{0,1\}^{\N}$ est donc uniformément continue. Soit $\varepsilon > 0$, par continuité uniforme de $\phi$ il existe un $\delta > 0$ tel que  \[
+        d(x,y) < \delta \implies |\phi(x)-\phi(y)| < \varepsilon
+.\]  Rappelons la définition de la métrique $d$ sur $\{0,1\}^{\N}$, \[
+d(x,y) = \sum_{n\in\N} \frac{\delta_{x_{n},y_{n}}}{2^{n}}
+.\] Sur un $r$-cylindre cette distance vaut au plus $\frac{1}{2^{r-1}}$. On peut donc trouver $r$ assez grand tel que $\frac{1}{2^{r-1}} < \delta$ ce qui donne le résultat.
+
+\medskip
+
+\textit{iii.}  Commençons par la première inégalité. Lorsque $n = q_{2k+1}$ pour un $k\in\N$, on obtient \[
+        \frac{1}{n}\sum_{i=0}^{n-1} \phi\circ\sigma^{i}(u) = \frac{1}{q_{2k+1}}(\sum_{i=0}^{q_{2k}-1} \phi\circ\sigma^{i}(u) + \sum_{i=q_{2k}}^{q_{2k}+l_{2k}-1} \phi\circ\sigma^{i}(u) + \sum_{i=q_{2k}+l_{2k}}^{q_{2k+1}-1} \phi\circ\sigma^{i}(u))
+.\] 
+
+$\phi$ est bornée puisque continue sur $\{0,1\}^{\N}$ qui est compact. Ainsi si $M$ borne $\phi$ on peut majorer le premier terme  \[
+        \frac{1}{q_{2k+1}}\sum_{i=0}^{q_{2k}-1} \phi\circ\sigma^{i}(u) \le \frac{q_{2k}}{q_{2k+1}}M \to_{k} 0
+.\] puisque par hypothèse $\frac{q_{2k+1}}{q_{2k}} \to_{k} \infty$.
+
+Regardons à present le deuxième terme, $i \in \{q_{2k}, \ldots, q_{2k} +l_{2k}-1\}$. Sauf sur les $m_{k}$ derniers termes on a par définition de $u \in K$ que $\sigma^{i}(u)$ coïncide avec $\sigma^{i - q_{2k}}(w)$ pour un $w \in L$. Soit $\varepsilon > 0$, puisque la suite $(m_{k})_{k}$ tend vers $+\infty$ on peut prendre $k$ suffisamment grand de sorte que par le point \textit{ii.}  \[
+        |\phi\circ\sigma^{i}(u) - \phi\circ\sigma^{i-q_{2k}}(w)| < \varepsilon
+.\]  
+Ainsi on en déduit que 
+\begin{align*}
+        \frac{1}{q_{2k+1}}\sum_{i=q_{2k}}^{q_{2k}+l_{2k}-1} \phi\circ\sigma^{i}(u) &\le \frac{l_{2k}}{q_{2k+1}}\frac{1}{l_{2k}}(\sum_{i=0}^{l_{2k}-1} \phi\circ\sigma^{i}(w) + \varepsilon) 
+.\end{align*}
+
+Par convergence uniforme des sommes de Birkhoff sur $L$ et puisque le choix de $\varepsilon > 0$ est arbitraire, on obtient donc par passage à la limite $k \to \infty$ \[
+\frac{l_{2k}}{q_{2k+1}}\frac{1}{l_{2k}}(\sum_{i=0}^{l_{2k}-1} \phi\circ\sigma^{i}(w) + \varepsilon) \to_{k} \delta_{1}\int\phi\de\mu_{\max} 
+.\] 
+
+On regarde enfin le dernier terme, $i \in \{q_{2k}+l_{2k}, \ldots, q_{2k+1}-1\}$. On a par définition de $u$ que $\sigma^{i}(u)$ coïncide avec $\sigma^{i-(q_{2k}+l_{2k})}(w_1)$. Ainsi on obtient
+\begin{align*}
+        \frac{1}{q_{2k+1}}\sum_{i=q_{2k}+l_{2k}}^{q_{2k+1}-1} \phi\circ\sigma^{i}(u) &\le \frac{|w_{1}|m_{k}}{q_{2k+1}}\frac{1}{|w_{1}|m_{k}}\sum_{i=0}^{|w_{1}|m_{k}-1} \phi\circ\sigma^{i}(w_{1}) \\
+                                                                                     &\to_{k}(1-\delta_{1})\int\phi\de\mu_{1}
+.\end{align*}
+Par choix de la mesure $\mu_{1}$ et comme asymptotiquement $1-\frac{l_{2k}}{|w_{1}|m_{k}+l_{2k}} \sim \frac{|w_{1}|m_{k}}{q_{2k+1}}$.
+
+\medskip
+
+Pour $n \in \N$ quelconque il existe $k \in \N$ tel que $n \le q_{2k+1}$ comme $q_{2k+1}\to_{k} \infty$ et donc par les trois calculs précédents \[
+        \liminf_{n}\frac{1}{n}\sum_{i=0}^{n-1} \le 0 + \delta_{1}\int\phi\de\mu_{\max} + (1-\delta_{1})\int\phi\de\mu_{1}
+.\]  
+
+\medskip
+
+On montre à présent la deuxième inégalité de la question. On prend cette fois $n = q_{2k+2}$ et on applique exactement le même raisonnement.
+Ainsi on sépare la somme comme précédemment \[
+        \frac{1}{n}\sum_{i=0}^{n-1} \phi\circ\sigma^{i}(u) = \frac{1}{q_{2k+2}}(\sum_{i=0}^{q_{2k+1}-1} \phi\circ\sigma^{i}(u) + \sum_{i=q_{2k+1}}^{q_{2k+1}+l_{2k+1}-1} \phi\circ\sigma^{i}(u) + \sum_{i=q_{2k+1}+l_{2k+1}}^{q_{2k+2}-1} \phi\circ\sigma^{i}(u))
+.\] 
+Le premier terme tends vers 0, pour $\varepsilon > 0$, en prenant $k$ suffisamment grand le second terme satisfait l'inégalité \[
+        \frac{1}{q_{2k+2}}\sum_{i=q_{2k+1}}^{q_{2k+1}+l_{2k+1}-1} \phi\circ\sigma^{i}(u) \ge \frac{l_{2k+1}}{q_{2k+2}}\frac{1}{l_{2k+1}}(\sum_{i=0}^{l_{2k+1}-1} \phi\circ\sigma^{i}(w) - \varepsilon) 
+,\] avec $w \in L$. Ainsi par convergence uniforme des sommes de Birkhoff sur $L$, comme $\frac{l_{2k+1}}{q_{2k+2}}\to_{k}\delta_{2}$ et comme $\varepsilon > 0$ est arbitraire, on obtient  \[
+\frac{l_{2k+1}}{q_{2k+2}}\frac{1}{l_{2k+1}}(\sum_{i=0}^{l_{2k+1}-1} \phi\circ\sigma^{i}(w) + \varepsilon) \to_{k} \delta_{2}\int\phi\de\mu_{\max} 
+.\] 
+
+Enfin pour le dernier terme comme cette fois $\sigma^{i}(u)$ coïncide avec $\sigma^{i-(q_{2k+1}+l_{2k+1})}(w_{2})$ on obtient l'inégalité
+\begin{align*}
+        \frac{1}{q_{2k+2}}\sum_{i=q_{2k+1}+l_{2k+1}}^{q_{2k+2}-1} \phi\circ\sigma^{i}(u) &\ge \frac{|w_{2}|n_{k}}{q_{2k+2}}\frac{1}{|w_{2}|n_{k}}\sum_{i=0}^{|w_{2}|n_{k}-1} \phi\circ\sigma^{i}(w_{2}) \\
+                                                                                     &\to_{k}(1-\delta_{2})\int\phi\de\mu_{2}
+,\end{align*} par choix de la mesure $\mu_{2}$.
+
+Pour $n \in \N$ quelconque comme $q_{2k+2}\to_{k}\infty$ il existe $k \in \N$ tel que $n \le q_{2k+2}$. Ainsi en prenant le supremum sur $n$ et par les trois calculs précédents on obtient cette fois  \[
+        \limsup_{n}\frac{1}{n}\sum_{i=0}^{n-1} \ge 0 + \delta_{2}\int\phi\de\mu_{\max} + (1-\delta_{2})\int\phi\de\mu_{2}
+.\]
+
+Nous avons montré les deux inégalités désirées.
+\medskip
+
+\textit{iv.} Soit $\alpha > 0$, on peut trouver $l, m, n$ trois suites telles que  \[
+\delta_{1} = 1 - \alpha = \delta_{2}
+.\] 
+Ainsi on obtient par le point \textit{i.} \[
+h_{top}(K) \ge (1-\alpha)\log(2)
+.\] De plus par la question \textbf{4.} on peut supposer quitte à changer le choix de $w_{1}, w_{2} \in L$, $\int\phi\de\mu_{1} < \int\phi\de\mu_{2}$. On obtient alors pour $u \in K$ en utilisant les inégalités de \textit{iii.}
+\[
+        \liminf_{n}\frac{1}{n}\sum_{k=0}^{n-1} \phi\circ\sigma^{k}(u) < \limsup_{n}\frac{1}{n}\sum_{k=0}^{n-1} \phi\circ\sigma^{k}(u)
+.\] 
+
+\medskip
+
+\textbf{12.} Par le point \textit{iv.} de la question précédente $K \subset \mathcal{B}(\phi)$. Ainsi \[
+        h_{top}(\mathcal{B}(\phi)) \ge h_{top}(K)
+.\] Toujours par le point \textit{iv.} on a de plus  \[
+h_{top}(K) \ge (1-\alpha)\log(2), \quad \forall \alpha > 0
+.\]
+Par passage à la limite $\alpha \to 0$, on obtient donc \[
+        h_{top}(\mathcal{B}(\phi)) \ge \log(2)
+.\] 
+Nous avons remarqué dans la question \textbf{10.} \[
+        h_{top}(\{0,1\}^{\N}) = \log(2)
+,\] et cela force donc \[
+h_{top}(\mathcal{B}(\phi)) = \log(2)
+.\]  
 \end{document}
