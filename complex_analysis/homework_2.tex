@@ -144,7 +144,7 @@ x(t) \in g^{-1}(\overline{B(0, \|g(x_0)\|)}), \quad \forall t \in [0,\alpha[
 
 \textit{b.} Notons $S_{z} = \{z_1, \ldots, z_{m}\}$. Remarquons dans un premier temps par définition de $S_{z}$ que \[
         g(z_{i}) = 0, \quad \forall i \in \{1, \ldots, m\} 
-.\] Par hypothèse $df_{z_{i}}$ est inversible et nous avons montré que $dg_{x} = df_{x} \; \forall x \in \R^{n}$. On en déduit par le théorème d'inversion locale l'existence d'un $\delta_{i} > 0$ et d'un voisinage $V$ de 0, tel que la restriction de $g$
+.\] Par hypothèse $df_{z_{i}}$ est inversible et $dg_{x} = df_{x} \; \forall x \in \R^{n}$. On en déduit par le théorème d'inversion locale l'existence d'un $\delta_{i} > 0$ et d'un voisinage $V$ de 0, tel que la restriction de $g$
 \begin{align*}
         g : B(z_{i}, \delta_{i}) \longmapsto V
 \end{align*} soit un difféomorphisme.
@@ -198,7 +198,7 @@ On conclut par inégalité triangulaire \[
 .\]
 Par le point \textit{b.} il en découle que \[
         \lim_{t\to \infty}y(t) = z_{i}
-.\] Ainsi $x \in A_{i}$. Comme le choix de $i$ et de $x_0$ étaient arbitraires, nous venons de montrer que $A_{i}$ est ouvert pour tout $i \in \{1, \ldots, m\}$ 
+.\] Ainsi $y_0 \in A_{i}$. Comme le choix de $i$ et de $x_0$ étaient arbitraires, nous venons de montrer que $A_{i}$ est ouvert pour tout $i \in \{1, \ldots, m\}$ 
 
 \medskip
 
@@ -234,5 +234,31 @@ $f$ est en particulier continue, nous appliquons le critère précédent pour mo
 \lim_{\|x\|\to \infty}\|f(x)\| = +\infty
 ,\] et $f$ est propre. 
 
-Soit $x \in \R^{n}$, on calcule à présent la différentielle $df_{x}$ de $f$ en $x$.
+On calcule à présent la différentielle $df_{x}$ de $f$ pour tout $x \in \R^{n}$. 
+
+Pour $x \in B(0,1)$ il est facile de voir que $f = A + a$ et donc  \[
+        df_{x} = A \in Gl_{n}(\R), \; \text{est inversible}
+.\]
+
+Pour $x \in \R^{n}\setminus B(0,2)$ on obtient aussi facilement $f = I_{n}$. $f$ est donc linéaire et  \[
+        df_{x} = I_{n} \in GL_{n}(\R) \; \text{est aussi inversible}
+.\] 
+
+Finalement pour $x \in B(0,2)\setminus B(0,1)$, comme $\tilde{\varphi} \defeq \varphi(\|.\|)$ est $\mathcal{C}^{\infty}$ sur $\overline{B(0,2)\setminus B(0,1)}$ compact on a l'existence d'un $M > 0$ tel que \[
+        |\tilde{\varphi}(x)|, \|d\tilde{\varphi}_{x}\| \le M, \quad \forall x \in B(0,2)\setminus B(0,1)
+.\]  
+
+Pour un tel $x$ on a donc par inégalité triangulaire en calculant la différentielle de $f$ 
+\begin{align*}
+        \|df_{x}(h)\| &\ge \|h\| - 2M\|h\|\|A-I_{n}\| - \|h\|\|a\|M \\
+                      &\ge \|h\|(1-2M\|A-I_{n}\|-M\|a\|) 
+.\end{align*}
+
+En prenant $\varepsilon > 0$ suffisamment petit par exemple $\varepsilon = \frac{1}{4M}$ on obtient \[
+\|a\| \le \varepsilon, \; \|A-I_{n}\| \le \varepsilon \implies 1-2M\|A-I_{n}\|-M\|a\| > 0
+.\] On en déduit que sous ces conditions le noyau de l'application $df_{x}$ est nul. Cette dernière est injective donc bijective comme nous travaillons en dimension finie par le théorème du rang. $df_{x}$ est donc bien inversible.
+
+\medskip
+
+\textit{c.} Nous venons de montrer que $f$ est propre et sa différentielle est inversible en tout $x \in \R^{n}$. Par le théorème de Hadamard que nous venons de démontrer $f$ est un $\mathcal{C}^{\infty}$ difféomorphisme de $\R^{n}$ dans lui même.
 \end{document}

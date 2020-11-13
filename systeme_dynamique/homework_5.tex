@@ -261,11 +261,28 @@ Comme le résultat est valable pour tout $\varepsilon > 0$, que $\mu$ est une me
         h_{top}(\{0,1\}^{\N}) = \limsup_{n}\frac{1}{n}\#C_{n} = \log(2)
 \] puisque $C_{n}$ est une partition de $\{0,1\}^{\N}$ de cardinal $2^{n}$. 
 
-Considérons $L \subset \{0,1\}^{\N}$ le sous ensemble des suites dont l'orbite est dense dans $\{0,1\}^{\N}$. Par définition de $L$ et comme les $n$-cylindres sont des ouverts de $\{0,1\}^{\N}$ on obtient directement \[
+Considérons $L \subset \{0,1\}^{\N}$ le sous ensemble des suites dont l'orbite est dense dans $\{0,1\}^{\N}$. $L$ n'est pas vide comme le décalage est transitif. Par définition de $L$ et comme les $n$-cylindres sont des ouverts de $\{0,1\}^{\N}$ on obtient directement \[
         h_{top}(L) = \log(2)
 .\] 
 
-On montre que sur $L$ les sommes de Birkhoff convergent uniformément vers une constante. On en déduira le résultat puisque cela est équivalent à l'unique ergodicité du sous système $(L, \sigma)$.
+On montre que la convergence des sommes de Birkhoff est indépendante du choix de $x \in L$ pour garantir l'aspect uniforme.
+
+Soient $x, y \in L$. Par le théorème de Tychonoff $\{0,1\}^{\N}$ est compact, $\phi$ continue sur $\{0,1\}^{\N}$ est donc uniformément continue.
+Soit $\varepsilon > 0$. Par continuité uniforme de $\phi$ il existe  $\delta > 0$ tel que  \[
+        d(x,y) \le \delta \implies |\phi(x)-\phi(y)| \le \varepsilon
+.\] Puisque l'orbite de $x$ est dense dans $\{0,1\}^{\N}$ il existe $j > 0$ tel que \[
+d(\sigma^{j}(x), y) \le \delta
+.\] 
+On en déduit l'encadrement suivant \[
+        \frac{1}{n}\sum_{k=0}^{n-1} \phi\circ\sigma^{k+j}(x) - \varepsilon \le \frac{1}{n}\sum_{k=0}^{n-1} \phi\circ\sigma^{k}(y) \le \frac{1}{n}\sum_{k=0}^{n-1} \phi\circ\sigma^{k+j}(x) + \varepsilon 
+.\] 
+
+Comme le choix de $\varepsilon > 0$ est arbitraire et $j$ fixe on en déduit  \[
+\lim_{n}\frac{1}{n}\sum_{k=0}^{n-1} \phi\circ\sigma^{k}(x) =  \lim_{n}\frac{1}{n}\sum_{k=0}^{n-1} \phi\circ\sigma^{k}(y)
+.\] Ce qui était le résultat voulu. Par le même argument en prenant $x \in L, \; y \in \{0,1\}^{\N}$ tel que \[
+\frac{1}{n}\sum_{k=0}^{n-1} \phi\circ\sigma^{k}(y) \to_{n}\int\phi\de\mu_{\max}
+,\] dont l'existence est donnée par le corollaire 3.9 du cours\footnote{corollaire du théorème ergodique ponctuel dans le cas d'une mesure ergodique}, on obtient que cette limite vaut $\int\phi\de\mu_{\max}$.
+
 \medskip
 
 \textbf{11.} \textit{i.} Dans un premier temps remarquons que
@@ -298,7 +315,7 @@ On en conclut en prenant le logarithme et par passage à la limite que \[
 
 \medskip
 
-\textit{ii.} Par le théorème de Tychonoff $\{0,1\}^{\N}$ est compact, $\phi$ continue sur $\{0,1\}^{\N}$ est donc uniformément continue. Soit $\varepsilon > 0$, par continuité uniforme de $\phi$ il existe un $\delta > 0$ tel que  \[
+\textit{ii.} Soit $\varepsilon > 0$, par continuité uniforme de $\phi$ il existe un $\delta > 0$ tel que  \[
         d(x,y) < \delta \implies |\phi(x)-\phi(y)| < \varepsilon
 .\]  Rappelons la définition de la métrique $d$ sur $\{0,1\}^{\N}$, \[
 d(x,y) = \sum_{n\in\N} \frac{\delta_{x_{n},y_{n}}}{2^{n}}
@@ -364,10 +381,19 @@ Pour $n \in \N$ quelconque comme $q_{2k+2}\to_{k}\infty$ il existe $k \in \N$ te
 Nous avons montré les deux inégalités désirées.
 \medskip
 
-\textit{iv.} Soit $\alpha > 0$, on peut trouver $l, m, n$ trois suites telles que  \[
+\textit{iv.} Soit $1 > \alpha > 0$, on peut trouver $l, m, n$ trois suites d'entiers strictement croissantes telles que  \[
 \delta_{1} = 1 - \alpha = \delta_{2}
+.\]\footnote{une fois le résultat obtenu pour $\alpha < 1$ le cas $\alpha \ge 1$ est évident}
+
+En effet il suffit de montrer qu'on peut trouver deux suites $(u_{k})_{k\in\N}, (v_{k})_{k\in\N}$ d'entiers strictement croissantes telles que \[
+        \frac{u_{k}}{u_{k}+v_{k}} \to_{k} \alpha
+.\] Pour $\delta_{1}$ on posera $m_{k} \defeq u_{k}, \; l_{2k} \defeq |w_{1}|v_{k}$ on pourra faire de même pour $\delta_{2}$ quitte à décaler les suites pour garantir la croissance stricte de $l$. 
+
+Par densité de $\Q \subset \R$ on peut exhiber deux suites d'entiers $(p_{k})_{k\in\N}, (q_{k})_{k\in\N}$ que l'on peut supposer strictement croissantes quitte à prendre l'infimum et supprimer les termes redondants. Comme $\alpha < 1$ on peut supposer de plus $p_{k} < q_{k}$ et poser  \[
+u_{k} \defeq p_{k}, \; v_{k} \defeq q_{k} - p_{k}, \; \forall k \in \N
 .\] 
-Ainsi on obtient par le point \textit{i.} \[
+
+On obtient donc par le point \textit{i.} \[
 h_{top}(K) \ge (1-\alpha)\log(2)
 .\] De plus par la question \textbf{4.} on peut supposer quitte à changer le choix de $w_{1}, w_{2} \in L$, $\int\phi\de\mu_{1} < \int\phi\de\mu_{2}$. On obtient alors pour $u \in K$ en utilisant les inégalités de \textit{iii.}
 \[
