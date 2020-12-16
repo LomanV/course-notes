@@ -1,0 +1,122 @@
+\documentclass[12pt]{article}
+\usepackage[top=1in, bottom=1in, left=1in, right=1in]{geometry}
+
+\usepackage[onehalfspacing]{setspace}
+
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{enumerate, enumitem}
+\usepackage{fancyhdr, graphicx, proof, comment, multicol}
+\usepackage[none]{hyphenat}
+\usepackage{dirtytalk}
+\binoppenalty=\maxdimen
+\relpenalty=\maxdimen
+
+\usepackage{microtype}
+\usepackage{mathpazo}
+\usepackage{mdframed}
+\usepackage{parskip}
+\linespread{1.1}
+\usepackage{graphicx}
+\usepackage{subfig}
+
+\usepackage{mathrsfs}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\usepackage{mathtools}
+\newcommand{\defeq}{\vcentcolon=}
+\newcommand{\eqdef}{=\vcentcolon}
+
+\newenvironment{statement}[1]
+{\begin{mdframed}[linewidth=0.6pt]
+        \textsc{Statement #1:}
+
+}
+
+\newenvironment{ex}[1]
+{\begin{mdframed}[linewidth=0.6pt]
+        \textsc{Exercice #1:}
+
+}
+    {\end{mdframed}}
+
+\newcommand{\R}{\mathbf{R}}
+\newcommand{\C}{\mathbf{C}}
+\newcommand{\Z}{\mathbf{Z}}
+\newcommand{\N}{\mathbf{N}}
+\newcommand{\Q}{\mathbf{Q}}
+
+\newcommand{\de}{\mathrm{d}}
+
+\begin{document}
+        \noindent
+\textbf{Systèmes Dynamiques} \hfill \textbf{Vezin Lomàn}\\
+\normalsize MAT551 \hfill Date de rendu: 30/11/2020\\
+
+\begin{center}
+\textbf{Exercice à rendre}
+\end{center}
+
+\bigskip
+\hrule
+\bigskip
+
+\textbf{1.} On cherche tout d'abord à expliciter l'application $f$ affine par morceau sur le triangle ABC donné. Sur chaque sous triangle AOC, BOC elle s'écrit  \[
+        f(x,y) = (a_{1}x + b_{1}y +c_{1}, a_{2}x + b_{2}y +c_{2}), \quad a_{i}, b_{i}, c_{i} \in \R
+.\] Les conditions en A, B, O et C donnent finalement \[
+        f(x,y) = \begin{cases}
+                (2x-y+1, y) \quad &\text{si} \; x \le 0 \\
+                (-2x-y+1,y) \quad &\text{si} \; x > 0
+        \end{cases} 
+.\]
+
+On remarque que $f$ restreinte à chacune des lignes horizontales du triangle \[
+L_{a} \defeq \{(x,a) \;|\; a \in [0,1], \; x \in [a-1,-a+1]\}
+.\] s'identifie naturellement à l'application $T_{2}$. En effet par définition de $f$ on a 
+\[
+        \begin{cases}
+                f([a-1,0]) &= [a-1,1-a] \\
+                f([0,1-a]) &= [a-1,1-a]
+        \end{cases}
+.\] 
+        
+On constate de plus que les lignes horizontales sont les ensembles $f-$invariants du triangle. Pour une mesure ergodique $\mu$ sur ce dernier, elles sont donc de mesure 0 ou 1. Lorsque $\mu$ charge une ligne horizontale toutes les autres sont de mesure nulle puisqu'elles sont disjointes.
+
+Ainsi l'application affine qui envoie la ligne horizontale chargée positivement par $\mu$ sur le segment $[0,1]$ et le reste du triangle sur 0 est une bijection mesurable de ABC dans le segment à un ensemble de mesure nulle près. Si on pose $\nu$ la mesure tirée en arrière, $f-$invariante, on obtient l'isomorphisme voulu.
+
+\bigskip
+
+\textbf{2.} Soit $\mu$ une mesure ergodique sur le triangle, par la question \textbf{1.} il existe une mesure invariante $\nu$ sur $[0,1]$ telle que les systèmes $(ABC,f,\mathcal{B},\mu)$ et $([0,1],T_{2},\mathcal{B},\nu)$ soient conjugués, c'est à dire en particulier \[
+        h(\nu) = h(\mu)
+.\]
+
+Le même isomorphisme envoie dans l'autre sens une mesure $\nu$ de l'intervalle, $T_{2}-$invariante, sur une mesure $\mu$ $f-$invariante pour laquelle tout ensemble $f-$invariant est de mesure nulle ou totale, $\mu$ est donc ergodique.
+
+Par le principe variationnel on obtient donc \[
+        h_{top}(ABC,f) = \sup_{\mu \in \mathcal{M}_{e}(ABC,f)}h(\mu) = \sup_{\nu \in \mathcal{M}([0,1], T_{2})}h(\nu) = h_{top}([0,1],f)
+.\]
+
+Or nous savons par un résultat de PC que $h_{top}([0,1], T_{2}) = \log(2)$, ainsi nous en déduisons \[
+        h_{top}(ABC,f) = \log(2)
+.\] 
+
+\bigskip
+
+\textbf{3.} Soit $a \in [0,1]$ et $L_{a}$ la ligne horizontale associée dans le triangle ABC. Nous savons que l'application tente est expansive, par un théorème du cours le système $([0,1], T_{2})$ admet donc au moins une mesure invariante d'entropie maximale. Notons la $\nu$, alors \[
+        h_{top}([0,1], T_{2}) = h(\nu)
+.\]  L'inverse de l'isomorphisme qui envoie la $L_{a}$ sur $[0,1]$ et le reste du triangle sur 0 de la question \textbf{1.} permet d'obtenir une mesure tirée en arrière $\mu_{a}$ sur le triangle $f-$invariante. Puisque l'entropie est un invariant par isomorphisme nous avons  \[
+        h(\nu) = h(\mu_{a})
+.\] Comme nous avons montré à la question \textbf{2.} que $h_{top}(ABC,f) = h_{top}([0,1],T_{2})$ nous obtenons \[
+h(\mu_{a}) = h_{top}(ABC,f)
+,\] et $\mu_{a}$ est une mesure d'entropie maximale. Pour chaque ordonné $a \in [0,1]$ la mesure $\mu_{a}$ charge une ligne $L_{a}$ différente, elles sont donc toutes distinctes. Nous avons ainsi trouvé une infinité non dénombrable de mesures d'entropie maximale.
+\bigskip
+
+\textbf{4.} Le système $(ABC,f)$ n'est pas expansif. Fixons un recouvrement ouvert $\mathcal{U}$ quelconque du triangle. Puisque le triangle est compact, il existe par le lemme de Lebesgue un $\varepsilon > 0$ tel qu'au moins un élément de $\mathcal{U}$ contient une carré de côté $\varepsilon$. Comme $\mathcal{U}$ est fini, quitte à réduire $\varepsilon$ on peut supposer qu'un tel carré est d'intersection vide avec les autres ouverts de $\mathcal{U}$. Par définition de $f$, les points du triangle se déplacent uniquement horizontalement. Ainsi pour tout $n \in \N$ au moins un ouvert du recouvrement itéré  \[
+\bigvee_{0\le k \le n}f^{-k}\mathcal{U}
+\] contient au moins un segment vertical de longueur $\varepsilon > 0$. Le diamètre du recouvrement itéré $n$ fois vaut donc au moins $\varepsilon$ et ne peut en particulier pas tendre vers 0. Comme  $\mathcal{U}$ était choisi arbitrairement on en déduit que le système ne peut pas être expansif.
+
+\medskip
+
+Nous venons en particulier de trouver un système non expansif avec au moins une mesure d'entropie maximale, la réciproque du théorème du cours ne s'applique donc pas.
+\end{document}

@@ -150,7 +150,26 @@ Donc en posant $\psi = \phi - c$ on obtient $\phi = \psi + c, \; \psi \in \mathc
 
 \bigskip
 
-\textbf{4.} Par le point précédent il existe deux mesures ergodiques $\mu_1, \mu_2$ satisfaisant \[
+\textbf{4.} Soit $\mu \in \mathcal{M}_{e}(X,T)$. Par le cours $\mu$ presque tout  $x \in \{0,1\}^{\N}$ est générique. Il en existe en particulier au moins un. Soit donc $u \in \{0,1\}^{\N}$ générique, c'est à dire \[
+        \frac{1}{n}\sum_{k=0}^{n-1}\delta_{\sigma^{k}(u)} \to_{n} \mu
+.\]  
+
+Les points périodiques sont denses dans $\{0,1\}^{\N}$. En effet pour tout $x \in \{0,1\}^{\N}$ on peut considérer $(x_{n})_{n\in\N}$ la suite des mots infinis $n-$périodiques tels que la troncature \[
+        x_{n}(n) = x(n)
+.\] Par définition de la métrique $d$ sur $\{0,1\}^{\N}$ on a \[
+d(x_{n}, x) \le \frac{1}{2^{n-1}} \to_{n} 0
+,\] soit $x_{n} \to_{n} x$.
+
+Prenons alors $(u_{n})_{n\in\N}$ une suite de points $n-$périodiques qui tend vers $u$. On a alors pour tout $n \in \N$ \[
+        \frac{1}{n}\sum_{k=0}^{n-1}\delta_{\sigma^{k}(u_{n})} \quad \text{est une mesure périodique}
+,\] et j'aimerais dire que \[
+\lim_{n}\frac{1}{n}\sum_{k=0}^{n-1}\delta_{\sigma^{k}(u_{n})} =  \lim_{n}\frac{1}{n}\sum_{k=0}^{n-1}\delta_{\sigma^{k}(u)} = \mu 
+.\] Malheureusement je ne parviens pas à justifier ce point.
+
+Comme le choix de $\mu$ était arbitraire et comme les mesures périodiques sont elles mêmes ergodiques on en déduit que les mesures périodiques sont denses dans les mesures ergodiques. 
+
+
+Par la question \textbf{3.} il existe deux mesures ergodiques $\mu_1, \mu_2$ satisfaisant \[
 \int\phi\de\mu_1 \neq \int\phi\de\mu_2
 .\] $\mathcal{M}(X,T)$ muni de la topologie faible-* est métrisable, comme les mesures périodiques sont denses dans les mesures ergodiques $\mu_1, \mu_2$ sont toutes deux limites de suites de mesures périodiques. Par définition de la topologie faible-* l'application \[
 \mu \longmapsto \int\phi\de\mu
