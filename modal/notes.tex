@@ -1,0 +1,108 @@
+\documentclass[12pt]{book}
+\usepackage[top=1in, bottom=1in, left=1in, right=1in]{geometry}
+\usepackage[onehalfspacing]{setspace}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{mathrsfs}
+\usepackage{amsfonts}
+\usepackage{mathtools}
+\usepackage{stmaryrd}
+
+\newcommand{\defeq}{\vcentcolon=}
+\newcommand{\eqdef}{=\vcentcolon}
+
+\usepackage{enumerate, enumitem}
+\usepackage{fancyhdr, graphicx, proof, comment, multicol}
+\usepackage[none]{hyphenat}
+\usepackage{dirtytalk}
+\usepackage{proof}
+
+\usepackage{graphicx}
+\usepackage{tikz-cd}
+\usepackage[all]{xy}
+\usepackage{caption}
+\usepackage{adjustbox}
+
+\usepackage{centernot}
+\usepackage{mathtools}
+\usepackage{stmaryrd}
+
+\usetikzlibrary{decorations.pathmorphing}
+\usetikzlibrary{decorations.markings}
+\usetikzlibrary{arrows.meta,bending}
+
+\usepackage{import}
+\usepackage{xifthen}
+\usepackage{pdfpages}
+\usepackage{transparent}
+\newcommand{\incfig}[1]{%
+    \def\svgwidth{\columnwidth}
+    \import{./figures/}{#1.pdf_tx}
+}
+
+\usepackage{hyperref}
+\hypersetup{%
+    colorlinks=true,
+    linkcolor=blue,
+}
+
+\newtheorem{lemma}{Lemme}[section]
+\newtheorem{theorem}[lemma]{Théorème}
+\newtheorem{cor}[lemma]{Corollaire}
+\newtheorem{prop}[lemma]{Proposition}
+
+\theoremstyle{definition}
+\newtheorem{definition}[lemma]{Définition}
+\newtheorem{example}[lemma]{Exemple}
+\newenvironment{comments}{}{}
+\newtheorem*{notation}{Notation}
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remarque}
+\newtheorem*{rap}{Rappel}
+
+\title{Notes}
+\author{Lomàn Vezin}
+
+\begin{document}
+       \maketitle 
+
+       \chapter{Article sur le \emph{Segment Routing}}
+       \section{Définitions}
+
+       \begin{definition}[Réseau IP/MPLS]
+        \emph{MultiProtocol Label Switching} est un mécanisme de transport de données basé sur la commutation de labels, insérés à l'entrée du réseau MPLS et retirés à sa sortie. 
+        L'utilisation de labels dits de transport permet au routeur de départ, pour chaque paquet, de déterminer à la source le routeur de sortie du réseau, sans que les routeurs intermédiaires aient besoin de consulter une table de routage volumineuse lors de la transmission du paquet.
+       \end{definition}
+
+       \begin{definition}[SDN]
+               \emph{Software Designed Network}, un ensemble de technologie avec pour caractéristiques communes un contrôle des ressources réseau et une orchestration centralisée ainsi qu'une vitalisation des ressources physiques. C'est en particulier moins coûteux pour des grands réseaux que la configuration individuelle des équipements réseaux. On peut agir via une interface web sur la configuration d'un réseau local ou le routage, indépendamment des équipements physiquement installés.
+       \end{definition}
+
+       \begin{definition}[IGP]
+               \emph{Interior Gateway Protocol} est un protocole de routage utilisé dans les systèmes autonomes. Le rôle d'un IGP est:
+               \begin{itemize}
+                       \item d'établir les routes optimales entre un point du réseau et toutes les destinations disponibles d'un système autonome
+                       \item d'éviter les boucles
+                       \item d'assurer la convergence rapide du réseau en cas de modification de topologie
+               \end{itemize}
+       \end{definition}
+
+       \begin{definition}[OSPF]
+               Dans \emph{Open Shortest Path First}, chaque routeur établit des relations d'adjacence avec ses voisins immédiats en envoyant des messages à intervalle régulier. Chaque routeur communique ensuite la liste des réseaux auxquels il est connecté par des messages Link-state advertisements propagés de proche en proche à tous les routeurs du réseau. L'ensemble des LSA forme une base de données de l'état des liens Link-State Database pour chaque aire, qui est identique pour tous les routeurs participants dans cette aire. Chaque routeur utilise ensuite l'algorithme de Dijkstra, Shortest Path First, pour déterminer la route la plus rapide vers chacun des réseaux connus dans la LSDB.
+       \end{definition}
+
+       \section{Le \emph{Segment Routing}}
+
+       \begin{definition}[\emph{Segment Routing}]
+               C'est une solution de routage qui utilise le principe de routage par source. Un nœud source dirige un paquet à travers une liste ordonnée d’instructions, appelées \emph{segments}. Ces derniers peiuvent contenir une information de type topologique ou service. \\
+               Il permet ainsi à un flux de suivre un chemin spécifique, sans avoir à créer et maintenir des états sur les équipements situés le long de ce chemin. Seul le routeur source maintient un état spécifique, sous la forme d’une liste de segments à ajouter sur le paquet.
+       \end{definition}
+
+       Le \emph{Segment Routing} offre une plus grande flexibilité lors du contrôle du cheminement dans le réseau. Il s'ajoute aux protocoles d'un réseau déjà existant, le plus souvent IP/MPLS et sans modification de l'architecture ou IPv6. On s'intéresse au premier protocole.
+       Un segment est identifié par un label. Une liste de segments est encodée sous forme d’une pile de labels. Le segment en cours de traitement correspond au label au sommet de la pile. Une fois le segment terminé, son label est retiré du haut de la pile. Ces actions \emph{push, pop, etc.} sont appliquées par les routeur le long des segments. Chaque segment est routé par un protocole IGP.
+       Enfin le \emph{Segment Routing} supporte un plan de contrôle distribué ou centralisé, ce qui permet de formuler le problème sous différents approches.
+
+\end{document}

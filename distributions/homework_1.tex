@@ -1,0 +1,244 @@
+\documentclass[12pt]{article}
+\usepackage[top=1in, bottom=1in, left=1in, right=1in]{geometry}
+
+\usepackage[onehalfspacing]{setspace}
+
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{enumerate, enumitem}
+\usepackage{fancyhdr, graphicx, proof, comment, multicol}
+\usepackage[none]{hyphenat}
+\usepackage{dirtytalk}
+\binoppenalty=\maxdimen
+\relpenalty=\maxdimen
+
+\usepackage{microtype}
+\usepackage{mathpazo}
+\usepackage{mdframed}
+\usepackage{parskip}
+\linespread{1.1}
+\usepackage{graphicx}
+\usepackage{subfig}
+
+\usepackage{mathrsfs}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\usepackage{mathtools}
+\newcommand{\defeq}{\vcentcolon=}
+\newcommand{\eqdef}{=\vcentcolon}
+
+\newenvironment{statement}[1]
+{\begin{mdframed}[linewidth=0.6pt]
+        \textsc{Statement #1:}
+
+}
+
+\newenvironment{ex}[1]
+{\begin{mdframed}[linewidth=0.6pt]
+        \textsc{Exercice #1:}
+
+}
+    {\end{mdframed}}
+
+\newcommand{\R}{\mathbf{R}}
+\newcommand{\C}{\mathbf{C}}
+\newcommand{\Z}{\mathbf{Z}}
+\newcommand{\N}{\mathbf{N}}
+\newcommand{\Q}{\mathbf{Q}}
+
+\newcommand{\de}{\mathrm{d}}
+
+\begin{document}
+        \noindent
+\textbf{Distributions et EDP} \hfill \textbf{Vezin Lomàn}\\
+\normalsize MAT432 \hfill Date de rendu: 05/01/2021\\
+
+\begin{center}
+\textbf{Devoir maison}
+\end{center}
+
+\textbf{I.} \textit{1.} On détermine le support de $T_{n}$ définie comme dans l'énoncé. On a pour $n \in \N^{*}$, $h \in \R^{*}$ et $\phi \in \mathcal{C}_{c}^{\infty}(\R)$
+\begin{align*}
+        \langle T_{n}, \phi \rangle &= \langle \delta_{0} + \sum_{k=1}^{n} \frac{h^{k}}{k!}\delta^{(k)}_{0}, \phi \rangle \\
+                                    &= \langle \delta_{0}, \phi \rangle + \sum_{k=1}^{n} \frac{h^{k}}{k!}\langle \delta^{(k)}_{0}, \phi \rangle \\
+                                    &= \phi(0) + \sum_{k=1}^{n} \frac{h^{k}}{k!}\phi^{(k)}(0) 
+.\end{align*}
+
+Le support de la dirac $\delta_{0}$ et de ses dérivées $\delta^{(k)}_{0}, \; k \le n$ est le singleton $\{0\}$. On voit alors facilement que la restriction de $T_{n}$ à $\R \setminus \{0\}$ est nulle et donc par définition du support d'une distribution \[
+        \boxed{\mathrm{supp}(T_{n}) = \{0\}.} 
+\] 
+
+\bigskip
+
+\textit{2.} Montrons que $\mathrm{supp}(S) \subset K$.
+Supposons par l'absurde que ce ne soit pas le cas, c'est à dire $\mathrm{supp}(S)\setminus K \neq \emptyset$. Soit $\Omega$ un voisinage ouvert de $\mathrm{supp}(S)$. $\Omega \setminus K \neq \emptyset$ et par définition du support $\langle S_{n}, \phi \rangle = 0$ pour tout $\phi \in \mathcal{C}_{c}^{\infty}(\R)$ à support dans $\mathrm{supp}(S)\setminus K$ et tout $n \in \N^{*}$. Aussi par définition du support $S$ n'est pas identiquement nulle sur $\Omega \setminus K$ ce qui nous donne l'existence de $\psi \in \mathcal{C}_{c}^{\infty}(\R)$ à support dans $\mathrm{supp}(S)\setminus K$ telle que \[
+        \langle S, \psi \rangle \neq 0
+.\] Mais alors pour cette fonction $\psi$  \[
+0 = \langle S_{n}, \psi \rangle \not\to \langle S, \psi \rangle \neq 0 
+,\] ce qui contredit $S_{n} \to_{n} S$ au sens des distributions. On a donc bien \[
+        \boxed{\mathrm{supp}(S) \subset K.}
+\]  
+        
+\bigskip
+
+\textit{3.} Par définition de $T_{n}$ on obtient \[
+        \star = \langle T_{n}, \phi_{|_{\R}} \rangle = \phi(0) + \sum_{k=1}^{n} \frac{h^{k}}{k!}(-1)^{k}\phi^{(k)}(0)
+.\] 
+
+En se souvenant que les fonctions holomorphes sur un domaine sont analytiques sur ce domaine, on en déduit en reconnaissant l'expression du développement de Taylor à l'ordre $n$ de $\phi(-h)$ et comme $|h| \le R$ que \[
+        \star = \phi(0-h) + o(h^{n}) = \phi(-h) + o(h^{n})
+.\] 
+
+En particulier l'analycité de $\phi$ garantit  \[
+        \phi(-h) = \phi(0) + \sum_{k=1}^{\infty} \frac{(-h)^{k}}{k!}\phi^{(k)}(0)
+        .\] La suite $\langle T_{n}, \phi \rangle$ converge donc et on trouve naturellement \[
+\boxed{\lim_{n\to \infty}\langle T_{n}, \phi \rangle = \phi(-h).}
+\]  
+
+\medskip
+
+\textit{4.} Dans la question \textit{1.} nous avons montré que le support de $T_{n}$ est $\mathrm{supp}(T_{n}) = \{0\}$ pour tout $n \in \N$. On en déduit que la suite de distributions $(T_{n})_{n\in \N}$ ne converge pas au sens des distributions puisque sinon par la question \textit{2.} le support de la limite devrait appartenir au singleton $\{0\}$, ce qui n'est pas le cas comme $h \neq 0$. 
+
+\newpage
+
+\textbf{II.} \textit{1.} Posons pour plus de simplicité $H_{n} \defeq \sum_{k=1}^{n} \frac{1}{k}$ la $n-$ème somme partielle de la série harmonique. On montre que la suite $H_{n} - \log(n)$ converge et que sa limite est positive. Fixons $n \in \N_{*}$.
+
+Dans un premier temps remarquons que sur $\R_{+}^{*}$ la fonction inverse $t \longmapsto \frac{1}{t}$ est décroissante. Ainsi pour $1 \le k \le n-1$ et $t \in [k, k+1]$ on obtient \[
+\frac{1}{k+1} \le \frac{1}{t} \le \frac{1}{k}
+.\] 
+On intègre par rapport à $t$ sur les intervalles $[k, k+1]$ pour obtenir par croissance de l'intégrale et comme tous les termes sont positifs
+\[
+\frac{1}{k+1} \le \int_{k}^{k+1} \frac{\de t}{t} \le \frac{1}{k}
+.\] 
+
+On en déduit d'une part \[
+        \frac{1}{k} - \int_{k}^{k+1} \frac{\de t}{t} \ge 0 
+,\] et d'autre part que \[
+\frac{1}{k} - \int_{k}^{k+1}\frac{\de t}{t} \le \frac{1}{k} - \frac{1}{k+1}
+.\]  
+
+Ces deux inégalités nous donnent donc l'encadrement \[
+0 \le \frac{1}{k} - \int_{k}^{k+1}\frac{\de t}{t} \le \frac{1}{k} - \frac{1}{k+1}
+.\] 
+
+Comme la série de terme général $\frac{1}{k}-\frac{1}{k+1}$ converge et que tous les termes sont positifs par comparaison la série de terme général 
+\[
+        \frac{1}{k} - \int_{k}^{k+1} \frac{\de t}{t} = \frac{1}{k} - (\log(k+1) - \log(k))
+\] converge également et la limite et positive. Finalement sommons sur $1 \le k \le n-1$ pour trouver la $n$-ème somme partielle de la série en question 
+\begin{align*}
+        H_{n-1} - \sum_{k=1}^{n-1} \log(k+1) - \log(k) = H_{n-1} - \log(n) 
+,\end{align*}
+en reconnaissant une somme télescopique. En particulier grâce aux encadrements précédents on trouve que la limite est inférieure à 1 comme \[
+        0 \le H_{n} - \log(n) \le 1
+.\]
+La suite de terme général \[
+        H_{n} - \log(n) = H_{n-1} - \log(n) + \frac{1}{n}
+\] converge également, vers la même limite, par convergence de la suite de terme général $\frac{1}{n}$, vers 0.
+
+\bigskip
+
+\textit{2.} On applique le point \textit{c.} du théorème \textbf{4.2} du cours, selon lequel si $T$ est une distribution à support compact dans un ouvert $\Omega \subset \R^{N}$ et si $(\phi_{n})_{n}$ est une suite de fonctions $\mathcal{C}^{\infty}(\Omega)$ telle que pour tout $\alpha \in \N^{N}$ on a \[
+\partial^{\alpha}\phi_{n} \to_{n} \partial^{\alpha}\phi
+\] uniformément sur les compacts de $\Omega$ alors  \[
+\langle T, \phi_{n} \rangle \to_{n} \langle T, \phi \rangle
+.\] 
+
+Dans notre cas, par hypothèse le support de $T$ est inclus dans $V \subset \Omega$ ouvert donc on peut regarder $T$ comme une distribution à support compact dans $V$. De plus $\mathcal{C}^{\infty}(\Omega) \subset \mathcal{C}^{\infty}(V)$ comme $V \subset \Omega$ et on a  \[
+\partial^{\alpha}\phi_{n} \to_{n} \partial^{\alpha}\phi \quad \text{uniformément sur } V
+,\] donc en particulier sur tout compact de $V$. 
+
+Avec $V$ qui joue le rôle de $\Omega$ dans l'énoncé ci dessus on obtient pour toute suite $(\phi_{n})_{n}$ de $\mathcal{C}^{\infty}(\Omega)$, donc de $\mathcal{C}^{\infty}(V)$ comme ci dessus \[
+        \langle T, \phi_{n} \rangle \to_{n} \langle T, \phi \rangle
+.\]  
+
+\bigskip
+
+\textit{3.} Soit $m \in \N^{*}$ et soit $\phi \in \mathcal{C}^{\infty}_{c}(\R)$, la formule du développement de Taylor d'ordre 1 en 0 avec $h = \frac{1}{k}$ nous donne
+\begin{align*}
+        \langle T_{m}, \phi \rangle &= \sum_{k=1}^{m} \phi(\frac{1}{k}) - m\phi(0) - \log(m)\phi'(0) \\
+                                    &= \sum_{k=1}^{m}(\phi(0) + \frac{1}{k}\phi'(0) + o(\frac{1}{k^{2}})) - m\phi(0) - \log(m)\phi'(0) \\
+                                    &= (\sum_{k=1}^{m}\frac{1}{k} - \log(m))\phi'(0) + \sum_{k=1}^{m} o(\frac{1}{k^{2}}) 
+.\end{align*}
+
+Par le point \textit{1.} nous savons que la limite suivante existe \[
+\sum_{k=1}^{m}\frac{1}{k} - \log(m) \to_{m} \gamma
+.\] De plus par convergence de la série des inverses au carré il existe une constante réelle finie $C$ telle que \[
+\sum_{k=1}^{\infty} o(\frac{1}{k^{2}}) \le C 
+.\]
+
+Ainsi la limite des $T_{m}$ est bien une distribution que l'on peut nommer $T$. En exprimant le terme de reste par une intégrale on trouve 
+\[
+        \boxed{\langle T, \phi \rangle = \gamma\phi'(0) + \sum_{k=1}^{\infty} \int_{0}^{\frac{1}{k}}\frac{(\frac{1}{k}-t)^{2}}{2}\phi^{(2)}(t)\de t.}
+\] 
+ telle que $\langle T_{m}, \phi \rangle \to_{m} \langle T, \phi \rangle$. Par choix arbitraire de $\phi \in \mathcal{C}^{\infty}_{c}(\R)$ on a \[
+T_{m} \to_{m} T
+.\] 
+
+\bigskip
+
+\textit{4.} $T$ a pour support l'ensemble $\{\frac{1}{n} \;|\; n \in \N^{*}\} \cup \{0\} $. Pour $m \in \N^{*}$ le support de $T_{m}$ est quant à lui l'ensemble $\{\frac{1}{k} \;|\; 1\le k \le m\} \cup \{0\}$. 
+\medskip
+
+\textit{5.} L'ordre de $T$ vaut 1. Cela est donné par la majoration de l'intégrale \[
+        \boxed{\sum_{k=1}^{\infty} \int_{0}^{\frac{1}{k}}\frac{(\frac{1}{k}-t)^{2}}{2}\phi^{(2)}(t)\de t \le \|\phi'\|\sum_{n=1}^{\infty} \frac{1}{k^{2}}.} 
+\]  De plus par le point \textit{3.} on obtient pour $m \in \N^{*}$ et $\phi \in \mathcal{C}_{c}^{\infty}(\R)$ quelconques \[
+|\langle T_{m}, \phi \rangle| \le (\sum_{k=1}^{m} \frac{1}{k} - \log(m))|\phi'(0)| + \sum_{k=1}^{m} o(\frac{1}{k^{2}})
+,\] en particulier les deux sommes sont bornées puisque convergentes et il existe une constante réelle $C$ telle que \[
+\boxed{|\langle T_{m}, \phi \rangle| \le C|\phi'(0)|,}
+\] ce qui montre que $T_{m}$ est également d'ordre 1.\footnote{Techniquement nous avons montré que $T$ et $T_{m}$ sont d'ordre au plus 1, pour montrer qu'elles ne peuvent pas être d'ordre 0 on peut exhiber des fonctions test similaires à celles que nous avons utilisées pour établir que la $k-$ème dérivé de la Dirac est d'ordre $k$.} 
+
+\bigskip
+
+\textit{6.} Soit $\phi \in \mathcal{C}^{\infty}(\R)$ nulle sur le support de $T$. Soit $k \in \N^{*}$ quelconque, on écrit le développement de Taylor à l'ordre 1 en $\frac{1}{k}$
+\[
+        0 = \phi(0) - \phi(\frac{1}{k}) = \frac{1}{k}\phi'(0) + o(\frac{1}{k})
+.\] En multipliant par $k$ des deux côtés on obtient donc  \[
+\phi'(0) = o(\frac{1}{k})\cdot k
+.\] Le résultat étant valable pour tout $k \in \N^{*}$ on peut passer à la limite $k \to \infty$ et on obtient  \[
+\phi'(0) = 0
+.\] Pour $m \in \N^{*}$ quelconque, $\phi$ s'annule sur $\{\frac{1}{k} \;|\; k \le m\} \cup \{0\}$ et donc par définition de $T_{m}$ on a alors $\langle T_{m}, \phi \rangle = 0$. Puis par convergence au sens des distributions $T_{m} \to_{m} T$ on en conclut \[
+\boxed{\langle T, \phi \rangle = 0.}
+\]  
+
+\medskip
+
+\textit{7.} Soit $\varepsilon > 0$ et soit $n \in \N$. Pour $x \in \R$ quelconque on a \[
+        |\phi_{n}(x) - 0| = \phi_{n}(x) \le \frac{1}{\sqrt{n}} \\
+.\] Ainsi pour tout $n \ge \frac{1}{\varepsilon^{2}}$ on obtient \[
+\phi_{n}(x) \le \varepsilon
+,\] ce qui montre la convergence uniforme $\phi_{n} \to_{n} 0$. 
+
+Par définition de $\phi_{n}$, pour $k \in \N$ quelconque
+\[
+        \phi^{(k)}(x) = 0, \quad \forall x \in \R\setminus[\frac{1}{n+1}, \frac{1}{n}]
+.\] Ainsi les seuls points du support de $T$ où $\phi_{n}^{(k)}$  n'est pas forcément nulle sont $\{\frac{1}{n+1}, \frac{1}{n}\}$.
+Comme $\phi$ est $\mathcal{C}^{\infty}(\R)$ sa dérivée à l'ordre $k$ est en particulier continue et donc \[
+        \phi^{(k)}(\frac{1}{n}) = \lim_{x\to \frac{1}{n}^{+}} \phi^{(k)}(x) = 0
+\] où la limite est prise par la droite et de même \[
+        \phi^{(k)}(\frac{1}{n+1}) = \lim_{x\to \frac{1}{n+1}^{-}} \phi^{(k)}(x) = 0
+\] en prenant la limite par la gauche. 
+
+$\phi_{n}^{(k)}$ est donc nulle sur le support de $T$ et converge en particulier uniformément vers 0 sur ce dernier par choix arbitraire de $n \in \N$.
+\medskip
+
+\textit{8.} Soit $m \in \N^{*}$ et soit $n \ge 1$, on calcule $\langle T_{m}, \phi_{n}\rangle$.
+\begin{align*}
+        \langle T_{m}, \phi_{n} \rangle &= \sum_{k=1}^{m} \phi_{n}(\frac{1}{n}) - m\phi_{n}(0) - \log(m)\phi'_{n}(0) \\
+                                        &= \sum_{k=1}^{m} \phi_{n}(\frac{1}{k}) \quad \text{comme par définition on a } \phi_{n}(0), \phi'_{n}(0) = 0 \\
+                                        &= \sum_{k=1}^{n} \frac{1}{\sqrt{n}} \\
+                                        &= \frac{n}{\sqrt{n}}
+.\end{align*}
+
+On en déduit par passage à la limite $m \to \infty$ \[
+        \boxed{\langle T, \phi_{n} \rangle = \frac{n}{\sqrt{n}}.} 
+\] 
+\medskip
+
+\textit{9.} On remarque que $\phi_{n} \to_{n} 0$ uniformément sur $\R$ et les dérivées $k-$ème tendent toutes uniformément vers 0 sur le support de $T$ mais contrairement au point \textit{2.} on a 
+ \[
+         \boxed{\langle T, \phi_{n} \rangle \not\to_{n} \langle T, 0 \rangle}
+\] puisque le premier terme diverge alors que le deuxième vaut 0. 
+
+L'hypothèse que les dérivées successives convergent uniformément \emph{au voisinage} du support et non seulement sur ce dernier est donc primordiale.
+\end{document}

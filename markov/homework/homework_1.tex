@@ -1,0 +1,189 @@
+\documentclass[12pt]{article}
+\usepackage[top=1in, bottom=1in, left=1in, right=1in]{geometry}
+
+\usepackage[onehalfspacing]{setspace}
+
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{enumerate, enumitem}
+\usepackage{fancyhdr, graphicx, proof, comment, multicol}
+\usepackage[none]{hyphenat}
+\usepackage{dirtytalk}
+\binoppenalty=\maxdimen
+\relpenalty=\maxdimen
+
+\usepackage{microtype}
+\usepackage{mathpazo}
+\usepackage{mdframed}
+\usepackage{parskip}
+\linespread{1.1}
+\usepackage{graphicx}
+\usepackage{subfig}
+
+\usepackage{mathrsfs}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\usepackage{mathtools}
+\newcommand{\defeq}{\vcentcolon=}
+\newcommand{\eqdef}{=\vcentcolon}
+
+\newenvironment{statement}[1]
+{\begin{mdframed}[linewidth=0.6pt]
+        \textsc{Statement #1:}
+
+}
+
+\newenvironment{ex}[1]
+{\begin{mdframed}[linewidth=0.6pt]
+        \textsc{Exercice #1:}
+
+}
+    {\end{mdframed}}
+
+\newcommand{\R}{\mathbf{R}}
+\newcommand{\C}{\mathbf{C}}
+\newcommand{\Z}{\mathbf{Z}}
+\newcommand{\N}{\mathbf{N}}
+\newcommand{\Q}{\mathbf{Q}}
+
+\newcommand{\de}{\mathrm{d}}
+
+\begin{document}
+        \noindent
+\textbf{Introduction aux chaînes de Markov} \hfill \textbf{Vezin Lomàn}\\
+\normalsize MAP432 \hfill Date de rendu: 05/01/2021\\
+
+\begin{center}
+\textbf{Devoir Maison 1}
+\end{center}
+
+\textbf{I.} \textit{1.} On montre que pour $i, j \in \N$ quelconques il existe un $n \in \N$ tel que \[
+        P^{n}(i,j) > 0
+.\] 
+Si $i = j$ on a  $P(i,j) = \frac{1}{2} > 0$, supposons alors sans perte de généralité que $j > i$. On obtient en posant $n \defeq j - i$ \[
+        P^{n}(i, j) = \prod_{k=i}^{j}p_{k} > 0, \quad \text{comme } p_{k} > 0 \; \forall k \in \N
+.\] 
+
+La matrice $P$ est donc irréductible, la chaîne associée l'est aussi.
+        
+\medskip
+
+\textit{2.} Commençons par considérer les mesures réversibles. Soit $i \in \N$, si $\pi$ est une mesure réversible sur la chaîne alors par définition  \[
+        \pi(i)P(i,i+1) = \pi(i+1)P(i+1,i)
+,\] soit \[
+\pi(i+1) = \frac{p_{i}}{q_{i+1}}\pi(i)
+.\]  
+
+Par itération directe on obtient pour $i \in \N$\[
+        \pi(i) = \pi(0)\cdot\frac{p_{0}p_{1}\ldots p_{i}}{q_{1}\ldots q_{i}}
+.\] 
+
+Les mesures réversibles sont donc les multiples scalaire de \[
+        \gamma(i) \defeq \frac{p_{0}p_{1}\ldots p_{i}}{q_{1}\ldots q_{i}}
+.\] 
+
+On sait que les mesures réversibles sont invariantes, on montre à présent que les mesures invariantes sont toutes de cette forme. Soit $\pi$ une mesure invariante, posons $\mathcal{P}$ l'hypothèse de récurrence sur $\N$, avec $\mathcal{P}(i)$ l'hypothèse $\pi(i)$ est un multiple scalaire de $\gamma(i)$.
+
+Si $\pi$ est invariante, pour $i \in \N^{*}$ nous avons \[
+        \pi(i) = \pi(i-1)P(i-1,i) + \pi(i)P(i,i) + \pi(i+1)P(i+1,i)
+,\] soit donc par définition de $P$  \[
+\frac{\pi(i)}{2} = \pi(i-1)p_{i-1} + \pi(i+1)q_{i+1}
+.\]  
+
+Pour $i = 0$ on obtient simplement \[
+        \pi(0) = \frac{\pi(0)}{2} + q_{1}\pi(i)
+,\] soit comme $p_{0} = \frac{1}{2}$ \[
+\pi(1) = \frac{p_{0}}{q_{1}}\pi(0) = \pi(0)\gamma(0)
+\] et $\mathcal{P}(1)$ est vérifiée.
+
+Soit $i\in \N^{*}$, supposons que $\mathcal{P}(0), \ldots, \mathcal{P}(i)$ soient vérifiées. Alors l'équation précédente se réécrit \[
+        \pi(i+1)q_{i+1} = \frac{1}{2}\pi(i) - \pi(i-1)p_{i-1}
+.\] 
+
+Ainsi on obtient par hypothèse de récurrence en utilisant l'expression de $\gamma(i)$ et $\gamma(i-1)$
+\begin{align*}
+        \pi(i+1)q_{i+1} &= \frac{1}{2}\frac{p_{0}\ldots p_{i-1}}{q_{1}\ldots q_{i}} \pi(0) - \frac{p_{0}\ldots p_{i-1}}{q_{1}\ldots q_{i-1}}\pi(0) \\
+                        &= \pi(0)\frac{p_{0}\ldots p_{i-1}}{q_{1}\ldots q_{i-1}}(\frac{1}{2q_{i}}-1) \\
+                        &= \pi(0)\frac{p_{0}\ldots p_{i-1}}{q_{1}\ldots q_{i-1}} \frac{2p_{i}}{2q_{i}} 
+.\end{align*}
+En divisant de part et d'autre par $q_{i+1} > 0$ on obtient finalement \[
+        \pi(i+1) = \pi(0)\gamma(i+1)
+\] et $\mathcal{P}(i+1)$ est toujours vérifiée. On conclut par l'axiome de récurrence que \[
+\pi(i) = \pi(0)\gamma(i), \quad \forall i \in \N
+.\]  
+
+\medskip
+
+\textit{3.} Par la question \textit{2.} nous savons que les mesures invariantes sont des multiples scalaire de $\gamma$ et par la question \textit{1.} nous savons que la chaîne est irréductible. Par le théorème \textbf{4.6} des notes de cours, la chaîne est donc récurrente positive si et seulement si il existe une mesure de probabilité invariante, si et seulement si donc  \[
+        \sum_{i \in \N} \gamma(i) < +\infty
+\] puisqu'alors on peut normaliser l'unique expression des mesures invariantes pour trouver une mesure de probabilité invariante. 
+
+\bigskip
+
+\textbf{II.} \textit{1.} On remarque que $X_{n}$ et $Y_{n}$ ainsi définies sont des récurrences aléatoires, donc par le théorème \textbf{2.2} des notes de cours ce sont des chaînes de Markov. En effet posons 
+\begin{align*}
+        f : \N \times (\{0,1\} \times [0,1]) &\longmapsto \N \\
+        i, (\varepsilon, u) &\longmapsto F(i, \varepsilon, u)
+.\end{align*}
+
+On observe alors que \[
+        X_{n+1} = f(X_{n}, \alpha_{n+1}) \quad \text{et} \quad Y_{n+1} = f(X_{n}, \beta_{n+1})
+,\] où respectivement \[
+\alpha_{n+1} \defeq (\varepsilon_{n+1}, U_{n=1}) \quad \text{et} \quad \beta_{n+1} \defeq (1-\varepsilon_{n+1}, U_{n+1})
+\] sont des variables aléatoires, respectivement identiquement et indépendamment distribuées puisque les variables $\varepsilon_{n}$ et $U_{n}$ sont supposées indépendantes entre elles. Les variables $\alpha_{n}$ et $\beta_{n}$ ne sont pas nécessairement indépendantes entre elles.
+
+\medskip
+
+On regarde à présent la matrice de transition de ces chaînes de Markov.
+Remarquons que la variable aléatoire $1-\varepsilon_{n}$ est également une variable aléatoire suivant une loi de Bernoulli de paramètre $\frac{1}{2}$. Il suffit donc d'effectuer les calculs pour la chaîne $X_{n}$, les calculs pour la chaîne $Y_{n}$ étant similaires.
+Appelons $Q$ la matrice de transition de $X_{n}$, alors pour $i, j \in \N$ on a 
+\begin{align*}
+        Q(i, j) &= \mathbf{P}(X_{n+1} = j | X_{n} = i) \\
+                &= \mathbf{P}(F(i, \varepsilon_{n+1}, U_{n+1}) = j)
+.\end{align*}
+
+On en déduit donc que $Q(i,j) = 0$ lorsque $j \not\in \{i, i+1, i-1\}$ et de plus par indépendance de $\varepsilon_{n}$ et $U_{n}$ pour tout $n$, on obtient
+\begin{alignat*}{3}
+        P(i,i) &= \mathbf{P}(\varepsilon_{n+1} = 0)\mathbf{P}(U_{n+1} \in [0,1]) &&= \frac{1}{2} \\
+        P(i,i+1) &= \mathbf{P}(\varepsilon_{n+1} = 1)\mathbf{P}(U_{n+1} \le 2p_{i}) = \frac{1}{2}2p_{i} &&= p_{i} \\
+        P(i,i-1) &= \mathbf{P}(\varepsilon_{n+1} = 1)\mathbf{P}(U_{n+1} > 2p_{i}) = \frac{1}{2}(1-2p_{i}) = \frac{1}{2} - p_{i} &&= q_{i} 
+.\end{alignat*}
+
+On voit donc bien $Q = P$ comme souhaité.
+
+\medskip
+
+Par définition de $X_{n}$ et $Y_{n}$, on a dans un premier temps \[
+        |X_{n+1} - X_{n} |, |Y_{n+1}-Y_{n}| \in \{0,1\} 
+.\] On observe de plus presque surement \[
+|X_{n+1}-X_{n}| = 1 \iff \varepsilon_{n+1} = 1 \iff 1 - \varepsilon_{n+1} = 0 \iff |Y_{n+1}- Y_{n}| = 0
+.\] 
+C'est à dire finalement
+\[
+|X_{n+1}-X_{n}|+|Y_{n+1}-Y_{n}| = 1 \quad \text{p.s.}
+\] 
+
+\medskip
+
+On reconnait le même cadre que celui de l'exercice 2 de la PC 4. En posant comme dans la question 1 \[
+        M_{n} \defeq (X_{n}, Y_{n}) \quad \text{et} \quad M_{n+1} = \psi(M_{n}, \gamma_{n+1})
+\] avec $\psi((x,y), (u,v)) = (f(x,u), f(y, v))$ et $\gamma_{n+1} \defeq (\alpha_{n+1}, \beta_{n+1})$ avec $f, \alpha_{n}, \beta_{n}$ comme définis plus haut, on reconnait une fois encore la définition d'une récurrence aléatoire, donc d'une chaîne de Markov. 
+
+\medskip
+
+\textit{2.} Si $\tau_{0} = \tau'_{0}$ il est clair que $T \le \max(\tau_{0}, \tau'_{0}) = \tau_{0}$ puisqu'en $\tau_{0}$ on a bien $X_{n} = Y_{n}$. Par symétrie nous pouvons supposer sans perte de généralité que $\tau_{0} < \tau'_{0}$. Si par l'absurde $T > \tau'_{0}$ alors la chaîne $Y_{n}$ rejoins 0 sans croiser la chaîne $X_{n}$. Cela n'est possible par définition de ces chaînes que si les deux chaînes font un saut de 1 en même temps, mais ceci contredit le résultat montré au point précédent \[
+|X_{n+1}-X_{n}|+|Y_{n+1}-Y_{n}| = 1 \quad \text{p.s.}
+\]  
+
+$T \le \max(\tau_{0}, \tau'_{0})$ est fini presque surement, puisque $\tau_{0}, \tau'_{0}$, qui sont des temps d'atteinte, sont eux mêmes finis presque surement dans une chaîne récurrente positive. Par l'exercice 2 de la PC 4 nous en déduisons donc que \[
+        \|\mu P^{n}-\pi\|_{VT} \le \mathbf{P}(T>n), \quad \forall n \in \N
+        .\] Ainsi par croissance de la probabilité comme $T \le \max(\tau_{0}, \tau'_{0})$, \[
+        \|\mu P^{n}-\pi\|_{VT} \le \mathbf{P}(\max(\tau_{0}, \tau'_{0})>n), \quad \forall n \in \N
+,\] et comme la chaîne est récurrente positive \[
+\mathbf{P}(\max(\tau_{0}, \tau'_{0}) > n) \to_{n} 0
+.\]  
+Par encadrement on en déduit le résultat désiré, à savoir \[
+\|\mu P^{n} - \pi\|_{VT} \to_{n} 0
+.\] 
+\end{document}
