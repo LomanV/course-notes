@@ -1,0 +1,118 @@
+\documentclass[12pt]{article}
+\usepackage[top=1in, bottom=1in, left=1in, right=1in]{geometry}
+
+\usepackage[onehalfspacing]{setspace}
+
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{enumerate, enumitem}
+\usepackage{fancyhdr, graphicx, proof, comment, multicol}
+\usepackage[none]{hyphenat}
+\usepackage{dirtytalk}
+\binoppenalty=\maxdimen
+\relpenalty=\maxdimen
+
+\usepackage{microtype}
+\usepackage{mathpazo}
+\usepackage{mdframed}
+\usepackage{parskip}
+\linespread{1.1}
+\usepackage{graphicx}
+\usepackage{subfig}
+
+\usepackage{mathrsfs}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\usepackage{mathtools}
+\newcommand{\defeq}{\vcentcolon=}
+\newcommand{\eqdef}{=\vcentcolon}
+
+\newenvironment{statement}[1]
+{\begin{mdframed}[linewidth=0.6pt]
+        \textsc{Statement #1:}
+
+}
+
+\newenvironment{ex}[1]
+{\begin{mdframed}[linewidth=0.6pt]
+        \textsc{Exercice #1:}
+
+}
+    {\end{mdframed}}
+
+\newcommand{\R}{\mathbf{R}}
+\newcommand{\C}{\mathbf{C}}
+\newcommand{\Z}{\mathbf{Z}}
+\newcommand{\N}{\mathbf{N}}
+\newcommand{\Q}{\mathbf{Q}}
+
+\newcommand{\de}{\mathrm{d}}
+
+\begin{document}
+        \noindent
+\textbf{MAT432 Distributions} \hfill \textbf{Vezin Lomàn}\\
+\normalsize MAT432  \hfill Date de rendu: 11/03/2021\\
+
+\begin{center}
+\textbf{Exercices contrôle continu}
+\end{center}
+        
+\textbf{Exercice 5} \quad \textit{f.} \; On montre l'égalité suivante \[
+        -\partial_x^2 u_{n}(x) + x^2 u_n(x) = (2n + 1)u_{n}(x)
+.\]
+
+On part de $u_{n}(x) = C_n \cdot \exp(-\frac{x^2}{2})H_n(x)$ avec $C_n$ une constante multiplicative ne dépendant que de $n$ donnée dans le point \textit{e.}
+
+Ainsi \[
+        \partial_x u_n(x) = C_n\cdot(-x\exp(-\frac{x^2}{2})H_n(x) + \exp(-\frac{x^2}{2})H_n'(x))
+,\] et \[
+\partial_x^2 u_n(x) = C_n\cdot(-\exp(-\frac{x^2}{2})H_n(x) + x^2\exp(-\frac{x^2}{2})H_n(x) -2x\exp(-\frac{x^2}{2})H_n'(x) +\exp(-\frac{x^2}{2})H_n''(x))
+.\]  
+
+On obtient donc finalement en se souvenant de l'expression $u_n$ et après simplifications \[
+        -\partial_x^2 u_n(x) +x^2u_n(x) = C_n\cdot(\exp(-\frac{x^2}{2})H_n(x) + 2x\exp(-\frac{x^2}{2})H_n'(x) + \exp(-\frac{x^2}{2})H_n''(x)') 
+.\] 
+
+On utilise à présent la relation sur $H_n''$ établie au point \textit{d}, ce qui donne après simplifications des termes en $H_n'(x)$ \[
+        -\partial_x^2 u_n(x) +x^2u_n(x) = C_n\cdot(\exp(-\frac{x^2}{2})H_n(x) + 2n\exp(-\frac{x^2}{2})H_n(x)) 
+.\] 
+
+On factorise par $u_n(x)$ pour trouver finalement le résultat attendu \[
+        \boxed{-\partial_x^2 u_n(x) +x^2u_n(x) = (2n+1)u_n(x).}
+\]
+
+\medskip
+
+\textit{g.} On montre que la fonction $\psi$ donnée est bien continue en temps, $L^2$ en $x$.
+
+Comme $\psi^{in}$ et $u_n$ sont des fonctions $L^2$, on a 
+\begin{align*}
+        |\int_{\R}\psi^{in}(y)u_n(y)\de y| & \le \int_{\R}|\psi^{in}(y)u_n(y)|\de y \\
+                                           &\le (\int_{\R}\psi^{in}(y)^{2}\de y)^\frac{1}{2}\cdot(\int_{\R}u_n(y)^{2}\de y)^{\frac{1}{2}} \\
+                                           &< +\infty
+                                   ,\end{align*} où la deuxième inégalité est l'inégalité de Hölder. Le terme indépendant de $x, t$ est borné et donc $\psi$ est bien définie. Pour simplifier la rédaction on omettra dorénavant cette constante.
+
+On montre la continuité en $t$. Pour tout $n \in \N$ la fonction \[
+        f_n(t, x) \defeq \exp(-i\frac{2n+1}{2}t)u_n(x)
+\] est continue en $t$ sur $\R$. De plus
+\begin{align*}
+        \sum_{n\in\N}|f_n(t, x)| &\le \sum_{n\in\N}|u_n(x)| \\
+                                  &\le \frac{1}{\pi^{\frac{1}{4}}}\sum_{n\in\N}\frac{\exp(-x^2)^{(n)}}{\sqrt{2^{n}n!}} < +\infty
+.\end{align*}
+
+La série converge normalement indépendamment de $t \in \R$ donc uniformément, la continuité de chaque $f_n$ garantit celle de $\psi$. 
+
+\medskip
+
+On regarde l'intégrale \[
+        \int_{\R}\psi(t, x)^{2}\de x
+.\] Le développement du carré de la somme nous donne la somme des termes au carré plus la double somme des termes croisés. Par le point \textit{e.} nous savons que les $(u_n)_{n\in\N}$ forment une base de Hilbert de $L^2$, ils sont donc orthogonaux. La convergence normale nous permet de plus d'intervertir somme et intégrale. Les termes croisés sont donc tous nuls et il reste \[
+\int_{\R}\psi(t, x)^{2}\de x = \sum_{n\in\N}\exp(-i(2n+1)t)\int_{\R}u_n(x)^{2}\de x
+.\]  
+On utilise la définition de $u_n$ pour trouver
+\begin{align*}
+        \int_{\R}\psi(t, x)^{2}\de x &= \sum_{n\in\N}\frac{\exp(-i(2n+1)t)}{2^{n}n!}\int_{R}(\exp(-x^{2})^{(n)})^{2}\de x \\
+                                     &< +\infty
+.\end{align*} Ainsi $\psi$ est bien $L^2$ par rapport à $x$.
+\end{document}

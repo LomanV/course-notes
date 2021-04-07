@@ -1,0 +1,232 @@
+\documentclass[12pt]{article}
+\usepackage[top=1in, bottom=1in, left=1in, right=1in]{geometry}
+
+\usepackage[onehalfspacing]{setspace}
+
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{enumerate, enumitem}
+\usepackage{fancyhdr, graphicx, proof, comment, multicol}
+\usepackage[none]{hyphenat}
+\usepackage{dirtytalk}
+\binoppenalty=\maxdimen
+\relpenalty=\maxdimen
+
+\usepackage{microtype}
+\usepackage{mathpazo}
+\usepackage{mdframed}
+\usepackage{parskip}
+\linespread{1.1}
+\usepackage{graphicx}
+\usepackage{subfig}
+
+\usepackage{mathrsfs}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\usepackage{mathtools}
+\newcommand{\defeq}{\vcentcolon=}
+\newcommand{\eqdef}{=\vcentcolon}
+
+\newenvironment{statement}[1]
+{\begin{mdframed}[linewidth=0.6pt]
+        \textsc{Statement #1:}
+
+}
+
+\newenvironment{ex}[1]
+{\begin{mdframed}[linewidth=0.6pt]
+        \textsc{Exercice #1:}
+
+}
+    {\end{mdframed}}
+
+\newcommand{\R}{\mathbf{R}}
+\newcommand{\C}{\mathbf{C}}
+\newcommand{\Z}{\mathbf{Z}}
+\newcommand{\N}{\mathbf{N}}
+\newcommand{\Q}{\mathbf{Q}}
+
+\newcommand{\de}{\mathrm{d}}
+
+\begin{document}
+        \noindent
+\textbf{Analyse fonctionnelle} \hfill \textbf{Vezin Lomàn}\\
+\normalsize MAT 452 \hfill Date de rendu: 06/04/2021\\
+
+\begin{center}
+\textbf{Devoir maison 1}
+\end{center}
+      
+\textbf{Exercice.} \textit{Inégalité de Khinchine-Kahane L1-L2}
+\medskip
+
+\textbf{1.} On montre que la famille $(\varepsilon_I)_{I \subset \{1, \ldots, n\}}$ est une base orthonormée de $L^{2}(\Omega, \mu)$. Soient $I \neq J \subset \{1, \ldots, n\}$ alors
+\begin{align*}
+        \langle \varepsilon_{I} | \varepsilon_{J} \rangle &= \int_{\Omega}\varepsilon_{I}(w)\varepsilon_{J}(w)\de \mu(w) \\
+                                                          &= \int_{\Omega}\prod_{i\in I}w_{i}\prod_{j\in J}w_j \de\mu(w)
+.\end{align*}
+De cette expression on voit que les termes $w_{k}$ pour $k \in I \cap J$ apparaissent deux fois dans l'intégrande, comme les $w_{l}$ sont dans $\{-1, 1\}$ leur carré vaut toujours 1. On peut donc supposer sans perte de généralité que $I$ et $J$ sont disjoints. 
+
+En utilisant la définition de la mesure $\mu$ sur $\Omega$ peut ensuite réécrire l'intégrale comme  \[
+        \int_{\Omega}\prod_{i\in I}w_{i}\prod_{j\in J}w_j \de\mu(w) = \frac{1}{2^{n}}\sum_{(w_1, \ldots, w_{n}) \in \Omega} \prod_{i \in I}w_i \prod_{j \in J}w_j
+,\] avec $I, J$ disjoints. Comme chaque $w_l$ peut prendre la valeur 1 ou -1 le produit $\prod_{i \in I}w_i$ peut prendre la valeur 1 ou -1 indépendamment de la valeur de $\prod_{j \in J}w_j$. On voit alors bien que les termes de la somme vont se compenser et donc on vérifie bien la condition d'orthogonalité  \[
+\langle \varepsilon_{I} | \varepsilon_{J} \rangle = 0
+.\] 
+
+En utilisant la même notation on voit clairement que pour $I \subset \{1, \ldots, n\} $ quelconque
+\begin{align*}
+        \langle \varepsilon_{I} | \varepsilon_{I} \rangle &= \int_{\Omega}\prod_{i\in I}w_{i}\prod_{j\in I}w_j \de\mu(w) \\
+                                                          &= \int_{\Omega}\prod_{i\in I}w_{i}^{2}\de\mu(w) \\
+                                                          &= \int_{\Omega}1\de\mu = \mu(\Omega) = 1
+.\end{align*} 
+
+\medskip
+
+\textbf{2.} On calcule l'opérateur $\Delta$ dans la base $(\varepsilon_{I})_{I \subset \{1, \ldots, n\}}$. Soit $I \subset \{1, \ldots, n\}$ quelconque, remarquons que pour $w = (w_{i})_{i \in \{1, \ldots, n\}} \in \Omega$ et $w' \in V(w)$ on a deux possibilités \[
+\begin{cases}
+        w_{i} = w'_{i}, \; \forall i \in I \quad &\text{et} \; \varepsilon_{I}(w) = \varepsilon_{I}(w') \\
+        \exists! i \in I, \; w_{i} \neq w'_{i} \quad &\text{et} \; \varepsilon_{I}(w) = -\varepsilon_{I}(w') \\
+\end{cases}
+.\] Alors on obtient par définition de l'opérateur $\Delta$ sur $L^{2}(\Omega, \mu)$
+\begin{align*}
+        \Delta \varepsilon_{I}(w) &= \frac{n}{2}(\varepsilon_{I}(w) - \frac{1}{n}\sum_{w' \in V(w)}\varepsilon_{I}(w')) \\
+                                  &= \frac{n}{2}(\varepsilon_{I}(w) + \frac{|I|}{n}\varepsilon_{I}(w) - \frac{n-|I|}{n}\varepsilon_{I}(w)) \\
+                                  &= |I|\cdot\varepsilon_{I}(w)
+.\end{align*} Comme $w \in \Omega$ était quelconque on en déduit \[
+\Delta \varepsilon_{I} = |I|\cdot\varepsilon_{I}
+.\] 
+
+\medskip
+
+\textbf{3.} En posant $\hat{h}(I) \defeq \langle h | \varepsilon_{I} \rangle$ on a comme les $(\varepsilon_{I})_{I}$ forment une base hilbertienne de $L^{2}(\Omega, \mu)$, \[
+        h = \sum_{I \subset \{1, \ldots, n\}}\hat{h}(I)\varepsilon_{I}
+.\]  De plus on a pour les mêmes raisons \[
+\Delta h = \sum_{I \subset \{1, \ldots, n\}}\hat{h}(I)\Delta \varepsilon_{I} = \sum_{I \subset \{1, \ldots, n\}}\hat{h}(I) |I| \varepsilon_{I} 
+.\] Enfin comme la famille des $(\varepsilon_{I})_{I}$ est orthonormée la linéarité du produit scalaire donne \[
+\hat{\Delta h}(I) = \langle \Delta h | \varepsilon_{I} \rangle = \hat{h}(I)\cdot|I|
+.\]  
+
+\bigskip
+
+\textbf{4.} On prolonge $\varphi$ en
+ \begin{align*}
+         \tilde{\varphi} : \R^{n} &\longmapsto \R \\
+         w &\longmapsto \|\sum_{i=1}^{n} w_{i}x_{i}\|_{B}
+.\end{align*}
+
+On montre que $\tilde{\varphi}$ est convexe comme attendu. Soient $w, w' \in \R^{n}$, $\lambda \in [0, 1]$,
+\begin{align*}
+        \tilde{\varphi}(\lambda w + (1-\lambda)w') &= \|\lambda\sum_{i=1}^{n} w_{i}x_{i} + (1-\lambda)\sum_{i=1}^{n} w'_{i}x_{i}\|_{B} \\
+                                                   &\le \|\lambda\sum_{i=1}^{n} w_{i}x_{i}\|_{B} + \|(1-\lambda)\sum_{i=1}^{n} w'_{i}x_{i}\|_{B} \\
+                                                   &\le\lambda\|\sum_{i=1}^{n} w_{i}x_{i}\|_{B} + (1-\lambda)\|\sum_{i=1}^{n} w'_{i}x_{i}\|_{B} \\
+                                                   &= \lambda\tilde{\varphi}(w) + (1-\lambda)\tilde{\varphi}(w')
+.\end{align*}
+
+Pour tout $w \in \Omega$ on a $\sum_{w'\in V(w)}w' = (n-2)w$, ce qui donne donc par convexité \[
+        \tilde{\varphi}(\frac{n-2}{n}w) = \frac{n-2}{n}\tilde{\varphi}(w) \le \frac{1}{n}\sum_{w'\in V(w)}\tilde{\varphi}(w')
+.\] 
+
+Ainsi \[
+        \tilde{\varphi}(w) - \frac{1}{n}\sum_{w'\in V(w)}\tilde{\varphi}(w') \le \frac{2}{n}\tilde{\varphi}(w)
+,\] soit \[
+\Delta\tilde{\varphi} \le \tilde{\varphi}
+.\] Le résultat est valable pour $\varphi$ par restriction de  $\tilde\varphi$ à $\Omega$. 
+
+\medskip
+
+\textbf{5.} Dans un premier temps nous avons par la question \textbf{3.} et comme les $\varepsilon_{I}$ sont unitaires
+\begin{align*}
+\langle \varphi | \Delta\varphi \rangle &= \langle \sum_{I \subset \{1, \ldots, n\}} \hat{\varphi}(I)\varepsilon_{I}, \sum_{I \subset \{1, \ldots, n\}}|I| \hat{\varphi}(I)\varepsilon_{I} \rangle \\
+                                                &= \sum_{I \subset \{1, \ldots, n\}}|I|\hat{\varphi}(I)^{2} 
+.\end{align*}
+
+Ensuite l'inégalité de Cauchy Schwarz nous donne avec le résultat du point précédent 
+\begin{align*}
+        \langle \varphi | \Delta\varphi \rangle &\le \|\varphi\|_{L^{2}}\|\Delta\varphi\|_{L^{2}} \\
+                                                &\le \|\varphi\|^{2}_{L^{2}}
+.\end{align*}
+
+On en déduit l'inégalité voulue \[
+\sum_{I \subset \{1, \ldots, n\}}|I|\hat{\varphi}(I)^{2} \le \|\varphi\|^{2}_{L^{2}} 
+.\] 
+
+On a \[
+        \|\varphi\|_{L^{2}}^{2} = \sum_{w \in \Omega}\mu(\{w\})\varphi(w)^{2} = \frac{1}{2^{n}}\sum_{w \in \Omega}\|\sum_{i=1}^{n}w_{i}x_{i}\|^{2}_{B}
+.\] 
+
+Le point précédent nous permet d'affirmer que \[
+        \hat{\varphi}(\emptyset)^{2} \ge \sum_{I \subset \{1, \ldots, n\}, |I| \ge 2} (|I|-1)\hat{\varphi}(I)^{2} \ge \sum_{I \subset \{1, \ldots, n\}, |I| \ge 2} \hat{\varphi}(I)^{2} 
+.\] 
+
+On en déduit donc en remarquant que $\hat{\varphi}$ est nulle sur les sous ensembles de taille 1 que \[
+        2\hat{\varphi}(\emptyset)^{2} \ge \|\varphi\|^{2}_{L^{2}}
+,\] soit \[
+\sqrt{2}\hat{\varphi}(\emptyset) \ge \|\varphi\|_{L^{2}}.
+.\]  
+
+Comme pour $w \in \Omega$ on a $\varepsilon_{\emptyset}(w) = 1$ on trouve finalement l'inégalité Khinchine Kahane optimale \[
+        (\frac{1}{2^{n}}\sum_{w\in\Omega}\|\sum_{i=1}^{n}w_{i}x_{i}\|^{2}_{B})^{\frac{1}{2}} \le \sqrt{2}(\frac{1}{2^{n}}\sum_{w \in \Omega}\|\sum_{i=1}^{n} w_{i}x_{i}\|_{B}) 
+.\] 
+
+\bigskip
+
+\textbf{Problème.} \textit{Théorème de Tychonoff}
+\medskip
+
+\textbf{1.} Soit X un espace topologique et $x \in X$. Posons $\mathcal{V}_{x}$ l'ensemble des voisinages de $x$ dans $X$. L'ensemble vide n'appartient pas à $\mathcal{V}_{x}$ par définition puisqu'il ne contient pas $x$. Une intersection finie d'ouverts est ouverte, si chacun de ces ouverts contient $x$ l'intersection le contient toujours. Ainsi l'intersection de voisinages de $x$ contient toujours un ouvert contenant $x$ et $\mathcal{V}_{x}$ est stable par intersections finies. Enfin si pour $F \in \mathcal{V}_{x}$ on a $F \subset G$ alors $G$ contient un ouvert contenant $x$ puisque $F$ en contient un lui même et $G \in \mathcal{V}_{x}$. 
+
+\medskip
+
+\textbf{2.} Soient $\mathcal{F}, \mathcal{G}$ deux filtres compatibles, notons $\mathcal{H}$ un filtre tel que $\mathcal{F}, \mathcal{G} \subset \mathcal{H}$. Soient $F, G$ dans $\mathcal{F}, \mathcal{G}$ respectivement, quelconques. Alors par hypothèse $F, G \in \mathcal{H}$ et par stabilité par intersection finie $F \cap G \in \mathcal{H}$. Comme ce dernier est un filtre il ne contient pas l'ensemble vide donc $F$ intersecte $G$. Réciproquement, si tout élément de $\mathcal{F}$ intersecte tout événement de $\mathcal{G}$ posons \[
+\mathcal{H} \defeq \{F \cap G \;|\; F \in \mathcal{F}, G \in \mathcal{G}\} 
+.\] Il est clair que $\mathcal{F}, \mathcal{G} \subset \mathcal{H}$ puisque ces premiers contiennent tous deux l'espace ambiant $X$. L'hypothèse nous donne directement que $\mathcal{H}$ ne contient pas l'ensemble vide. Enfin les deux dernières propriétés d'un filtre découlent directement du fait que $\mathcal{F}, \mathcal{G}$ sont eux mêmes des filtres. 
+
+\medskip
+
+\textbf{3.} Supposons que $\mathcal{F}$ admette $x$ comme valeur d'adhérence. Par l'absurde supposons de plus que pour un $F \in \mathcal{F}$ on ait $x \not\in \overline{F}$. $X\setminus\overline{F} \in \mathcal{V}_{x}$ puisque c'est un ouvert contenant $x$. On a donc $X\setminus \overline{F} \in \mathcal{F}$ comme $\mathcal{V}_{x} \subset \mathcal{F}$, mais alors par les propriétés des filtres \[
+\overline{F} \cap X \setminus \overline{F} = \emptyset \; \in \mathcal{F}
+,\] contradiction. 
+\\
+Réciproquement si $x \in \overline{F}$ pour tout $F$ de $\mathcal{F}$, alors $F \cap V \neq \emptyset, \; \forall V \in \mathcal{V}_{x}$ et donc par le point \textbf{2.} $\mathcal{F}$ et $\mathcal{V}_{x}$ sont compatibles, donc $\mathcal{F}$ admet $x$ comme valeur d'adhérence.
+\medskip
+
+\textbf{4.} Montrons d'abord que $\mathcal{U}_{x}$ est un filtre. Par définition l'ensemble vide ne contient aucun élément donc ne contient pas $x \in X$ et donc n'appartient pas à $\mathcal{U}_{x}$. Une intersection finie de sous ensembles de $X$ contenant $x$ est toujours un sous ensemble de $X$ contenant $x$, $\mathcal{U}_{x}$ est stable par intersections finies. Enfin si $F \subset G$ pour $F \in \mathcal{U}_{x}$ alors $G$ est toujours un sous ensemble de $X$ contenant $x$ comme $F$ le contient lui même.
+\\
+Montrons à présent que $\mathcal{U}_{x}$ est maximal. Supposons qu'il existe un filtre $\mathcal{G}$ tel que $\mathcal{U}_{x} \subset \mathcal{G}$. Soit $G \in \mathcal{G}$, l'inclusion précédente nous donne $\{x\} \in \mathcal{G}$, ainsi si $ x \not\in G$ alors $\{x\} \cap G = \emptyset$, une contradiction. Nécessairement $x \in G$ et par définition de $\mathcal{U}_{x}$ on a $G \in \mathcal{U}_{x}$. Comme le choix de $G$ était arbitraire on en déduit $\mathcal{U}_{x} = \mathcal{G}$, $\mathcal{U}_{x}$ est un ultrafiltre. 
+
+\medskip
+
+\textbf{5.} On applique le lemme de Zorn sur le poset des filtres de $X$. On vérifie que l'union d'une chaine de filtres $\cup_{i \in \N}\mathcal{F}_{i}$ est encore un filtre. Elle ne contient pas l'ensemble vide. Si  $F_1, \ldots, F_{n}$ appartient à cette union il existe un $m$ minimal tel que  $F_{1}, \ldots, F_{n} \in \mathcal{F}_{m}$ par inclusion dans la chaine et comme $\{F_1, \ldots, F_{n}\}$ est un ensemble fini. Ainsi l'intersection finie $ \cap_{k=1}^{n}F_{k}$ appartient à $\mathcal{F}_{m}$ donc à l'union. Si $F \subset G$ pour un $F$ dans l'union il existe de même un $l \in \N$ tel que $F \in \mathcal{F}_{l}$ et donc $G n\in \mathcal{F}_{l}$ par les propriétés des filtres, et donc $G$ appartient à l'union. Cette union est majorante pour la chaine et le lemme s'applique. 
+
+\medskip
+
+\textbf{6.} Soit $\mathcal{F}$ un filtre sur $X$. Supposons $X$ compact. Le fermé $\overline{F}$ est non vide pour tout $F \in \mathcal{F}$ et on a par la propriété des filtres que toute intersection finie $\cap_{i \in I} \overline{F_{i}}$ est non vide. Par contraposée de la propriété de Borel Lebesgue passée au complémentaire, on en déduit que \[
+\cap_{F \in \mathcal{F}}\overline{F} \neq \emptyset
+.\] Prenons $x$ dans cette intersection, le point \textbf{3.} nous donne directement que $x$ est valeur d'adhérence de  $\mathcal{F}$. Réciproquement supposons que tout filtre sur $X$ admet une valeur d'adhérence. On applique la même caractérisation des compacts. Soit $(F_{j})_{j\in J}$ une famille de fermés dont les intersections finies sont non vides, notons $\mathcal{F}$ le filtre engendré par ces intersections finies. Par hypothèse on trouve $x$ valeur d'adhérence de ce filtre, $x$ est donc dans l'intersection $\cap_{j \in J}F_{j}$ qui est donc non vide puisqu'à $j \in J$ fixé on a $F_{j} \cap V \neq \emptyset$ pour tout voisinage $V$ de $x$ et $F_{j}$ est fermé.
+
+\medskip
+
+\textbf{7.} Soit $f : X \longmapsto Y$ une application entre espaces topologiques et soit $\mathcal{F}$ un filtre sur $X$, vérifions que le filtre image $f_{*}(\mathcal{F})$ satisfait les trois axiomes d'un filtre. Le seul ensemble dont la préimage par une application est l'ensemble vide est l'ensemble vide lui même, comme $\mathcal{F}$ est un filtre $\mathcal{F}$ ne contient pas cet ensemble et donc $f_{*}(\mathcal{F})$ non plus. On a pour $F_1, \ldots, F_{n} \in \mathcal{F}$ l'égalité \[
+        f^{-1}(\cap_{i = 1}^{n} F_{i}) = \cap_{i = 1}^{n}f^{-1}(F_{i})
+,\] comme $\mathcal{F}$ est stable par intersections finies on voit directement que $f_{*}\mathcal{F}$  l'est aussi. Enfin pour $F \subset G \subset Y$ avec $F \in f_{*}(\mathcal{F})$ alors par définition $f^{-1}(F) \in \mathcal{F}$. On a de plus l'inclusion suivante \[
+f^{-1}(F) \subset f^{-1}(G)
+.\] Comme $\mathcal{F}$ est un filtre $f^{-1}(G) \in \mathcal{F}$ et donc par définition du filtre image $G \in f_{*}(\mathcal{F})$. 
+
+\medskip
+
+\textbf{8.} Posons $X \defeq \prod_{i \in I}X_{i}$ et supposons que $\mathcal{F}$ converge vers $x \in X$. Fixons $i \in I$ et montrons que $(p_{i})_{*}(\mathcal{F})$ converge vers $p_{i}(x)$. Par définition de la topologie produit la projection canonique $p_{i} : X \longmapsto X_{i}$ est continue, la préimage d'un ouvert par une application continue est un ouvert et la préimage préserve l'inclusion. Ainsi si $V \in \mathcal{V}_{p_{i}(x)}$ on a $V' = p_{i}^{-1}(V) \in \mathcal{V}_{x}$. Mais comme $\mathcal{F}$ est plus fin que $\mathcal{V}_{x}$, $V' \in \mathcal{F}$ et donc par définition du filtre image $V' \in (p_{i})_{*}(\mathcal{F})$.
+\\
+Réciproquement soit $V$ un voisinage de  $(x_{i})_{i\in I}$, la définition de la topologie produit garantit l'existence d'ouverts $U_{i_{1}}, \ldots, U_{i_{n}}$, voisinages de $x_{i_{1}}, \ldots, x_{i_{n}}$ et tels que \[
+        \cap_{k = 1}^{n}\pi^{-1}_{i_{k}}(U_{i_{k}}) = \{(y_{i}) \;|\; (y_{i_{1}}, \ldots, y_{i_{n}}) \in U_{i_{1}}, \ldots, U_{i_{n}}\} 
+.\] Pour $k \in \{1, \ldots, n\}$ on a donc $U_{i_{k}} \in (\pi_{i_{k}})_{*}(\mathcal{F})$. Par définition du filtre image cela signifie que $V$ contient l'intersection de $n$ éléments de $\mathcal{F}$ et donc par les propriétés des filtres $V \in \mathcal{F}$. Ainsi $\mathcal{F}$ est plus fin que $\mathcal{V}_{x}$ et $\mathcal{F}$ converge.
+
+\medskip
+
+\textbf{9.} On montre que l'image d'un ultrafiltre est toujours un ultrafiltre. Nous avons déjà montré que c'est un filtre, montrons de plus qu'il est dans ce cas maximal. Soient $\mathcal{F}$ un filtre maximal sur $X$ et $\mathcal{G}$ un filtre sur $Y$ tel que  \[
+        f_{*}(\mathcal{F}) \subset \mathcal{G}
+        .\] Supposons par l'absurde qu'il existe $U \in \mathcal{G}$ tel que $U \not\in f_{*}(\mathcal{F})$. Par définition du filtre image cela signifie que $f^{-1}(U) \not\in \mathcal{F}$ ou encore que $X\setminus f^{-1}(U) \in \mathcal{F}$. Ainsi \[f^{-1}(Y\setminus U) = X \setminus f^{-1}(U) \in \mathcal{F}.\] Par définition du filtre image cela donne $Y\setminus U \in f_{*}(\mathcal{F})$. Montrons que cela implique que $f_{*}(\mathcal{F})$ est un ultrafiltre. Supposons que $f_{*}(\mathcal{F})$ ne soit pas un ultrafiltre, alors pour $\mathcal{G}$ strictement plus fin on peut trouver $U \in \mathcal{G}\setminus f_{*}(\mathcal{F})$ et on ne peut avoir $Y \setminus U \in \mathcal{G}$ sinon par stabilité par intersections finies $\mathcal{G}$ devrait contenir l'ensemble vide. Ainsi par inclusion $Y \setminus U$ n'appartient pas au filtre image. Comme nous avons montré que pour tout sous ensemble $U \subset Y$ soit $U \in f_{*}(\mathcal{F})$ soit $Y \setminus U \in f_{*}(\mathcal{F})$ on en déduit que ce dernier est maximal. 
+\medskip
+
+\textbf{10.} Soit $(X_{i})_{i\in I}$ une famille de compacts et soit $\mathcal{F}$ un ultrafiltre sur $X \defeq \prod_{i\in I}X_{i}$. Le point \textbf{9.} nous donne que $(p_{i})_{*}(\mathcal{F})$ est un ultrafiltre sur $X_{i}$ qui converge vers un $x_{i} \in X_{i}$ par compacité. D'après la question \textbf{8.} $\mathcal{F}$ converge vers $(x_{i})_{i\in I}$. Ainsi tout ultrafiltre sur $X$ converge, la question \textbf{6.} assure donc la compacité de $X$. Nous avons montré le théorème de Tychonoff.  
+\end{document}
